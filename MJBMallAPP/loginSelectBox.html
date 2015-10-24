@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>登录选择</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/loginSelectBox.css">
+    <link rel="stylesheet" href="css/pesonalLogin.css">
+    <link rel="stylesheet" href="css/productList.css">
+    <link rel="stylesheet" href="css/productDetail.css">
+    <link rel="stylesheet" href="css/shangpinxiangqing.css">
+    <link rel="stylesheet" href="css/shopoing-cart.css">
+    <link rel="stylesheet" href="css/shopoingCart.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/updatePassword.css" />
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/shopDetail.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/position.css">
+    <link rel="stylesheet" href="css/confirm-order.css">
+    <link rel="stylesheet" href="css/order.css">
+    <link rel="stylesheet" href="css/classfy.css">
+    <link rel="stylesheet" href="css/category.css">
+</head>
+
+<body>
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Views-->
+    <div class="views">
+        <div class="view view-main">
+            <div class="pages navbar-through">
+                <div class="page" data-page="loginSelectBox">
+                    <div class="page-content login-screen-content">
+                        <div class="login-avatar">
+                            <img src="img/icon/u225.png" />
+                        </div>
+                        <div class="title">
+                            <span style="">美居宝，本地生活有我就好</span>
+                        </div>
+                        <div class="loginBtn">
+                            <div id="personalLogin">个人登录</div>
+                            <div id="shopLogin" style="cursor: pointer;">店铺登录</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar tabbar tabbar-labels homeNavBar" id="homeToolbar" style="display: none">
+            <div id="productListNav">
+                <ul style="width: 100%" class="home_ul">
+                    <li id="Li2" class="home_sy"></li>
+                    <li id="Li3" class="home_sb"></li>
+                    <li id="Li4" class="home_fl"></li>
+                    <li id="Li5" class="home_gwc"></li>
+                    <li id="Li6" class="home_wd"></li>
+                </ul>
+            </div>
+            <div id="productDetailNav" style="display: none">
+                <ul style="width: 100%" class="spxq_ul">
+                    <li class="spxq_kf"></li>
+                    <li class="spxq_dp"></li>
+                    <li class="spxq_sc"></li>
+                    <li class="spxq_jrgwc"></li>
+                    <li class="spxq_ljgm"></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="popup popup-edit-addr">
+
+        <div class="content-block">
+            <div class="list-block m-t-0 addr-new">
+                <ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">收货人</div>
+                                <div class="item-input">
+                                    <input type="text" value="张三">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">所在地区</div>
+                                <div class="item-input" id="addrInput">
+                                    <input type="text" placeholder="Your car" readonly id="picker-dependent">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">详细地址</div>
+                                <div class="item-input">
+                                    <input type="text" value="北清路68号">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">手机号码</div>
+                                <div class="item-input">
+                                    <input type="text" value="189 0099 0088">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">固定电话</div>
+                                <div class="item-input">
+                                    <input type="text" value="010-66997788">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+                            <div class="item-inner">
+                                <div class="item-title label">邮编</div>
+                                <div class="item-input">
+                                    <input type="text" value="100091">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-bar row ">
+                <a class="button button-fill bg-green-u p-lr-25 close-popup">保存</a>
+            </div>
+        </div>
+
+    </div>
+    <script type="text/template7" id="recycleImgsTpl">
+        {{#each recycleImgList}}
+     <div class="swiper-slide" style="height: 120px; width: 100%"><img src="{{imgUrl}}" style="height: 100%; width: 100%;" /></div>                
+         {{/each}}
+    </script>
+    <!--行业分类-->
+    <!-- <script type="text/template7" id="industryClassfy1Tpl">
+        {{#each industyList1}}
+      <div class="home_hyfl hangyefenlei">
+                    <img src="{{imgUrl}}" style="width: 80%;" />
+                </div>                
+         {{/each}}
+    </script>
+     <script type="text/template7" id="industryClassfy1Tpl2">
+        {{#each industyList2}}
+     <div class="home_hyfl hangyefenlei">
+                    <img src="{{imgUrl}}" style="width: 80%;" />
+                </div>                 
+         {{/each}}
+    </script>-->
+    <script type="text/template7" id="productsListTpl">
+        {{#each productsList}}
+      <div class="row" style="background-color:white;margin-top:10px;">
+                                        <div class="col-33" style="cursor:pointer;"><a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg"/></a>
+                                        </div>
+                                        <div class="col-66" style="padding-left: 10px;">
+                                            <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                                            <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span></div>
+                                            <div style="margin-top: 10px;"><span>销量</span>$nbsp;<span>70</span></div>
+                                            <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
+                                        </div>
+
+                                    </div>
+         {{/each}}
+    </script>
+    <script type="text/template7" id="productDetailTpl">
+        {{#each productDetail}}
+                            <div><p>{{brief}}</p></div>
+                            <div><span>{{name}}</span></div>
+                            <div><span style="color:red;margin-top: 10px;">￥{{price}}</span></div>
+         {{/each}}
+    </script>
+    <!--商品分类-->
+    <script type="text/template7" id="category_wapperTpl">
+        <ul class="category-list">
+                    {{#each classifyList}}
+                        <li><a href="#" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
+                    {{/each}}
+                </ul>
+    </script>
+    <script type="text/template7" id="categoryTemplate">
+        <div class="category-div">
+				<ul class="category-style-1">
+					{{#each lsChildClass}}
+						<li>
+                            <a href="pages/products.html?cid={{cat_id}}" data-id="{{cat_id}}">
+        <span>{{cat_name}}</span>
+                               
+                            </a>
+						</li>
+					{{/each}}
+				</ul>
+			
+		</div>
+    </script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.js"></script>
+    <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/indexPageController.js"></script>
+    <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>
+    <script type="text/javascript" src="js/productDetailCtrl.js"></script>
+    <script type="text/javascript" src="js/productListCtrl.js"></script>
+    <script type="text/javascript" src="js/personalLoginCtrl.js"></script>
+    <script type="text/javascript" src="js/homeCtrl.js"></script>
+    <script type="text/javascript" src="js/sideCtrl.js"></script>
+    <script type="text/javascript" src="js/firstClassfyCtrl.js"></script>
+    <script type="text/javascript" src="js/shoppingCartCtrl.js"></script>
+    <script type="text/javascript" src="js/editCartCtrl.js"></script>
+    <script type="text/javascript" src="js/personalCenterCtrl.js"></script>
+    <script type="text/javascript" src="js/updatePasswordCtrl.js"></script>
+    <script type="text/javascript" src="js/updatePasswordNextCtrl.js"></script>
+    <script type="text/javascript" src="js/shopDetailCtrl.js"></script>
+    <script type="text/javascript" src="js/registerCtrl.js"></script>
+    <script type="text/javascript" src="js/positionCtrl.js"></script>
+    <script type="text/javascript" src="js/confirmOrderCtrl.js"></script>
+    <script type="text/javascript" src="js/addrListCtrl.js"></script>
+    <script type="text/javascript" src="js/addrNewCtrl.js"></script>
+    <script type="text/javascript" src="js/orderCtrl.js"></script>
+    <script type="text/javascript" src="js/xxylCtrl.js"></script>
+    <script type="text/javascript" src="js/sjtxCtrl.js"></script>
+    <script type="text/javascript" src="js/jypxCtrl.js"></script>
+    <script type="text/javascript" src="js/jdlgCtrl.js"></script>
+    <script type="text/javascript" src="js/fzfsCtrl.js"></script>
+    <script type="text/javascript" src="js/fcCtrl.js"></script>
+    <script type="text/javascript" src="js/cymsCtrl.js"></script>
+    <script type="text/javascript" src="js/csdgCtrl.js"></script>
+    <script type="text/javascript" src="js/classfyCtrl.js"></script>
+    <script type="text/javascript" src="js/editClassfyCtrl.js"></script>
+
+    <script type="text/javascript" src="js/module.js"></script>
+</body>
+</html>

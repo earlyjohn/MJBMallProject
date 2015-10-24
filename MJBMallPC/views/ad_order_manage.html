@@ -1,0 +1,81 @@
+﻿
+
+
+<div ng-controller="AdOrderManageController">
+
+    <div class="header">
+
+        <h1 class="page-title">订单管理</h1>
+    </div>
+
+    <ul class="breadcrumb">
+        <li><a href="#">订单管理 </a><span class="divider">/</span></li>
+        <li class="active"><a href="#">广告位管理</a></li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <form id="search_form">
+                    <span style="float: left;padding: 0px 10px 10px 0px">订单号<input type="text" class="input-medium" name="member_account"></span>
+                    <span style="float: left;padding: 0px 10px 10px 0px">商铺<input class="input-medium" name="member_id"></span>
+                    <span style="float: left;padding: 0px 10px 10px 0px">买家<input class="input-medium" name="member_id"></span>
+                    <button type="submit" class="icon-search" style="clear: both"></button>
+                </form>
+                <div class="well">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px"></th>
+                                <th>订单号</th>
+                                <th>店铺</th>
+                                <th>买家</th>
+                                <th>下单时间</th>
+                                <th>订单总额</th>
+                                <th>支付方式</th>
+                                <th>订单状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><span>1009872</span></td>
+                                <td><span>稻香村</span></td>
+                                <td><span>商派宝宝</span></td>
+                                <td><span>2015-09-10 14:00</span></td>
+                                <td><span>300</span></td>
+                                <td><span>在线支付</span></td>
+                                <td><span>待签收</span></td>
+                                <td>
+                                    <a href="#" data-toggle="modal">查看</a>
+                                    <span class="divider" style="color: #0088cc">|</span>
+                                    <a href="#" data-toggle="modal">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label style="float:left;"><input type="checkbox">全选</label>
+                    <div class="pagination" style="margin:0 auto ;text-align: center;clear: both">
+                        <ul>
+                            <li><a href="#">首页</a> </li>
+                            <li><a href="#">上一页</a> </li>
+                            <li><a href="#">1</a> </li>
+                            <li><a href="#">下一页</a> </li>
+                            <li><a href="#">末页</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <hr>
+                <p class="pull-right">自主开发 ！！！牛气</p>
+                <p>&copy;2015/10/10</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+
+

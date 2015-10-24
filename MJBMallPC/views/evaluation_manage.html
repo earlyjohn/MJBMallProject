@@ -1,0 +1,180 @@
+﻿
+<div ng-controller="EvaluationManageController">
+    <div class="header">
+        <div class="stats">
+            <h1 class="page-title">订单管理</h1>
+        </div>
+    </div>
+    <ul class="breadcrumb">
+        <li><a href="#">订单管理</a><span class="divider">/</span> </li>
+        <li class="active">评价管理</li>
+    </ul>
+    <div class="container-fluid">
+        <div class="well">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#typelist" data-toggle="tab">来自买家的评论</a> </li>
+                <li><a href="#addtype" data-toggle="tab">店铺动态评论</a> </li>
+            </ul>
+            <div class="tab-content" id="type_tab_content">
+                <div class="tab-pane active in" id="typelist">
+                    <!-- 类型列表内容 需根据数据库内容对table进行更新-->
+                    <form id="search_form">
+                        <span style="float: left;padding: 0px 10px 10px 0px">商品名称<input type="text" class="input-medium" name="member_account"></span>
+                        <span style="float: left;padding: 0px 10px 10px 0px">店铺名称<input class="input-medium" name="member_id"></span>
+                        <span style="float: left;padding: 0px 10px 10px 0px">评价时间</span>
+                        <div class="input-append date" id="start_date" style="float: left">
+                            <input class="input-medium" type="text" name="startdate">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <span style="float: left;text-align: center;width: 40px">~</span>
+                        <div class="input-append date" id="end_date" style="float: left">
+                            <input class="input-medium" type="text" name="startdate">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <button type="submit" class="icon-search" style="clear: both"></button>
+                    </form>
+                    <label style="font-weight: bold;clear: both;background: powderblue;color: dodgerblue;height: 50px;line-height: 50px" data-toggle="collapse" data-target="#detail_demo">操作提示<span class="icon-chevron-down"></span> </label>
+                    <div id="detail_demo" class="collapse">
+                        <!-- tips-->
+                        <div class="well">
+                            <label style="color: darkgrey">买家可在订单完成后对订单商品进行评价操作</label>
+                            <label style="color: darkgrey">评价信息将显示在对应的商品页面</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px"></th>
+                                    <th>商品名称</th>
+                                    <th>评价描述</th>
+                                    <th>评卷人</th>
+                                    <th>店铺名称</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td><span>大宝SOD蜜</span></td>
+                                    <td><span>顺滑</span></td>
+                                    <td><span>商派宝宝</span></td>
+                                    <td><span>川香人家</span></td>
+                                    <td>
+                                        <a href="#" data-toggle="modal">查看</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">显示</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">屏蔽</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <label style="float:left;"><input type="checkbox">全选</label>
+                        <div class="pagination" style="margin:0 auto ;text-align: center;clear: both">
+                            <ul>
+                                <li><a href="#">首页</a> </li>
+                                <li><a href="#">上一页</a> </li>
+                                <li><a href="#">1</a> </li>
+                                <li><a href="#">下一页</a> </li>
+                                <li><a href="#">末页</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="addtype">
+                    <!-- 新增类型内容-->
+                    <form id="search">
+                        <span style="float: left;padding: 0px 10px 10px 0px">店铺名称<input type="text" class="input-medium" name="member_account"></span>
+                        <span style="float: left;padding: 0px 10px 10px 0px">评价人<input class="input-medium" name="member_id"></span>
+                        <span style="float: left;padding: 0px 10px 10px 0px">评价时间</span>
+                        <div class="input-append date" id="shop_start_date" style="float: left">
+                            <input class="input-medium" type="text" name="startdate">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <span style="float: left;text-align: center;width: 40px">~</span>
+                        <div class="input-append date" id="shop_end_date" style="float: left">
+                            <input class="input-medium" type="text" name="startdate">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <button type="submit" class="icon-search" style="clear: both"></button>
+                    </form>
+                    <label style="font-weight: bold;clear: both;background: powderblue;color: dodgerblue;height: 50px;line-height: 50px" data-toggle="collapse" data-target="#shop_detail_demo">操作提示<span class="icon-chevron-down"></span> </label>
+                    <div id="shop_detail_demo" class="collapse">
+                        <!-- tips-->
+                        <div class="well">
+                            <label style="color: darkgrey">买家可在订单完成后对订单商品进行评价操作</label>
+                            <label style="color: darkgrey">评价统计信息将显示在对应的店铺相应页面</label>
+                        </div>
+                    </div>
+                    <div class="well">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10px"></th>
+                                    <th>店铺名称</th>
+                                    <th>订单编号</th>
+                                    <th>评价人</th>
+                                    <th>评价分数</th>
+                                    <th>评价时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td><span>川香人家</span></td>
+                                    <td><span>10087467</span></td>
+                                    <td><span>商派宝宝</span></td>
+                                    <td><span>3</span></td>
+                                    <td><span>2015-09-10</span></td>
+                                    <td>
+                                        <a href="#" data-toggle="modal">查看</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">显示</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">屏蔽</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#" data-toggle="modal">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <label style="float:left;"><input type="checkbox">全选</label>
+                        <div class="pagination" style="margin:0 auto ;text-align: center;clear: both">
+                            <ul>
+                                <li><a href="#">首页</a> </li>
+                                <li><a href="#">上一页</a> </li>
+                                <li><a href="#">1</a> </li>
+                                <li><a href="#">下一页</a> </li>
+                                <li><a href="#">末页</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 自定义删除对话框-->
+<div class="modal small hide fade" id="delete_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">删除评价</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确定不再显示此评价？</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn btn-danger" data-dismiss="modal">确定</button>
+    </div>
+</div>
+
+
+
+
+

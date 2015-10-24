@@ -1,0 +1,132 @@
+﻿.home_float{
+float:left;
+}
+/*顶部图标*/
+.spxq_icon-navbar{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/spxq/u242.png");
+}
+.spxq_enjoy{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/spxq/enjoy.png");
+}
+/*商品介绍*/
+.spxq_font{
+font-family:'应用字体 Regular', '应用字体';
+font-size:16px;
+color:#000000;
+}
+.spxq_spjx{
+background:white;
+margin:0px 0px 0px 0px;
+padding:10px;
+}
+/*工具栏/导航*/
+.spxq_gjl{
+	background:white;
+	margin:0px 0px 0px 0px;
+	height:35px;
+}
+.spxq_jx_t{
+margin:10px 0px 0px 0px;
+}
+.spxq_jx_l{
+margin:0px 0px 10px 0px;
+}
+.spxq_dz{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/spxq/spxq_dz.png");
+}
+.spxq_dh{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/spxq/spxq_dh.png");
+}
+
+.spxq_more{
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/home/u495.png");
+  background-size:20px 20px;
+}
+/*商品评价*/
+.spxq_div_pj{
+background: #fff;
+	text-align: center;
+	color: #000;
+	border:0px;
+	width:100%;
+	height:200px;
+}
+.spxq_div_pj_1{	
+	background: #fff;
+	text-align: center;
+	color: #000;
+	border:0px;
+	width:20%;
+	float:left;
+	border:1px;
+}
+.spxq_div_pj_2{
+	background: #fff;
+	text-align: left;
+	color: #000;
+	border:0px;
+	width:80%;
+	float:left;
+	border:1px;
+}
+.spxq_pj{
+  width: 40px;
+  height: 40px;
+  background-image: url("../img/spxq/spxq_pj.png");
+}
+/*详情底部菜单*/
+.spxq_ul{
+margin-top:0px;
+margin-bottom:0px;
+padding-left:0px;
+}
+.spxq_kf{
+ width: 11%;
+  height: 40px;
+ float:left;
+ list-style:none;
+ background-image: url("../img/spxq/kf.png");
+ background-size:100% 100%;
+}
+.spxq_dp{
+  width: 11%;
+  height: 40px;
+ float:left;
+ list-style:none;
+ background-size:100% 100%;
+  background-image: url("../img/spxq/dp.png");
+  }
+.spxq_sc{
+ width: 11%;
+ height: 40px;
+ float:left;
+ list-style:none;
+ background-size:100% 100%;
+ background-image: url("../img/spxq/sc.png");
+  }
+.spxq_jrgwc{
+ width: 36%;
+ height: 40px;
+ float:left;
+ list-style:none;
+ background-size:100% 100%;
+ background-image: url("../img/spxq/jrgwc.png");
+  }
+.spxq_ljgm{
+  width: 31%;
+  height: 40px;
+ float:left;
+ list-style:none;
+ background-size:100% 100%;
+  background-image: url("../img/spxq/ljgm.png");
+  }

@@ -1,0 +1,90 @@
+﻿
+<div ng-controller="ReportManageController">
+
+    <div class="header">
+
+        <h1 class="page-title">订单管理</h1>
+    </div>
+
+    <ul class="breadcrumb">
+        <li><a href="#">订单管理 </a><span class="divider">/</span></li>
+        <li class="active"><a href="#">举报管理</a></li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <form id="search_form">
+                    <span style="float: left;padding: 0px 10px 10px 0px">商品名称<input type="text" class="input-medium" name="member_account"></span>
+                    <span style="float: left;padding: 0px 10px 10px 0px">举报人<input class="input-medium" name="member_id"></span>
+                    <span style="float: left;padding: 0px 10px 10px 0px">举报时间</span>
+                    <div class="input-append date" id="start_date" style="float: left">
+                        <input class="input-medium" type="text" name="startdate">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                    <span style="float: left;text-align: center;width: 40px">~</span>
+                    <div class="input-append date" id="end_date" style="float: left">
+                        <input class="input-medium" type="text" name="startdate">
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                    <button type="submit" class="icon-search" style="clear: both"></button>
+                </form>
+                <div class="well">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px"></th>
+                                <th>商品名称</th>
+                                <th>举报人</th>
+                                <th>举报类型</th>
+                                <th>举报主题</th>
+                                <th>图片</th>
+                                <th>举报时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><span>大宝SOD蜜</span></td>
+                                <td><span>商派宝宝</span></td>
+                                <td><span>XXX</span></td>
+                                <td><span>XXX</span></td>
+                                <td><img src="images/bao.jpg" style="width: 30px;height: 50px;"> </img></td>
+                                <td><span>2015-09-09</span></td>
+                                <td>
+                                    <a href="#" data-toggle="modal">查看</a>
+                                    <span class="divider" style="color: #0088cc">|</span>
+                                    <a href="#" data-toggle="modal">违规下架</a>
+                                    <span class="divider" style="color: #0088cc">|</span>
+                                    <a href="#" data-toggle="modal">关闭</a>
+                                    <span class="divider" style="color: #0088cc">|</span>
+                                    <a href="#" data-toggle="modal">删除</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <label style="float:left;"><input type="checkbox">全选</label>
+                    <div class="pagination" style="margin:0 auto ;text-align: center;clear: both">
+                        <ul>
+                            <li><a href="#">首页</a> </li>
+                            <li><a href="#">上一页</a> </li>
+                            <li><a href="#">1</a> </li>
+                            <li><a href="#">下一页</a> </li>
+                            <li><a href="#">末页</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <hr>
+                <p class="pull-right">自主开发 ！！！牛气</p>
+                <p>&copy;2015/10/10</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+
+

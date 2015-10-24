@@ -1,0 +1,143 @@
+/*顶部图标*/
+.icon-arrow-down{
+  width: 11px;
+  height: 8px;
+  background-image: url("../img/icon/arrow-bottom.png");
+}
+.icon-orderback{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/back-gray.png");
+}
+.icon-navbar{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/arrow.png");
+}
+.icon-backwhite{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/back.png");
+}
+.icon-search{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/search-gray.png");
+}
+.icon-add{
+  background-image: url("../img/icon/add.png");
+  }
+.icon-less{
+  background-image: url("../img/icon/less.png");
+}
+.icon-arrow{
+  width: 11px;
+  height: 6px;
+  background-image: url("../img/icon/arrow.png");
+}
+.icon-history{
+  width: 16px;
+  height: 16px;
+  background-image: url("../img/icon/history.png");
+}
+.icon-refresh{
+	 width: 12px;
+ 	 height:12px;
+	background-image: url("../img/icon/refresh.png");
+}
+.icon-username{
+	width: 22px;
+ 	height:22px;
+	background-image: url("../img/icon/username.png");
+}
+.icon-password{
+	width: 22px;
+ 	height:22px;
+	background-image: url("../img/icon/pwd.png");
+}
+.icon-help{
+	width: 22px;
+ 	height:22px;
+	background-image: url("../img/icon/help.png");
+}
+.icon-collect{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/collect.png");
+}
+.icon-cart{
+  background-image: url("../img/icon/cart.png");
+  width: 22px;
+  height: 22px ;
+  }
+.icon-cu{
+  width: 14px;
+  height: 14px;
+  background-image: url("../img/icon/icon-cu.png");
+  margin: 4px 10px 0 0;
+}
+.icon-addr-name{
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/icon/addr-name.png");
+}
+
+.icon-addr-phone{
+  width: 15px;
+  height: 15px;
+  background-image: url("../img/icon/addr-phone.png");
+}
+
+.icon-addr-check{
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/icon/check.png");
+}
+.icon-addr-edit{
+  width: 24px;
+  height: 24px;
+  background-image: url("../img/icon/edit.png");
+}
+/*顶部的样式*/
+.iconBack
+{
+    display: inline-block;
+    vertical-align: middle;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-style: normal;
+    position: relative;
+	width: 22px;
+    height: 22px;
+    background-image: url("../img/u242.png");
+}
+
+.navbarTop
+{
+	position: absolute;
+	left: 0;
+    top: 0;
+    background: #EA331B;
+	height: 44px;
+    width: 100%;
+    font-size: 17px;
+    margin: 0;
+    z-index: 500;
+	font-family: '应用字体 Regular', '应用字体';
+    color: white;
+    font-size: 22px;
+}
+.navbarTop:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    display: block;
+    z-index: 15;
+    transform-origin: 50% 100%;
+}

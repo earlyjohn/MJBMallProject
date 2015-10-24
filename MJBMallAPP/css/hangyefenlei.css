@@ -1,0 +1,36 @@
+.hyfl_deco{
+background:white;
+margin-bottom:3px;
+}
+.hyfl_first{
+width:100%;
+background:white;
+padding:5px 0px 5px 0px;
+}
+.hyfl_search{
+width:75%;
+background:white;
+padding-left:5px;
+}
+.hyfl_button{
+border:1px solid gray;
+color:gray;
+background:#f4f4f4;
+line-height:22px;
+height:24px;
+}
+.hyfl_second{
+width:100%;
+text-align:center;
+background:white;
+margin:5px 0px 5px 0px;
+}
+.hyfl_third{
+width:24%;
+font-size:18px;
+background:white;
+border: solid #ddd;
+border-width: 1px 0px 1px 1px;
+padding:1px 1px 1px 1px;
+}
+.hyfl_xgzx{}

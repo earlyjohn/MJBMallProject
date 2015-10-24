@@ -1,0 +1,392 @@
+﻿
+
+<div ng-controller="OrderManageController">
+
+    <div class="header">
+
+        <h1 class="page-title">订单管理</h1>
+    </div>
+
+    <ul class="breadcrumb">
+        <li><a href="#">订单管理 </a><span class="divider">/</span></li>
+        <li class="active"><a href="#">订单列表</a></li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#real_order" data-toggle="tab">实物订单</a> </li>
+                    <li><a href="#virtual_order" data-toggle="tab">虚拟订单</a> </li>
+                </ul>
+                <script>
+                    $(function () {
+                        $("[data-toggle='popover']").popover();
+                    });
+                </script>
+                <div class="tab-content" id="type_tab_content">
+                    <div class="tab-pane active in" id="real_order">
+                        <!-- 实物订单列表内容 需根据数据库内容对table进行更新-->
+                        <div class="well">
+                            <form id="search_form">
+                                <span>订单号</span><input type="text" class="input-medium" name="member_account">
+                                <span>店铺</span><input class="input-mini" name="member_id">
+                                <span>买家</span><input type="text" class="input-medium" name="buy_time">
+                                <button type="submit" class="icon-search"></button>
+                            </form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px"></th>
+                                        <th>订单号</th>
+                                        <th>店铺</th>
+                                        <th>买家</th>
+                                        <th>下单时间</th>
+                                        <th>订单总额</th>
+                                        <th>支付方式</th>
+                                        <th>订单状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><span>108397826673434</span></td>
+                                        <td><span>川香天下</span></td>
+                                        <td><span>商家宝宝</span></td>
+                                        <td><span>2015-09-09</span></td>
+                                        <td><span>238</span></td>
+                                        <td><span>在线支付</span></td>
+                                        <td><span>已发货</span></td>
+                                        <td>
+                                            <a href="#order_detail" data-toggle="modal">查看</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#cancel_order" data-toggle="modal">取消</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#confirm_order" role="button" data-toggle="modal">收到货款</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <label style="float:left;"><input type="checkbox">全选</label>
+                            <button style="float:left;">导出Excel</button>
+                            <div class="pagination" style="margin:0px auto auto 0px;text-align: center;clear: both">
+                                <ul>
+                                    <li><a href="#">首页</a> </li>
+                                    <li><a href="#">上一页</a> </li>
+                                    <li><a href="#">1</a> </li>
+                                    <li><a href="#">下一页</a> </li>
+                                    <li><a href="#">末页</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="virtual_order">
+                        <!-- 虚拟订单列表-->
+                        <div class="well">
+                            <form id="search">
+                                <span>订单号</span><input type="text" class="input-medium" name="member_account">
+                                <span>店铺</span><input class="input-mini" name="member_id">
+                                <span>买家</span><input type="text" class="input-medium" name="buy_time">
+                                <button type="submit" class="icon-search"></button>
+                            </form>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px"></th>
+                                        <th>订单号</th>
+                                        <th>店铺</th>
+                                        <th>买家</th>
+                                        <th>下单时间</th>
+                                        <th>订单总额</th>
+                                        <th>支付方式</th>
+                                        <th>订单状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td><span>108397826673434</span></td>
+                                        <td><span>川香天下</span></td>
+                                        <td><span>商家宝宝</span></td>
+                                        <td><span>2015-09-09</span></td>
+                                        <td><span>238</span></td>
+                                        <td><span>在线支付</span></td>
+                                        <td><span>已发货</span></td>
+                                        <td>
+                                            <a href="#order_detail" data-toggle="modal">查看</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#cancel_order" data-toggle="modal">取消</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#confirm_order" role="button" data-toggle="modal">收到货款</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <label style="float:left;"><input type="checkbox">全选</label>
+                            <button style="float:left;">导出Excel</button>
+                            <div class="pagination" style="margin:0px auto auto 0px;text-align: center;clear: both">
+                                <ul>
+                                    <li><a href="#">首页</a> </li>
+                                    <li><a href="#">上一页</a> </li>
+                                    <li><a href="#">1</a> </li>
+                                    <li><a href="#">下一页</a> </li>
+                                    <li><a href="#">末页</a> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <hr>
+                <p class="pull-right">自主开发 ！！！牛气</p>
+                <p>&copy;2015/10/10</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="order_detail" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    订单详情
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="member_detail">
+                    <label>订单信息</label>
+                    <div class="well">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>订单号：</th>
+                                <td>
+                                    <label>100000002023</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>下单时间：</th>
+                                <td>
+                                    <label>2015-09-09</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>订单总额：</th>
+                                <td>
+                                    <label>238</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>订单状态：</th>
+                                <td><label>未发货</label></td>
+                            </tr>
+                             </tbody>
+                        </table>
+                    </div>
+                    <label>商品信息</label>
+                    <div class="well">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>商品名称：</th>
+                                <td>
+                                    <label>大宝SOD</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>商品ID：</th>
+                                <td>
+                                    <label>100987</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>店铺名称：</th>
+                                <td>
+                                    <label>美丽动人</label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <label>快递信息</label>
+                    <div class="well">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>配送方式：</th>
+                                <td>
+                                    <label>快递</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>配送保价：</th>
+                                <td>
+                                    <label>否</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>商品重量：</th>
+                                <td>
+                                    <label>0g</label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <label>购买人信息</label>
+                    <div class="well">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th>用户名：</th>
+                                <td>
+                                    <label>商派宝宝</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>姓名：</th>
+                                <td>
+                                    <label>100987</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>电话：</th>
+                                <td>
+                                    <label>美丽动人</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>地区：</th>
+                                <td>
+                                    <label>北京市海淀区</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Email：</th>
+                                <td>
+                                    <label>198238746@qq.com</label>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <label>收货人信息</label>
+                    <div class="well">
+                        <table class="table">
+                            <tr>
+                                <th>发货日期：</th>
+                                <td>
+                                    <label>任意日期</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>姓名：</th>
+                                <td>
+                                    <label>尼玛</label>
+                                </td>
+                            </tr><tr>
+                            <th>电话：</th>
+                            <td>
+                                <label>1356276552</label>
+                            </td>
+                        </tr><tr>
+                            <th>地区：</th>
+                            <td>
+                                <label>上海/上海市/卢湾区</label>
+                            </td>
+                        </tr>
+                            <tr>
+                                <th>地址：</th>
+                                <td>
+                                    <label>上海市卢湾区123</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>邮编：</th>
+                                <td>
+                                    <label>100871</label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <input type="submit" value="编辑">
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="cancel_order" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel1">
+                    请确认
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>是否取消订单？</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">不，我再想想
+                </button>
+                <button type="button" class="btn btn-primary">
+                    是的
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="confirm_order" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    收到货款
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>收到货款编辑  参数未知</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">取消
+                </button>
+                <button type="button" class="btn btn-primary">
+                    保存
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+

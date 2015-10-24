@@ -1,0 +1,187 @@
+﻿#register_mainbody_box {
+  width: 990px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+.clearfix {
+  display: block;
+}
+.clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+.ex_signup_box {
+  font-size: 12px;
+  font-weight: normal;
+}
+.ex_register_box {
+  border: 1px solid #ccc;
+  background: url(../../images/login_bg.gif) repeat-x left bottom;
+  overflow: hidden;
+}
+.ex_signup_left {
+  width: 520px;
+  float: left;
+  background: url(../../images/signup_line.gif) no-repeat right center;
+}
+.ex_sigunp_titile h1 {
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: center;
+  padding-right: 160px;
+  height: 25px;
+  line-height: 50px;
+}
+/*.login_yellow, .new_deal .OrderList .OrderListName, .g_assemble_title ul li a:link, .g_assemble_title ul li a:visited {
+  color: #FF6400;
+}*/
+.register_box {
+  border: 0px;
+}
+.signupform div {
+    border: 0px;
+}
+
+.register_box {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 8px 0 12px 0;
+  overflow: hidden;
+  zoom: 1;
+  clear: both;
+}
+.register_box ul {
+  margin: 5px;
+  padding: 0;
+  list-style-type: none;
+}
+.register_box li {
+  padding: 3px 0;
+  clear: both;
+  overflow: hidden;
+}
+.register_box .rleftlabel {
+  padding: 5px 2px;
+  margin: 0;
+  float: left;
+  width: 105px;
+  text-align: right;
+  height: auto;
+  font-family: Verdana, Geneva, sans-serif, "宋体";
+}
+.register_box li .rfloatdiv {
+  padding: 5px 2px;
+  float: left;
+  height: auto;
+}
+.register_box .rinputstyle {
+  width: 160px;
+}
+.rinputstyle, .rx-input {
+  border: 1px solid #ccc;
+  padding: 3px 5px;
+  background: url(../../images/Numinput-bj.gif) no-repeat 0 0 #fff;
+  font-size: 12px;
+}
+a:link, a:visited, a {
+  color: #666666;
+  text-decoration: none;
+}
+/*.btn {
+  background: none;
+  border: none;
+  display: inline-block;
+  display: -moz-inline-stack;
+  zoom: 1;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  padding: 0;
+  overflow: visible;
+  text-decoration: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+.btn span {
+  display: block;
+  padding: 0 0 0 15px;
+  height: 25px;
+  white-space: nowrap;
+  overflow: visible;
+}
+.btn span span {
+  line-height: 25px;
+  _line-height: 25px;
+  padding: 0 15px 0 0;
+}*/
+.common-btn span {
+  background-position: 0 -595px;
+  height: 31px;
+}
+.common-btn span span {
+  background-position: right -595px;
+  line-height: 31px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 #B15F15;
+  text-align:center;
+  padding-left:15px;
+}
+.ex_signup_box .ex_signup_right {
+  width: 440px;
+  float: left;
+  padding-left: 10px;
+  height: 426px;
+}
+.ex_signup_content {
+  padding: 17px 0px 0px 25px;
+}
+.ex_signup_content h3 {
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 20px;
+  color: #FF6400;
+}
+.ex_signup_content span p {
+  font-size: 14px;
+  font-weight: bold;
+  height: 60px;
+  line-height: 60px;
+  color: #666666;
+}
+.ex_signup_content li {
+  list-style: none;
+  padding: 7px 0px 7px 10px;
+  background: url(../../images/icon.gif) no-repeat 0px 16px;
+}
+.ex_signup_content li font {
+  color: #ff6400;
+  font-weight: bold;
+  font-size: 12px;
+}
+.ex_signup_content_btn {
+  padding: 10px 0px 0px 15px;
+  display: none;
+}
+.ex_alerttitle span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.ex_si_content {
+  padding: 5px 0px;
+}
+.ex_si_content ul li {
+  float: left;
+  display: block;
+  padding: 0px 3px;
+  list-style: none;
+}
+.ex_signup_tail {
+  padding: 8px 0px 10px 5px;
+  clear: both;
+  overflow: hidden;
+}

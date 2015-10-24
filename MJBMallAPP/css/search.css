@@ -1,0 +1,109 @@
+.search_icon-navbar{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/icon/u242.png");
+}
+.search_back{
+ background-image: url("../img/home/ubac.png");
+ background-size:100% 100%;
+}
+.search_first{
+float:left;	
+padding-top:10px;
+background:white;
+width:100%;
+
+}
+
+.search_first p{
+margin-top:0px;
+margin-bottom:0px;
+}
+.search_second{
+float:left;	
+padding-top:0px;
+padding-bottom:0px;
+background:white;
+width:100%;
+text-align:left;
+font-size:10px;
+}
+.search_second hr{
+width:90%;
+height:0.1px;
+}
+.search_third{
+background:white;
+text-align:center;
+width:100%;
+float:left;
+}
+.search_button{
+left:30%;
+border:1px solid red;
+color:red;
+line-height:27px;
+width:40%;
+height:27px;
+}
+.hot-search-bar {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  background: #f3f5f7;
+  border-bottom: 1px solid #dedede;
+}
+
+.u-tags {
+  padding: 10px 0 0 10px;
+  background: #f8f8f8;
+}
+.u-tags a {
+  line-height: 25px;
+  height: 25px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 12px;
+  color: #686868;
+  width: 28%;
+  background: #fff;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  text-decoration: none;
+}
+.u-tags span {
+  width: 80%;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.u-keywords, .u-keywords li {
+  list-style-type: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+.u-keywords li{
+  color: #686868;
+ font-size: 12px;
+ background: #f3f5f7;
+}
+.u-clear {
+  padding: 20px;
+  text-align: center;
+  color: #686868;
+  font-size: 13px;
+}
+.u-clear span {
+  display: inline-block;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  border: 1px solid #d7d7d7;
+  background: #fff;
+  width: 159px;
+}

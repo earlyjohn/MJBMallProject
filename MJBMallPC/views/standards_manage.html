@@ -1,0 +1,138 @@
+﻿<div ng-controller="StandardsManageController">
+    <div>
+
+        <div class="header">
+
+            <h1 class="page-title">商品管理</h1>
+        </div>
+
+        <ul class="breadcrumb">
+            <li><a href="class_manage.html">商品管理 </a><span class="divider">/</span></li>
+            <li class="active"><a href="tag_manage.html">规格管理</a></li>
+        </ul>
+        <div class="container-fluid">
+            <div class="row-fluid">
+
+
+                <div class="row-fluid">
+
+                    <div>
+                        <button type="button" class="btn btn-success" title="Popover title"
+                                data-container="body" data-toggle="popover" data-placement="bottom"
+                                data-content="底部的 Popover 中的一些内容">
+                            规格列表
+                        </button>
+                        <button type="button" class="btn btn-success">
+                            添加规格
+                        </button>
+                    </div>
+                    <script>
+                        $(function () {
+                            $("[data-toggle='popover']").popover();
+                        });
+                    </script>
+
+                    <div class="block">
+                        <div href="#" class="block-heading" data-toggle="collapse" style="height: 35px">
+                            <span style="position:absolute;left: 110px">排序</span>
+                            <span style="position:absolute;right: 390px">规格名称</span><span style="position:absolute;left: 410px">所属分类</span><span style="position:absolute;right: 90px">操作</span>
+                        </div>
+                        <div id="tablewidget" class="block-body collapse in">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="float: left;padding-left: 20px;width: 10%"><input name="TAG" type="checkbox" value="" /></th>
+                                        <th style="float: left;padding-left: 20px;width: 10%">1</th>
+                                        <th style="width:24%">颜色</th>
+                                        <th style="width:20%">红色</th>
+                                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                             aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal" aria-hidden="true">
+                                                            &times;
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel">
+                                                            规格管理
+                                                        </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <ul style="list-style: none">
+                                                            <li>规格：&nbsp;<input type="text" value="红色"></li>
+                                                            <li>所属分类：&nbsp;<input type="text" value="颜色"></li>
+                                                            <li>排序：&nbsp;<input type="text" value="1"></li>
+                                                            <li><input type="text" style="height: 120px;width: 100%" /></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            提交
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary">
+                                                            取消
+                                                        </button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal -->
+                                        </div>
+                                        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+                                             aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal" aria-hidden="true">
+                                                            &times;
+                                                        </button>
+                                                        <h4 class="modal-title" id="myModalLabel1">
+                                                            请确认
+                                                        </h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>是否确认</p>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">
+                                                            关闭
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary">
+                                                            确认
+                                                        </button>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal -->
+                                        </div>
+                                        <th style="width: 20%">
+                                            <span style="float: right;padding-right: 20px">
+                                                <a href="#" data-toggle="modal" data-target="#myModal">编辑</a>|<a href="#" data-toggle="modal" data-target="#myModal1">删除</a>
+                                            </span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div style="border-top: 1px solid #a6a6a6;height: 30px;margin-top:300px">
+                            <input name="Fruit" type="checkbox" value="" style="margin-left: 30px" />
+                            <span style="padding-left: 20px">全选</span>
+                            <input type="button" value="删除">
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                    <hr>
+                    <p class="pull-right">自主开发 ！！！牛气</p>
+                    <p>&copy;2015/10/10</p>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+</div>
+

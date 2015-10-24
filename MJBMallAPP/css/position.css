@@ -1,0 +1,27 @@
+.position_icon-navbar{
+  width: 22px;
+  height: 22px;
+  background-image: url("../img/position/u368.png");
+}
+.position_four{
+position:absolute;
+left:10%;
+float:left;
+}
+.position_four p{
+margin-top:0px;
+margin-bottom:0px;
+}
+.position_five{
+position:absolute;
+left:13%;
+width:80%;
+float:left;
+text-align:center;
+padding-top:30px;
+}
+.position_six{
+width:30%;
+float:left;
+background:white;
+}

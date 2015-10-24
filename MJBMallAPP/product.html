@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>商品详情</title>
+    <!-- Path to Framework7 Library CSS-->
+    <link rel="stylesheet" href="css/framework7.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Views-->
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left"><i class="icon icon-backwhite"></i></div>
+                    <div class="center">商品详情</div>
+                    <div class="right"><i class="icon icon-collect"></i></div>
+
+                </div>
+            </div>
+            <div class="pages navbar-through">
+                <!-- Pag has additional "with-subnavbar" class -->
+                <div data-page="home" class="page">
+                    <div class="page-content">
+                        <!-- 轮播图 start-->
+                        <div class="swiper-container product-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide u-slide">
+                                    <img data-src="img/icon/product.png" class="swiper-lazy">
+                                    <div class="preloader"></div>
+                                </div>
+                                <div class="swiper-slide  u-slide">
+                                    <img data-src="img/icon/product.png" class="swiper-lazy">
+                                    <div class="preloader"></div>
+                                </div>
+                                <div class="swiper-slide  u-slide">
+                                    <img data-src="path/to/picture-3.jpg" class="swiper-lazy">
+                                    <div class="preloader"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <!-- 轮播图 end -->
+                        <div class="content-title list-block m-t-0 m-b-0">
+                            <div class="item-inner">
+                                <div class="item-title color-lightergray-u">2015010100001214</div>
+                                <div class="item-after">月销量：360</div>
+                            </div>
+
+                            <div class="title">
+                                活接球阀 DN25 1”内丝x1-1/4”锁紧螺母 活接球阀 DN25 1”内丝x1-1/4”锁紧螺母 
+							
+                            </div>
+                            <div class="prices color-orange-u ">
+                                <span class="font-14">￥</span>
+                                <span class="font-18">800.00-10000.00</span>
+                            </div>
+                        </div>
+                        <!-- 标题 end -->
+                        <div class="list-block m-t-0 m-b-0">
+                            <ul>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+
+                                        <div class="item-inner">
+                                            <div class="item-title">优惠</div>
+                                            <div class="item-content"><i class="icon icon-cu"></i>200000元享受8折优惠</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">规格</div>
+                                            <div class="item-after">可选 8 种规格 </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">附件</div>
+                                            <div class="item-after">2件</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 规格部分 end -->
+                        <div class="tab-content  bg-white">
+                            <div class="buttons-row  tabbar-u">
+                                <!-- 关联到第一个tab, 默认激活 -->
+                                <a href="#tab1" class="tab-link active button">商品详情</a>
+                                <!-- 关联到第二个tab -->
+                                <a href="#tab2" class="tab-link button">商品参数</a>
+                            </div>
+                            <div class="tabs">
+                                <!-- Tab 1, 默认激活 -->
+                                <div id="tab1" class="tab active">
+                                    <div class="content-block details m-t-0">
+                                        <p>
+                                            <img src="img/icon/p-1.png" alt="">
+                                        </p>
+                                        <p>
+                                            <img src="img/icon/p-2.png" alt="">
+                                        </p>
+                                        <p>
+                                            <img src="img/icon/p-3.png" alt="">
+                                        </p>
+                                        <p>
+                                            <img src="img/icon/p-4.png" alt="">
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Tab 2 -->
+                                <div id="tab2" class="tab">
+                                    <div class="content-block m-t-0 p-0">
+                                        <div class="list-block m-t-0 argument">
+                                            <ul>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                容积（L） 
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                200
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                额定压力（L）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                8bar
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                最大工作温度(℃)
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                95
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                内胆直径(mm) 
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                500
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                保温层厚度（mm）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                40
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                水箱直径（mm） 
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                580
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                盘管数量
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                2
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                最大工作压力（bar）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                16bar
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                最高工作温度（℃）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                110
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                换热面积（m^2）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                0.7/1.0
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                盘管容水量（L）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                30/50
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                盘管压降（mbar）
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                1.9/2.5
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-title">
+                                                                NL系数
+											           
+                                                            </div>
+                                                            <div class="item-after">
+                                                                24/30
+											           
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- tab end -->
+
+                        <div class="bottom-bar row ">
+                            <a href="#" class="col-25 text-center">
+                                <i class="icon icon-cart">
+                                    <span class="badge bg-red">5</span>
+                                </i>
+                            </a>
+                            <a class="button col-30 border-green-u color-green-u">加入购物车</a>
+                            <a class="button button-fill col-30 bg-green-u">立即订购</a>
+                        </div>
+                        <!--底部按钮-->
+                        <div class="totop">
+                            <!--<i class="icon icon-top"></i>-->
+                            顶部 
+						
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--弹出层-->
+    <div class="popup popup-product">
+        <div class="row product-title">
+            <div class="col-25">
+                <img src="img/icon/product-img.png" width="75" height="75">
+            </div>
+            <div class="col-75">
+                <p>
+                    搪瓷换热水箱 CBSO-150AR（2015） 金属外壳 白色 上出式 150L 8bar 无电加热口
+                   
+                </p>
+                <p class="color-lightestgray-u">WS01C027D</p>
+                <p class="color-orange-u ">￥8000.00</p>
+            </div>
+        </div>
+        <div class="row attrs">
+            <div class="col-15">容积</div>
+            <div class="col-85">
+                <div class="attrItem">
+                    <input type="radio" name="cubage" checked="checked" /><span>150 L</span>
+                </div>
+                <div class="attrItem">
+                    <input type="radio" name="cubage" /><span>150 L</span>
+                </div>
+                <div class="attrItem">
+                    <input type="radio" name="cubage" /><span>150 L</span>
+                </div>
+            </div>
+            <div class="col-15">外壳</div>
+            <div class="col-85">
+                <div class="attrItem">
+                    <input type="radio" name="shell" checked="checked" /><span>金属外壳</span>
+                </div>
+                <div class="attrItem">
+                    <input type="radio" name="shell" /><span>塑料外壳</span>
+                </div>
+            </div>
+            <div class="col-15">出口</div>
+            <div class="col-85">
+                <div class="attrItem">
+                    <input type="radio" name="outfall" checked="checked" /><span>顶出式</span>
+                </div>
+            </div>
+        </div>
+        <div class="list-block accordion-list m-t-0 ">
+            <ul>
+                <li class="accordion-item">
+                    <a href="" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">150L;金属外壳；顶出式</div>
+                        </div>
+                        <div class="  item-number no-bg">
+                            <div class="item-title">
+                                <i class="icon icon-add"></i>
+                                <input type="text" value="1"><i class="icon icon-less"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="accordion-item-content item-number-content">
+                        <dl>
+                            <dt>1-4件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>5-19件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>≥20 件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="accordion-item">
+                    <a href="" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">150L;金属外壳；顶出式</div>
+                        </div>
+                        <div class="  item-number no-bg">
+                            <div class="item-title">
+                                <i class="icon icon-add"></i>
+                                <input type="text" value="1"><i class="icon icon-less"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="accordion-item-content item-number-content">
+                        <dl>
+                            <dt>1-4件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>5-19件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>≥20 件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="accordion-item">
+                    <a href="" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">150L;金属外壳；顶出式</div>
+                        </div>
+                        <div class="  item-number no-bg">
+                            <div class="item-title">
+                                <i class="icon icon-add"></i>
+                                <input type="text" value="1"><i class="icon icon-less"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="accordion-item-content item-number-content">
+                        <dl>
+                            <dt>1-4件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>5-19件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>≥20 件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                    </div>
+                </li>
+                <li class="accordion-item">
+                    <a href="" class="item-link item-content">
+                        <div class="item-inner">
+                            <div class="item-title">150L;金属外壳；顶出式</div>
+                        </div>
+                        <div class="  item-number no-bg">
+                            <div class="item-title">
+                                <i class="icon icon-add"></i>
+                                <input type="text" value="1"><i class="icon icon-less"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="accordion-item-content item-number-content">
+                        <dl>
+                            <dt>1-4件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>5-19件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                        <dl>
+                            <dt>≥20 件</dt>
+                            <dd class="color-orange-u">￥9000.00</dd>
+                        </dl>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="toolbar  tabbar-labels pos-f">
+            <div class="toolbar-inner row ">
+                <a href="#" class="tab-link col-auto toolbar-icon">
+                    <i class="icon icon-cart">
+                        <span class="badge bg-red">5</span>
+                    </i>
+                </a>
+                <button class="button col-auto border-orange-u color-orange-u">加入购物车</button>
+                <button class="button button-fill col-auto bg-orange-u">立即订购</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

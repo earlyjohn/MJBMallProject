@@ -1,0 +1,79 @@
+﻿<div ng-controller="EditAttributeController">
+    <div>
+        <div class="header">
+            <div class="stats">
+                <h1 class="page-title">商品管理</h1>
+            </div>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="type_manage.html">商品管理</a><span class="divider">/</span> </li>
+            <li class="active"><a href="type_manage.html"> 类型管理</a><span class="divider">/</span></li>
+            <li class="active">编辑属性</li>
+        </ul>
+        <div class="container-fluid">
+            <div class="well">
+                <form id="tab">
+                    <table class="table">
+                        <tr>
+                            <td style="width:80px; font-weight: bold"><em style="color: red">*</em>属性名称:</td>
+                            <td>
+                                <input class="input-large" type="text" value="款式" name="type_name">
+                            </td>
+                            <td style="color: #999999">请填写常用的商品属性的名称，例如：材质、价格区间等</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 80px; font-weight: bold"><em style="color: red">*</em>排序:</td>
+                            <td>
+                                <input class="input-large" type="text" value="1" name="type_sortnum">
+                            </td>
+                            <td style="color: #999999">请填写自然数，属性列表将会根据排序进行由大到小显示</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold">是否显示:</td>
+                            <td>
+                                <input type="radio" name="is_show" value="yes" checked="checked">是
+                                <input type="radio" name="is_show" value="no">否
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <table class="table" style="margin: -20px 0px 0px 0px" id="attribute_table">
+                        <tr>
+                            <th>删除</th>
+                            <th>排序</th>
+                            <th>属性可选值</th>
+                        </tr>
+                        <tr id="tr_model">
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="text" class="input-mini" value="0"></td>
+                            <td><input type="text" class="input-xlarge" value="毛衣"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="text" class="input-mini" value="0"></td>
+                            <td><input type="text" class="input-xlarge" value="开衫"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="text" class="input-mini" value="0"></td>
+                            <td><input type="text" class="input-xlarge" value="套头衫"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="text" class="input-mini" value="0"></td>
+                            <td><input type="text" class="input-xlarge" value="打底衫"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" class="checkbox"></td>
+                            <td><input type="text" class="input-mini" value="0"></td>
+                            <td><input type="text" class="input-xlarge" value="长款"></td>
+                        </tr>
+                    </table>
+                    <a id="add_attribute_value"><span class="icon-plus-sign" />添加一个属性值</a><br>
+                    <input class="btn" type="submit" value="提交" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,212 @@
+﻿
+
+<div ng-controller="MemberListController">
+
+    <div class="header">
+
+        <h1 class="page-title">会员管理</h1>
+    </div>
+
+    <ul class="breadcrumb">
+        <li><a href="#">会员管理 </a><span class="divider">/</span></li>
+        <li class="active"><a href="#">会员列表</a></li>
+    </ul>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#normal_member" data-toggle="tab">普通会员</a> </li>
+                    <li><a href="#shop_member" data-toggle="tab">商家会员</a> </li>
+                </ul>
+                <script>
+                    $(function () {
+                        $("[data-toggle='popover']").popover();
+                    });
+                </script>
+                <div class="tab-content" id="type_tab_content">
+                    <div class="tab-pane active in" id="normal_member">
+                        <!-- 普通会员列表内容 需根据数据库内容对table进行更新-->
+                        <div class="well">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px"></th>
+                                        <th>用户名</th>
+                                        <th>账号</th>
+                                        <th>注册ID</th>
+                                        <th>省市区</th>
+                                        <th>注册时间</th>
+                                        <th>最近登录</th>
+                                        <th>查看</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>你好</td>
+                                        <td>10089</td>
+                                        <td>tom</td>
+                                        <td>河北省衡水市</td>
+                                        <td>2015/09/30</td>
+                                        <td>192.168.1.1</td>
+                                        <td><a href="#myModal" data-toggle="modal">查看</a></td>
+                                        <td>
+                                            <a href="#myModal1" role="button" data-toggle="modal">开启</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#myModal1" role="button" data-toggle="modal">禁止</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="shop_member">
+                        <!-- 新增类型内容-->
+                        <div class="well">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px"></th>
+                                        <th>店铺名称</th>
+                                        <th>账号</th>
+                                        <th>注册ID</th>
+                                        <th>省市区</th>
+                                        <th>注册时间</th>
+                                        <th>截至时间</th>
+                                        <th>最近登录</th>
+                                        <th>查看</th>
+                                        <th>账单</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="checkbox"></td>
+                                        <td>你好</td>
+                                        <td>10089</td>
+                                        <td>tom</td>
+                                        <td>河北省衡水市</td>
+                                        <td>2015/09/30</td>
+                                        <td>2016/09/30</td>
+                                        <td>192.168.1.1</td>
+                                        <td><a href="#myModal" data-toggle="modal">查看</a></td>
+                                        <td><a href="#">账单</a></td>
+                                        <td>
+                                            <a href="#myModal1" role="button" data-toggle="modal">开启</a>
+                                            <span class="divider" style="color: #0088cc">|</span>
+                                            <a href="#myModal1" role="button" data-toggle="modal">禁止</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <hr>
+                <p class="pull-right">自主开发 ！！！牛气</p>
+                <p>&copy;2015/10/10</p>
+            </footer>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    普通会员管理
+                </h4>
+            </div>
+            <div class="modal-body">
+               <form class="member_detail">
+                   <table class="table">
+                       <tbody>
+                       <tr>
+                           <th>用户名：</th>
+                           <td>
+                               <input class="input-medium"  value="298.000" name="username" style="width:60px" maxlength="25"  type="text">
+                           </td>
+                       </tr>
+                       <tr>
+                           <th>账号：</th>
+                           <td>
+                               <input class="input-medium" type="text"  name="account" maxlength="30" style="width:60px" value="0.000" id="dom_el_fe00d17" >
+                           </td>
+                       </tr>
+                       <tr>
+                           <th>注册ID：</th>
+                           <td>
+                               <input class="input-medium" type="text"  name="regist_id" maxlength="30" style="width:60px" id="dom_el_fe00d18">    </td>
+                       </tr>
+                       <tr>
+                           <th>省市区：</th>
+                           <td><select class="input-medium"  name="province"><option value="1" selected="selected">北京市</option></select>
+                               <select class="input-medium" name="district"><option value="1" selected="selected">海淀区</option></select>
+                           </td>
+                       </tr>
+                       <tr>
+                           <th>注册时间：</th>
+                           <td><input class="input-medium" type="text"  value="0.000" name="regist_time" style="width:60px" maxlength="25" id="dom_el_fe00d110" >克(g)
+                           </td>
+                       </tr>
+                       <tr>
+                           <th>最近登录：</th>
+                           <td>
+                               <input class="input-medium" type="text"  value="99"  name="login_ip">
+                           </td>
+                       </tr>
+                       </tbody>
+                   </table>
+                   <input type="submit" value="保存">
+               </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel1">
+                    请确认
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>是否确认</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default"
+                        data-dismiss="modal">关闭
+                </button>
+                <button type="button" class="btn btn-primary">
+                    确认
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+

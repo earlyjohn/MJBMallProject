@@ -1,0 +1,37 @@
+﻿.register-screen-content
+{
+	background-color: white;
+}
+
+.registerBtn
+{
+	border: 1px solid #EA331B;
+	color: white;
+	background-color: #EA331B;
+	line-height: 40px;
+	height: 40px;
+	font-size: 18px;
+}
+
+.messageSendBtn
+{
+	background-color: #EA331B;
+	text-align: center;
+	border-radius: 5px;
+	line-height: 30px;
+	color: white;
+	cursor: pointer;
+}
+
+.registerTopTitle
+{
+	background-color: #EA331B;
+	padding-top: 10px;
+}
+
+.registerTopTitle .topLeftIcon
+{
+	float: left;
+	height: 40px;
+
+}

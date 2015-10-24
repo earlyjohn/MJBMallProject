@@ -1,0 +1,200 @@
+.shopcart_auto {
+	background: #fff;
+	text-align: center;
+	color: #000;
+	border: 0px;
+	margin: 0px auto;
+	display: table-cell;
+	vertical-align: middle;
+	width:100%;
+	float:left;
+}
+.shop_chinese_chinese{
+	float: left;
+	margin-top: 5px;
+	padding-left: 5%;
+}
+.hr{
+	float: left;
+	width: 90%;
+	margin-left: 5%;
+	border-bottom: 1px solid gainsboro;
+}
+/*导航栏*/
+.shopcart_decoration{
+	background:white;
+	height:35px;
+	margin:5px 0px 0px 0px;
+	width:100%;
+	text-align: center;
+}
+
+.shopcart_radio{
+	width:10%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	float:left;
+	height: 150px;
+	line-height: 150px;
+	text-align:center;
+}
+.shopcart_img{
+	width:30%;
+	margin: 0;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
+	border: 0;
+	height: 150px;
+	text-align:center;
+	float:left;
+}
+.shopcart_img img{
+	max-height: 80%;
+	max-width: 80%;
+}
+.shopcart_intro{
+	width:45%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	height: 150px;
+	text-align:left;
+	float:left;
+}
+.shopcart_intro ul{
+	margin-top:45px;
+	padding-left: 0px;
+}
+.shopcart_intro li{
+	list-style:none;
+}
+.shopcart_right{
+	width:15%;
+	height: 150px;
+	display: table-cell;
+	vertical-align: middle;
+	float:left;
+	text-align:left;
+}
+.shop_manage{
+	position: relative;
+	height: 40px;
+	bottom: 0px;
+	right: 0px;
+}
+.shop_manage ul{
+	margin: 0px;
+	margin-right: 30px;
+	padding: 1px 0px 1px 0px;
+	float:right;
+}
+.shop_manage li{
+	list-style: none;
+	float: left;
+	border: 1px solid black;
+	width: 30px;
+	height: 30px;
+	font-size: 22px;
+}
+.link-u{
+	color: #818181;
+	font-size: 15px;
+}
+.no-nowrap{
+	white-space: normal!important;
+}
+.number{
+	color: #4e4e4e;
+	float: right;
+}
+.item-price{
+	font-size: 15px;
+	margin-top: 8px;
+}
+.cart-list{
+	margin: 0 auto;
+	margin-bottom: 49px;
+}
+.cart-list ul{
+	background: #f1f1f1;
+}
+.cart-list ul li{
+	background: #FFFFFF;
+	margin-top: 10px;
+	border-bottom: 1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
+}
+.cart-list .item-inner:after{
+	height: 0;
+}
+/*改写radio和checkbook的背景颜色为红色*/
+label.label-checkbox input[type=checkbox]:checked+.item-media i.icon-form-checkbox,
+label.label-checkbox input[type=radio]:checked+.item-media i.icon-form-checkbox{
+	background-color: #ff0000;
+}
+
+
+/**/
+.cart-list li label{
+	padding: 10px 0;
+}
+label.label-checkbox.active-state{
+	background-color: #fff;
+}
+.item-number{
+	height: 27px;
+	width: 100%;
+	border-bottom: 1px solid #d1d1d1;
+	margin-bottom: 8px;
+}
+
+.item-number i{
+	display: inline-block;
+	margin: 0;
+	height: 25px;
+	background-size: 13px 13px;
+	background-position: center center;
+	padding: 0;
+	 
+}
+.item-number input[type=text]{
+	display: inline-block;
+	width: 60%;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 2px;
+	margin: 0;
+	text-align: center;
+	border-left: 1px solid #d1d1d1;
+	border-right: 1px solid #d1d1d1;
+}
+.cart-del{
+	display: block;
+	padding:55px 0;
+	height: 100%;
+	line-height: 100%;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+}
+
+.shopcart_first{
+background:white;
+width:100%;
+}
+.shopcart_iocn{
+margin-right:25px;
+}
+.shopcart_dp{
+margin-left:25px;
+}
+.shopcart_bottom{
+padding-left:40px;
+}
+.shopcart_btn{
+position:absolute;
+right:10px;
+}

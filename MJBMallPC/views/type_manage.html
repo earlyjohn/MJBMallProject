@@ -1,0 +1,176 @@
+﻿<div ng-controller="TypeManageController">
+    <div>
+        <div class="header">
+            <div class="stats">
+                <h1 class="page-title">商品管理</h1>
+            </div>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#type_manage">商品管理</a><span class="divider">/</span> </li>
+            <li class="active"><a href="#type_manage">类型管理</a><span class="divider">/</span></li>
+        </ul>
+        <div class="container-fluid">
+            <div class="well">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#typelist" data-toggle="tab">类型列表</a> </li>
+                    <li><a href="#addtype" data-toggle="tab">新增类型</a> </li>
+                </ul>
+                <div class="tab-content" id="type_tab_content">
+                    <div class="tab-pane active in" id="typelist">
+                        <!-- 类型列表内容 需根据数据库内容对table进行更新-->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 50px"></th>
+                                    <th>序号</th>
+                                    <th>类型名称</th>
+                                    <th>所属分类</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>3</td>
+                                    <td>服饰鞋帽/女装/针织衫</td>
+                                    <td>针织衫</td>
+                                    <td>
+                                        <a href="#edit_type">编辑</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#delete_dialog" role="button" data-toggle="modal">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>4</td>
+                                    <td>服饰鞋帽/女装/雪纺衫</td>
+                                    <td>雪纺衫</td>
+                                    <td>
+                                        <a href="#edit_type">编辑</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#delete_dialog" role="button" data-toggle="modal">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>5</td>
+                                    <td>服饰鞋帽/女装/卫衣</td>
+                                    <td>卫衣</td>
+                                    <td>
+                                        <a href="#edit_type">编辑</a>
+                                        <span class="divider" style="color: #0088cc">|</span>
+                                        <a href="#delete_dialog" role="button" data-toggle="modal">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label><input id="select_all" type="checkbox">全选</label></td>
+                                    <td><input type="button" class="btn-mini" value="删除" id="delete_selected"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="addtype">
+                        <!-- 新增类型内容-->
+                        <form id="tab">
+                            <table class="table">
+                                <tr>
+                                    <td style="width:50px; font-weight: bold">类型:</td>
+                                    <td>
+                                        <input class="input-xlarge" type="text" value="" name="type_name">
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50px;; font-weight: bold">排序:</td>
+                                    <td>
+                                        <input class="input-xlarge" type="text" value="" name="type_sortnum">
+                                    </td>
+                                    <td style="color: #999999">请填写自然数，类型列表将会根据排序进行由大到小显示</td>
+                                </tr>
+                            </table>
+                            <table class="table">
+                                <tr>
+                                    <td style="width: 120px ; font-weight: bold">所属分类：</td>
+                                    <td id="type_belong_class">针织衫</td>
+                                    <td><input class="btn" type="button" value="编辑"></td>
+                                    <td style="color: #999999">选择分类，可关联大分类或更具体的下级分类</td>
+                                </tr>
+                                <tr style="background-color: powderblue">
+                                    <td style="font-weight: bold; color: #0064cd">选择关联规格：</td>
+                                    <!-- 关联规格需根据后台数据添加相应的dropdownlist-->
+                                    <td>
+                                        <select name="dropdoemlist" id="guige_list" class="input-small " style="width: auto">
+                                            <option value="-12.0">服饰鞋帽</option>
+                                            <option value="-11.0" selected="selected">礼品箱包</option>
+                                            <option value="-10.0">家居家装</option>
+                                            <option value="-9.0">数码办公</option>
+                                            <option value="-8.0">家用电器</option>
+                                            <option value="-7.0">各户化妆</option>
+                                            <option value="-6.0">珠宝手表</option>
+                                            <option value="-5.0">食品饮料</option>
+                                            <option value="-4.0">运动健康</option>
+                                            <option value="-3.5">汽车用品</option>
+                                            <option value="-3.0">玩具乐器</option>
+                                            <option value="-2.0">厨具</option>
+                                            <option value="-1.0">母婴用品</option>
+                                            <option value="0.0">虚拟充值</option>
+                                        </select>
+                                    </td>
+                                    <td style="font-weight: bold; color: #0064cd">(快捷定位)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold">默认：</td>
+                                    <td><label><input type="checkbox" class="checkbox" checked="checked">颜色</label></td>
+                                    <td> <label><input type="checkbox" class="checkbox" checked="checked">尺码</label></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="background-color: powderblue"><td style="font-weight: bold;color: #0064cd">添加属性:</td><td></td><td></td><td></td></tr>
+                            </table>
+                            <!-- 属性编辑列表-->
+                            <table class="table" style="margin: -20px 0px 0px 0px" id="attribute_table">
+                                <tr>
+                                    <th>删除</th>
+                                    <th>排序</th>
+                                    <th>属性名称</th>
+                                    <th>属性可选值</th>
+                                    <th>显示</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" class="checkbox"></td>
+                                    <td><input type="text" class="input-mini" value="0"></td>
+                                    <td><input type="text" class="input-large"></td>
+                                    <td><input type="text" class="input-large"></td>
+                                    <td><input type="checkbox" class="checkbox"></td>
+                                    <td><a href="#">移除</a> </td>
+                                </tr>
+                            </table>
+                            <a id="add_attribute"><span class="icon-plus-sign" />添加一个属性</a><br>
+                            <input class="btn" type="submit" value="提交" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 自定义删除对话框-->
+    <div class="modal small hide fade" id="delete_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="myModalLabel">删除</h3>
+        </div>
+        <div class="modal-body">
+            <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确定要删除吗？</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+            <button class="btn btn-danger" data-dismiss="modal">删除</button>
+        </div>
+    </div>
+</div>
+
+

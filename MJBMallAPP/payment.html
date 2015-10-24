@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>支付及发运方式</title>
+		<!-- Path to Framework7 Library CSS-->
+		<link rel="stylesheet" href="css/framework7.css">
+		<!-- Path to your custom app styles-->
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/icon.css">
+		<link rel="stylesheet" href="css/confirm-order.css">
+	</head>
+
+	<body>
+		<!-- Status bar overlay for fullscreen mode-->
+		<div class="statusbar-overlay"></div>
+		<!-- Panels overlay-->
+		<div class="panel-overlay"></div>
+		<!-- Views-->
+		<div class="views">
+			<div class="view view-main">
+				<div class="navbar">
+					<div class="navbar-inner">
+						<div class="left"><a href="confirm-order.html"><i class="icon icon-backwhite"></i></a></div>
+						<div class="center">
+							支付及发运方式
+						</div>
+						<div class="right"></div>
+					</div>
+				</div>
+				<div class="pages navbar-through">
+					<div data-page="home" class="page">
+						<div class="page-content">
+							<div class="list-block m-t-0 addr-new">
+								  <ul>
+								    <!-- Text inputs -->
+								    <li>
+								      <div class="item-content">
+								        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+								        <div class="item-inner">
+								          <div class="item-title label">支付方式</div>
+								          <div class="item-input">
+								            <input type="text" placeholder="选择一种支付方式">
+								          </div>
+								        </div>
+								      </div>
+								    </li>
+								     <li>
+								      <div class="item-content">
+								        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+								        <div class="item-inner">
+								          <div class="item-title label">结算方式</div>
+								          <div class="item-input">
+								            <input type="text" placeholder="选择一种结算方式">
+								          </div>
+								        </div>
+								      </div>
+								    </li>
+								     <li>
+								      <div class="item-content">
+								        <!--<div class="item-media"><i class="icon icon-form-name"></i></div>-->
+								        <div class="item-inner">
+								          <div class="item-title label">发运方式</div>
+								          <div class="item-input">
+								            <input type="text" placeholder="选择一种发运方式">
+								          </div>
+								        </div>
+								      </div>
+								    </li>
+								    
+								</ul>
+							</div>
+							<div class="bottom-bar row ">
+								<a class="button button-fill bg-green-u p-lr-25" href="confirm-order.html">保存</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Path to Framework7 Library JS-->
+		<script type="text/javascript" src="js/framework7.js"></script>
+		<!-- Path to your app js-->
+		<script type="text/javascript" src="js/my-app.js"></script>
+	</body>
+
+</html>

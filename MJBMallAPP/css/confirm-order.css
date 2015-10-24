@@ -1,0 +1,77 @@
+
+.confirmList{
+	margin: 0 auto;
+	margin-bottom: 49px;
+}
+.confirmList ul{
+	background: #f1f1f1;
+}
+.confirmList ul li{
+	background: #FFFFFF;
+	margin-top: 10px;
+	border-bottom: 1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
+}
+.confirmList .item-inner:after{
+	height: 0;
+}
+.confirmList .item-text{
+	height: auto!important;
+}
+.confirmList .item-title{
+	position: relative;
+	display: table-cell;
+	width: 100%;
+}
+.confirmList .item-title p{
+	position: absolute;
+	top: 50%;
+	margin-top: -15px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 15px;
+	color: #666666;
+}
+
+.confirmList .item-after{
+	height: auto!important;
+	line-height: 21px;
+	max-height: 100%;
+	display: inline-block;
+	text-align: right;
+}
+.confirmList .item-after p{
+	color: #000000;
+	font-size: 13px;
+}
+.confirmList p{
+	margin: 4px auto;
+	font-size: 13px;
+}
+.confirmList ul li.addrList{
+	background: #fefaf3;
+	border:3px solid transparent;
+	-webkit-border-image:url(../img/icon/addr-bg.png) 113 0  round; /* Safari 5 */
+	-o-border-image:url(../img/icon/addr-bg.png) 113 0 round; /* Opera */
+	border-image:url(../img/icon/addr-bg.png) 113 0 round;
+	border-left-width: 0;
+	border-right-width: 0;
+}
+
+
+.addr-content{
+	font-size: 13px !important;
+}
+.addr-content .item-text{
+	font-size: 13px
+}
+.addr-content .addr-edit{
+	border-left: 1px solid #E1E1E1;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.addr-new,
+.addr-new input[type=text],
+.addr-new select{
+	font-size: 13px !important;
+}

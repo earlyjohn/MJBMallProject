@@ -1,0 +1,157 @@
+﻿
+<div ng-controller="ChatRecordManageController">
+    <div class="header">
+        <div class="stats">
+            <h1 class="page-title">会员管理</h1>
+        </div>
+    </div>
+    <ul class="breadcrumb">
+        <li><a href="#">会员管理</a><span class="divider">/</span> </li>
+        <li class="active">消息记录管理</li>
+    </ul>
+    <div class="container-fluid">
+        <div class="well">
+            <form id="search_form">
+
+                <span style="float: left;padding: 0px 10px 10px 0px">发送人<input type="text" class="input-medium" name="member_account"></span>
+                <span style="float: left;padding: 0px 10px 10px 0px">回复人<input class="input-mini" name="member_id"></span>
+                <span style="float: left;padding: 0px 10px 10px 0px">起止日期</span>
+                <div class="input-append date" id="datetimepicker" style="float: left">
+                    <input class="span2" size="16" type="text" name="startdate">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <span style="float: left;text-align: center;width: 40px">~</span>
+                <div class="input-append date" id="datetimepicker1" style="float: left">
+                    <input class="span2" size="16" type="text" name="enddate">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+
+                <button type="submit" class="icon-search" style="clear: both"></button>
+            </form>
+            <div class="well">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10px"></th>
+                            <th>消息内容</th>
+                            <th>发送人账号</th>
+                            <th>发送人ID</th>
+                            <th>消息时间</th>
+                            <th>回复人</th>
+                            <th>回复人ID</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td><span>内容质量还可以</span></td>
+                            <td><span>13578555165</span></td>
+                            <td><span>10086</span></td>
+                            <td><span>2015-09-09</span></td>
+                            <td><span>193784687</span></td>
+                            <td><span>10087</span></td>
+                            <td>
+                                <a href="#view_comment" data-toggle="modal">查看</a>
+                                <span class="divider" style="color: #0088cc">|</span>
+                                <a href="#edit_comment" data-toggle="modal">编辑</a>
+                                <span class="divider" style="color: #0088cc">|</span>
+                                <a href="#delete_dialog" role="button" data-toggle="modal">屏蔽</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <label><input type="checkbox">全选</label>
+            <div class="pagination">
+                <ul>
+                    <li><a href="#">首页</a> </li>
+                    <li><a href="#">上一页</a> </li>
+                    <li><a href="#">1</a> </li>
+                    <li><a href="#">下一页</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+ <!--编辑弹窗-->
+<div class="modal fade" id="edit_comment" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    评论编辑
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form class="member_detail">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>发送人：</th>
+                                <td>
+                                    <span id="sender"> 小明</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>回复人：</th>
+                                <td>
+                                    <span id="receiver">小王</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>消息内容：</th>
+                                <td>
+                                    <textarea id="message_content" name="message_content" rows="5"></textarea>
+                                <td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="submit" value="保存">
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!--查看弹窗-->
+<div class="modal fade" id="view_comment" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    评论详情
+                </h4>
+            </div>
+            <div class="modal-body">
+                <span>订单详情+用户评论</span>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 自定义删除对话框-->
+<div class="modal small hide fade" id="delete_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">屏蔽评论</h3>
+    </div>
+    <div class="modal-body">
+        <p class="error-text"><i class="icon-warning-sign modal-icon"></i>确定不在显示此评论？</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        <button class="btn btn-danger" data-dismiss="modal">确定</button>
+    </div>
+</div>
+
