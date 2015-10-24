@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.mjbmall.goods.dao.GoodsMapper">
+    <select id="getGoodsList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.Goods">
+	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b
+        <where>
+		 	a.shop_id=b.shop_id
+			<if test="goods_id != null and goods_id != 0">
+		 	 and a.goods_id=#{goods_id}
+		    </if>
+		    <if test='name != null &amp;&amp; !name.equals("")'>
+			 and a.name like CONCAT(CONCAT('%', #{name}),'%')
+		    </if>
+		</where>
+	</select>
+	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
+	   select cat_id,parent_id,is_leaf,cat_name from sdb_b2c_goods_cat
+        <where>
+		 	1=1
+			<if test="parent_id != null">
+		 	   and parent_id=#{parent_id}
+		    </if>
+		</where>
+	</select>
+	<select id="getCollections"  resultType="com.mjbmall.goods.entity.Goods">
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_collection c
+        <where>
+		 	a.goods_id=c.goods_id and a.shop_id=b.shop_id 
+		 	
+		 	 and c.user_id=#{0}
+		   
+		</where>
+	</select>
+	<insert id="addCollections" parameterType="int">  
+       insert into m_collection (user_id,goods_id) 
+       values(#{param1},#{param2}
+       	)  
+    </insert> 
+     <select id="getShopsList"  resultType="com.mjbmall.goods.entity.Shops" parameterType="com.mjbmall.goods.entity.Shops">
+	   select shop_id,shop_name,address,phone_number,shop_pic,credit_rating,shop_hours from m_shop
+        <where>
+			<if test='shop_name != null and !shop_name.equals("")'>
+		 		shop_name=#{shop_name}
+		    </if>
+		</where>
+	</select>
+    <delete id="delCollections" parameterType="int">
+		delete from m_collection
+		where user_id=#{0} and goods_id=#{1}
+	</delete>
+</mapper>

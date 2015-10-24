@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="Dept" type="test.Dept"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="test/Dept.xml"/>
+        <mapper resource="com/uparttime/register/dao/Register.xml"/>
+        <mapper resource="com/uparttime/login/dao/Login.xml"/>
+        <mapper resource="com/uparttime/position/dao/Position.xml"/>
+        <mapper resource="com/mjbmall/goods/dao/Goods.xml"/>
+    </mappers>
+</configuration>

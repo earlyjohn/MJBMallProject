@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
+	
+  
+    <bean id="deptMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="test.DeptMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
+    <bean id="registerMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.uparttime.register.dao.RegisterMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
+    <bean id="loginMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.uparttime.login.dao.LoginMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
+    <bean id="positionMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.uparttime.position.dao.PositionMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
+    <bean id="goodsMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.mjbmall.goods.dao.GoodsMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
+    
+</beans>

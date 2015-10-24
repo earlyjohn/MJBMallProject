@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.uparttime.position.dao.PositionMapper">
+    <select id="findPosition"  resultType="com.uparttime.position.entity.Position" parameterType="int">
+	   select CONCAT(id,'') as id ,position,salary,date from u_position where status=0 limit #{0},#{1} 
+	</select>
+	<select id="findPositionDetails"  resultType="com.uparttime.position.entity.PositionDetails" parameterType="int">
+	   select CONCAT(a.id,'') as id ,a.position,a.salary,a.date,b.phone,b.workTime,b.details from u_position a,u_position_details b where a.id=#{0} AND a.id=b.id 
+	</select>
+</mapper>

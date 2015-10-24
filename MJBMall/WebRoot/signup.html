@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>亨顺广场VIP</title>
+
+    <!-- Bootstrap -->
+    
+	</head>
+	
+  <body>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    
+	<script language="javascript">
+	var myApp = new Framework7();
+
+	// Export selectors engine
+	var $$ = Dom7;
+	   function submit(){
+	       var username = $("#username").val();
+		   var password = $("#phone").val();
+	   /*    $.post("http://localhost:8080/shop/findGoods" , 
+				
+				function(data , statusText)
+				{
+					alert(data);
+				},
+				
+				"jsonp"); */
+		 /*  $.ajax({
+	             type: "POST",
+	             url: "http://192.168.0.111:8088/MJBMall/findGoods",
+	             dataType: "jsonp",
+	             jsonp: "callback",
+	             success: function(data){
+			                    alert(data["goodsList"][0].name);
+	                      }
+	         }); */
+		   var query = "http://localhost:8088/shop/findGoods?callback=&";
+		   $$.ajax({
+		       type :"POST",
+		       async : false,
+		       url: "http://localhost:8080/MJBMall/findGoods?callback=",
+		       dataType : "json",
+		       
+		       success: function (json) {
+			       alert(json);
+		          
+		       },
+		       error: function (e) {
+		           alert("error");
+		       },
+		       callback: function (e) {
+		           alert("er");
+		       }
+		   });
+	         
+	   }
+	   
+		function login(){
+		   $("#form").attr("action", "/Login/dologin");
+		   submit();
+		}
+		
+		
+	--></script>
+	
+	
+	<div class="container">
+	
+	<br/>
+	<div class="row clearfix">
+		<div class="col-md-4 column">
+		</div>
+		<div class="col-md-4 column">
+			<form role="form" action="/Signup/dosignup" method="post" id="form">
+				
+				<div class="form-group">
+					<input class="form-control" id="username" name="username" type="text" placeholder="请输入姓名" style="margin-top:2px;height:40px;"/>
+				</div>
+				<div class="form-group">
+					 <input class="form-control" id="phone" type="text" name="phone" placeholder="请输入手机号" style="margin-top:2px;height:40px;"/>
+				</div>
+							</form>
+				<button id="submit" onclick="submit()">注册</button><br/>
+				
+				
+				<button onclick="login()">登录</button>
+		</div>
+		<div class="col-md-4 column">
+		</div>
+	</div>
+</div>
+	
+	
+
+
+	
+	
+
+
+  </body>
+</html>

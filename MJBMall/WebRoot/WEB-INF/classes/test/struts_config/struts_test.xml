@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<!-- 资费模块 -->
+ 	<package name="01" extends="json-default">
+		<action name="test" class="test.JSONExample">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			</result>
+		</action>
+		<action name="testMybatis" class="test.TestAction" method="test">
+			<result name="success">
+			   /WEB-INF/first.jsp
+			</result>
+		</action>
+		<action name="test1" class="test.TestAction" method="test1">
+			<result name="success">
+			   /WEB-INF/first.jsp
+			</result>
+		</action>
+		
+	</package>
+</struts>

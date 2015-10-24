@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<include file="test/struts_config/struts_test.xml"/>
+<include file="com/uparttime/register/struts_config/struts_register.xml"/>	
+<include file="com/uparttime/login/struts_config/struts_login.xml"/>
+<include file="com/uparttime/position/struts_config/struts_position.xml"/>
+<include file="com/mjbmall/goods/struts_config/struts_goods.xml"/>
+</struts>
