@@ -15,6 +15,7 @@ public class OrdersController {
 	private Map<String,Object> result=new HashMap<String,Object>();
 	private int user_id=0;
 	private int goods_id=0;
+	private int count=0;
 	
 	public String findAddress(){
 		try{
@@ -58,6 +59,16 @@ public class OrdersController {
 		
 		return Action.SUCCESS;
 	}
+	public String updateCarts(){
+		try{
+		    ordersMapper.updateCarts(count, user_id, goods_id);
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		
+		return Action.SUCCESS;
+	}
 	
 	public void setOrdersMapper(OrdersMapper ordersMapper) {
 		this.ordersMapper = ordersMapper;
@@ -70,5 +81,8 @@ public class OrdersController {
 	}
 	public void setGoods_id(int goods_id) {
 		this.goods_id = goods_id;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 }

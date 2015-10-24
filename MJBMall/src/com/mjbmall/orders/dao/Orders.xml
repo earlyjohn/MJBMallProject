@@ -10,21 +10,30 @@
 		</where>
 	</select>
 	<select id="getCart"  resultType="com.mjbmall.goods.entity.Goods">
-	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s') from sdb_b2c_goods a,m_cart b
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
         <where>
 		 	a.goods_id=b.goods_id and b.user_id=#{0}
-	        and store &gt; 0
+	        and store &gt; 0 and a.shop_id=c.shop_id
 		</where>
 	</select>
 	<insert id="addCarts" parameterType="int">  
-       insert into m_cart (user_id,goods_id,addTime) 
-       values(#{param1},#{param2},NOW()
+       insert into m_cart (user_id,goods_id,addTime,count,shop_id) 
+       values(#{param1},#{param2},NOW(),#{param3},#{param4}
        	)  
     </insert> 
     <delete id="delCarts" parameterType="int">
 		delete from m_cart
 		where user_id=#{0} and goods_id=#{1}
 	</delete>
+	<update id="updateCarts" parameterType="int">
+		update m_cart
+		set count=#{0}
+		where user_id=#{1} and goods_id=#{1}
+	</update>
+	<!--<select id="getreckoning" parameterType="int">
+	   select * from 
+	
+	</select>
 	
 	
-</mapper>
+--></mapper>

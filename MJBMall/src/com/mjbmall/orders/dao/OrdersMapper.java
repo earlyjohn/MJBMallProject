@@ -10,5 +10,6 @@ public interface OrdersMapper {
     public List<Carts> getCart(int user_id);
     public void addCarts(int user_id,int goods_id);
     public void delCarts(int user_id,int goods_id);
+    public void updateCarts(int count,int user_id,int goods_id);
     
 }
