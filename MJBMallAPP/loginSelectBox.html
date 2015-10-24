@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="css/order.css">
     <link rel="stylesheet" href="css/classfy.css">
     <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
@@ -178,6 +179,7 @@
                 </div>                 
          {{/each}}
     </script>-->
+   <!-- 商品列表-->
     <script type="text/template7" id="productsListTpl">
         {{#each productsList}}
       <div class="row" style="background-color:white;margin-top:10px;">
@@ -215,6 +217,22 @@
                     {{/each}} 
                 </ul>
     </script>
+    <!--店铺列表-->
+    <script type="text/template7" id="shopListTpl">
+        {{#each shopsList}}
+      <div class="row" style="background-color:white;margin-top:10px;">
+                                        <div class="col-33" style="cursor:pointer;"><a href="#" style="display:inline-block;height:120px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="shopImg"/></a>
+                                        </div>
+                                        <div class="col-66" style="padding-left: 10px;">
+                                            <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{shop_id}}"><span>{{shop_name}}</span></a></div>
+                                            <div style="margin-top: 10px;"><span>信誉等级</span><span style="color:red">*****</span></div>
+                                            <div style="margin-top: 10px;"><span>电话</span><span>{{phone_number}}</span></div>
+                                            <div style="margin-top: 10px;"><span>营业时间</span><span>周一至周日10点到19点</span></div>
+                                        </div>
+
+                                    </div>
+         {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
@@ -250,7 +268,8 @@
     <script type="text/javascript" src="js/csdgCtrl.js"></script>
     <script type="text/javascript" src="js/classfyCtrl.js"></script>
     <script type="text/javascript" src="js/editClassfyCtrl.js"></script>
-
+    <script type="text/javascript" src="js/searchCtrl.js"></script>
+    <script type="text/javascript" src="js/shopListCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
 </body>
 </html>

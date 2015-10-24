@@ -2429,4 +2429,17 @@ position:absolute;
 	width:100%;
 	height:100px;
 }
+#searchChose{
+  position: absolute;
+  left:24%;
+  top: 2%;
+  height: 50px;
+  font-size: 16px;
+  background-color: white;
+  width: 40px;
+  padding-left: 0px;
+  z-index:999;
+  list-style: none;
+}
+
 
