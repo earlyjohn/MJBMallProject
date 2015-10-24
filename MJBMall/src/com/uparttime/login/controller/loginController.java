@@ -9,7 +9,7 @@ public class loginController {
     private String username="";
     private String password="";
     private String status;
-    private int id;
+    private int id=0;
 	
 	/**
 	 * @return status
@@ -27,7 +27,12 @@ public class loginController {
 		if("".equals(username)||"".equals(password)){
 			     status="3";
 		}else{
-			id=loginMapper.userLogin(username, password);
+			try{
+				id=loginMapper.userLogin(username, password);
+			}catch(Exception e){
+				System.out.println(e);
+			}
+			
 			if(id>0){
 				status="0";
 			}else{
