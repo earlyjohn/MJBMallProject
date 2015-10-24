@@ -5,7 +5,7 @@
             spaceBetween: 50
         });
         var html = "<div class='navbar-inner'><div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
-            + "<div class='center home_back'>" + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "商品<i class='icon home_chose'></i>"
+            + "<div class='center home_back'>" + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='selectSearch'>商品</span><i class='icon home_chose'></i>"
             + "<input id='u465_input' type='text'  class='text_sketch' /> <i class='icon home_search' id='search'></i>"
             + "</div><div class='right'><i class='icon home_message'></i></div></div>";
         $$('#homeNavbar').html(html);
@@ -66,6 +66,7 @@
         //        alert("error");
         //    }
         //});
+        var searchType = 0;
         $$('.secondClassfy').on('click', function () {
             mainView.router.loadPage("productsList.html");
         });
@@ -88,7 +89,26 @@
         $$('.home_icon-navbar').on('click', function () {
             mainView.router.loadPage("position.html");
         });
-
+        // 搜素
+        $$('#search').on('click', function () {
+            mainView.router.loadPage("search.html?searchType=" + searchType);
+        }); // 点击搜索选项
+        $$('.home_chose').on('click', function () {
+            $$("#searchChose").show();
+        });
+        // 选择商品
+        $$('.searchProduct').on('click', function () {
+            searchType = 0;
+            $$(".selectSearch").text("商品");
+            $$("#searchChose").hide();
+        });
+        // 选择店铺
+        $$('.searchShop').on('click', function () {
+            searchType = 1;
+            $$(".selectSearch").text("店铺");
+            $$("#searchChose").hide();
+        });
+       
 
     }
 };

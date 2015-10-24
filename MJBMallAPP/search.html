@@ -1,85 +1,42 @@
-﻿<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>身边</title>
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.css">
-    <!-- Path to your custom app styles-->
-	<link rel="stylesheet" href="css/base.css">
-		<link rel="stylesheet" href="css/icon.css">
-    <link rel="stylesheet" href="css/home.css">
-	   <link rel="stylesheet" href="css/search.css">
-</head>
-
-<body>
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Views-->
-    <div class="views">
-        <div class="view view-main">
-            <div class="pages navbar-through">
-                <div class="page">
-				<div class="navbar">
-                        <div class="navbar-inner">
-                            <div class="left" id="goBack"><i class="icon search_icon-navbar"></i></div>
-                            <div class="center search_back">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品<i class="icon home_chose"></i>
-							<input id="u465_input" type="text" value="" class="text_sketch"/>
-                            </div>
-                            <div class="right" ><i class="icon home_search"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="page-content" style="padding-top: 45px;padding-bottom:40px">
-  <div class="swiper-container swiper-1 " style="width:100%">
-    <div class="swiper-pagination"></div>
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" style="height:120px;width:100%"><img src="img/demo/page2.jpg" style="height:100%;width: 100%;" /></div>
-      <div class="swiper-slide" style="height:120px;width:100%"><img src="img/demo/dp_3.jpg" style="height:100%;width: 100%;" /></div>
-      <div class="swiper-slide" style="height:120px;width:100%"><img src="img/demo/zhanbaiwei.jpg" style="height:100%;width: 100%;" /></div>
-	  <div class="swiper-slide" style="height:120px;width:100%"><img src="img/demo/sp_2.jpg" style="height:100%;width: 100%;" /></div>
-	  <div class="swiper-slide" style="height:120px;width:100%"><img src="img/demo/fanzaihanbao.png" style="height:100%;width: 100%;" /></div>
-    </div>
-  </div>
-                        <div class="search_first"><p>历史记录</p>
-						<hr />
-						</div>
-						<div class="search_second">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三星智能电视<hr class=""/></div>
-						<div class="search_second">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实木家具<hr /></div>
-						<div class="search_third"><p><a href="#" class="button button-round search_button">
-						清空搜索历史</a></p></div>
-                    </div>
+﻿<div class="pages navbar-through">
+    <div class="page" data-page="search">
+        <div class="navbar" id="searchNavbar">
+           
+        </div>
+        <ul id="searchChose" style="display:none;">
+						<li class="searchProduct1">商品</li>
+						<li class="searchShop1">店铺</li>
+					</ul>
+        <div class="page-content" style="padding-top: 45px; padding-bottom: 40px">
+            <div class="swiper-container swiper-1 " style="width: 100%">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img src="img/demo/page2.jpg" style="height: 100%; width: 100%;" /></div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img src="img/demo/dp_3.jpg" style="height: 100%; width: 100%;" /></div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img src="img/demo/zhanbaiwei.jpg" style="height: 100%; width: 100%;" /></div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img src="img/demo/sp_2.jpg" style="height: 100%; width: 100%;" /></div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img src="img/demo/fanzaihanbao.png" style="height: 100%; width: 100%;" /></div>
                 </div>
             </div>
+            <div class="search_first">
+                <p>历史记录</p>
+                <hr />
+            </div>
+            <div class="search_second">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三星智能电视<hr class="" />
+            </div>
+            <div class="search_second">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;实木家具<hr />
+            </div>
+            <div class="search_third">
+                <p>
+                    <a href="#" class="button button-round search_button">清空搜索历史</a>
+                </p>
+            </div>
         </div>
-
-
-
-       <div class="toolbar tabbar tabbar-labels homeNavBar">
-            <div>
-			<ul style="width:100%" class="home_ul">
-                    <li id="personalLogin" class="home_sy"></li>
-                    <li id="shenbianHref" class="home_sb"></li>
-                    <li id="oneClassfy" class="home_fl"></li>
-                    <li id="shoppingCart" class="home_gwc"></li>
-                    <li id="personalCenter" class="home_wd"></li>
-                </ul>
-        </div>
-        </div>
-
     </div>
+</div>
 
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/my-app.js"></script>
-</body>
-
-</html>
