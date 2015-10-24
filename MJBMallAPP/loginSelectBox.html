@@ -209,19 +209,11 @@
                 </ul>
     </script>
     <script type="text/template7" id="categoryTemplate">
-        <div class="category-div">
-				<ul class="category-style-1">
-					{{#each lsChildClass}}
-						<li>
-                            <a href="pages/products.html?cid={{cat_id}}" data-id="{{cat_id}}">
-        <span>{{cat_name}}</span>
-                               
-                            </a>
-						</li>
-					{{/each}}
-				</ul>
-			
-		</div>
+        <ul class="category-list">
+                    {{#each lsChildClass}}
+                        <li style="margin-top: 10px;margin-left: 10px;"><a href="productsList.html" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
+                    {{/each}} 
+                </ul>
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
