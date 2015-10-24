@@ -11,7 +11,10 @@ public class GoodsController {
     private GoodsMapper goodsMapper;
 	private int goods_id=0;
 	List<Goods> goodsList=null;
-	private String des="";
+	private String name="";
+	public void setName(String name) {
+		this.name = name;
+	}
 	/**
 	 * @return status
 	 */
@@ -20,7 +23,7 @@ public class GoodsController {
 		try{
 			Goods goods = new Goods();
 			goods.setGoods_id(goods_id);
-			goods.setName(des);
+			goods.setName(name);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
 			
@@ -39,8 +42,5 @@ public class GoodsController {
 	}
 	public List<Goods> getGoodsList(){
 		return goodsList;
-	}
-	public void setDes(String des) {
-		this.des = des;
 	}
 }
