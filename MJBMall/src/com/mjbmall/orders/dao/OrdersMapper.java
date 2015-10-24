@@ -2,14 +2,13 @@ package com.mjbmall.orders.dao;
 
 import java.util.List;
 
-import com.mjbmall.goods.entity.Classify;
-import com.mjbmall.goods.entity.Goods;
+import com.mjbmall.orders.entity.Address;
+import com.mjbmall.orders.entity.Carts;
 
 public interface OrdersMapper {
-    public List<Goods> getGoodsList(Goods goods);
-    public List<Classify> getGoodsClassify(Classify classify);
-    public List<Goods> getCollections(int id);
-    public void addCollections(int user_id,int goods_id);
-    public void delCollections(int user_id,int goods_id);
+    public List<Address> getAdrressList(int user_id);
+    public List<Carts> getCart(int user_id);
+    public void addCarts(int user_id,int goods_id);
+    public void delCarts(int user_id,int goods_id);
     
 }

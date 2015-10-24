@@ -5,7 +5,34 @@
 <struts>
 	
  	<package name="Orders"  namespace="/orders" extends="json-default">
-		
+		<action name="findOrders" class="com.mjbmall.orders.controller.OrdersController" method="findAddress">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findCarts" class="com.mjbmall.orders.controller.OrdersController" method="findCarts">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="addCarts" class="com.mjbmall.orders.controller.OrdersController" method="addCarts">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="delCarts" class="com.mjbmall.orders.controller.OrdersController" method="delCarts">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
 	</package>
 	
 </struts>

@@ -9,31 +9,22 @@
 		 	user_id=#{0}
 		</where>
 	</select>
-	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
-	   select cat_id,parent_id,is_leaf,cat_name from sdb_b2c_goods_cat
+	<select id="getCart"  resultType="com.mjbmall.goods.entity.Goods">
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s') from sdb_b2c_goods a,m_cart b
         <where>
-		 	1=1
-			<if test="parent_id != null">
-		 	   and parent_id=#{parent_id}
-		    </if>
+		 	a.goods_id=b.goods_id and b.user_id=#{0}
+	        and store &gt; 0
 		</where>
 	</select>
-	<select id="getCollections"  resultType="com.mjbmall.goods.entity.Goods">
-	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_collection c
-        <where>
-		 	a.goods_id=c.goods_id and a.shop_id=b.shop_id 
-		 	
-		 	 and c.user_id=#{0}
-		   
-		</where>
-	</select>
-	<insert id="addCollections" parameterType="int">  
-       insert into m_collection (user_id,goods_id) 
-       values(#{param1},#{param2}
+	<insert id="addCarts" parameterType="int">  
+       insert into m_cart (user_id,goods_id,addTime) 
+       values(#{param1},#{param2},NOW()
        	)  
     </insert> 
-    <delete id="delCollections" parameterType="int">
-		delete from m_collection
+    <delete id="delCarts" parameterType="int">
+		delete from m_cart
 		where user_id=#{0} and goods_id=#{1}
 	</delete>
+	
+	
 </mapper>
