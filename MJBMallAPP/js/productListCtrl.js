@@ -8,7 +8,7 @@
         debugger;
         var query = "http://localhost:8088/MJBMall/goods/findGoods?callback=";
 
-        if (searchContent) {
+        if (searchContent.length>0) {
             // 如果从搜索页面进来加上搜素参数
             var name = searchContent.name;
             query = "http://localhost:8088/MJBMall/goods/findGoods?name=" + name + "&callback=";

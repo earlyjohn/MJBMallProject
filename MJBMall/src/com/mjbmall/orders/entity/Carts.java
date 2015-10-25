@@ -11,7 +11,14 @@ public class Carts {
 	private String addTime;
 	private String shop_id;
 	private String shop_name;
+	private String count;
 	//private int reckoning;
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
+	}
 	public String getShop_id() {
 		return shop_id;
 	}

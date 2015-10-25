@@ -10,7 +10,7 @@
 		</where>
 	</select>
 	<select id="getCart"  resultType="com.mjbmall.orders.entity.Carts">
-	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,b.count,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
         <where>
 		 	a.goods_id=b.goods_id and b.user_id=#{0}
 	        and store &gt; 0 and a.shop_id=c.shop_id
@@ -18,7 +18,7 @@
 	</select>
 	<insert id="addCarts" parameterType="int">  
        insert into m_cart (user_id,goods_id,addTime,count,shop_id) 
-       values(#{param1},#{param2},NOW(),#{param3},#{param4}
+       values(#{0},#{1},NOW(),#{2},#{3}
        	)  
     </insert> 
     <delete id="delCarts" parameterType="int">

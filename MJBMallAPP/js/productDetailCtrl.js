@@ -31,13 +31,27 @@
         });
         // 回退
         $$('.goBack').on('click', function () {
-            $$("#productDetailNav").hide();
-            $$("#productListNav").show();
+            $$("#productDetailNav").show();
+            $$("#productListNav").hide();
             mainView.router.back();
         });
         // 加入购物车
         $$('.spxq_jrgwc').on('click', function () {
-            mainView.router.loadPage("shoppingCart.html");
+            $$.ajax({
+                type: "GET",
+                async: false,
+                url: "http://localhost:8088/MJBMall/orders/addCarts?user_id=1&goods_id=" + goods_id + "&callback=",
+                dataType: "json",
+                success: function (incrementData) {
+                    debugger;
+                    mainView.router.loadPage("shoppingCart.html");
+                },
+                error: function (incrementErr) {
+                    debugger;
+                }
+            });
+
+            
         });
         // 立即购买
         $$('.spxq_ljgm').on('click', function () {
