@@ -11,6 +11,7 @@ public class Carts {
 	private String addTime;
 	private String shop_id;
 	private String shop_name;
+	//private int reckoning;
 	public String getShop_id() {
 		return shop_id;
 	}
@@ -59,4 +60,10 @@ public class Carts {
 	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
+	/*public void setReckoning(int reckoning) {
+		this.reckoning = reckoning;
+	}
+	public int getReckoning() {
+		return reckoning;
+	}*/
 }
