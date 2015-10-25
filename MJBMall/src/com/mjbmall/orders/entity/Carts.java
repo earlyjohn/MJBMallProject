@@ -9,6 +9,20 @@ public class Carts {
 	private String big_pic; 
 	private BigDecimal mktprice;
 	private String addTime;
+	private String shop_id;
+	private String shop_name;
+	public String getShop_id() {
+		return shop_id;
+	}
+	public void setShop_id(String shopId) {
+		shop_id = shopId;
+	}
+	public String getShop_name() {
+		return shop_name;
+	}
+	public void setShop_name(String shopName) {
+		shop_name = shopName;
+	}
 	public int getGoods_id() {
 		return goods_id;
 	}

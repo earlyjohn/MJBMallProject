@@ -34,6 +34,6 @@
 	   select * from 
 	
 	</select>
+	-->
 	
-	
---></mapper>
+</mapper>
