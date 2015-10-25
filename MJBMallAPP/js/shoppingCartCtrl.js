@@ -13,7 +13,7 @@
         $$.ajax({
             type: "GET",
             async: false,
-            url: "http://localhost:8088/MJBMall/orders/findCarts?user_id=1&callback=",
+            url: "http://115.28.204.151:8088/MJBMall/orders/findCarts?user_id=1&callback=",
             dataType: "json",
             success: function (data) { 
                 // 渲染模板
@@ -35,7 +35,7 @@
                     $$.ajax({
                         type: "GET",
                         async: false,
-                        url: "http://localhost:8088/MJBMall/orders/updateCarts?count=" + goodsQuantity + "&user_id=1&goods_id=" + goods_id + "&callback=",
+                        url: "http://115.28.204.151:8088/MJBMall/orders/updateCarts?count=" + goodsQuantity + "&user_id=1&goods_id=" + goods_id + "&callback=",
                         dataType: "json",
                         success: function (incrementData) {
                             debugger;
@@ -62,7 +62,7 @@
                         $$.ajax({
                             type: "GET",
                             async: false,
-                            url: "http://localhost:8088/MJBMall/orders/updateCarts?count=" + goodsQuantity + "&user_id=1&goods_id=" + goods_id + "&callback=",
+                            url: "http://115.28.204.151:8088/MJBMall/orders/updateCarts?count=" + goodsQuantity + "&user_id=1&goods_id=" + goods_id + "&callback=",
                             dataType: "json",
                             success: function (descrementdDta) {
                                 debugger;

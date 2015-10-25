@@ -9,7 +9,7 @@
         $$.ajax({
             type: "GET",
             async: false,
-            url: "http://localhost:8088/MJBMall/goods/findClassify?callback=",
+            url: "http://115.28.204.151:8088/MJBMall/goods/findClassify?callback=",
             dataType: "json",
             success: function (data) {
                 debugger;
@@ -33,7 +33,7 @@
                     $$.ajax({
                         type: "GET",
                         async: false,
-                        url: "http://localhost:8088/MJBMall/goods/findClassify?parent_id=" + id + "&callback=",
+                        url: "http://115.28.204.151:8088/MJBMall/goods/findClassify?parent_id=" + id + "&callback=",
                         dataType: "json",
                         success: function (datas) {
                             debugger;

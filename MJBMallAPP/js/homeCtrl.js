@@ -28,7 +28,7 @@
         //$$.ajax({
         //    type: "GET",
         //    async: false,
-        //    url: "http://120.25.146.176:8888/MJBMall/goods/findGoods?callback=",
+        //    url: "http://115.28.204.151:8088/MJBMall/goods/findGoods?callback=",
         //    dataType: "json",
         //    success: function (data) {
         //        if (!data.goodsList)

@@ -14,7 +14,7 @@
             $$.ajax({
                 type: "POST",
                 async: false,
-                url: "http://localhost:8088/MJBMall/login/login?username=" + userName + "&password=" + password + "&callback=",
+                url: "http://115.28.204.151:8088/MJBMall/login/login?username=" + userName + "&password=" + password + "&callback=",
                 dataType: "json",
                 success: function (data) {
                     debugger;

@@ -24,7 +24,7 @@
             $$.ajax({
                 type: "POST",
                 async: false,
-                url: "http://localhost:8080/MJBMall/register/register?username=" + userName + "&password=" + password + "&phone="+phone+"&callback=",
+                url: "http://115.28.204.151:8080/MJBMall/register/register?username=" + userName + "&password=" + password + "&phone=" + phone + "&callback=",
                 dataType: "json",
                 success: function (data) {
 					alert(data.status);

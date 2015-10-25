@@ -6,16 +6,16 @@
             + $$("#productLunbo").html() + "</div><div class='subnavbar home_float' style='width: 100%; margin-top: 120px' id='productsListSubnavbar'>" + $$("#productsListSubnavbar").html() + "</div>");
         var searchContent = $$.parseUrlQuery(e.detail.page.url) || [];
         debugger;
-        var query = "http://localhost:8088/MJBMall/goods/findShops?callback=";
+        var query = "http://115.28.204.151:8088/MJBMall/goods/findShops?callback=";
 
         if (searchContent) {
             // 如果从搜索页面进来加上搜素参数
             var shop_name = searchContent.shop_name;
             if (shop_name=="") {
-                query = "http://localhost:8088/MJBMall/goods/findShops?callback=";
+                query = "http://115.28.204.151:8088/MJBMall/goods/findShops?callback=";
             } else {
                 
-                query = "http://localhost:8088/MJBMall/goods/findShops?shop_name=" + shop_name + "&callback=";
+                query = "http://115.28.204.151:8088/MJBMall/goods/findShops?shop_name=" + shop_name + "&callback=";
             }
             debugger;
         }
