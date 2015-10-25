@@ -2,6 +2,9 @@
     init: function (e) {
         var nav="<div class='navbar-inner home_float'><div class='left'><i class='iconBack'></i></div><div class='center home_back'>&nbsp;&nbsp;&nbsp;商品<i class='icon home_chose'></i>"
 				+"<input id='u465_input' type='text' class='text_sketch'/><i class='icon home_search' id='search'></i></div><div class='right' ></div></div>"
+
+
+
         $$("#productsListNavbar").html(nav + "<div class='swiper-container swiper-1 home_float' style='width: 100%; margin-top: 40px' id='productLunbo'>"
             + $$("#productLunbo").html() + "</div><div class='subnavbar home_float' style='width: 100%; margin-top: 120px' id='productsListSubnavbar'>" + $$("#productsListSubnavbar").html()+"</div>");
         var query = "http://localhost:8088/MJBMall/goods/findGoods?callback=";
