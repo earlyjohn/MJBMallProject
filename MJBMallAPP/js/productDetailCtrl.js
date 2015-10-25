@@ -43,7 +43,7 @@
                 url: "http://115.28.204.151:8088/MJBMall/orders/addCarts?user_id=1&goods_id=" + goods_id + "&callback=",
                 dataType: "json",
                 success: function (incrementData) {
-                    debugger;
+                    $$("#homeToolbar").hide();
                     mainView.router.loadPage("shoppingCart.html");
                 },
                 error: function (incrementErr) {
