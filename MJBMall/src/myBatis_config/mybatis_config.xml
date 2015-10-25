@@ -11,5 +11,6 @@
         <mapper resource="com/uparttime/login/dao/Login.xml"/>
         <mapper resource="com/uparttime/position/dao/Position.xml"/>
         <mapper resource="com/mjbmall/goods/dao/Goods.xml"/>
+        <mapper resource="com/mjbmall/orders/dao/Orders.xml"/>
     </mappers>
 </configuration>

@@ -8,4 +8,5 @@
 <include file="com/uparttime/login/struts_config/struts_login.xml"/>
 <include file="com/uparttime/position/struts_config/struts_position.xml"/>
 <include file="com/mjbmall/goods/struts_config/struts_goods.xml"/>
+<include file="com/mjbmall/orders/struts_config/struts_orders.xml"/>
 </struts>

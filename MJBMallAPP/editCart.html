@@ -12,35 +12,12 @@
             </div>
         </div>
         <div class="page-content">
-            <div class="home_auto"style="margin-bottom: 5px">
-                <div class="home_float shopcart_decoration">
-                    <div class="shop_chinese">甜蜜蜜店铺</div>
-                    <div class="home_more"></div>
-                </div>
-                <div class="hr"></div>
-                <div class="shopcart_auto">
-                    <div class="shopcart_radio">
-                        <input type="radio" value="1"/>
-                    </div>
-                    <div class="shopcart_img">
-                        <img src="img/phone.jpg" style="margin-top: 20px"/>
-                    </div>
-                    <div class="shopcart_intro">
-                        <ul>
-                            <li>商品名称</li>
-                            <li>商品型号</li>
-                            <li>商品颜色</li>
-                        </ul>
-                    </div>
-                    <div class="shopcart_right">
-                        <div style="margin-top: 55px;float: left;width: 100%">$23.00</div>
-                        <div style="float: left;width: 100%">*1</div>
-                    </div>
-                </div>
+            <div class="home_auto" style="margin-bottom: 5px" id="editCartList">
+                
             </div>
-            <div class="bottom-bar row ">
+            <div class="bottom-bar row " style="margin-bottom: 50px;">
                 <label class="label-checkbox item-content col-auto">
-                    <input type="checkbox" name="my-checkbox" value="all" checked="checked">
+                    <input type="checkbox" name="checkAll" id="checkAll" checked="checked">
                     <div class="item-media shopcart_bottom">
                         <i class="icon icon-form-checkbox"></i>
                     </div>
@@ -49,7 +26,7 @@
                     </div>
                 </label>
                 <span class="col-auto"></span>
-                <a href="shoppingCart.html" class="button bg-green-u col-auto shopcart_btn" style="color: white; margin-top: 11px;border: 1px solid #EA331B;">删除</a>
+                <a class="button bg-green-u col-auto shopcart_btn" style="color: white; margin-top: 11px; border: 1px solid #EA331B;" id="deleteCarts">删除</a>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@
         <property name="password" value="k515zkijxj4wj24hkz20m544441mh45zyj0kh0w5" /> -->
         <property name="url" value="jdbc:mysql://localhost:3306/test"/>
         <property name="username" value="root" />
-        <property name="password" value="" />
+        <property name="password" value="root" />
 </bean>
     <bean id="sqlSessionFactory"
         class="org.mybatis.spring.SqlSessionFactoryBean">

@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/order.css">
     <link rel="stylesheet" href="css/classfy.css">
     <link rel="stylesheet" href="css/category.css">
+    <link rel="stylesheet" href="css/search.css">
 </head>
 
 <body>
@@ -179,6 +180,7 @@
                 </div>                 
          {{/each}}
     </script>-->
+    <!-- 商品列表-->
     <script type="text/template7" id="productsListTpl">
         {{#each productsList}}
       <div class="row" style="background-color:white;margin-top:10px;">
@@ -210,19 +212,105 @@
                 </ul>
     </script>
     <script type="text/template7" id="categoryTemplate">
-        <div class="category-div">
-				<ul class="category-style-1">
-					{{#each lsChildClass}}
-						<li>
-                            <a href="pages/products.html?cid={{cat_id}}" data-id="{{cat_id}}">
-        <span>{{cat_name}}</span>
-                               
-                            </a>
-						</li>
-					{{/each}}
-				</ul>
-			
-		</div>
+        <ul class="category-list">
+                    {{#each lsChildClass}}
+                        <li style="margin-top: 10px;margin-left: 10px;"><a href="productsList.html" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
+                    {{/each}} 
+                </ul>
+    </script>
+    <!--店铺列表-->
+    <script type="text/template7" id="shopListTpl">
+        {{#each shopsList}}
+      <div class="row" style="background-color:white;margin-top:10px;">
+                                        <div class="col-33" style="cursor:pointer;"><a href="#" style="display:inline-block;height:120px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="shopImg"/></a>
+                                        </div>
+                                        <div class="col-66" style="padding-left: 10px;">
+                                            <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{shop_id}}"><span>{{shop_name}}</span></a></div>
+                                            <div style="margin-top: 10px;"><span>信誉等级</span><span style="color:red">*****</span></div>
+                                            <div style="margin-top: 10px;"><span>电话</span><span>{{phone_number}}</span></div>
+                                            <div style="margin-top: 10px;"><span>营业时间</span><span>周一至周日10点到19点</span></div>
+                                        </div>
+
+                                    </div>
+         {{/each}}
+    </script>
+    <!--购物车列表-->
+    <script type="text/template7" id="cartListTpl">
+        {{#each cartList}}
+        <div class="singleCart">
+       <div class="home_float shopcart_decoration">
+                <div class="shop_chinese">甜蜜蜜店铺</div>
+                <div class="home_more"></div>
+            </div>
+            <div class="hr"></div>
+            <div class="shopcart_auto">
+         
+                    <div class="shopcart_radio">
+                    <input type="checkbox"  name="checkItem" checked="checked" style="margin-top: 60px" class="checkItemChange"/>
+                    </div>
+                <div class="shopcart_img">
+                    <img src="img/phone.jpg" style="margin-top:30px"/>
+                </div>
+                <div class="shopcart_intro">
+                    <ul>
+                        <li><a href="productDetail.html?goods_id={{goods_id}}">商品名称<span>{{name}}</span></a></li>
+                        <li>价格<span>{{price}}</span></li>
+                    </ul>
+                </div>
+                <!--<div class="shopcart_right" style="line-height: 150px">{{price}}</div>-->
+            </div>
+            <div class="shop_manage home_auto">
+                <ul class="quantityOper"> 
+                     <li class="descrement">-</li>
+                     <li class="productQuantity" name="productQuantity">{{count}}</li>
+        <input type="hidden" id="goods_id" name="goods_id" value="{{goods_id}}">
+        <input type="hidden" id="buy_count" name="buy_count" value="{{count}}">
+        <input type="hidden" id="price" name="price" value="{{price}}">
+                     <li class="increment" data-gid="{{goods_id}}">+</li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+         {{/each}}
+    </script>
+    <!--编辑购物车列表-->
+    <script type="text/template7" id="editCarListTpl">
+        {{#each cartList}}
+        <div class="editSingleCarts">
+       <div class="home_float shopcart_decoration">
+                    <div class="shop_chinese">甜蜜蜜店铺</div>
+                    <div class="home_more"></div>
+                </div>
+                <div class="hr"></div>
+        <div class="shopcart_radio">
+                    <label class="label-checkbox item-content col-auto">
+                    <input type="checkbox" name="editCheckItem"  checked="checked" class="singleCheck">
+                    <div class="item-media shopcart_bottom">
+                        <i class="icon icon-form-checkbox"></i>
+                    </div>
+                </label>
+                        <input type="hidden" id="goods_id" name="goods_id" value="{{goods_id}}">
+                        <input type="hidden" id="buy_count" name="buy_count" value="{{count}}">
+                        <input type="hidden" id="price" name="price" value="{{price}}">
+                    </div>
+                    <div class="shopcart_img">
+                        <img src="img/phone.jpg" style="margin-top: 20px" />
+                    </div>
+                    <div class="shopcart_intro">
+                        <ul>
+                            <li><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="shopcart_right">
+                        <div style="margin-top: 55px; float: left; width: 100%">价格<span>{{price}}</span></div>
+                        <div style="float: left; width: 100%">x{{count}}</div>
+                    </div>
+                </div>
+        </div>
+         {{/each}}
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
@@ -259,7 +347,8 @@
     <script type="text/javascript" src="js/csdgCtrl.js"></script>
     <script type="text/javascript" src="js/classfyCtrl.js"></script>
     <script type="text/javascript" src="js/editClassfyCtrl.js"></script>
-
+    <script type="text/javascript" src="js/searchCtrl.js"></script>
+    <script type="text/javascript" src="js/shopListCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
 </body>
 </html>

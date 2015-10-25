@@ -29,4 +29,6 @@ var module = {
     "csdg": csdgCtrl,
     "classfy": classfyCtrl,
     "editClassfy": editClassfyCtrl,
+    "search": searchCtrl,
+    "shopList": shopListCtrl,
 }

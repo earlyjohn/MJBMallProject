@@ -37,5 +37,10 @@
             value="com.mjbmall.goods.dao.GoodsMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean> 
-    
+    <bean id="ordersMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.mjbmall.orders.dao.OrdersMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
 </beans>
