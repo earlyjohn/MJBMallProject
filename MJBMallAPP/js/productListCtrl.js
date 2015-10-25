@@ -1,7 +1,8 @@
 ﻿var productListCtrl = {
     init: function (e) {
-        var nav="<div class='navbar-inner home_float'><div class='left'><i class='iconBack'></i></div><div class='center home_back'>&nbsp;&nbsp;&nbsp;商品<i class='icon home_chose'></i>"
-				+"<input id='u465_input' type='text' class='text_sketch'/><i class='icon home_search' id='search'></i></div><div class='right' ></div></div>"
+        var nav = "<div class='navbar-inner home_float'><div class='left'><i class='iconBack'></i></div><div class='center home_back'>" + "<span class='selectSearch' style='float:left;padding-left:5%;width:15%'>商品</span><i class='icon home_chose'></i>"
+            + "<input id='u465_input' type='text'  class='text_sketch' style='width:68%'/> <span style='float:right;padding-right:5%;width:15%'><i class='icon home_search' id='search'></i></span>"
+            + "</div><div class='right' ></div></div>"
 
 
 

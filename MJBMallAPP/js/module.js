@@ -31,4 +31,9 @@ var module = {
     "editClassfy": editClassfyCtrl,
     "search": searchCtrl,
     "shopList": shopListCtrl,
+    "changeinformation": changeinformationCtrl,
+    "message": messageCtrl,
+    "Mycollection": MycollectionCtrl,
+    "recentvisit": recentvisitCtrl,
+    "set": setCtrl
 }

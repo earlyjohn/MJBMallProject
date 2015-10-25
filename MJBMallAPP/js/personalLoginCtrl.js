@@ -14,7 +14,7 @@
             $$.ajax({
                 type: "POST",
                 async: false,
-                url: "http://localhost:8080/MJBMall/login/login?username=" + userName + "&password=" + password + "&callback=",
+                url: "http://localhost:8088/MJBMall/login/login?username=" + userName + "&password=" + password + "&callback=",
                 dataType: "json",
                 success: function (data) {
                     debugger;
@@ -24,9 +24,7 @@
                         myApp.alert("请输入账号或密码", "error")
                     } else {
                         myApp.alert("账号或密码错误", "error")
-                    }
-                    // 渲染模板
-                   
+                    }  
                 },
                 error: function (e) {
                     debugger;

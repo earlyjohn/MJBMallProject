@@ -17,12 +17,6 @@
         // 回退
         $$('.iconBack').on('click', function () {
             mainView.router.back();
-            var html = "<div class='navbar-inner'><div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
-            + "<div class='center home_back'>" + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='selectSearch'>商品</span><i class='icon home_chose'></i>"
-            + "<input id='u465_input' type='text'  class='text_sketch' /> <i class='icon home_search' id='search'></i>"
-            + "</div><div class='right'><i class='icon home_message'></i></div></div>";
-            $$('#homeNavbar').html(html);
-            $$('#homeNavbar').show();
         });
         // 搜素
         $$('.home_search').on('click', function () {

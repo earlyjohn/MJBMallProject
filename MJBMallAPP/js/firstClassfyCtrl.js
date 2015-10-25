@@ -1,12 +1,10 @@
 ﻿var firstClassfyCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left' id='firstClassfyBack'><i style='color: #FFFFFF;' class='icon spxq_icon-navbar'></i></div><div class='center'>所有分类"
+        var html = "<div class='navbar-inner'><div class='left' id='firstClassfyBack'><i style='color: #FFFFFF;' class='icon'></i></div><div class='center'>所有分类"
                 +"</div><div class='right'><a class='link link-u' style='color: #FFFFFF;'></a></div></div>";
         $$('#firstClassfyNavbar').html(html);
-        $$('.spxq_icon-navbar').on('click', function () {
-            mainView.router.back();
-        });
+        
         // 商品一级分类
         $$.ajax({
             type: "GET",
