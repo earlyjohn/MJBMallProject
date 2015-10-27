@@ -1,6 +1,7 @@
 ﻿var uzu = {};
 uzu.rest = {};
-uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
+//uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
+uzu.rest.serviceUrl = "http://localhost:8088/MJBMall";
 uzu.rest.getUrl = function (url, params) {
     var serviceUrl = uzu.rest.serviceUrl;
     if (!url) {
@@ -25,7 +26,6 @@ uzu.rest.getJSON = function (url, params, callback) {
         params = null;
     }
     var url = this.getUrl(url, params);
-    debugger;
     $$.ajax({
         method: "GET",
         async: false,
@@ -36,7 +36,7 @@ uzu.rest.getJSON = function (url, params, callback) {
             callback(data);
         },
         error: function (e) {
-            alert("error");
+            alert("后台服务无法访问！！！");
         }
     });
 };

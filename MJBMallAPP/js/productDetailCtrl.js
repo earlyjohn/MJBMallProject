@@ -10,24 +10,14 @@
         $$("#productDetailNav").show();
         var query = $$.parseUrlQuery(e.detail.page.url);
         var goods_id = query.goods_id;
-        $$.ajax({
-            type: "GET",
-            async: false,
-            url: "http://115.28.204.151:8088/MJBMall/goods/findGoods?goods_id=" + goods_id + "&callback=",
-            dataType: "json",
-            success: function (data) {
-                debugger;
-                // 渲染模板
-                var context = {};
-                context.productDetail = data.goodsList;
-                var productDetailTemplate = $$('#productDetailTpl').html();
-                var compiledproductDetailTemplate = Template7.compile(productDetailTemplate);
-                var html = compiledproductDetailTemplate(context);
-                $$('#productDetail').html(html);
-            },
-            error: function (e) {
-
-            }
+        uzu.rest.getJSON("goods/findGoods", { 'goods_id': goods_id }, function (data) {
+            // 渲染模板
+            var context = {};
+            context.productDetail = data.goodsList;
+            var productDetailTemplate = $$('#productDetailTpl').html();
+            var compiledproductDetailTemplate = Template7.compile(productDetailTemplate);
+            var html = compiledproductDetailTemplate(context);
+            $$('#productDetail').html(html);
         });
         // 回退
         $$('.goBack').on('click', function () {
@@ -36,22 +26,12 @@
             mainView.router.back();
         });
         // 加入购物车
+        
         $$('.spxq_jrgwc').on('click', function () {
-            $$.ajax({
-                type: "GET",
-                async: false,
-                url: "http://115.28.204.151:8088/MJBMall/orders/addCarts?user_id=1&goods_id=" + goods_id + "&callback=",
-                dataType: "json",
-                success: function (incrementData) {
-                    $$("#homeToolbar").hide();
-                    mainView.router.loadPage("shoppingCart.html");
-                },
-                error: function (incrementErr) {
-                    debugger;
-                }
+            uzu.rest.getJSON("orders/addCarts", { 'user_id': 1, 'goods_id': goods_id }, function (incrementData) {
+                $$("#homeToolbar").hide();
+                mainView.router.loadPage("shoppingCart.html");
             });
-
-            
         });
         // 立即购买
         $$('.spxq_ljgm').on('click', function () {

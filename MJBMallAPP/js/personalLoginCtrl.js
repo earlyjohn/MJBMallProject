@@ -11,7 +11,6 @@
                 return;
             }
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
-                debugger;
                 if (result.status == "0") {
                     mainView.router.loadPage("home.html");
                 } else if (result.status == "3") {

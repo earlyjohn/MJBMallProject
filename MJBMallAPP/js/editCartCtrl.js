@@ -8,39 +8,31 @@
             mainView.router.back();
         });
         // 取得购物车列表
-        $$.ajax({
-            type: "GET",
-            async: false,
-            url: "http://115.28.204.151:8088/MJBMall/orders/findCarts?user_id=1&callback=",
-            dataType: "json",
-            success: function (data) {
-                // 渲染模板
-                var context = {};
-                context.cartList = data.result.cartsList;
-                debugger;
-                var editCartsListTemplate = $$('#editCarListTpl').html();
-                var compiledEditCartsListTemplate = Template7.compile(editCartsListTemplate);
-                var html = compiledEditCartsListTemplate(context);
-                $$('#editCartList').html(html);
-                // 商品选择框
-                $$(".singleCheck").on('click', function (e) {
-                    // 选中chekbox
-                    var checkItemContainer = $$(e.target.closest('div.home_auto')).find('input[type=checkbox][name=editCheckItem]:checked');
-                    if (checkItemContainer.length != data.result.cartsList.length) {
-                        
-                        $$("[name='checkAll']").prop("checked", '');
-                    } else {
-                        // 全选
-                        $$("[name='checkAll']").prop("checked", 'true');
-                    }
+        uzu.rest.getJSON("orders/findCarts", { 'user_id': 1, }, function (data) {
+            // 渲染模板
+            var context = {};
+            context.cartList = data.result.cartsList;
+            debugger;
+            var editCartsListTemplate = $$('#editCarListTpl').html();
+            var compiledEditCartsListTemplate = Template7.compile(editCartsListTemplate);
+            var html = compiledEditCartsListTemplate(context);
+            $$('#editCartList').html(html);
+            // 商品选择框
+            $$(".singleCheck").on('click', function (e) {
+                // 选中chekbox
+                var checkItemContainer = $$(e.target.closest('div.home_auto')).find('input[type=checkbox][name=editCheckItem]:checked');
+                if (checkItemContainer.length != data.result.cartsList.length) {
+
+                    $$("[name='checkAll']").prop("checked", '');
+                } else {
+                    // 全选
+                    $$("[name='checkAll']").prop("checked", 'true');
+                }
 
 
-                });
-            },
-            error: function (incrementErr) {
-                debugger;
-            }
+            });
         });
+        
         // 删除商品
         $$("#deleteCarts").on('click', function (e) {
             // 获得选中的复选框
@@ -54,24 +46,12 @@
            
             var itemsArray=new Array();
             selectChks.each(function () {
-                debugger;
                 var goodsIdContainer = $(this).closest('div.editSingleCarts').find('input');
                 //var goodsIdContainer = $$(e.target.closest('div.editCartList')).find('input[type=hidden]');
                 itemsArray.push($$(goodsIdContainer[1]).val());
-                debugger;
             });
-            $$.ajax({
-                type: "GET",
-                async: false,
-                url: "http://115.28.204.151:8088/MJBMall/orders/delCarts?user_id=1&goods_id=" + itemsArray[0] + "&callback=",
-                dataType: "json",
-                success: function (delCartsDate) {
-                    debugger;
-                    mainView.router.loadPage("shoppingCart.html");
-                },
-                error: function (delCartsErr) {
-
-                }
+            uzu.rest.getJSON("orders/delCarts", { 'user_id': 1, 'goods_id': itemsArray[0] }, function (result) {
+                mainView.router.loadPage("shoppingCart.html");
             });
            
         });
