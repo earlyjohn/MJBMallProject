@@ -45,7 +45,7 @@ public class OrdersController {
 	}
 	public String addCarts(){
 		try{
-		    ordersMapper.addCarts(user_id, goods_id,1,1);
+		    ordersMapper.addCarts(user_id, goods_id);
 			
 		}catch(Exception e){
 			System.out.println(e);

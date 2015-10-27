@@ -9,31 +9,54 @@
 		 	user_id=#{0}
 		</where>
 	</select>
-	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
-	   select cat_id,parent_id,is_leaf,cat_name from sdb_b2c_goods_cat
+	<select id="getCart"  resultType="com.mjbmall.orders.entity.Carts">
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
         <where>
-		 	1=1
-			<if test="parent_id != null">
-		 	   and parent_id=#{parent_id}
-		    </if>
+		 	a.goods_id=b.goods_id and b.user_id=#{0}
+	        and store &gt; 0 and a.shop_id=c.shop_id
 		</where>
 	</select>
-	<select id="getCollections"  resultType="com.mjbmall.goods.entity.Goods">
-	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_collection c
-        <where>
-		 	a.goods_id=c.goods_id and a.shop_id=b.shop_id 
-		 	
-		 	 and c.user_id=#{0}
-		   
-		</where>
-	</select>
-	<insert id="addCollections" parameterType="int">  
-       insert into m_collection (user_id,goods_id) 
-       values(#{param1},#{param2}
+	<insert id="addCarts" parameterType="int">  
+       insert into m_cart (user_id,goods_id,addTime,count,shop_id) 
+       values(#{param1},#{param2},NOW(),#{param3},#{param4}
        	)  
     </insert> 
-    <delete id="delCollections" parameterType="int">
-		delete from m_collection
+    <delete id="delCarts" parameterType="int">
+		delete from m_cart
 		where user_id=#{0} and goods_id=#{1}
 	</delete>
+	<update id="updateCarts" parameterType="int">
+		update m_cart
+		set count=#{0}
+		where user_id=#{1} and goods_id=#{2}
+	</update>
+	<update id="goreckoning" parameterType="com.mjbmall.orders.entity.Reckoning">
+		update m_cart
+		set reckoning=#{reckoning}
+		where user_id=#{user_id} 
+		<if test='goodsId != null &amp;&amp; goodsId.length!=0'>
+			 and goods_id in
+			 <foreach item="goodsId" index="index" collection="goodsId" open="(" separator="," close=")">  
+            #{goodsId}  
+        </foreach>
+		 </if>
+		
+		<!--<if test='good_id != null &amp;&amp; good_id!=0'>
+			 and goods_id=#{good_id}
+		</if>
+		
+	--></update>
+	<select id="getreckoning"  resultType="com.mjbmall.orders.entity.Carts" parameterType="int">
+	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
+        <where>
+		 	a.goods_id=b.goods_id and b.user_id=#{0}
+	        and store &gt; 0 and a.shop_id=c.shop_id and reckoning=1
+		</where>
+	</select>
+	<!--<select id="getreckoning" parameterType="int">
+	   select * from 
+	
+	</select>
+	-->
+	
 </mapper>

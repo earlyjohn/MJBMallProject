@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.mjbmall.members.dao.MembersMapper">
+    <select id="getMembersList"  resultType="com.mjbmall.members.entity.Members" parameterType="com.mjbmall.members.entity.Members">
+	   select member_id,name,mobile,area,email,reg_ip,regtime,member_lv_id from sdb_b2c_members 
+        <where>
+			<if test="member_id != null and member_id != 0">
+		 	member_id=#{member_id}
+		    </if>
+		     <if test='name != null &amp;&amp; !name.equals("")'>
+			 and name like CONCAT(CONCAT('%', #{name}),'%')
+		    </if>
+		</where>
+	</select>
+	<select id="getCommentsList" resultType="com.mjbmall.members.entity.Comments" parameterType="com.mjbmall.members.entity.Comments">
+		select comment_id,for_comment_id,type_id,product_id,order_id,object_type,author_id,author,contact,mem_read_status,adm_read_status,time,lastreply,to_id,to_uname,title,comment,display from sdb_b2c_member_comments
+		<where>
+		 	author_id=#{author_id}
+		</where> 
+	</select>
+	<select id="getMessagesList" resultType="com.mjbmall.members.entity.Messages" parameterType="com.mjbmall.members.entity.Messages">
+		select msg_id,for_id,from_id,from_uname,from_type,to_id,to_uname,subject,content,create_time,to_time,has_read from sdb_b2c_member_msg
+		<where>
+			<if test="from_id != null and from_id != 0">
+		 	from_id=#{from_id}
+		    </if>
+		</where>
+	</select>
+</mapper>

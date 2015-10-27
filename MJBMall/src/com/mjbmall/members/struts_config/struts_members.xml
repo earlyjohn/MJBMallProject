@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>	
+ 	<package name="Members"  namespace="/members" extends="json-default">
+		<action name="findMembers" class="com.mjbmall.members.controller.MembersController" method="findMembers">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findComments" class="com.mjbmall.members.controller.CommentsController" method="findComments">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findMessages" class="com.mjbmall.members.controller.MessagesController" method="findMessages">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+	</package>
+</struts>
