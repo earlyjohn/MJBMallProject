@@ -79,7 +79,6 @@
                 </ul>
             </div>
         </div>
-
     </div>
     <div class="popup popup-edit-addr">
 
@@ -312,6 +311,40 @@
                 </div>
         </div>
          {{/each}}
+    </script>
+    <!-- 商品收藏列表-->
+    <script type="text/template7" id="productCollectionTpl">
+        {{#each productsCollectionList}}
+        <div class="row" style="background-color:white;margin-top:10px;">
+            <div class="col-33" style="cursor:pointer;">
+                <a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg" /></a>
+            </div>
+            <div class="col-66" style="padding-left: 10px;">
+                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
+                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
+                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
+            </div>
+
+        </div>
+        {{/each}}
+    </script>
+    <!-- 店铺收藏列表-->
+    <script type="text/template7" id="shopCollectionTpl">
+        {{#each productsList}}
+        <div class="row" style="background-color:white;margin-top:10px;">
+            <div class="col-33" style="cursor:pointer;">
+                <a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg" /></a>
+            </div>
+            <div class="col-66" style="padding-left: 10px;">
+                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
+                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
+                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
+            </div>
+
+        </div>
+        {{/each}}
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>

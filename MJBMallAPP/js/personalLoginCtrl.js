@@ -11,7 +11,11 @@
                 return;
             }
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
+                debugger;
                 if (result.status == "0") {
+                    // 将用户id进行缓存
+                    window.localStorage.setItem("userId", result.id);
+                    //var userId = window.localStorage.getItem("userId");
                     mainView.router.loadPage("home.html");
                 } else if (result.status == "3") {
                     myApp.alert("请输入账号或密码", "error")

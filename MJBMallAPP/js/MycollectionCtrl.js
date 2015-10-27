@@ -6,6 +6,24 @@
         $$('.iconBack').on('click', function () {
             mainView.router.back();
         });
+        var user_id = window.localStorage.getItem("userId");
+        debugger;
+        uzu.rest.getJSON("goods/findGoods", function (data) {
+            debugger;
+            if (!data.goodsList)
+                return;
+            // 渲染模板
+            var context = {};
+            context.productsCollectionList = data.goodsList;
+            for (var i = 0; i < context.productsCollectionList.length; i++) {
+                context.productsCollectionList[i].big_pic = "img/home/fc_6.jpg";
+            }
+            var productsCollectionTemplate = $$('#productCollectionTpl').html();
+            var compiledProductsCollectionTemplate = Template7.compile(productsCollectionTemplate);
+            var html = compiledProductsCollectionTemplate(context);
+            $$('#firstTabCollectionList').html(html);
+            $$('#secondTabClollectionList').html(html);
+        });
     }
 };
 
