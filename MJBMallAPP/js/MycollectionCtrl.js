@@ -8,13 +8,13 @@
         });
         var user_id = window.localStorage.getItem("userId");
         debugger;
-        uzu.rest.getJSON("goods/findGoods", function (data) {
+        uzu.rest.getJSON("collections/findCollections", { 'user_id': user_id }, function (data) {
             debugger;
-            if (!data.goodsList)
+            if (!data.result.goodsList)
                 return;
             // 渲染模板
             var context = {};
-            context.productsCollectionList = data.goodsList;
+            context.productsCollectionList = data.result.goodsList;
             for (var i = 0; i < context.productsCollectionList.length; i++) {
                 context.productsCollectionList[i].big_pic = "img/home/fc_6.jpg";
             }
