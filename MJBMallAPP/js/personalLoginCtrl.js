@@ -10,24 +10,14 @@
                 myApp.alert("请输入账号或密码", "error")
                 return;
             }
-           
-            $$.ajax({
-                type: "POST",
-                async: false,
-                url: "http://115.28.204.151:8088/MJBMall/login/login?username=" + userName + "&password=" + password + "&callback=",
-                dataType: "json",
-                success: function (data) {
-                    debugger;
-                    if (data.status == "0") {
-                        mainView.router.loadPage("home.html");
-                    } else if (data.status == "3") {
-                        myApp.alert("请输入账号或密码", "error")
-                    } else {
-                        myApp.alert("账号或密码错误", "error")
-                    }  
-                },
-                error: function (e) {
-                    debugger;
+            uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
+                debugger;
+                if (result.status == "0") {
+                    mainView.router.loadPage("home.html");
+                } else if (result.status == "3") {
+                    myApp.alert("请输入账号或密码", "error")
+                } else {
+                    myApp.alert("账号或密码错误", "error")
                 }
             });
         });
