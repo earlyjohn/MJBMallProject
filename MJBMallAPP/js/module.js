@@ -1,5 +1,6 @@
 ﻿
 var module = {
+    "module":module,
     "ProductDetail": productDetailCtrl,
     "ProductPageController": productListCtrl,
     "loginSelectBox": loginSelectBoxCtrl,
