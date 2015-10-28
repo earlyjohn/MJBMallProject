@@ -10,7 +10,11 @@ import com.mjbmall.orders.entity.Carts;
 import com.mjbmall.orders.entity.Reckoning;
 import com.opensymphony.xwork2.Action;
 
-
+/**
+ * 
+ * @author ZZ
+ *
+ */
 public class OrdersController {
     private OrdersMapper ordersMapper;
 	private Map<String,Object> result=new HashMap<String,Object>();
@@ -18,11 +22,19 @@ public class OrdersController {
 	private int goods_id=0;
 	private int count=0;
 	private String recGoodsId="";
+	private String name="";
+	private String phone="";
+	private String address="";
+	private int addressId=0;
+	private String goods_ids="";
 	
 	public String findAddress(){
 		try{
 			result.clear();
-			List<Address> list = ordersMapper.getAdrressList(user_id);
+			Address add = new Address();
+			add.setUser_id(user_id);
+			add.setAddressId(addressId);
+			List<Address> list = ordersMapper.getAdrressList(add);
 			result.put("addressList", list);
 			
 		}catch(Exception e){
@@ -55,10 +67,19 @@ public class OrdersController {
 	}
 	public String delCarts(){
 		try{
-		    ordersMapper.delCarts(user_id, goods_id);
-			
+			String[] str=goods_ids.split(",");
+			int[] goodsIds = new int[str.length] ;
+			for(int i=0;i<str.length;i++){
+				goodsIds[i]=Integer.parseInt(str[i]);
+			}
+			Carts c = new Carts();
+			c.setGoodsIds(goodsIds);
+			c.setUser_id(user_id);
+		    ordersMapper.delCarts(c);
+		    result.put("msg","success");
 		}catch(Exception e){
 			System.out.println(e);
+			result.put("msg","fail");
 		}
 		
 		return Action.SUCCESS;
@@ -109,6 +130,99 @@ public class OrdersController {
 		
 		return Action.SUCCESS;
 	}
+	public String addAddress(){
+		try{
+			result.clear();
+			Address add = new Address();
+			name= new String(name.getBytes("iso8859-1"),"utf-8");
+			address= new String(address.getBytes("iso8859-1"),"utf-8");
+			if(user_id!=0&&!name.equals("")&&!phone.equals("")&&!address.equals("")){
+				add.setUser_id(user_id);
+				add.setName(name);
+				add.setPhone(phone);
+				add.setAddress(address);
+				ordersMapper.addAddress(add);
+				System.out.println(name+" "+address);
+				result.put("msg","success");
+			}else{
+				result.put("msg","fail");
+			}
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+			result.put("msg","fail");
+		}
+		
+		return Action.SUCCESS;
+	}
+	public String updateAddress(){
+		try{
+			result.clear();
+			Address add = new Address();
+			name= new String(name.getBytes("iso8859-1"),"utf-8");
+			address= new String(address.getBytes("iso8859-1"),"utf-8");
+			if(!name.equals("")&&!phone.equals("")&&!address.equals("")&&addressId!=0){
+				add.setName(name);
+				add.setPhone(phone);
+				add.setAddress(address);
+				add.setAddressId(addressId);
+				ordersMapper.updateAddress(add);
+				result.put("msg","success");
+			}else{
+				result.put("msg","fail");
+			}
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+			result.put("msg","fail");
+		}
+		
+		return Action.SUCCESS;
+	}
+	public String delAddress(){
+		try{
+			result.clear();
+			
+			if(addressId!=0){
+				ordersMapper.delAddress(addressId);
+				result.put("msg","success");
+			}else{
+				result.put("msg","fail");
+			}
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+			result.put("msg","fail");
+		}
+		
+		return Action.SUCCESS;
+	}
+	public String setAddressStatus(){
+		try{
+			result.clear();
+			
+			Address add = new Address();
+				add.setAddressId(0);
+				add.setUser_id(user_id);
+				add.setStatus(0);
+				ordersMapper.setAddressStatus(add);
+				add.setAddressId(addressId);
+				add.setStatus(1);
+				ordersMapper.setAddressStatus(add);
+				result.put("msg","success");
+			
+			
+		}catch(Exception e){
+			System.out.println(e);
+			result.put("msg","fail");
+		}
+		
+		return Action.SUCCESS;
+	}
+	
 	public void setOrdersMapper(OrdersMapper ordersMapper) {
 		this.ordersMapper = ordersMapper;
 	}
@@ -126,5 +240,32 @@ public class OrdersController {
 	}
 	public void setRecGoodsId(String recGoodsId) {
 		this.recGoodsId = recGoodsId;
+	}
+	/**
+	 * @param name 要设置的 name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @param phone 要设置的 phone
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	/**
+	 * @param address 要设置的 address
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	/**
+	 * @param addressId 要设置的 addressId
+	 */
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+	public void setGoods_ids(String goods_ids) {
+		this.goods_ids = goods_ids;
 	}
 }

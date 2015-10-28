@@ -3,6 +3,7 @@ package com.mjbmall.orders.entity;
 import java.math.BigDecimal;
 
 public class Carts {
+	private int user_id;
 	private int goods_id;
 	private String name;
 	private BigDecimal price;
@@ -11,6 +12,7 @@ public class Carts {
 	private String addTime;
 	private String shop_id;
 	private String shop_name;
+	private int[] goodsIds;
 	//private int reckoning;
 	public String getShop_id() {
 		return shop_id;
@@ -66,4 +68,16 @@ public class Carts {
 	public int getReckoning() {
 		return reckoning;
 	}*/
+	public int[] getGoodsIds() {
+		return goodsIds;
+	}
+	public void setGoodsIds(int[] goodsIds) {
+		this.goodsIds = goodsIds;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 }
