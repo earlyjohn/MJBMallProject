@@ -13,7 +13,6 @@
             url: query,
             dataType: "json",
             success: function (data) {
-                debugger;
                 if (!data.goodsList)
                     return;
                 // 渲染模板

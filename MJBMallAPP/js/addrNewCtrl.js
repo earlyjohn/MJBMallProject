@@ -5,7 +5,6 @@
         var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>新建地址"
                 + "</div><div class='right'></div></div>";
         $$('#addrNewNavbar').html(html);
-        debugger;
         // 回退
         $$('.icon-backwhite').on('click', function () {
             mainView.router.back();

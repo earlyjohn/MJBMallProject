@@ -12,7 +12,6 @@
             // 渲染模板
             var context = {};
             context.cartList = data.result.cartsList;
-            debugger;
             var editCartsListTemplate = $$('#editCarListTpl').html();
             var compiledEditCartsListTemplate = Template7.compile(editCartsListTemplate);
             var html = compiledEditCartsListTemplate(context);
@@ -32,7 +31,6 @@
 
             });
         });
-        
         // 删除商品
         $$("#deleteCarts").on('click', function (e) {
             // 获得选中的复选框
@@ -46,11 +44,11 @@
            
             var itemsArray=new Array();
             selectChks.each(function () {
-                var goodsIdContainer = $(this).closest('div.editSingleCarts').find('input');
-                //var goodsIdContainer = $$(e.target.closest('div.editCartList')).find('input[type=hidden]');
+                var goodsIdContainer = $$(this).parents('.editSingleCarts').find('input');
                 itemsArray.push($$(goodsIdContainer[1]).val());
             });
-            uzu.rest.getJSON("orders/delCarts", { 'user_id': 1, 'goods_id': itemsArray[0] }, function (result) {
+            var goods_ids = itemsArray.join(',');
+            uzu.rest.getJSON("orders/delCarts", { 'user_id': 1, 'goods_ids': goods_ids }, function (result) {
                 mainView.router.loadPage("shoppingCart.html");
             });
            

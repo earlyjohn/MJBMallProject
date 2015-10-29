@@ -9,7 +9,8 @@
         $$("#homeToolbar").show();
         $$("#productListNav").show();
         $$("#productDetailNav").hide();
-        uzu.rest.getJSON("orders/findCarts", { 'user_id': 1 }, function (data) {
+        var user_id = window.localStorage.getItem("userId");
+        uzu.rest.getJSON("orders/findCarts", { 'user_id': user_id }, function (data) {
             // 渲染模板
             var context = {};
             context.cartList = data.result.cartsList;
@@ -25,7 +26,7 @@
                 var container = $$(e.target.closest('ul.quantityOper')).find('li');
                 var goodsQuantity = $$(container[1]).text();
                 goodsQuantity = parseInt(goodsQuantity) + 1;
-                uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': 1, 'oods_id': goods_id }, function (incrementResult) {
+                uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (incrementResult) {
                     $$(container[1]).text(goodsQuantity);
                     // 计算所有选中商品总价格
                     $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
@@ -41,7 +42,7 @@
                 var goodsQuantity = parseInt($$(container[1]).text());
                 goodsQuantity--;
                 if (goodsQuantity > 0) {
-                    uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': 1, 'goods_id': goods_id }, function (decrementResult) {
+                    uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (decrementResult) {
                         $$(container[1]).text(goodsQuantity);
                         $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
                     });
@@ -57,24 +58,23 @@
             // 结算
             $$('#order').on('click', function () {
                 // 获得选中商品的信息
-                var selectChks = $("input[type=checkbox][name=checkItem]:checked");
+                var selectChks = $$("input[type=checkbox][name=checkItem]:checked");
                 if (!selectChks.length) {
                     alert("请选择要结算的商品");
                     return;
                 }
                 selectChks.each(function () {
-                    var container = $(this).closest('div.singleCart').find('input');
+                    var container = $$(this).parent().find('input[name=price]');
                 });
             }, this);
         });
-        
         var calcTotalPrice = function () {
             var allProductPrice = 0.00;
-            var selectChkss = $("input[type=checkbox][name=checkItem]:checked");
+            var selectChkss = $$("input[type=checkbox][name=checkItem]:checked");
             selectChkss.each(function () {
-                var container = $(this).closest('div.singleCart').find('input');
-                var productQuantityContainer = $(this).closest('div.singleCart').find('li[name=productQuantity]');
-                var singleCheckedProductPrice = parseInt($$(productQuantityContainer[0]).text()) * parseFloat($$(container[3]).val());
+                var container = $$(this).parent().find('input[name=price]');
+                var productQuantityContainer = $$(this).parents('.singleCart').find('li[name=productQuantity]');
+                var singleCheckedProductPrice = parseInt($$(productQuantityContainer[0]).text()) * parseFloat($$(container[0]).val());
                 // 将选中单个商品总价格累加
                 allProductPrice += parseFloat(singleCheckedProductPrice);
                

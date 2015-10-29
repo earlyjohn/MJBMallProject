@@ -1,6 +1,5 @@
 ﻿var searchCtrl = {
     init: function (e) {
-        debugger;
         // 顶部导航
         var html = "<div class='navbar-inner home_float'><div class='left'><i class='iconBack'></i></div>"
              + "<div class='center home_back'>" + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='selectSearch1'>商品</span>"

@@ -244,9 +244,11 @@
             </div>
             <div class="hr"></div>
             <div class="shopcart_auto">
-         
                     <div class="shopcart_radio">
                     <input type="checkbox"  name="checkItem" checked="checked" style="margin-top: 60px" class="checkItemChange"/>
+                        <input type="hidden" id="goods_id" name="goods_id" value="{{goods_id}}">
+                        <input type="hidden" id="buy_count" name="buy_count" value="{{count}}">
+                        <input type="hidden" id="price" name="price" value="{{price}}">
                     </div>
                 <div class="shopcart_img">
                     <img src="img/phone.jpg" style="margin-top:30px"/>
@@ -257,18 +259,12 @@
                         <li>价格<span>{{price}}</span></li>
                     </ul>
                 </div>
-                <!--<div class="shopcart_right" style="line-height: 150px">{{price}}</div>-->
             </div>
             <div class="shop_manage home_auto">
                 <ul class="quantityOper"> 
                      <li class="descrement">-</li>
                      <li class="productQuantity" name="productQuantity">{{count}}</li>
-        <input type="hidden" id="goods_id" name="goods_id" value="{{goods_id}}">
-        <input type="hidden" id="buy_count" name="buy_count" value="{{count}}">
-        <input type="hidden" id="price" name="price" value="{{price}}">
                      <li class="increment" data-gid="{{goods_id}}">+</li>
-                    
-                    
                 </ul>
             </div>
         </div>
@@ -350,7 +346,7 @@
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/uzu.js"></script>
+    <script type="text/javascript" src="js/js/uzu.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/indexPageController.js"></script>
     <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>

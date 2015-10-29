@@ -13,7 +13,6 @@
             name = searchContent.name;
         }
         uzu.rest.getJSON(query, { 'name': name }, function (data) {
-            debugger;
             if (!data.goodsList)
                 return;
             // 渲染模板

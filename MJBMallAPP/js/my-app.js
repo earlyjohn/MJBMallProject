@@ -19,7 +19,6 @@ var mainView = myApp.addView('.view-main', {
 // Callbacks to run specific code for specific pages, for example for About page:
 
 myApp.preprocess = function (content, url, next) {
-    debugger;
 };
 $$('#personalLogin').on('click', function () {
     window.location.href = "home.html";

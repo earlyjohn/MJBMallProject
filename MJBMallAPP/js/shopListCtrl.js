@@ -5,7 +5,6 @@
         $$("#shopListNavbar").html(nav + "<div class='swiper-container swiper-1 home_float' style='width: 100%; margin-top: 40px' id='productLunbo'>"
             + $$("#productLunbo").html() + "</div><div class='subnavbar home_float' style='width: 100%; margin-top: 120px' id='productsListSubnavbar'>" + $$("#productsListSubnavbar").html() + "</div>");
         var searchContent = $$.parseUrlQuery(e.detail.page.url) || [];
-        debugger;
         var query = "http://115.28.204.151:8088/MJBMall/goods/findShops?callback=";
 
         if (searchContent) {
@@ -17,7 +16,6 @@
                 
                 query = "http://115.28.204.151:8088/MJBMall/goods/findShops?shop_name=" + shop_name + "&callback=";
             }
-            debugger;
         }
         $$.ajax({
             type: "GET",
@@ -25,7 +23,6 @@
             url: query,
             dataType: "json",
             success: function (data) {
-                debugger;
                 if (!data.shopsList)
                     return;
                 // 渲染模板
@@ -34,7 +31,6 @@
                 for (var i = 0; i < context.shopsList.length; i++) {
                     context.shopsList[i].big_pic = "img/demo/productlist.jpg";
                 }
-                debugger;
                 var productsTemplate = $$('#shopListTpl').html();
                 var compiledProductsTemplate = Template7.compile(productsTemplate);
                 var html = compiledProductsTemplate(context);

@@ -1,6 +1,5 @@
 ﻿var personalCenterCtrl = {
     init: function (e) {
-        debugger;
         // 顶部导航
         var html = '<div class="navbar-inner home_float"><div class="left"><i></i></div><div class="center">个人中心</div><div class="right"></div></div>';
         $$('#personalCenterNavbar').html(html);

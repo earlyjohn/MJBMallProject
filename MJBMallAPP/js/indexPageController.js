@@ -11,7 +11,6 @@ window.mainView = myApp.addView('.view-main', {
 });
 mainView.router.refreshPage();
 $$(document).on('pageInit', function (e) {
-    debugger;
     var page = e.detail.page;
     module[page.name].init(e);
 
