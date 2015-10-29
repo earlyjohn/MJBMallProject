@@ -17,5 +17,6 @@ public interface GoodsMapper {
     public void addCollectionsShop(int user_id,int shop_id);
     public List<Shops> getCollectionsShop(CollectionShop cs);
     public void delCollectionsShop(int user_id,int shop_id);
-
+    public List<Goods> getGoodsSpecList(int type);
+    public List<Shops> getShopsSpecList();
 }

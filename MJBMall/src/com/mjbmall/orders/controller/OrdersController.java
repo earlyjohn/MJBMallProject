@@ -27,7 +27,7 @@ public class OrdersController {
 	private String address="";
 	private int addressId=0;
 	private String goods_ids="";
-	
+	private int shop_id=0;
 	public String findAddress(){
 		try{
 			result.clear();
@@ -57,7 +57,7 @@ public class OrdersController {
 	}
 	public String addCarts(){
 		try{
-		    ordersMapper.addCarts(user_id, goods_id);
+		    ordersMapper.addCarts(user_id, goods_id,1,shop_id);
 			
 		}catch(Exception e){
 			System.out.println(e);
@@ -267,5 +267,8 @@ public class OrdersController {
 	}
 	public void setGoods_ids(String goods_ids) {
 		this.goods_ids = goods_ids;
+	}
+	public void setShop_id(int shop_id) {
+		this.shop_id = shop_id;
 	}
 }

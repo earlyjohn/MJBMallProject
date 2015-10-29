@@ -13,6 +13,7 @@ public class Carts {
 	private String shop_id;
 	private String shop_name;
 	private int[] goodsIds;
+	private int count;
 	//private int reckoning;
 	public String getShop_id() {
 		return shop_id;
@@ -79,5 +80,11 @@ public class Carts {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
 	}
 }
