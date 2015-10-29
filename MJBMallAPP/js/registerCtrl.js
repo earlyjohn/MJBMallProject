@@ -1,12 +1,19 @@
 ﻿var registerCtrl = {
     init: function (e) {
+        var _self = this;
+        window.registerSendFlag = true;
         // 回退
         $$('.topLeftIcon').on('click', function () {
             mainView.router.back();
         });
         // 发送验证吗
         $$('.messageSendBtn').on('click', function () {
-            myApp.alert("调用发送验证码接口");
+            var sendMobileCodeBtn = document.getElementById("registerMessageSend");
+            // 倒计时时间
+            var wait = 60;
+            if (registerSendFlag) {
+                _self.countDown(sendMobileCodeBtn, wait);
+            }
         });
         $$('.registerBtn').on('click', function () {
             var userName = $$("#userName").val();
@@ -39,6 +46,22 @@
             });
            
         });
+    },
+    // 倒计时
+    countDown: function (o, wait) {
+        if (wait == 0) {
+            $$(o).text("发送");
+            window.registerSendFlag = true;
+        } else {
+            window.registerSendFlag = false;
+            $$(o).text("重新发送(" + wait + ")");
+            wait--;
+            setTimeout(function () {
+                registerCtrl.countDown(o, wait)
+            },
+            1000)
+        }
     }
+    
 };
 
