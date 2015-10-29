@@ -7,11 +7,20 @@
             + $$("#productLunbo").html() + "</div><div class='subnavbar home_float' style='width: 100%; margin-top: 120px' id='productsListSubnavbar'>" + $$("#productsListSubnavbar").html() + "</div>");
         var searchContent = $$.parseUrlQuery(e.detail.page.url) || [];
         var query = "goods/findGoods";
+        // 商品名称
         var name = "";
-        if (searchContent.length>0) {
-            // 如果从搜索页面进来加上搜素参数
-            name = searchContent.name;
+        // 分类Id
+        var cat_id=""
+        if (searchContent) {
+           // 从分类界面
+            if (searchContent.type_id === "1") {
+                cat_id = searchContent.cat_id;
+            } else {
+                // 如果从搜索页面进来加上搜素参数
+                name = searchContent.name;
+            }
         }
+        // 获得商品列表
         uzu.rest.getJSON(query, { 'name': name }, function (data) {
             if (!data.goodsList)
                 return;
@@ -28,6 +37,7 @@
             $$('#secondTabProductsList').html(html);
             $$('#threeTabProductsList').html(html);
         });
+        // 轮播
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',
             spaceBetween: 50

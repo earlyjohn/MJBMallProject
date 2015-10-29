@@ -22,6 +22,7 @@
                 link.parent('li').addClass('cur');
                 var id = link.dataset()['id'];
                 uzu.rest.getJSON("goods/findClassify", { 'parent_id': id }, function (datas) {
+                    debugger;
                     // 渲染模板
                     var context1 = {};
                     context1.lsChildClass = datas.classifyList;

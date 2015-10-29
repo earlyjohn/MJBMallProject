@@ -1,7 +1,7 @@
 ﻿var uzu = {};
 uzu.rest = {};
-uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
-//uzu.rest.serviceUrl = "http://localhost:8088/MJBMall";
+//uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
+uzu.rest.serviceUrl = "http://localhost:8088/MJBMall";
 uzu.rest.getUrl = function (url, params) {
     var serviceUrl = uzu.rest.serviceUrl;
     if (!url) {
@@ -40,14 +40,6 @@ uzu.rest.getJSON = function (url, params, callback) {
         }
     });
 };
-//$$.ajax({
-//    url: url,
-//    method: 'POST',
-//    data:JSON.stringify(params),
-//    contentType: 'application/json',
-//    success: function (data) {
-//        callback(data);
-//    },
 uzu.rest.postData = function (url, params, callback) {
     if (!url) return;
     if (arguments.length === 2 && typeof params === 'function') {
@@ -58,11 +50,15 @@ uzu.rest.postData = function (url, params, callback) {
     $$.ajax({
         url: url,
         method: 'POST',
+        async: false,
         data:JSON.stringify(params),
         contentType: 'application/json',
+        dataType: "json",
         success: function (data) {
             callback(data);
         },
-        error: function (xhr, status) { }
+        error: function (e) {
+            alert("后台服务无法访问！！！");
+        }
     });
 };

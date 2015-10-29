@@ -12,6 +12,7 @@
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/css/toast.css">
     <link rel="stylesheet" href="css/loginSelectBox.css">
     <link rel="stylesheet" href="css/pesonalLogin.css">
     <link rel="stylesheet" href="css/productList.css">
@@ -32,6 +33,7 @@
     <link rel="stylesheet" href="css/category.css">
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/personalCenter.css">
+    <link rel="stylesheet" href="css/firstClassfy.css">
 </head>
 
 <body>
@@ -212,9 +214,9 @@
                 </ul>
     </script>
     <script type="text/template7" id="categoryTemplate">
-        <ul class="category-list">
+        <ul class="category-list" style="background-color: white;">
                     {{#each lsChildClass}}
-                        <li style="margin-top: 10px;margin-left: 10px;"><a href="productsList.html" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
+                        <li class="secondClassList" style=" margin-top: 10px; margin-left: 10px; border-bottom: 1px solid #e0e0e0; "><a href="productsList.html?cat_id={{cat_id}}&type_id=1" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
                     {{/each}} 
                 </ul>
     </script>
@@ -347,6 +349,7 @@
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/js/uzu.js"></script>
+    <script type="text/javascript" src="js/js/toast.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/indexPageController.js"></script>
     <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>

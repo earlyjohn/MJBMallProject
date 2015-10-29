@@ -7,7 +7,7 @@
             var userName = $$("#username").val();
             var password = $$("#password").val();
             if (!userName || !password) {
-                myApp.alert("请输入账号或密码", "error")
+                myApp.toast('请输入账号或密码', 'error').show(true);
                 return;
             }
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
@@ -17,9 +17,9 @@
                     //var userId = window.localStorage.getItem("userId");
                     mainView.router.loadPage("home.html");
                 } else if (result.status == "3") {
-                    myApp.alert("请输入账号或密码", "error")
+                    myApp.toast('请输入账号或密码', 'error').show(true);
                 } else {
-                    myApp.alert("账号或密码错误", "error")
+                    myApp.toast('账号或密码错误', 'error').show(true);
                 }
             });
         });
