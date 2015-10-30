@@ -173,7 +173,7 @@
     </div>
     <script type="text/template7" id="recycleImgsTpl">
         {{#each recycleImgList}}
-     <div class="swiper-slide" style="height: 120px; width: 100%"><img src="{{imgUrl}}" style="height: 100%; width: 100%;" /></div>                
+     <div class="swiper-slide" style="height: 160px; width: 100%"><img src="{{imgUrl}}" style="height: 100%; width: 100%;" /></div>
          {{/each}}
     </script>
     <!--行业分类-->
@@ -225,7 +225,7 @@
     <script type="text/template7" id="categoryTemplate">
         <ul class="category-list" style="background-color: white;">
                     {{#each lsChildClass}}
-                        <li class="secondClassList" style=" margin-top: 10px; margin-left: 10px; border-bottom: 1px solid #e0e0e0; "><a href="productsList.html?cat_id={{cat_id}}&type_id=1" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
+                        <li class="secondClassList" style="   margin-top: 10px; margin-left: 10px;line-height: 50px;height: 50px;padding-left: 20px; border-bottom: 1px solid #e0e0e0; "><a href="productsList.html?cat_id={{cat_id}}&type_id=1" class="item-link" data-id="{{cat_id}}">{{cat_name}}</a></li>
                     {{/each}} 
                 </ul>
     </script>
@@ -257,9 +257,9 @@
             <div class="shopcart_auto">
                     <div class="shopcart_radio">
                     <input type="checkbox"  name="checkItem" checked="checked" style="margin-top: 60px" class="checkItemChange"/>
-                        <input type="hidden" id="goods_id" name="goods_id" value="{{goods_id}}">
-                        <input type="hidden" id="buy_count" name="buy_count" value="{{count}}">
-                        <input type="hidden" id="price" name="price" value="{{price}}">
+                        <input type="hidden" name="goods_id" value="{{goods_id}}">
+                        <input type="hidden" name="buy_count" value="{{count}}">
+                        <input type="hidden" name="price" value="{{price}}">
                     </div>
                 <div class="shopcart_img">
                     <img src="img/phone.jpg" style="margin-top:30px"/>
