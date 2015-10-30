@@ -886,10 +886,10 @@ html.ios-gt-6.pixel-ratio-3 .navbar:after {
   margin-left: 15px;
 }
 .navbar .left {
-  margin-right: 10px;
+  margin-left: 4%;
 }
 .navbar .right {
-  margin-left: 10px;
+  margin-right: 4%;
 }
 .navbar .right:first-child {
   position: absolute;

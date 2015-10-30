@@ -35,14 +35,14 @@ img{
 .home_icon-navbar{
   width: 15px;
   height: 15px;
-  background-image: url("../img/icon/arrow.png");
+  background-image: url("../img/home/u450.png");
 }
 /*搜索*/
 .home_back{
- width:60%;
- background-image: url("../img/home/ubac.png");
- background-repeat:no-repeat;
- background-size:100% 100%;
+  width:60%;
+  background-image: url("../img/home/ubac.png");
+  background-repeat:no-repeat;
+  background-size:100% 100%;
 }
 .home_chose{
   width: 13px;
@@ -56,17 +56,17 @@ img{
 }
 /*消息*/
 .home_message{
-margin-top: 0px;
+  margin-top: 0px;
   width: 22px;
   height: 22px;
-    background-image: url("../img/home/u468.png");
+  background-image: url("../img/home/u468.png");
   background-size: 22px 22px;
 }
 /*行业分类*/
 .home_hyfl{
-background:white;
-float: left; 
-width: 20%;
+  background:white;
+  float: left;
+  width: 20%;
 }
 
 /*新开店铺推广模块*/
@@ -76,26 +76,27 @@ width: 20%;
   background: white;
   border-top: 1px solid gainsboro;
   border-bottom: 1px solid gainsboro;
-  margin: 3px 0px 3px 0px;
-  width: 100%;
+  margin:5px 0px 5px 0px;
+  width: 97%;
   padding: 5px;
   padding-left: 3%;
   height: 25px;
   line-height: 25px;
 }
 .home_font{
-font-family:'应用字体 Regular', '应用字体';
-font-size:16px;
-color:#000000;
+  font-family:'应用字体 Regular', '应用字体';
+  font-size:16px;
+  color:#000000;
 }
 .home_more{
-  width: 20px;
+  width: 13px;
   height: 20px;
   background-image: url("../img/home/u495.png");
-  background-size:20px 20px;
-  background-repeat:no-repeat;
-  float:right;
-  padding-left: 5%;
+  background-size: 13px 20px;
+  background-repeat: no-repeat;
+  float: right;
+  padding-right: 4%;
+  margin-top: 2px;
 }
 /*横向布局*/
 .home_auto {
@@ -117,8 +118,7 @@ color:#000000;
   display: table-cell;
   vertical-align: middle;
   width: 94%;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 3%;
   float: left;
 }
 /*纵向布局*/
@@ -135,129 +135,126 @@ color:#000000;
 }
 /* 尺寸：1*2*/
 .home_div_1_2{
-	background: #fff;
-	text-align: center;
-	color: #000;
-  border: 1px solid gainsboro;
-  margin:1px 0px 0px 1px;
-    display: table-cell;
-    vertical-align: middle;
-  width:48.5%;
-  height: 77px;
-	float:left;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  margin:0.5px 0.5px 0.5px 0.5px;
+  display: table-cell;
+  vertical-align: middle;
+  width:49.5%;
+  height: 79px;
+  float:left;
 }
 /*尺寸：2*2*/
 .home_div_2_2{
-	background: #fff;
-	text-align: center;
-	color: #000;
-	border: 1px solid gainsboro;
-    margin:1px 0px 0px 1px;
-    display: table-cell;
-    vertical-align: middle;
-    width:48.5%;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  margin:0.5px 0.5px 0.5px 0.5px;
+  display: table-cell;
+  vertical-align: middle;
+  width:49.5%;
   height: 159px;
-	float:left;
+  float:left;
 }
 
 
 /*左{右（左右）}*/
 .home_div_1_3_1{
-	background: #fff;
-	text-align: center;
-	color: #000;
+  background: #fff;
+  text-align: center;
+  color: #000;
   border: 1px solid red;
   margin:1px 0px 0px 1px;
   display: table-cell;
   vertical-align: middle;
-	width:49.5%;
-	float:left;
+  width:49.5%;
+  float:left;
 }
 /*尺寸：1*1*/
 .home_div_1_1{
-	background: #fff;
-	text-align: center;
-	color: #000;
-  border: 1px solid gainsboro;
-  margin:1px 0px 0px 1px;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  margin:0.5px 0.5px 0.5px 0.5px;
   display: table-cell;
   vertical-align: middle;
-	width:24%;
-    height: 77px;
-	float:left;
+  width:24.7%;
+  height: 79px;
+  float:left;
 }
 /*时时促销*/
 /*折扣返利*/
 /*特价专区*/
 .home_div_1_4_1{
-	background: #fff;
-	text-align: center;
-	color: #000;
-	border: solid #ddd;
-	border-width: 1px 0px 0px 1px;
-	width:25%;
-	float:left;
+  background: #fff;
+  text-align: center;
+  color: #000;
+  border: solid #ddd;
+  border-width: 1px 0px 0px 1px;
+  width:25%;
+  float:left;
 }
 /*底部导航*/
 .home_ul{
-margin-top:0px;
-margin-bottom:0px;
+  margin-top:0px;
+  margin-bottom:0px;
 }
 .home_sy{
- position:absolute;
- left:4%;
- width:15%;
- height: 50px;
- float:left;
- list-style:none;
- background-image: url("../img/home/u575.png");
+  position:absolute;
+  left:4%;
+  width:15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u575.png");
   background-repeat: no-repeat;
   background-size: 45px 45px;
- }
+}
 .home_sb{
- position:absolute;
- left:23%;
- width: 15%;
- height: 50px;
- float:left;
- list-style:none;
- background-image: url("../img/home/u577.png");
+  position:absolute;
+  left:23%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u577.png");
   background-repeat: no-repeat;
   background-size: 45px 45px;
- }
+}
 .home_fl{
- position:absolute;
- left:42%;
- width: 15%;
- height: 50px;
- float:left;
- list-style:none;
- background-image: url("../img/home/u579.png");
+  position:absolute;
+  left:42%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u579.png");
   background-repeat: no-repeat;
   background-size: 45px 45px;
- }
+}
 .home_gwc{
-position:absolute;
- left:61%;
- width: 15%;
- height: 50px;
- float:left;
- list-style:none;
- background-image: url("../img/home/u581.png");
+  position:absolute;
+  left:61%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u581.png");
   background-repeat: no-repeat;
   background-size: 45px 45px;
- }
+}
 .home_wd{
- position:absolute;
- left:80%;
- width: 15%;
- height: 50px;
- float:left;
- list-style:none;
- background-image: url("../img/home/u583.png");
+  position:absolute;
+  left:80%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u583.png");
   background-repeat: no-repeat;
   background-size: 45px 45px;
- }
+}
 #u441_img {
   position:absolute;
   left:0px;
@@ -2421,55 +2418,55 @@ position:absolute;
   word-wrap:break-word;
 }
 .thumbnail {
-    margin: 3px auto;
-    background: #fff;
+  margin: 3px auto;
+  background: #fff;
 }
 
-    .thumbnail > img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 100%;
-        width: 52px;
-        height: 50px;
-    }
+.thumbnail > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 52px;
+  height: 50px;
+}
 
 .product-container .thumbnail > img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    width: 173px;
-    height: 173px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 173px;
+  height: 173px;
 }
 
 .product-container .row {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .thumbnail .caption {
-    padding: 0;
-    color: #666666;
+  padding: 0;
+  color: #666666;
 }
 
 .thumbnail .caption h3 {
-        font-size: 0.8rem;
-        white-space: nowrap;
-        margin: 6px auto 0;
-        text-align: center;
-    }
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin: 6px auto 0;
+  text-align: center;
+}
 .imgBorder
 {
-	width:24%;
-	float:left;
-	border:1px solid #F00;
-	margin-left:1px;
-	margin-top:2px;
+  width:24%;
+  float:left;
+  border:1px solid #F00;
+  margin-left:1px;
+  margin-top:2px;
 }
 .imgBorder img
 {
-	width:100%;
-	height:100px;
+  width:100%;
+  height:100px;
 }
 #searchChose{
   position: absolute;
@@ -2483,5 +2480,3 @@ position:absolute;
   z-index:999;
   list-style: none;
 }
-
-

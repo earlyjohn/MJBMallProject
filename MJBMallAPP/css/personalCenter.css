@@ -107,9 +107,10 @@
 }
 .recentvisit_right_one{
     float: left;
-    width: 70%;
+    width: 65%;
     height: 35px;
     font-size: 12px;
+    padding-left: 5%;
     text-align: left;
     display: table-cell;
     vertical-align: middle;
@@ -118,7 +119,8 @@
     text-align: left;
     font-size: 12px;
     float: left;
-    width: 70%;
+    padding-left: 5%;
+    width: 65%;
     height: 40px;
     display: table-cell;
     vertical-align: middle;
@@ -179,8 +181,8 @@
 }
 .person_auto{
     padding-left: 5%;
-    height: 35px;
-    line-height: 35px;
+    height: 45px;
+    line-height: 45px;
     background: #fff;
     text-align: center;
     color: #000;
@@ -188,7 +190,7 @@
     margin: 0px auto;
     display: table-cell;
     vertical-align: middle;
-    width:100%;
+    width:95%;
     float:left;
     border-top: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
@@ -196,13 +198,13 @@
 .person_more{
     position: absolute;
     right: 5%;
-    margin-top: 8px;
+    margin-top: 12px;
     width: 20px;
     height: 20px;
     background-image: url("../img/home/u495.png");
-    background-size:20px 20px;
-    background-repeat:no-repeat;
-    float:right;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    float: right;
 }
 .person_left{
     float: left;
@@ -218,6 +220,8 @@
 }
 .person_center ul{
     list-style: none;
+    padding: 0px;
+    padding-left: 20px;
 }
 .person_center ul li{
     font-size: 12px;
