@@ -1,0 +1,57 @@
+﻿.shop_two_left
+{
+    width:40%;
+    height:100px;
+    float:left;
+    }
+.shop_two_right
+{
+    text-align: left;
+    font-size: 12px;
+    width:58%;
+    height:100px;
+    float:left;
+    }
+#shopHomeNav ul{
+    list-style: none;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+}
+#shopHomeNav ul li{
+    width: 33%;
+    height: 48px;
+    float: left;
+    line-height: 48px;
+    text-align: center;
+}
+.shop_three_left{
+    width: 49%;
+    float: left;
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+}
+.shop_three_right{
+    width: 49%;
+    float: left;
+    height: 30px;
+    text-align: right;
+    line-height: 30px;
+}
+.shop_three_right p{
+    margin: 0;
+}
+.shop_four_left{
+    width: 35%;
+    float: left;
+    height: 80px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.shop_four_right{
+    width: 63%;
+    float: left;
+    height: 80px;
+    font-size: 12px;
+}

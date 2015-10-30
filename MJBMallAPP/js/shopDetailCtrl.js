@@ -5,9 +5,9 @@
                     +"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品<i class='icon home_chose'></i><input id='u465_input' type='text' class='text_sketch' />"
                     +"</div><div class='right'><i class='icon home_search' id='search'></i></div></div>";
         $$('#shopDetailNavbar').html(html);
-        $$("#homeToolbar").show();
-        $$("#productListNav").show();
-        $$("#productDetailNav").hide();
+        //$$("#homeToolbar").show();
+      //  $$("#productListNav").show();
+      //  $$("#productDetailNav").hide();
         $$('.search_icon-navbar').on('click', function () {
             mainView.router.back();
         });

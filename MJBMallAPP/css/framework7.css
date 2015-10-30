@@ -63,7 +63,7 @@ p {
 /* === Grid === */
 .row {
   overflow: hidden;
-  margin-left: -4%;
+  /*margin-left: -4%;*/
 }
 .row > [class*="col-"],
 .row > [class*="tablet-"] {

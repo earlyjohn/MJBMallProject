@@ -134,7 +134,7 @@
 /*个人中心——message*/
 .message_decoration{
     padding: 5px 0px 5px 0px;
-    margin-top: 45px;
+    margin-top: 15px;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
 }
@@ -150,6 +150,7 @@
     float: left;
     width: 70%;
     height: 35px;
+    text-align: left;
     font-size: 24px;
     display: table-cell;
     vertical-align: middle;
@@ -159,6 +160,7 @@
     float: left;
     width: 70%;
     height: 40px;
+    text-align: left;
     display: table-cell;
     vertical-align: middle;
 }
@@ -208,7 +210,7 @@
     height: 100px;
 }
 .person_center{
-    width: 38%;
+    width: 35%;
     height: 100px;
     float: left;
     text-align:left;
@@ -221,14 +223,14 @@
     font-size: 12px;
 }
 .person_right{
-    width:38%;
+    width:41%;
     float: left;
     font-size: 12px;
     height: 100px;
     text-align: right;
 }
 .person_right ul{
-    padding-top: 6%;
+    padding: 0px;
     list-style: none;
     margin: 0;
 }
@@ -236,8 +238,8 @@
     float: left;
 }
 .person_btn{
-    float: right;
     position: absolute;
     right: 5%;
-    top:80px;
+    top: 80px;
+    padding-right: 8%;
 }

@@ -73,13 +73,15 @@ width: 20%;
 
 /*导航栏*/
 .home_decoration{
-background:white;
+  background: white;
   border-top: 1px solid gainsboro;
   border-bottom: 1px solid gainsboro;
-height:35px;
-margin:5px 0px 5px 0px;
-width:100%;
-padding-top:10px;
+  margin: 3px 0px 3px 0px;
+  width: 100%;
+  padding: 5px;
+  padding-left: 3%;
+  height: 25px;
+  line-height: 25px;
 }
 .home_font{
 font-family:'应用字体 Regular', '应用字体';
@@ -93,10 +95,11 @@ color:#000000;
   background-size:20px 20px;
   background-repeat:no-repeat;
   float:right;
+  padding-left: 5%;
 }
 /*横向布局*/
 .home_auto {
-  background: #fff;
+  /*background: #fff;*/
   text-align: center;
   color: #000;
   border: 0px;
@@ -105,6 +108,18 @@ color:#000000;
   vertical-align: middle;
   width:100%;
   float:left;
+}
+.home_auto_one{
+  text-align: center;
+  color: #000;
+  border: 0px;
+  margin: 0px auto;
+  display: table-cell;
+  vertical-align: middle;
+  width: 94%;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: left;
 }
 /*纵向布局*/
 .home_vertical {
@@ -123,7 +138,7 @@ color:#000000;
 	background: #fff;
 	text-align: center;
 	color: #000;
-  border: 1px solid red;
+  border: 1px solid gainsboro;
   margin:1px 0px 0px 1px;
     display: table-cell;
     vertical-align: middle;
@@ -136,7 +151,7 @@ color:#000000;
 	background: #fff;
 	text-align: center;
 	color: #000;
-	border: 1px solid red;
+	border: 1px solid gainsboro;
     margin:1px 0px 0px 1px;
     display: table-cell;
     vertical-align: middle;
@@ -163,7 +178,7 @@ color:#000000;
 	background: #fff;
 	text-align: center;
 	color: #000;
-  border: 1px solid red;
+  border: 1px solid gainsboro;
   margin:1px 0px 0px 1px;
   display: table-cell;
   vertical-align: middle;
@@ -196,7 +211,8 @@ margin-bottom:0px;
  float:left;
  list-style:none;
  background-image: url("../img/home/u575.png");
- background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
  }
 .home_sb{
  position:absolute;
@@ -206,7 +222,8 @@ margin-bottom:0px;
  float:left;
  list-style:none;
  background-image: url("../img/home/u577.png");
- background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
  }
 .home_fl{
  position:absolute;
@@ -216,7 +233,8 @@ margin-bottom:0px;
  float:left;
  list-style:none;
  background-image: url("../img/home/u579.png");
- background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
  }
 .home_gwc{
 position:absolute;
@@ -226,7 +244,8 @@ position:absolute;
  float:left;
  list-style:none;
  background-image: url("../img/home/u581.png");
- background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
  }
 .home_wd{
  position:absolute;
@@ -236,7 +255,8 @@ position:absolute;
  float:left;
  list-style:none;
  background-image: url("../img/home/u583.png");
- background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
  }
 #u441_img {
   position:absolute;

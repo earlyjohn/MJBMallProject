@@ -5,6 +5,8 @@ var module = {
     "ProductPageController": productListCtrl,
     "loginSelectBox": loginSelectBoxCtrl,
     "pesonalLogin": personalLoginCtrl,
+    "shopLogin": shopLoginCtrl,
+    "shopHome":shopHomeCtrl,
     "home": homeCtrl,
     "side": sideCtrl,
     "firstClassfy": firstClassfyCtrl,
@@ -36,5 +38,10 @@ var module = {
     "message": messageCtrl,
     "Mycollection": MycollectionCtrl,
     "recentvisit": recentvisitCtrl,
-    "set": setCtrl
+    "set": setCtrl,
+    "connect": connectCtrl,
+    "about": aboutCtrl,
+    "delrecentvisit": delrecentvisitCtrl,
+    "feedback":feedbackCtrl,
+    "activityMessage":activityMessageCtrl
 }
