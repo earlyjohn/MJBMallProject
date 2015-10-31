@@ -19,6 +19,7 @@ var module = {
     "register": registerCtrl,
     "position": positionCtrl,
     "confirmOrder": confirmOrderCtrl,
+    "addrEdit": addrEditCtrl,
     "addrList": addrListCtrl,
     "addrNew": addrNewCtrl,
     "order": orderCtrl,

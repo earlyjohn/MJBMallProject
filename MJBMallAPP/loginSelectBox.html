@@ -352,6 +352,42 @@
         </div>
         {{/each}}
     </script>
+    <!--收货地址列表-->
+    <script type="text/template7" id="addrListsTpl">
+        {{#each addrListData}}
+        <div class="editAddress">
+            <ul class="addr-content">
+                <li>
+                    <label class="label-checkbox ">
+                        <input type="checkbox" name="editCheckItem" class="singleCheck">
+                        <div class="item-media m-r-5">
+                            <i class="icon icon-form-checkbox"></i>
+                        </div>
+                    </label>
+                    <input type="hidden" id="addressId" name="addressId" value="{{addressId}}">
+                    <input type="hidden" id="user_id" name="user_id" value="{{user_id}}">
+                    <div class="item-inner">
+                        <div class="item-title-row">
+                            <div class="item-title">
+                                <span class="color-2b m-r-5">{{name}}</span>
+                                <span class="color-2b">{{phone}}</span>
+                            </div>
+                        </div>
+                        <div class="item-text">
+                            {{address}}
+                        </div>
+
+                    </div>
+                    <a href="addr-edit.html?addressId={{addressId}}">
+                        <div class="item-media addr-edit">
+                            <i class="icon icon-addr-edit"></i>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
@@ -377,6 +413,7 @@
     <script type="text/javascript" src="js/registerCtrl.js"></script>
     <script type="text/javascript" src="js/positionCtrl.js"></script>
     <script type="text/javascript" src="js/confirmOrderCtrl.js"></script>
+    <script type="text/javascript" src="js/addrEditCtrl.js"></script>
     <script type="text/javascript" src="js/addrListCtrl.js"></script>
     <script type="text/javascript" src="js/addrNewCtrl.js"></script>
     <script type="text/javascript" src="js/orderCtrl.js"></script>
