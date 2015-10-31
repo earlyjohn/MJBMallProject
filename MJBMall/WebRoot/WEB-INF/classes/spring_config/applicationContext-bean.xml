@@ -43,11 +43,10 @@
             value="com.mjbmall.orders.dao.OrdersMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean> 
-    <bean id="changepasswordMapper"
+    <bean id="membersMapper"
         class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-            value="com.uparttime.changepassword.dao.ChangepasswordMapper" />
+            value="com.mjbmall.members.dao.MembersMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
-     
 </beans>

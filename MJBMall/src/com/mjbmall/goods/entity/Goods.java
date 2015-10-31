@@ -3,38 +3,7 @@ package com.mjbmall.goods.entity;
 import java.math.BigDecimal;
 
 public class Goods {
-	//shop_information
-	private String shop_name;
-	private String address;
-	private String phone_number;
-	public String getShop_name() {
-		return shop_name;
-	}
-	public void setShop_name(String shop_name) {
-		this.shop_name = shop_name;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getPhone_number() {
-		return phone_number;
-	}
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}
-	
-	//goods_information
 	private int goods_id;
-	private int cat_id;
-	public int getCat_id() {
-		return cat_id;
-	}
-	public void setCat_id(int cat_id) {
-		this.cat_id = cat_id;
-	}
 	public int getGoods_id() {
 		return goods_id;
 	}
