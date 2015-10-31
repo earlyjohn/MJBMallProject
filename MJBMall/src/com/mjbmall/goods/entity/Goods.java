@@ -40,6 +40,13 @@ public class Goods {
 	public int getBuy_count() {
 		return buy_count;
 	}
+	private int cat_id;
+	public int getCat_id() {
+		return cat_id;
+	}
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
+	}
 	private String name;
 	private BigDecimal price;
 	private String big_pic; 
@@ -65,5 +72,27 @@ public class Goods {
 	}
 	public void setParams(String params) {
 		this.params = params;
+	}
+	//shop
+	private String shop_name;
+	public String getPhone_number() {
+		return phone_number;
+	}
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
+	}
+	private String address;
+	private String phone_number;
+	public String getShop_name() {
+		return shop_name;
+	}
+	public void setShop_name(String shop_name) {
+		this.shop_name = shop_name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

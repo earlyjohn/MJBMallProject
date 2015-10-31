@@ -8,9 +8,9 @@ import com.opensymphony.xwork2.Action;
 
 public class MembersController {
 	private MembersMapper membersMapper;
-	private int member_id;
+	private int member_id=0;
 	private String name = "";
-	List<Members> memberList = null;
+	 List<Members> memberList = null;
 	
 	public String findMembers(){
 		try{
@@ -27,7 +27,7 @@ public class MembersController {
 	public void setMembersMapper(MembersMapper membersMapper) {
 		this.membersMapper = membersMapper;
 	}
-	public void setMembers_id(int member_id) {
+	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
 	public int getMembers_id() {
@@ -36,9 +36,9 @@ public class MembersController {
 	public void  setName(String name){
 		this.name = name;
 	}
-	public String getName(){
+	/*public String getName(){
 		return name;
-	}
+	}*/
 	public List<Members> getMembersList(){
 		return memberList;
 	}

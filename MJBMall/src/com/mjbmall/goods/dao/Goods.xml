@@ -12,6 +12,9 @@
 		    <if test='name != null &amp;&amp; !name.equals("")'>
 			 and a.name like CONCAT(CONCAT('%', #{name}),'%')
 		    </if>
+		    <if test="cat_id !=null and cat_id !=0">
+		    and a.cat_id=#{cat_id}
+		    </if>
 		</where>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">

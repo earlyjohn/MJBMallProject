@@ -10,6 +10,10 @@ import com.opensymphony.xwork2.Action;
 public class GoodsController {
     private GoodsMapper goodsMapper;
 	private int goods_id=0;
+	private int cat_id;
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
+	}
 	List<Goods> goodsList=null;
 	private String name="";
 	private int type=0;
@@ -31,6 +35,7 @@ public class GoodsController {
 			Goods goods = new Goods();
 			goods.setGoods_id(goods_id);
 			goods.setName(name);
+			goods.setCat_id(cat_id);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
 			

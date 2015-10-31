@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>	
- 	<package name="Members"  namespace="/members" extends="json-default">
+ 	<package name="members"  namespace="/members" extends="json-default">
 		<action name="findMembers" class="com.mjbmall.members.controller.MembersController" method="findMembers">
 			<result type="json">
 			   <param name="noCache">true</param>
