@@ -1,14 +1,11 @@
-/**
- * Created by Administrator on 2015/10/29.
- */
 var aboutCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>关于我们"
-            +"</div><div class='right'></div></div>";
-        $$('#aboutNavbar').html(html);
+        var html2 = "<div class='navbar-inner'><a class='left'><i class='icon spxq_icon-navbar'></i></a><div class='center'>编辑购物车"
+                + "</div><div class='right' id='order'><a href='shoppingCart.html' class='link link-u' style='color: white>'完成</a></div></div>";
+        $$('#aboutNavbar').html(html2);
         // 回退
-        $$('.spxq_icon-navbar').on('click', function () {
+        $$('.icon-orderback').on('click', function () {
             mainView.router.back();
         });
 

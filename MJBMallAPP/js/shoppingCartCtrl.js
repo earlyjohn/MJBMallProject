@@ -63,8 +63,17 @@
                     alert("请选择要结算的商品");
                     return;
                 }
+                var goodsIdArray = new Array();
                 selectChks.each(function () {
-                    var container = $$(this).parent().find('input[name=price]');
+                    var container = $$(this).parent().find('input[name=goods_id]');
+                    goodsIdArray.push($$(container[0]).val());
+                    debugger;
+                });
+                var goods_ids = goodsIdArray.join(',');
+                debugger;
+                uzu.rest.getJSON("orders/goreckoning", { 'user_id': user_id, 'goodsId': goods_ids }, function (result) {
+                    debugger;
+                   // mainView.router.loadPage("shoppingCart.html");
                 });
             }, this);
         });

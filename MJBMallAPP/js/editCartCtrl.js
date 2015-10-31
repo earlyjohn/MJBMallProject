@@ -7,8 +7,10 @@
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
+        // 用户id
+        var user_id = window.localStorage.getItem("userId");
         // 取得购物车列表
-        uzu.rest.getJSON("orders/findCarts", { 'user_id': 1, }, function (data) {
+        uzu.rest.getJSON("orders/findCarts", { 'user_id': user_id, }, function (data) {
             // 渲染模板
             var context = {};
             context.cartList = data.result.cartsList;
@@ -48,7 +50,7 @@
                 itemsArray.push($$(goodsIdContainer[1]).val());
             });
             var goods_ids = itemsArray.join(',');
-            uzu.rest.getJSON("orders/delCarts", { 'user_id': 1, 'goods_ids': goods_ids }, function (result) {
+            uzu.rest.getJSON("orders/delCarts", { 'user_id': user_id, 'goods_ids': goods_ids }, function (result) {
                 mainView.router.loadPage("shoppingCart.html");
             });
            

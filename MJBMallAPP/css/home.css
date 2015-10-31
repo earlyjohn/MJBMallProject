@@ -98,6 +98,16 @@ img{
   padding-right: 4%;
   margin-top: 2px;
 }
+.home_more1{
+  width: 13px;
+  height: 35px;
+  background-image: url("../img/home/u495.png");
+  background-size: 13px 20px;
+  background-repeat: no-repeat;
+  float: right;
+  padding-right: 4%;
+  margin-top: 10px;
+}
 /*横向布局*/
 .home_auto {
   /*background: #fff;*/
