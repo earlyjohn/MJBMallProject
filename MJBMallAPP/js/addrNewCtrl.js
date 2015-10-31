@@ -5,6 +5,23 @@
         var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>新建地址"
                 + "</div><div class='right'></div></div>";
         $$('#addrNewNavbar').html(html);
+        $$('#saveButton').on('click', function () {
+            debugger;
+            var userId = window.localStorage.getItem("userId");
+            var name = $$('#name').val();
+            var picker_dependent = $$('#picker-dependent').val();
+            var detailAddress = $$('#detailAddress').val();
+            var sjphone = $$('#sjphone').val();
+            var gdphone = $$('#gdphone').val();
+            var postcard = $$('#postcard').val();
+            uzu.rest.getJSON("/orders/addAddress", { 'user_id': userId, 'name': name, 'phone': sjphone, 'address': detailAddress }, function (result) {
+                if (result.result.msg == "success") {
+                    mainView.router.loadPage(addrListCtrl.html);
+                } else if (result.result.msg == "fail") {
+                    alert("保存失败");
+                }
+            });
+        });
         // 回退
         $$('.icon-backwhite').on('click', function () {
             mainView.router.back();
