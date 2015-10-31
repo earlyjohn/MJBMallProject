@@ -12,6 +12,9 @@
 		    <if test='name != null &amp;&amp; !name.equals("")'>
 			 and a.name like CONCAT(CONCAT('%', #{name}),'%')
 		    </if>
+		    <if test="cat_id !=null and cat_id !=0">
+			 and a.cat_id = #{cat_id}
+			 </if>
 		</where>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
@@ -34,7 +37,7 @@
 	</select>
 	<insert id="addCollections" parameterType="int">  
        insert into m_collection (user_id,goods_id) 
-       values(#{param1},#{param2}
+       values(#{0},#{1}
        	)  
     </insert> 
      <select id="getShopsList"  resultType="com.mjbmall.goods.entity.Shops" parameterType="com.mjbmall.goods.entity.Shops">
@@ -43,48 +46,10 @@
 			<if test='shop_name != null and !shop_name.equals("")'>
 		 		shop_name=#{shop_name}
 		    </if>
-		    <if test='shop_id != null and shop_id!=0'>
-		 		shop_id=#{shop_id}
-		    </if>
 		</where>
 	</select>
     <delete id="delCollections" parameterType="int">
 		delete from m_collection
 		where user_id=#{0} and goods_id=#{1}
 	</delete>
-	<insert id="addCollectionsShop" parameterType="int">  
-       insert into m_collection_shop (user_id,shop_id) 
-       values(#{0},#{1}
-       	)  
-    </insert> 
-    <select id="getCollectionsShop"  resultType="com.mjbmall.goods.entity.Shops" parameterType="com.mjbmall.orders.entity.CollectionShop">
-	    select a.shop_id,a.shop_name,a.address,a.phone_number,a.shop_pic,a.credit_rating,a.shop_hours from m_shop a,m_collection_shop b
-        <where>
-		 	b.shop_id=a.shop_id
-		 	<if test='shop_id != null and shop_id!=0'>
-		 	and	b.shop_id=#{shop_id}
-		    </if>
-		    <if test='user_id != null and shop_id!=0'>
-		 	and	b.user_id=#{user_id}
-		    </if>
-		</where>
-	</select>
-	<delete id="delCollectionsShop" parameterType="int">
-		delete from m_collection_shop
-		where user_id=#{0} and shop_id=#{1}
-	</delete>
-	<select id="getGoodsSpecList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
-	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_goods_spec c
-        <where>
-            c.type=#{0}
-			and a.goods_id=c.goods_id
-			and a.shop_id=b.shop_id
-		</where>
-	</select>
-	<select id="getShopsSpecList"  resultType="com.mjbmall.goods.entity.Shops" parameterType="int">
-	   select shop_id,shop_name,address,phone_number,shop_pic,credit_rating,shop_hours from m_shop
-        <where>
-			type=1
-		</where>
-	</select>
 </mapper>

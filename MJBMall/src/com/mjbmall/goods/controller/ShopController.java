@@ -19,15 +19,6 @@ public class ShopController {
 		    
 		return Action.SUCCESS;
 	}
-	public String findSpecShops(){
-		try{
-			shopsList=goodsMapper.getShopsSpecList();
-		}catch(Exception e){
-			
-		}
-		
-		return Action.SUCCESS;
-	}
 	public void setGoodsMapper(GoodsMapper goodsMapper) {
 		this.goodsMapper = goodsMapper;
 	}

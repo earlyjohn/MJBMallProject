@@ -19,27 +19,14 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<action name="findShops" class="com.mjbmall.goods.controller.ShopController" method="findShops">
+			<action name="findShops" class="com.mjbmall.goods.controller.ShopController" method="findShops">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<action name="findSpecShops" class="com.mjbmall.goods.controller.ShopController" method="findSpecShops">
-			<result type="json">
-			   <param name="noCache">true</param>
-			   <param name="contentType">text/html</param>
-			   <param name="callbackParameter">callback</param>
-			</result>
-		</action>
-		<action name="findSpecGoods" class="com.mjbmall.goods.controller.GoodsController" method="findSpecGoods">
-			<result type="json">
-			   <param name="noCache">true</param>
-			   <param name="contentType">text/html</param>
-			   <param name="callbackParameter">callback</param>
-			</result>
-		</action>
+		
 		
 	</package>
 	<package name="Collections"  namespace="/collections" extends="json-default">
@@ -58,27 +45,6 @@
 			</result>
 		</action>
 		<action name="delCollections" class="com.mjbmall.goods.controller.CollectionsController" method="delCollections">
-			<result type="json">
-			   <param name="noCache">true</param>
-			   <param name="contentType">text/html</param>
-			   <param name="callbackParameter">callback</param>
-			</result>
-		</action>
-		<action name="addCollectionsShop" class="com.mjbmall.goods.controller.CollectionsController" method="addCollectionsShop">
-			<result type="json">
-			   <param name="noCache">true</param>
-			   <param name="contentType">text/html</param>
-			   <param name="callbackParameter">callback</param>
-			</result>
-		</action>
-		<action name="findCollectionsShop" class="com.mjbmall.goods.controller.CollectionsController" method="findCollectionsShop">
-			<result type="json">
-			   <param name="noCache">true</param>
-			   <param name="contentType">text/html</param>
-			   <param name="callbackParameter">callback</param>
-			</result>
-		</action>
-		<action name="delCollectionsShop" class="com.mjbmall.goods.controller.CollectionsController" method="delCollectionsShop">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>

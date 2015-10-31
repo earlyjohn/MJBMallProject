@@ -3,8 +3,8 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.uparttime.register.dao.RegisterMapper">
     <insert id="addUser" parameterType="String" useGeneratedKeys="true">  
-       insert into u_user (username,password,registertime,phone,lastlogin) 
-       values(#{param1},md5(#{param2}),#{param3},NOW(),NOW()
+       insert into u_user (username,password,registertime,lastlogin,phone) 
+       values(#{0},md5(#{1}),NOW(),NOW(),#{2}
        	)  
     </insert> 
     <select id="testRegister"  resultType="int" parameterType="String">
@@ -12,5 +12,11 @@
 	</select>
 	<select id="testUsername"  resultType="int" parameterType="String">
 	   select COUNT(*) from u_user where username=#{0}
+	</select>
+	<select id="testPhone"  resultType="int" parameterType="String">
+	   select COUNT(*) from u_user
+	    <where>
+	      phone=#{phone}
+	    </where> 
 	</select>
 </mapper>
