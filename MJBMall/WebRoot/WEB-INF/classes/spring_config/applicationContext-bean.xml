@@ -43,6 +43,12 @@
             value="com.mjbmall.orders.dao.OrdersMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean> 
+     <bean id="messageMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.mjbmall.orders.dao.MessageMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean> 
     <bean id="membersMapper"
         class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"

@@ -1,7 +1,11 @@
 package com.uparttime.register.controller;
 
+import java.util.Random;
+
+import com.mjbmall.util.SDKSend;
 import com.opensymphony.xwork2.Action;
 import com.uparttime.register.dao.RegisterMapper;
+import com.uparttime.register.entity.CodeMsg;
 
 public class registerController {
     private RegisterMapper registerMapper;
@@ -63,7 +67,28 @@ public class registerController {
 		
 		return Action.SUCCESS;
 	}
-
+	public String addCodeMsg(){
+		try{
+			String str="";
+			CodeMsg c = new CodeMsg();
+			
+            for(int i=0;i<6;i++){
+            	str=str+(int)(Math.random()*10);
+            }
+			c.setPhone(phone);
+			c.setCodeMsg(str);
+			//SDKSend.sendRegistMsg(str, phone);
+			registerMapper.delCodeMsg(c);
+			registerMapper.addCodeMsg(c);
+	        status="0";
+		}catch(Exception e){
+			status="1";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
