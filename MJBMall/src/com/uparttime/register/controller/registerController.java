@@ -1,7 +1,12 @@
 package com.uparttime.register.controller;
 
+import java.util.List;
+import java.util.Random;
+
+import com.mjbmall.util.SDKSend;
 import com.opensymphony.xwork2.Action;
 import com.uparttime.register.dao.RegisterMapper;
+import com.uparttime.register.entity.CodeMsg;
 
 public class registerController {
     private RegisterMapper registerMapper;
@@ -10,6 +15,7 @@ public class registerController {
     private String phone="";
     private int register;
     private String status;
+    private String codeMsg;
 	
 	/**
 	 * @return status
@@ -63,9 +69,57 @@ public class registerController {
 		
 		return Action.SUCCESS;
 	}
-
+	public String addCodeMsg(){
+		try{
+			String str="";
+			CodeMsg c = new CodeMsg();
+			
+            for(int i=0;i<6;i++){
+            	str=str+(int)(Math.random()*10);
+            }
+			c.setPhone(phone);
+			c.setCodeMsg(str);
+			SDKSend.sendRegistMsg(str, phone);
+			registerMapper.delCodeMsg(c);
+			registerMapper.addCodeMsg(c);
+	        status="0";
+		}catch(Exception e){
+			status="1";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
+	public String findCodeMsg(){
+		try{
+			
+			CodeMsg c = new CodeMsg();
+			
+			c.setPhone(phone);
+			
+			
+			List<CodeMsg> list = registerMapper.findCodeMsg(c);
+			if(codeMsg.equals(list.get(0).getCodeMsg())){
+				status="0";
+			}else{
+				status="1";
+			}
+	        
+		}catch(Exception e){
+			status="2";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public void setCodeMsg(String codeMsg) {
+		this.codeMsg = codeMsg;
 	}
 
 }
