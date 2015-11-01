@@ -14,11 +14,14 @@
 	   select COUNT(*) from u_user where username=#{0}
 	</select>
 	<insert id="addCodeMsg" parameterType="com.uparttime.register.entity.CodeMsg">  
-       insert into m_codemsg (phone,code) 
+       insert into m_codemsg (phone,codeMsg) 
        values(#{phone},#{codeMsg}
        	)  
     </insert> 
     <delete id="delCodeMsg" parameterType="com.uparttime.register.entity.CodeMsg">
        delete from m_codemsg where phone=#{phone}
     </delete>
+     <select id="findCodeMsg"  resultType="com.uparttime.register.entity.CodeMsg" parameterType="com.uparttime.register.entity.CodeMsg">
+	   select * from m_codemsg where phone=#{phone}
+	</select>
 </mapper>

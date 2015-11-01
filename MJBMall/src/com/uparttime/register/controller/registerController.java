@@ -1,5 +1,6 @@
 package com.uparttime.register.controller;
 
+import java.util.List;
 import java.util.Random;
 
 import com.mjbmall.util.SDKSend;
@@ -14,6 +15,7 @@ public class registerController {
     private String phone="";
     private int register;
     private String status;
+    private String codeMsg;
 	
 	/**
 	 * @return status
@@ -77,7 +79,7 @@ public class registerController {
             }
 			c.setPhone(phone);
 			c.setCodeMsg(str);
-			//SDKSend.sendRegistMsg(str, phone);
+			SDKSend.sendRegistMsg(str, phone);
 			registerMapper.delCodeMsg(c);
 			registerMapper.addCodeMsg(c);
 	        status="0";
@@ -89,8 +91,35 @@ public class registerController {
 		
 		return Action.SUCCESS;
 	}
+	public String findCodeMsg(){
+		try{
+			
+			CodeMsg c = new CodeMsg();
+			
+			c.setPhone(phone);
+			
+			
+			List<CodeMsg> list = registerMapper.findCodeMsg(c);
+			if(codeMsg.equals(list.get(0).getCodeMsg())){
+				status="0";
+			}else{
+				status="1";
+			}
+	        
+		}catch(Exception e){
+			status="2";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public void setCodeMsg(String codeMsg) {
+		this.codeMsg = codeMsg;
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.uparttime.register.dao;
 
+import java.util.List;
+
 import com.uparttime.register.entity.CodeMsg;
 
 public interface RegisterMapper {
@@ -8,4 +10,5 @@ public interface RegisterMapper {
     public int testUsername(String username);
     public void addCodeMsg(CodeMsg c);
     public void delCodeMsg(CodeMsg c);
+    public List<CodeMsg> findCodeMsg(CodeMsg c);
 }
