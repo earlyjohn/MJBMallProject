@@ -10,18 +10,21 @@
         // 商品名称
         var name = "";
         // 分类Id
-        var cat_id=""
+        var cat_id = "";
+        // 传入的参数
+        var searchGoods = {};
         if (searchContent) {
            // 从分类界面
             if (searchContent.type_id === "1") {
-                cat_id = searchContent.cat_id;
+                // 参数穿分类id
+                searchGoods = { 'cat_id': searchContent.cat_id };
             } else {
                 // 如果从搜索页面进来加上搜素参数
-                name = searchContent.name;
+                searchGoods = { 'name': searchContent.name };
             }
         }
         // 获得商品列表
-        uzu.rest.getJSON(query, { 'name': name }, function (data) {
+        uzu.rest.getJSON(query, searchGoods, function (data) {
             if (!data.goodsList)
                 return;
             // 渲染模板
