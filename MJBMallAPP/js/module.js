@@ -44,5 +44,6 @@ var module = {
     "about": aboutCtrl,
     "delrecentvisit": delrecentvisitCtrl,
     "feedback":feedbackCtrl,
-    "activityMessage":activityMessageCtrl
+    "activityMessage": activityMessageCtrl,
+    "editCollection": editCollectionCtrl
 }

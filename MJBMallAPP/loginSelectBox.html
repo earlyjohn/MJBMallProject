@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/personalCenter.css">
     <link rel="stylesheet" href="css/firstClassfy.css">
+    <link rel="stylesheet" href="css/editCollection.css">
 </head>
 
 <body>
@@ -327,26 +328,22 @@
             </div>
             <div class="col-66" style="padding-left: 10px;">
                 <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
                 <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
-                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
-                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
             </div>
-
         </div>
         {{/each}}
     </script>
     <!-- 店铺收藏列表-->
     <script type="text/template7" id="shopCollectionTpl">
-        {{#each productsList}}
+        {{#each shopCollectionList}}
         <div class="row" style="background-color:white;margin-top:10px;">
             <div class="col-33" style="cursor:pointer;">
                 <a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg" /></a>
             </div>
             <div class="col-66" style="padding-left: 10px;">
-                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
-                <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
-                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
-                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
+                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{shop_name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
             </div>
 
         </div>
@@ -388,6 +385,7 @@
         </div>
         {{/each}}
     </script>
+   <!-- 个人信息展示-->
     <script type="text/template7" id="memberInformationTpl">
         <ul>
                     <!-- Text inputs -->
@@ -503,6 +501,57 @@
                     </li>
                 </ul>
     </script>
+    <!--编辑商品收藏-->
+    <script type="text/template7" id="editProductCollectionListTpl">
+        {{#each editProductsCollectionList}}
+        <div class="editSingleProductCollection" style="height: 120px;background-color: white;">
+                    <div class="row" style="background-color: white; margin-top: 10px;">
+                        <div class="editProductCollectionChectBox">
+                        <label class="label-checkbox item-content col-auto">
+                            <input type="checkbox" name="editCheckItem" checked="checked" class="singleCheck">
+                            <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                        </label>
+                    </div>
+                        <div style="cursor: pointer;float:left;margin-left:35px;">
+                            <a href="productDetail.html?goods_id={{goods_id}}">
+                                <img src="{{big_pic}}" class="e_c_productImg" /></a>
+                        </div>
+                        <div  style="padding-left: 10px;">
+                            <div style="margin-top: 10px; cursor: pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                            <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
+                            <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color: red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration: line-through;">￥{{mktprice}}</span></div>
+                        </div>
+                    </div>
+                </div>
+         {{/each}}
+    </script>
+    <!--编辑店铺收藏-->
+    <script type="text/template7" id="editShopCollectionListTpl">
+        {{#each editShopCollectionList}}
+        <div class="editSingleShopCollection" style="height: 120px;background-color: white;">
+                    <div class="row" style="background-color: white; margin-top: 10px;">
+                        <div class="editShopCollectionChectBox">
+                        <label class="label-checkbox item-content col-auto">
+                            <input type="checkbox" name="editCheckItem" checked="checked" class="singleCheck">
+                            <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                        </label>
+                    </div>
+                        <div style="cursor: pointer;float:left;margin-left:35px;">
+                            <a href="productDetail.html?shop_id={{shop_id}}">
+                                <img src="{{big_pic}}" class="e_c_productImg" /></a>
+                        </div>
+                        <div  style="padding-left: 10px;margin-left: 200px;text-align: left;">
+                            <div style="margin-top: 10px; cursor: pointer;" class="productName"><a href="productDetail.html?shop_id={{shop_id}}"><span>{{shop_name}}</span></a></div>
+                            <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
+                        </div>
+                    </div>
+                </div>
+         {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
@@ -556,6 +605,7 @@
     <script type="text/javascript" src="js/feedback.js"></script>
     <script type="text/javascript" src="js/shopLoginCtrl.js"></script>
     <script type="text/javascript" src="js/shopHomeCtrl.js"></script>
+    <script type="text/javascript" src="js/editCollectionCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
 </body>
 </html>
