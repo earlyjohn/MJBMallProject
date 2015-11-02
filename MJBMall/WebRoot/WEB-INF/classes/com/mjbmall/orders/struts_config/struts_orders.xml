@@ -83,7 +83,10 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<action name="findNewMsg" class="com.mjbmall.orders.controller.MessageController" method="findNewMsg">
+		
+	</package>
+	<package name="Msg"  namespace="/msgs" extends="json-default">
+	    <action name="findNewMsg" class="com.mjbmall.orders.controller.MessageController" method="findNewMsg">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>
