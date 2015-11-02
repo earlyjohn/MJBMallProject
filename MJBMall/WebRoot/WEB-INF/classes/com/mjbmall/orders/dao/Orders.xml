@@ -13,7 +13,9 @@
 		     <if test='addressId != null &amp;&amp; addressId!=0'>
 			 and addressId=#{addressId}
 		     </if>
-		     
+		      <if test='status != null'>
+			 and status=#{status}
+		     </if>
 		</where>
 	</select>
 	<select id="getCart"  resultType="com.mjbmall.orders.entity.Carts">
@@ -56,6 +58,21 @@
 		</if>
 		
 	--></update>
+	<update id="setReckoning" parameterType="int">
+		update m_cart SET reckoning=1 where user_id=#{0} and goods_id=#{1}
+	</update>
+	<insert id="commitOrders" parameterType="com.mjbmall.orders.entity.Order">
+	   insert into m_order(user_id,order_id,address,name,phone,order_status,order_time,order_sum) 
+       values(#{user_id},#{order_id},#{address},#{name},#{phone},#{order_status},NOW(),#{order_sum})  
+	</insert>
+	<insert id="commitOrdersGoods" parameterType="com.mjbmall.orders.entity.Order">
+	   insert into m_order_goods (order_id,goods_id) 
+       values(#{order_id},#{goods_id})  
+	</insert>
+	<select id="getGoodsByOrderId" resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
+	   SELECT * FROM sdb_b2c_goods a WHERE a.goods_id IN (SELECT b.goods_id FROM m_order_goods b WHERE b.order_id=#{order_id} ) GROUP BY goods_id
+	</select>
+	
 	<select id="getreckoning"  resultType="com.mjbmall.orders.entity.Carts" parameterType="int">
 	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
         <where>
