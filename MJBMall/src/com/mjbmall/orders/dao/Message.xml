@@ -6,10 +6,26 @@
 	   select * from 
        m_message
         <where>
-              status=1
+              status=#{status} and type=#{type}
 		 	 <if test='recv_id != null &amp;&amp; recv_id!=0'>
 			  and recv_id=#{recv_id}
 		     </if>
+		     <if test='send_id != null &amp;&amp; send_id!=0'>
+			  and send_id=#{send_id}
+		     </if>
 		</where>
 	</select>
+	<update id="updateMsgStatus" parameterType="int">
+		update m_message
+		set status=0
+		where message_id in
+		 <foreach item="ids" index="index" collection="array" open="(" separator="," close=")">  
+            #{ids}  
+        </foreach> 
+	</update>
+	<insert id="addMsg" parameterType="com.mjbmall.orders.entity.Message">  
+       insert into m_message (send_id,recv_id,msg,sendTime,status,type) 
+       values(#{send_id},#{recv_id},#{msg},NOW(),1,#{type}
+       	)  
+    </insert> 
 </mapper>
