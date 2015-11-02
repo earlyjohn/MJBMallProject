@@ -50,9 +50,37 @@
         // 删除
         $$('#deleteCollection').on('click', function () {
             if (isProduct === "true") {
-                mainView.router.loadPage("Mycollection.html");
+                // 删除商品收藏
+                var editGoodsCollectionCheckBox = $$("input[type=checkbox][name=editGoodsCheckItem]:checked");
+                editGoodsCollectionCheckBox.each(function () {
+                    var container = $$(this).parents('.editProductCollectionChectBox').find('input[name=hidenGoodsId]');
+                    var selectGoodsId = $$(container[0]).val();
+                    uzu.rest.getJSON("collections/delCollections", { 'user_id': user_id, 'goods_id': selectGoodsId }, function (data) {
+                        if (data.msg = "success") {
+                            mainView.router.loadPage("Mycollection.html");
+                        } else {
+                            myApp.toast('删除失败', 'error').show(true);
+                        }
+                       
+                    });
+                });
+
             } else {
-                mainView.router.loadPage("Mycollection.html");
+                // 删除店铺收藏
+                var editShopsCollectionCheckBox = $$("input[type=checkbox][name=editShopCheckItem]:checked");
+                editShopsCollectionCheckBox.each(function () {
+                    var container = $$(this).parents('.editShopCollectionChectBox').find('input[name=hidenShopId]');
+                    var selectShopId = $$(container[0]).val();
+                    uzu.rest.getJSON("collections/delCollectionsShop", { 'user_id': user_id, 'shop_id': selectShopId }, function (data) {
+                        if (data.msg = "success") {
+                            mainView.router.loadPage("Mycollection.html");
+                        } else {
+                            myApp.toast('删除失败', 'error').show(true);
+                        }
+
+                    });
+                });
+               
             }
            
         });
