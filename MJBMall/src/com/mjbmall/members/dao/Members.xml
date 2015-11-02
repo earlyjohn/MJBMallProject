@@ -27,4 +27,29 @@
 		    </if>
 		</where>
 	</select>
+	
+
+	<update id="updateUserinfo"  parameterType="com.mjbmall.members.entity.Userinfo">
+		update userinfo set		 nickname=#{nickname},	  sex=#{sex},
+			
+	    birthday=#{birthday},	  tall=#{tall},		  income=#{income},
+    
+    	address=#{address},	   degree=#{degree},	  marry=#{marry},
+		
+	    phone=#{phone},	  buyhouse=#{buyhouse}
+		 
+	 <where>
+	   member_id=#{member_id}	         
+	 </where>	
+	</update>
+	
+	<select id="getUserinfo" resultType="com.mjbmall.members.entity.Userinfo" parameterType="com.mjbmall.members.entity.Userinfo">
+		select a.*,b.registertime from userinfo a ,u_user b
+		<where>
+		   b.id=a.member_id
+		   and
+			a.member_id=#{member_id}
+		</where>
+	</select>
+	
 </mapper>
