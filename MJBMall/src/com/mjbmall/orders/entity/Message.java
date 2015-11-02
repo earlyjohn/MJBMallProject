@@ -7,6 +7,7 @@ public class Message {
 	private String msg;
 	private String sendTime;
 	private int status;
+	private int type;
 	public int getMessage_id() {
 		return message_id;
 	}
@@ -42,6 +43,12 @@ public class Message {
 	}
 	public void setStatus(int status) {
 		this.status = status;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }
