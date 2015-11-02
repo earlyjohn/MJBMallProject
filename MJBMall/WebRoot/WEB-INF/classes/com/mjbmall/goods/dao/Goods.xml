@@ -90,4 +90,23 @@
 			type=1
 		</where>
 	</select>
+	<select id="findWatched"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
+	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_watched c
+        <where>
+		 	a.shop_id=b.shop_id and a.goods_id=c.goods_id
+			
+		 	 and c.user_id=#{0}
+		   
+		    
+		</where>
+	</select>
+	<insert id="addWatched" parameterType="int">  
+       insert into m_watched (user_id,goods_id) 
+       values(#{0},#{1}
+       	)  
+    </insert> 
+    <delete id="delWatched" parameterType="int">
+		delete from m_watched
+		where user_id=#{0}
+	</delete>
 </mapper>
