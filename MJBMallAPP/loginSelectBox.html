@@ -317,7 +317,6 @@
                         <div style="float: left; width: 100%">x{{count}}</div>
                     </div>
                 </div>
-        </div>
          {{/each}}
     </script>
     <!-- 商品收藏列表-->
@@ -508,13 +507,14 @@
         <div class="editSingleProductCollection" style="height: 120px;background-color: white;">
                     <div class="row" style="background-color: white; margin-top: 10px;">
                         <div class="editProductCollectionChectBox">
-                        <label class="label-checkbox item-content col-auto">
-                            <input type="checkbox" name="editCheckItem" checked="checked" class="singleCheck">
-                            <div class="item-media shopcart_bottom" style="padding-left:10px;">
-                                <i class="icon icon-form-checkbox"></i>
-                            </div>
-                        </label>
-                    </div>
+                            <label class="label-checkbox item-content col-auto">
+                                <input type="checkbox" name="editGoodsCheckItem" checked="checked" class="singleCheck">
+                                <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                    <input type="hidden" value="{{goods_id}}" name="hidenGoodsId" />
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                            </label>
+                        </div>
                         <div style="cursor: pointer;float:left;margin-left:35px;">
                             <a href="productDetail.html?goods_id={{goods_id}}">
                                 <img src="{{big_pic}}" class="e_c_productImg" /></a>
@@ -533,14 +533,24 @@
         {{#each editShopCollectionList}}
         <div class="editSingleShopCollection" style="height: 120px;background-color: white;">
                     <div class="row" style="background-color: white; margin-top: 10px;">
-                        <div class="editShopCollectionChectBox">
+                        <!--<div class="editShopCollectionChectBox">
                         <label class="label-checkbox item-content col-auto">
-                            <input type="checkbox" name="editCheckItem" checked="checked" class="singleCheck">
+                            <input type="checkbox" name="editShopCheckItem" checked="checked" class="singleCheck">
+                            <input type="hidden" name="hidenShopId" value="{{shop_id}}"/>
                             <div class="item-media shopcart_bottom" style="padding-left:10px;">
                                 <i class="icon icon-form-checkbox"></i>
                             </div>
                         </label>
-                    </div>
+                    </div>-->
+                        <div class="editShopCollectionChectBox">
+                            <label class="label-checkbox item-content col-auto">
+                                <input type="checkbox" name="editShopCheckItem" checked="checked" class="singleCheck">
+                                <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                    <input type="hidden" value="{{shop_id}}" name="hidenShopId" />
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                            </label>
+                        </div>
                         <div style="cursor: pointer;float:left;margin-left:35px;">
                             <a href="productDetail.html?shop_id={{shop_id}}">
                                 <img src="{{big_pic}}" class="e_c_productImg" /></a>
