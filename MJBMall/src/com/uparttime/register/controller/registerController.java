@@ -114,6 +114,19 @@ public class registerController {
 		
 		return Action.SUCCESS;
 	}
+	public String updatePwd(){
+		try{
+			registerMapper.updatePwd(username, password);
+			status="0";
+			
+		}catch(Exception e){
+			status="1";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
