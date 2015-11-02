@@ -34,7 +34,7 @@
             var userName = $$("#userName").val();
             var password = $$("#registerPassword").val();
             var phone = $$("#phoneNumber").val();
-            var messageCode = $$("#messageCode").val;
+            var messageCode1 = $$("#messageCode").val;
 			if (!userName || !password) {
 			    myApp.toast('用户名密码不能为空', 'error').show(true);
 			   // myApp.toast('请输入账号或密码', 'tips').show(true);
@@ -46,7 +46,7 @@
 			    return;
 			}
             // 检验短信验证码
-			uzu.rest.getJSON("register/findCodeMsg", { 'phone': phone, 'codeMsg': messageCode }, function (result) {
+			uzu.rest.getJSON("register/findCodeMsg", { 'phone': phone, 'codeMsg': messageCode1 }, function (result) {
 			    if (result.status != "0") {
 			        myApp.toast('验证码错误！！！', 'error').show(true);
 			    } else {
