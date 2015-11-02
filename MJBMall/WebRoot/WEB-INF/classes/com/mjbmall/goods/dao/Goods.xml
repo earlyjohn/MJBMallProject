@@ -67,7 +67,7 @@
 		 	<if test='shop_id != null and shop_id!=0'>
 		 	and	b.shop_id=#{shop_id}
 		    </if>
-		    <if test='user_id != null and shop_id!=0'>
+		    <if test='user_id != null and user_id!=0'>
 		 	and	b.user_id=#{user_id}
 		    </if>
 		</where>
