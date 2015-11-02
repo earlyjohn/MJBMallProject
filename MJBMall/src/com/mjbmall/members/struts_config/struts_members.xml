@@ -25,5 +25,25 @@
 			   	<param name="callbackParameter">callback</param>
 			</result>
 		</action>
+		
+
+		
+		<action name="saveUserinfo" class="com.mjbmall.members.controller.UserinfoController" method="saveUserinfo">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		
+		<action name="getUserinfo" class="com.mjbmall.members.controller.UserinfoController" method="getUserinfo">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+  
+		
 	</package>
 </struts>

@@ -385,8 +385,9 @@
         </div>
         {{/each}}
     </script>
-    <!-- 个人信息展示-->
+    <!-- 修改保存个人信息（）-->
     <script type="text/template7" id="memberInformationTpl">
+    {{#each userList}}
         <ul>
                     <!-- Text inputs -->
                     <li>
@@ -395,7 +396,19 @@
                             <div class="item-inner">
                                 <div class="item-title label">昵称</div>
                                 <div class="item-input">
-                                    <input type="text" placeholder="Your name">
+                                    <input type="text" placeholder="被别人叫的名字" id="nickname"  value="{{nickname}}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- address inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">居住地</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="地球上一点" id="address"  value="{{address}}">
                                 </div>
                             </div>
                         </div>
@@ -407,14 +420,14 @@
                             <div class="item-inner">
                                 <div class="item-title label">性别</div>
                                 <div class="item-input">
-                                    <select>
-        {{#if sexFlag}}
+                                    <select id="sex">
+                                    {{#if sex}}
                                         <option selected="selected">男</option>
                                         <option>女</option>
-        {{else}}
-          <option>男</option>
-          <option selected="selected">女</option>
-        {{/if}}
+                                   {{else}}
+                                     <option>男</option>
+                                     <option selected="selected">女</option>
+                                   {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -425,9 +438,9 @@
                         <div class="item-content">
                             <div class="item-media"></div>
                             <div class="item-inner">
-                                <div class="item-title label">出生日期</div>
+                                <div class="item-title label">生日</div>
                                 <div class="item-input">
-                                    <input type="date"  value="2014-04-30">
+                                    <input type="date" placeholder="睁眼看世界的那天" id="birthday"  value="{{birthday}}">
                                 </div>
                             </div>
                         </div>
@@ -436,9 +449,9 @@
                         <div class="item-content">
                             <div class="item-media"></div>
                             <div class="item-inner">
-                                <div class="item-title label">xxx米</div>
+                                <div class="item-title label">身高</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="E-mail" value="{{email}}">
+                                    <input type="text" placeholder="xxx cm" id="tall" value="{{tall}}">
                                 </div>
                             </div>
                         </div>
@@ -449,7 +462,19 @@
                             <div class="item-inner">
                                 <div class="item-title label">学历</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="大学">
+                                    <input type="text" placeholder="degree"id="degree" value="{{degree}}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">月收入</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="$$$$" id="income"  value="{{income}}">
                                 </div>
                             </div>
                         </div>
@@ -460,7 +485,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">婚姻状况</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="已婚">
+                                    <input type="text" placeholder="marry" id="marry" value="{{marry}}">
                                 </div>
                             </div>
                         </div>
@@ -471,7 +496,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">手机号</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="18222902657">
+                                    <input type="text" placeholder="移动联通电信" id="phone" value="{{phone}}">
                                 </div>
                             </div>
                         </div>
@@ -482,7 +507,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">购房情况</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="无">
+                                    <input type="text" placeholder="house" id="buyhouse" value="{{buyhouse}}">
                                 </div>
                             </div>
                         </div>
@@ -494,12 +519,13 @@
                             <div class="item-inner">
                                 <div class="item-title label">注册日期</div>
                                 <div class="item-input">
-                                    <input type="datetime-local">
+                                    <div class="item-title label">{{registertime}}</div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                </ul>
+             </ul>
+             {{/each}}
     </script>
     <!--编辑商品收藏-->
     <script type="text/template7" id="editProductCollectionListTpl">
