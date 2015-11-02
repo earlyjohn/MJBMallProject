@@ -27,6 +27,6 @@
 	<update id="updatePwd" parameterType="String">
 		update u_user
 		set password=md5(#{1}) 
-		where username=#{0}
+		where phone=#{0}
 	</update>
 </mapper>

@@ -116,11 +116,21 @@ public class registerController {
 	}
 	public String updatePwd(){
 		try{
-			registerMapper.updatePwd(username, password);
-			status="0";
+            CodeMsg c = new CodeMsg();
+			
+			c.setPhone(phone);
+			
+			
+			List<CodeMsg> list = registerMapper.findCodeMsg(c);
+			if(codeMsg.equals(list.get(0).getCodeMsg())){
+				registerMapper.updatePwd(phone, password);
+				status="0";
+			}else{
+				status="1";
+			}
 			
 		}catch(Exception e){
-			status="1";
+			status="2";
 			
 		}
 		
