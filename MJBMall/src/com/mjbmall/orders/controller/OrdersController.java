@@ -17,6 +17,10 @@ import com.opensymphony.xwork2.Action;
  * @author ZZ
  * 
  */
+/**
+ * @author Administrator
+ *
+ */
 public class OrdersController {
 	private OrdersMapper ordersMapper;
 	private Map<String, Object> result = new HashMap<String, Object>();
@@ -152,8 +156,9 @@ public class OrdersController {
 
 	/*
 	 * 点击结算按钮，将购物车中的选中商品的是否结算字段更改
+	 * @author xuejx
 	 */
-	public String setReckoning() {
+	public String updateReckoning() {
 		try {
 			result.clear();
 			Reckoning rk = new Reckoning();
@@ -171,6 +176,7 @@ public class OrdersController {
 
 	/*
 	 * 提交订单，将商品信息，地址等信息都存进去 // 提交订单id和商品id的关联表中
+	 * @author xuejx
 	 */
 	public String commitOrders() {
 		try {
@@ -201,8 +207,9 @@ public class OrdersController {
 
 	/*
 	 * 根据订单编号拿到商品list
+	 * @author xuejx
 	 */
-	public String getGoodsByOrderId() {
+	public String findGoodsByOrderId() {
 		try {
 			result.clear();
 			List<Goods> list=ordersMapper.getGoodsByOrderId(order_id);
@@ -214,6 +221,46 @@ public class OrdersController {
 		return Action.SUCCESS;
 	}
 
+	/*
+	 * 通过order_id拿到订单详情
+	 * @author xuejx
+	 */
+	public String findOrderDetailByOrderId(){
+		try {
+			result.clear();
+			List<Order> list=ordersMapper.getOrderDetailByOrderId(order_id);
+			result.put("ordersList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return Action.SUCCESS;
+	}	
+	/*
+	 * 通过order_id删除订单
+	 * @author xuejx
+	 */
+	public String delOrderByOrderId(){
+		try {
+			result.clear();
+			if (order_id != 0) {
+				ordersMapper.delOrderByOrderId(order_id);
+				ordersMapper.delOrderGoodsByOrderId(order_id);
+				result.put("msg", "success");
+			} else {
+				result.put("msg", "fail");
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+			result.put("msg", "fail");
+		}
+		return Action.SUCCESS;
+	}
+	/*
+	 * 根据user_id得到
+	 * 
+	 */
 	public String addAddress() {
 		try {
 			result.clear();
