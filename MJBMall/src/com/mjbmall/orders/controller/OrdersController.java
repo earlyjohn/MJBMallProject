@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.Action;
  */
 /**
  * @author Administrator
- *
+ * 
  */
 public class OrdersController {
 	private OrdersMapper ordersMapper;
@@ -156,6 +156,7 @@ public class OrdersController {
 
 	/*
 	 * 点击结算按钮，将购物车中的选中商品的是否结算字段更改
+	 * 
 	 * @author xuejx
 	 */
 	public String updateReckoning() {
@@ -176,6 +177,7 @@ public class OrdersController {
 
 	/*
 	 * 提交订单，将商品信息，地址等信息都存进去 // 提交订单id和商品id的关联表中
+	 * 
 	 * @author xuejx
 	 */
 	public String commitOrders() {
@@ -207,12 +209,13 @@ public class OrdersController {
 
 	/*
 	 * 根据订单编号拿到商品list
+	 * 
 	 * @author xuejx
 	 */
 	public String findGoodsByOrderId() {
 		try {
 			result.clear();
-			List<Goods> list=ordersMapper.getGoodsByOrderId(order_id);
+			List<Goods> list = ordersMapper.getGoodsByOrderId(order_id);
 			result.put("goodsList", list);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -223,24 +226,27 @@ public class OrdersController {
 
 	/*
 	 * 通过order_id拿到订单详情
+	 * 
 	 * @author xuejx
 	 */
-	public String findOrderDetailByOrderId(){
+	public String findOrderDetailByOrderId() {
 		try {
 			result.clear();
-			List<Order> list=ordersMapper.getOrderDetailByOrderId(order_id);
+			List<Order> list = ordersMapper.getOrderDetailByOrderId(order_id);
 			result.put("ordersList", list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return Action.SUCCESS;
-	}	
+	}
+
 	/*
 	 * 通过order_id删除订单
+	 * 
 	 * @author xuejx
 	 */
-	public String delOrderByOrderId(){
+	public String delOrderByOrderId() {
 		try {
 			result.clear();
 			if (order_id != 0) {
@@ -257,10 +263,37 @@ public class OrdersController {
 		}
 		return Action.SUCCESS;
 	}
+
 	/*
-	 * 根据user_id得到
-	 * 
+	 * 根据user_id得到所有订单详情（即order_id）
 	 */
+	public String findOrderByUserId() {
+		try {
+			result.clear();
+			List<Order> list =ordersMapper.findOrderByUserId(user_id);
+			result.put("orderList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return Action.SUCCESS;
+	}
+
+	/*
+	 * 确认收货更改交易状态
+	 * 
+	 * @author xuejx
+	 */
+	public String updateOrderStatus() {
+		try {
+			ordersMapper.updateOrderStatus(order_id);
+			result.put("msg", "success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+
 	public String addAddress() {
 		try {
 			result.clear();
@@ -333,7 +366,7 @@ public class OrdersController {
 		return Action.SUCCESS;
 	}
 
-	public String setAddressStatus() {
+	public String updateAddressStatus() {
 		try {
 			result.clear();
 
