@@ -83,7 +83,7 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<action name="setReckoning" class="com.mjbmall.orders.controller.OrdersController" method="setReckoning">
+		<action name="updateReckoning" class="com.mjbmall.orders.controller.OrdersController" method="updateReckoning">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>
@@ -97,7 +97,21 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<action name="getGoodsByOrderId" class="com.mjbmall.orders.controller.OrdersController" method="getGoodsByOrderId">
+		<action name="findGoodsByOrderId" class="com.mjbmall.orders.controller.OrdersController" method="findGoodsByOrderId">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findOrderDetailByOrderId" class="com.mjbmall.orders.controller.OrdersController" method="findOrderDetailByOrderId">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="delOrderByOrderId" class="com.mjbmall.orders.controller.OrdersController" method="delOrderByOrderId">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>

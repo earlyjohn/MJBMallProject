@@ -58,6 +58,7 @@
 		</if>
 		
 	--></update>
+	
 	<update id="setReckoning" parameterType="int">
 		update m_cart SET reckoning=1 where user_id=#{0} and goods_id=#{1}
 	</update>
@@ -72,6 +73,15 @@
 	<select id="getGoodsByOrderId" resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
 	   SELECT * FROM sdb_b2c_goods a WHERE a.goods_id IN (SELECT b.goods_id FROM m_order_goods b WHERE b.order_id=#{order_id} ) GROUP BY goods_id
 	</select>
+	<select id="getOrderDetailByOrderId" resultType="com.mjbmall.goods.entity.Order" parameterType="int">
+		SELECT * FROM m_order a WHERE a.order_id=#{order_id}
+	</select>
+	<delete id="delOrderByOrderId" parameterType="int">
+		delete from m_order where order_id=#{0}
+	</delete>
+	<delete id="delOrderGoodsByOrderId" parameterType="int">
+		delete from m_order_goods where order_id=#{0}
+	</delete>
 	
 	<select id="getreckoning"  resultType="com.mjbmall.orders.entity.Carts" parameterType="int">
 	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c

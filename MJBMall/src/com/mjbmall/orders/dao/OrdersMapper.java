@@ -31,6 +31,12 @@ public interface OrdersMapper {
 
 	public List<Goods> getGoodsByOrderId(int order_id);
 
+	public List<Order> getOrderDetailByOrderId(int order_id);
+
+	public void delOrderByOrderId(int order_id);
+
+	public void delOrderGoodsByOrderId(int order_id);
+
 	public void addAddress(Address add);
 
 	public void updateAddress(Address add);
