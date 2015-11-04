@@ -55,6 +55,19 @@ public class Goods {
 	private BigDecimal mktprice;
 	private String intro;
 	private String params;
+	private String time;
+	/**
+	 * @return time
+	 */
+	public String getTime() {
+		return time;
+	}
+	/**
+	 * @param time 要设置的 time
+	 */
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public BigDecimal getMktprice() {
 		return mktprice;
 	}

@@ -35,7 +35,9 @@ public class MessageController {
 			for(int i=0;i<list.size();i++){
 				ids[i]=list.get(i).getMessage_id();
 			}
-			messageMapper.updateMsgStatus(ids);
+			if(list!=null&&list.size()>0){
+				messageMapper.updateMsgStatus(ids);
+			}
 			result.put("msgList", list);
 			
 		}catch(Exception e){

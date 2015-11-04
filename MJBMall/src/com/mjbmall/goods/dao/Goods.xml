@@ -91,7 +91,7 @@
 		</where>
 	</select>
 	<select id="findWatched"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
-	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_watched c
+	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number,date_format(c.time,'%Y-%c-%d %H:%i:%s') as time from sdb_b2c_goods a,m_shop b,m_watched c
         <where>
 		 	a.shop_id=b.shop_id and a.goods_id=c.goods_id
 			
@@ -99,11 +99,13 @@
 		   
 		    
 		</where>
+		order by c.time desc
 	</select>
 	<insert id="addWatched" parameterType="int">  
-       insert into m_watched (user_id,goods_id) 
-       values(#{0},#{1}
-       	)  
+       <!-- insert into m_watched (user_id,goods_id,time) 
+       values(#{0},#{1},NOW()
+       	)   -->
+       	replace into m_watched(user_id,goods_id,time) values(#{0},#{1},NOW());
     </insert> 
     <delete id="delWatched" parameterType="int">
 		delete from m_watched

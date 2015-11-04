@@ -3,7 +3,7 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.mjbmall.orders.dao.MessageMapper">
     <select id="getNewMsg"  resultType="com.mjbmall.orders.entity.Message" parameterType="com.mjbmall.orders.entity.Message">
-	   select * from 
+	   select  message_id,date_format(send_id,'%Y-%c-%d %H:%i:%s') as send_id,recv_id,msg,sendTime,status,type from 
        m_message
         <where>
               type=#{type}
