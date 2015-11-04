@@ -91,7 +91,7 @@
 		</where>
 	</select>
 	<select id="findWatched"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
-	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number,date_format(c.time,'%Y-%c-%d %H:%i:%s') as time from sdb_b2c_goods a,m_shop b,m_watched c
+	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number,date_format(c.time,'%Y-%c-%d') as time from sdb_b2c_goods a,m_shop b,m_watched c
         <where>
 		 	a.shop_id=b.shop_id and a.goods_id=c.goods_id
 			
