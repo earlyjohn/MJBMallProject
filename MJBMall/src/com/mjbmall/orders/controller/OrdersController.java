@@ -387,7 +387,19 @@ public class OrdersController {
 
 		return Action.SUCCESS;
 	}
-
+	
+	public String findDefaultAddress(){
+		try {
+			result.clear();
+			List<Address> list=ordersMapper.findDefaultAddress(user_id);
+			result.put("addressList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return Action.SUCCESS;
+	}
+	
 	public void setOrdersMapper(OrdersMapper ordersMapper) {
 		this.ordersMapper = ordersMapper;
 	}

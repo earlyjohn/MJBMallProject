@@ -118,7 +118,6 @@
 	<update id="setAddressStatus" parameterType="com.mjbmall.orders.entity.Address">
 		update m_receiptads
 		set status=#{status}
-		
 		<where>
         1=1
 		 	<if test='user_id != null &amp;&amp; user_id!=0'>
@@ -127,8 +126,9 @@
 		     <if test='addressId != null &amp;&amp; addressId!=0'>
 			 and addressId=#{addressId}
 		     </if>
-		     
 		</where>
 	</update>
-	
+	<select id="findDefaultAddress"  resultType="com.mjbmall.orders.entity.Address" parameterType="com.mjbmall.orders.entity.Address">
+	   select * from m_receiptads where user_id=#{user_id} and status=1
+	</select>
 </mapper>
