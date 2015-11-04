@@ -55,4 +55,10 @@
             value="com.mjbmall.members.dao.MembersMapper" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
+    <bean id="connectInfoMapper"
+        class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface"
+            value="com.mjbmall.members.dao.MembersMapper" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>
