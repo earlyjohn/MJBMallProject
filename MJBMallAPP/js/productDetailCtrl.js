@@ -12,6 +12,9 @@
         var goods_id = query.goods_id;
         // 用户id
         var user_id = window.localStorage.getItem("userId");
+        //插入最近浏览数据库表
+         uzu.rest.getJSON("watched/addWatched", { 'user_id': user_id,'goods_id':goods_id }, function (data) {});
+
         uzu.rest.getJSON("goods/findGoods", { 'goods_id': goods_id }, function (data) {
             // 渲染模板
             var context = {};

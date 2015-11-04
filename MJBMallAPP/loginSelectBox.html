@@ -527,6 +527,34 @@
              </ul>
              {{/each}}
     </script>
+<!-- 最近浏览 -->
+    <script type="text/template7" id="recentvisitTpl">
+     {{#each dateList}}
+     <div class="home_auto" style="background-color: #ebebeb">
+                <div style="width: 100%; text-align: left; padding-left: 5%">{{date}}</div>
+       {{#each goodsList}}
+                <div class="recentvisit_main">
+                    <div class="recentvisit_left"><a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg"/></a>
+                        <!--<img src="img/home/csdg_rm (1).jpg" class="message_image_style" />-->
+                    </div>
+                    <div class="recentvisit_right_one">
+                       {{name}}
+                    </div>
+                     <div class="recentvisit_right_one">
+                       {{brief}}
+                    </div>
+                    <div class="recentvisit_right_two">
+                        <ul>
+                            <li style="color: red">￥{{price}}</li>
+                            <li style="color: black">￥{{mktprice}}</li>
+                        </ul>
+                        <i style="float: right">300米</i>
+                    </div>
+                </div>
+        {{/each}}
+       </div>
+    {{/each}}
+   </script>
     <!--编辑商品收藏-->
     <script type="text/template7" id="editProductCollectionListTpl">
         {{#each editProductsCollectionList}}

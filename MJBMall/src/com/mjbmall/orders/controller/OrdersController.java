@@ -184,6 +184,7 @@ public class OrdersController {
 		try {
 			Order order = new Order();
 			order.setUser_id(user_id);
+			order_id=(int) Math.random();
 			order.setOrder_id(order_id);
 			address = new String(address.getBytes("iso8859-1"), "UTF-8");
 			order.setAddress(address);
@@ -192,12 +193,15 @@ public class OrdersController {
 			order.setPhone(phone);
 			order.setOrder_status(order_status);
 			order.setOrder_sum(order_sum);
-			// order.setOrder_time(order_time);
+			ordersMapper.commitOrders(order);
 			Order order1 = new Order();
 			order1.setOrder_id(order_id);
-			order1.setGoods_id(goods_id);
-			ordersMapper.commitOrders(order);
-			ordersMapper.commitOrdersGoods(order1);
+			String[] goods_id=goods_ids.split(",");
+			for (int i = 0; i < goods_id.length; i++) {
+				int t_goods_id=Integer.parseInt(goods_id[i]);
+				order1.setGoods_id(t_goods_id);
+				ordersMapper.commitOrdersGoods(order1);
+			}
 			result.put("msg", "success");
 		} catch (Exception e) {
 			e.printStackTrace();
