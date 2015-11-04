@@ -184,7 +184,7 @@ public class OrdersController {
 		try {
 			Order order = new Order();
 			order.setUser_id(user_id);
-			order_id=(int) Math.random();
+			order_id=(int) (Math.random()*100);
 			order.setOrder_id(order_id);
 			address = new String(address.getBytes("iso8859-1"), "UTF-8");
 			order.setAddress(address);
