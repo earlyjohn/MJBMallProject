@@ -11,6 +11,7 @@
         $$("#productDetailNav").hide();
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("orders/findCarts", { 'user_id': user_id }, function (data) {
+            debugger;
             // 渲染模板
             var context = {};
             context.cartList = data.result.cartsList;
@@ -60,8 +61,8 @@
                 // 获得选中商品的信息
                 var selectChks = $$("input[type=checkbox][name=checkItem]:checked");
                 if (!selectChks.length) {
-                    alert("请选择要结算的商品");
-                    return;
+                    //alert("请选择要结算的商品");
+                    //return;
                 }
                 var goodsIdArray = new Array();
                 selectChks.each(function () {
@@ -72,8 +73,7 @@
                 var goods_ids = goodsIdArray.join(',');
                 debugger;
                 uzu.rest.getJSON("orders/goreckoning", { 'user_id': user_id, 'goodsId': goods_ids }, function (result) {
-                    debugger;
-                   // mainView.router.loadPage("shoppingCart.html");
+                    mainView.router.loadPage("confirm-order.html");
                 });
             }, this);
         });

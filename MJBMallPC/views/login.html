@@ -20,12 +20,12 @@
                                     <ul>
                                         <li class="clearfix">
                                             <div class="floatdiv">
-                                                <input class="x-input inputstyle username" name="uname" id="uname" type="text" placeholder="用户名" tabindex="1">
+                                                <input class="x-input inputstyle username"  ng-model="userName" type="text" placeholder="用户名" tabindex="1">
                                             </div>
                                         </li>
                                         <li class="clearfix">
                                             <div class="floatdiv">
-                                                <input class="x-input inputstyle password" name="password" placeholder="密码" type="password" id="password" tabindex="2">
+                                                <input class="x-input inputstyle password" placeholder="密码" type="password" ng-model="userPassword" tabindex="2">
                                             </div>
                                         </li>
                                         <!--<li class="clearfix">
@@ -43,8 +43,8 @@
                                         <li class="clearfix">
                                             <label class="leftlabel"></label>
                                             <div class="floatdiv" style="padding: 3px 2px;">
-                                                <button class="btn-login btn common-btn" type="submit" value="登录" tabindex="4" style="width:259px;">
-                                                    <a href="views/homePage.html"><span><span>登 录</span></span></a>
+                                                <button class="btn-login btn common-btn" type="submit" ng-click="loginBtn()" value="登录" tabindex="4" style="width:259px;">
+                                                    <a ><span><span>登 录</span></span></a>
                                                 </button>
                                             </div>
                                         </li>

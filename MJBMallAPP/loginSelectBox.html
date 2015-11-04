@@ -617,6 +617,32 @@
                 </div>
          {{/each}}
     </script>
+    <!--获得默认地址-->
+    <script type="text/template7" id="getAddressTpl">
+        <div class="item-text">
+            <p>
+                <span class="color-2b"><i class="icon icon-addr-name"></i>{{name}}</span>
+                <span class="color-2b"><i class="icon icon-addr-phone"></i>{{phone}}</span>
+            </p>
+            <p class="color-lightergray-u">{{address}}</p>
+        </div>
+    </script>
+    <!--提交订单商品-->
+    <script type="text/template7" id="indreckoningTpl">
+        {{#each indreckoningList}}
+        <div class="orderGoods">
+            <input type="hidden" name="goods_ids" value="{{goods_id}}">
+            <div class="item-title-row" style="margin-top:10px;">
+                <div class="item-title" style="width:100px;"><img src="img/phone.jpg" /></div>
+                <div class="item-title" style="margin-top:20px;">{{name}}</div>
+                <div class="item-after">
+                    <p>￥{{price}}</p>
+                    <p>X{{count}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
