@@ -3,6 +3,16 @@
         $$('.iconBack').on('click', function () {
             mainView.router.back();
         });
+         var auths=null;
+		// 监听plusready事件  
+		document.addEventListener( "plusready", function(){
+			// 扩展API加载完毕，现在可以正常调用扩展API
+			plus.oauth.getServices( function(services){
+				auths = services;
+			}, function(e){
+				alert( "获取分享服务列表失败："+e.message+" - "+e.code );
+			} );
+		}, false );
         $$('#personalLogin1').on('click', function () {
             var userName = $$("#username").val();
             var password = $$("#password").val();
@@ -23,6 +33,18 @@
                 }
             });
         });
+        $$('#qqLogin').on('click',function authLogin(){
+		var s = auths[0];
+	if ( !s.authResult ) {
+		s.login( function(e){
+			alert( "登录认证成功！" );
+		}, function(e){
+			alert( "登录认证失败！" );
+		} );
+	}else{
+		alert( "已经登录认证！" );
+	}
+});
     }
-};
+}
 

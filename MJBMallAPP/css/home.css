@@ -44,6 +44,16 @@ img{
   background-repeat:no-repeat;
   background-size:100% 100%;
 }
+.home_back ul{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  width: 100%;
+}
+.home_back ul li{
+  float: left;
+}
+
 .home_chose{
   width: 13px;
   height: 13px;
@@ -76,9 +86,9 @@ img{
   background: white;
   border-top: 1px solid gainsboro;
   border-bottom: 1px solid gainsboro;
-  margin:5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
   width: 97%;
-  padding: 5px;
+  padding: 5px 0px 5px 0px;
   padding-left: 3%;
   height: 25px;
   line-height: 25px;
@@ -128,7 +138,7 @@ img{
   display: table-cell;
   vertical-align: middle;
   width: 94%;
-  margin-left: 3%;
+  margin-left: 3.5%;
   float: left;
 }
 /*纵向布局*/
@@ -189,7 +199,7 @@ img{
   margin:0.5px 0.5px 0.5px 0.5px;
   display: table-cell;
   vertical-align: middle;
-  width:24.7%;
+  width:24.5%;
   height: 79px;
   float:left;
 }

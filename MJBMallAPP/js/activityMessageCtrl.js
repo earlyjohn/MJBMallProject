@@ -1,11 +1,11 @@
 var activityMessageCtrl = {
     init: function (e) {
 
-        // ¶¥²¿µ¼º½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var html = '<div class="navbar-inner"><a class="left"><i class="icon spxq_icon-navbar"></i></a>'+
-       '<div class="center">ÃÀ¾Ó±¦»î¶¯</div><div class="right editCart"><a class="link link-u" style="color: white"></a></div></div>';
+       '<div class="center">ç¾å±…å®æ´»åŠ¨æ¶ˆæ¯</div><div class="right editCart"><a class="link link-u" style="color: white"></a></div></div>';
         $$('#activityMessageNavbar').html(html);
-        // »ØÍË
+        // ï¿½ï¿½ï¿½ï¿½
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });

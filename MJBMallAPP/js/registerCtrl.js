@@ -41,7 +41,7 @@
 			   // myApp.toast('注册成功', 'success').show(true);
 				return;
 			}
-			if (!messageCode) {
+			if (!messageCode1) {
 			    myApp.toast('短信验证码不能为空', 'error').show(true);
 			    return;
 			}
@@ -66,13 +66,10 @@
 			            else {
 			                myApp.toast('注册失败，请重试', 'error').show(true);
 			                return;
-
 			            }
 			        });
 			    }
 			});
-            
-           
         });
     },
     // 倒计时

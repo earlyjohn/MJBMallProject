@@ -1,17 +1,19 @@
 ﻿var shoppingCartCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><a class='left'><i class='icon'></i></a><div class='center'>购物车</div>"
+        var html = "<div class='navbar-inner'><div class='left'><i style='color: #FFFFFF;' class='icon spxq_icon-navbar goBack'></i></div><div class='center'>购物车</div>"
                 + "<div class='right'><a href='editCart.html' class='link link-u editCart' style='color: white'>编辑</a></div></div>";
         $$('#shoppingCartNavbar').html(html);
         // 隐藏底部导航栏
         // 底部导航栏
         $$("#homeToolbar").show();
-        $$("#productListNav").show();
         $$("#productDetailNav").hide();
+        $$("#productListNav").show();
+        $$('.spxq_icon-navbar').on('click', function () {
+            mainView.router.back();
+        });
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("orders/findCarts", { 'user_id': user_id }, function (data) {
-            debugger;
             // 渲染模板
             var context = {};
             context.cartList = data.result.cartsList;
@@ -61,8 +63,8 @@
                 // 获得选中商品的信息
                 var selectChks = $$("input[type=checkbox][name=checkItem]:checked");
                 if (!selectChks.length) {
-                    //alert("请选择要结算的商品");
-                    //return;
+                    alert("请选择要结算的商品");
+                    return;
                 }
                 var goodsIdArray = new Array();
                 selectChks.each(function () {

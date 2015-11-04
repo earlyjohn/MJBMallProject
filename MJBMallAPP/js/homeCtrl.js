@@ -4,10 +4,16 @@
             pagination: '.swiper-1 .swiper-pagination',
             spaceBetween: 50
         });
-        var html = "<div class='navbar-inner'><div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
-            + "<div class='center home_back'>" +  "<span class='selectSearch' style='float:left;padding-left:5%;width:15%'>商品</span><i class='icon home_chose'></i>"
-            + "<input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width:50%'/> <span style='  float: right;padding-right: 5%;position: absolute;width: 15%;top: 11px;right: 1%;'><i class='icon home_search' id='search'></i></span>"
-            + "</div><div class='right'><i class='icon home_message'></i></div></div>";
+        var html = "<div class='navbar-inner'>" +
+            "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
+            + "<div class='center home_back'>" +
+            "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
+            "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
+            "<li style='width: 40%'><input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width: auto; position: relative;left: 10px;}'/></li>" +
+            "<li style='position: absolute;right: 5%;top: 10px;width: 15%;'><i class='icon home_search' id='search'></i></li>" +
+            "</ul></div>" +
+            "<div class='right'><i class='icon home_message'></i></div>" +
+            "</div>";
         $$('#homeNavbar').html(html);
         // 显示底部菜单
         $$('#homeToolbar').show();

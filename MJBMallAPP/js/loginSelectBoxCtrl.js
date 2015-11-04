@@ -8,5 +8,6 @@
             var url = "shopLogin.html";
             mainView.router.loadPage(url);
         });
+       
     }
 };

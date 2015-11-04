@@ -29,6 +29,7 @@ var module = {
     "jdlg": jdlgCtrl,
     "fzfs": fzfsCtrl,
     "fc": fcCtrl,
+    "chat":chatCtrl,
     "cyms": cymsCtrl,
     "csdg": csdgCtrl,
     "classfy": classfyCtrl,

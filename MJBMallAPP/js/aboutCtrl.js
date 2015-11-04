@@ -1,14 +1,16 @@
+/**
+ * Created by Administrator on 2015/10/29.
+ */
 var aboutCtrl = {
     init: function (e) {
-        // ¶¥²¿µ¼º½
-        var html2 = "<div class='navbar-inner'><a class='left'><i class='icon spxq_icon-navbar'></i></a><div class='center'>±à¼­¹ºÎï³µ"
-                + "</div><div class='right' id='order'><a href='shoppingCart.html' class='link link-u' style='color: white>'Íê³É</a></div></div>";
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        var html2 = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>å…³äºç¾å±…å®"
+            +"</div><div class='right'></div></div>";
         $$('#aboutNavbar').html(html2);
-        // »ØÍË
-        $$('.icon-orderback').on('click', function () {
+        // ï¿½ï¿½ï¿½ï¿½
+        $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
-
     }
 };
 
