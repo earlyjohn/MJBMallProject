@@ -48,5 +48,7 @@ public interface OrdersMapper {
 	public void delAddress(int addressId);
 
 	public void setAddressStatus(Address add);
+	
+	public List<Address> findDefaultAddress(int user_id);
 
 }
