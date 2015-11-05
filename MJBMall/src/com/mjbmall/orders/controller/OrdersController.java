@@ -164,8 +164,11 @@ public class OrdersController {
 			result.clear();
 			Reckoning rk = new Reckoning();
 			rk.setUser_id(user_id);
-			rk.setGoods_id(goods_id);
-			ordersMapper.setReckoning(user_id, goods_id);
+			String[] t_goods_id=goods_ids.split(",");
+			for (int i = 0; i < t_goods_id.length; i++) {
+				rk.setGoods_id(Integer.parseInt(t_goods_id[i]));
+				ordersMapper.setReckoning(rk);
+			}
 			result.put("msg", "success");
 		} catch (Exception e) {
 			e.printStackTrace();

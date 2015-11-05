@@ -60,7 +60,7 @@
 	--></update>
 	
 	<update id="setReckoning" parameterType="int">
-		update m_cart SET reckoning=1 where user_id=#{0} and goods_id=#{1}
+		update m_cart SET reckoning=1 where user_id=#{user_id} and goods_id=#{goods_id}
 	</update>
 	<insert id="commitOrders" parameterType="com.mjbmall.orders.entity.Order">
 	   insert into m_order(user_id,order_id,address,name,phone,order_status,order_time,order_sum) 

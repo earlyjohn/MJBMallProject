@@ -23,7 +23,7 @@ public interface OrdersMapper {
 
 	public List<Carts> getreckoning(int user_id);
 
-	public void setReckoning(int user_id, int goods_id);
+	public void setReckoning(Reckoning rk);
 
 	public void commitOrders(Order order);
 
