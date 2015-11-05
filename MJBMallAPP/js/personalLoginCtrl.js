@@ -18,6 +18,7 @@
             var password = $$("#password").val();
             if (!userName || !password) {
                 myApp.toast('请输入账号或密码', 'error').show(true);
+                //mainView.router.loadPage("home.html");
                 return;
             }
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
@@ -28,8 +29,10 @@
                     mainView.router.loadPage("home.html");
                 } else if (result.status == "3") {
                     myApp.toast('请输入账号或密码', 'error').show(true);
+                    //mainView.router.loadPage("home.html");
                 } else {
                     myApp.toast('账号或密码错误', 'error').show(true);
+                    //mainView.router.loadPage("home.html");
                 }
             });
         });

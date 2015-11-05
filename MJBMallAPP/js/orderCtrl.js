@@ -12,7 +12,18 @@
         $$('.icon-orderback').on('click', function () {
             mainView.router.back();
         });
-
+        // 用户id
+        var user_id = window.localStorage.getItem("userId");
+        uzu.rest.getJSON("orders/findOrderIdByUserId", { 'user_id': user_id }, function (data) {
+            debugger;
+            // 渲染模板
+            var context = {};
+            context.tab1OrderList = data.result.orderList;
+            var cartsListTemplate = $$('#tab1OrderListTpl').html();
+            var compiledCartsListTemplate = Template7.compile(cartsListTemplate);
+            var html = compiledCartsListTemplate(context);
+            $$('#tab1OrderList').html(html);
+        });
     }
 };
 

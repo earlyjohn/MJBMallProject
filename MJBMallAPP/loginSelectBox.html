@@ -644,6 +644,47 @@
         </div>
         {{/each}}
     </script>
+    <!--我的订单列表-->
+    <script type="text/template7" id="tab1OrderListTpl">
+        <ul class="orderList">
+            {{#each tab1OrderList}}
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row">
+                            <div class="item-title color-gray-u font-16">{{order_id}}</div>
+                            <div class="item-after color-orange-u font-14">待确认订单</div>
+                        </div>
+                        <div class="item-text height-auto color-lightgray-u">
+                            <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
+                            <p class="color-lightgray-u"><span>商品数量</span>1000</p>
+                            <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row button-bar text-right">
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">评 价</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">付 款</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button button-fill bg-orange-u ">收货确认</a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+       
+        
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>

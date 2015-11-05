@@ -63,20 +63,25 @@
                 // 获得选中商品的信息
                 var selectChks = $$("input[type=checkbox][name=checkItem]:checked");
                 if (!selectChks.length) {
-                    alert("请选择要结算的商品");
+                    myApp.toast('请选择要结算的商品', 'error').show(true);
                     return;
                 }
                 var goodsIdArray = new Array();
                 selectChks.each(function () {
                     var container = $$(this).parent().find('input[name=goods_id]');
                     goodsIdArray.push($$(container[0]).val());
-                    debugger;
                 });
                 var goods_ids = goodsIdArray.join(',');
-                debugger;
-                uzu.rest.getJSON("orders/goreckoning", { 'user_id': user_id, 'goodsId': goods_ids }, function (result) {
-                    mainView.router.loadPage("confirm-order.html");
-                });
+                uzu.rest.getJSON("orders/updateReckoning", { 'user_id': user_id, 'goods_ids': goods_ids }, function (result) {
+                    if (result.result.msg == "success") {
+                        mainView.router.loadPage("confirm-order.html");
+                    } else {
+                        myApp.toast('失败', 'error').show(true);
+                    }
+                       
+                    });
+               
+                
             }, this);
         });
         var calcTotalPrice = function () {
