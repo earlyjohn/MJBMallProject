@@ -56,6 +56,7 @@ public class Goods {
 	private String intro;
 	private String params;
 	private String time;
+	private String shop_id;
 	/**
 	 * @return time
 	 */
@@ -107,5 +108,11 @@ public class Goods {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getShop_id() {
+		return shop_id;
+	}
+	public void setShop_id(String shop_id) {
+		this.shop_id = shop_id;
 	}
 }

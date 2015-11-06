@@ -15,6 +15,9 @@
 		    <if test="cat_id !=null and cat_id !=0">
 		    and a.cat_id=#{cat_id}
 		    </if>
+		    <if test="shop_id !=null and shop_id !=0">
+		    and a.shop_id=#{shop_id}
+		    </if>
 		</where>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
