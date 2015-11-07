@@ -37,7 +37,7 @@ public interface OrdersMapper {
 
 	public void delOrderGoodsByOrderId(int order_id);
 	
-	public List<Order> findOrderByUserId(int user_id);
+	public List<Order> findOrderByUserId(Order order);
 	
 	public void updateOrderStatus(int order_id);
 

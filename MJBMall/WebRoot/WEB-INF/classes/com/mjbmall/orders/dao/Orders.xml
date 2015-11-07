@@ -82,8 +82,17 @@
 	<delete id="delOrderGoodsByOrderId" parameterType="int">
 		delete from m_order_goods where order_id=#{0}
 	</delete>
-	<select id="findOrderByUserId" resultType="com.mjbmall.orders.entity.Order" parameterType="int">
-		SELECT * FROM m_order a WHERE a.user_id=#{user_id}
+	<select id="findOrderByUserId" resultType="com.mjbmall.orders.entity.Order" parameterType="com.mjbmall.orders.entity.Order">
+		SELECT * FROM m_order a 
+		 <where>
+        1=1
+		 	<if test='user_id != null &amp;&amp; user_id!=0'>
+			 and user_id=#{user_id}
+		     </if>
+		     <if test='order_status != null &amp;&amp; order_status!=0'>
+			 and order_status=#{order_status}
+		     </if>
+		     </where>
 	</select>
 	<update id="updateOrderStatus" parameterType="int">
 		update m_order set order_status='4' where order_id=#{0}

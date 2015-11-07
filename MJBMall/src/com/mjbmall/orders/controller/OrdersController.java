@@ -277,7 +277,10 @@ public class OrdersController {
 	public String findOrderByUserId() {
 		try {
 			result.clear();
-			List<Order> list =ordersMapper.findOrderByUserId(user_id);
+			Order order=new Order();
+			order.setUser_id(user_id);
+			order.setOrder_status(order_status);
+			List<Order> list =ordersMapper.findOrderByUserId(order);
 			result.put("orderList", list);
 		} catch (Exception e) {
 			e.printStackTrace();
