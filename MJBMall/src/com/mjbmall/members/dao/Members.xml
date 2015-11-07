@@ -51,5 +51,19 @@
 			a.member_id=#{member_id}
 		</where>
 	</select>
-	
+	<update id="updateMember" parameterType="com.mjbmall.members.entity.Members">
+		update sdb_b2c_members
+		set name=#{name},sex=#{sex},tall=#{tall},birthday=#{birthday},salary=#{salary},education=#{education},wedlock=#{wedlock},has_child=#{has_child},addr=#{addr},mobile=#{mobile},house=#{house}
+		where member_id=#{member_id}
+	</update>
+	<insert id="addFeedBack" parameterType="com.mjbmall.members.entity.FeedBack">
+		insert into sdb_b2c_member_feedback (member_id,date,content)
+		values(#{member_id},#{date},#{content})
+	</insert>
+	<select id="getAboutUs" resultType="String">
+		select content from m_aboutus
+	</select>
+	<select id="getContactUsList" resultType="com.mjbmall.members.entity.ContactUs">
+		select * from m_contactus
+	</select>
 </mapper>

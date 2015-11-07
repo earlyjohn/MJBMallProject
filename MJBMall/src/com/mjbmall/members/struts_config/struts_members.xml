@@ -11,6 +11,34 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
+		<action name="findAboutUs" class="com.mjbmall.members.controller.MembersController" method="findAboutUs">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findContactUs" class="com.mjbmall.members.controller.MembersController" method="findContactUs">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="updateMember" class="com.mjbmall.members.controller.MembersController" method="updateMember">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findMemberBrowse" class="com.mjbmall.members.controller.BrowseController" method="findMemberBrowse">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
 		<action name="findComments" class="com.mjbmall.members.controller.CommentsController" method="findComments">
 			<result type="json">
 				<param name="noCache">true</param>
@@ -44,6 +72,20 @@
 			</result>
 		</action>
   
+  <action name="findMemberAddr" class="com.mjbmall.members.controller.MemberAddrController" method="findMemberAddr">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="addFeedBack" class="com.mjbmall.members.controller.FeedBackController" method="addFeedBack">
+			<result type="json">
+				<param name="noCache">true</param>
+			   	<param name="contentType">text/html</param>
+			   	<param name="callbackParameter">callback</param>
+			</result>
+		</action>
 		
 	</package>
 	<constant name="struts.multipart.maxSize" value="52428800"></constant>
