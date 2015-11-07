@@ -12,6 +12,11 @@ public class GoodsController {
 	private int goods_id=0;
 	private int cat_id;
 	private int user_id=0;
+	private int shop_id=0;
+	
+	public void setShop_id(int shop_id) {
+		this.shop_id = shop_id;
+	}
 	public void setCat_id(int cat_id) {
 		this.cat_id = cat_id;
 	}
@@ -37,6 +42,7 @@ public class GoodsController {
 			goods.setGoods_id(goods_id);
 			goods.setName(name);
 			goods.setCat_id(cat_id);
+			goods.setShop_id(shop_id);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
 			
