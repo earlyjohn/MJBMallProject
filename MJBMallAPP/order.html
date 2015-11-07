@@ -4,17 +4,18 @@
         <div class="navbar" id="orderNavbar">
             <div class="navbar-inner">
                 <div class="left"><i class="icon icon-orderback"></i></div>
-                <div class="center">我的订单
+                <div class="center">
+                    我的订单
                 </div>
                 <div class="right"><i class="icon icon-search"></i></div>
                 <!-- Sub navbar -->
                 <div class="subnavbar subnavbar-u">
                     <div class="buttons-row">
-                        <a href="#tab1" class="button tab-link active">全部</a>
-                        <a href="#tab2" class="button tab-link">待确定</a>
-                        <a href="#tab3" class="button tab-link">待付款</a>
-                        <a href="#tab4" class="button tab-link">待发货</a>
-                        <a href="#tab5" class="button tab-link">待收货</a>
+                        <a href="#tab1" class="button tab-link active" id="allMyorder1" >全部</a>
+                        <a href="#tab2" class="button tab-link" id="waitingPayOrder1" >等待付款</a>
+                        <a href="#tab3" class="button tab-link" id="alreadyPayOrder1">已付款</a>
+                        <a href="#tab4" class="button tab-link" id="closeOrder1">交易关闭</a>
+                        <a href="#tab5" class="button tab-link" id="finishOrder1">交易完成</a>
                     </div>
                 </div>
             </div>
@@ -24,168 +25,34 @@
                 <div id="tab1" class="tab active">
                     <div class="content-block  m-t-0 p-0">
                         <div class="list-block media-list m-t-0" id="tab1OrderList">
-                           
-
                         </div>
                     </div>
                 </div>
                 <div id="tab2" class="tab">
                     <div class="content-block  m-t-0 p-0">
-                        <div class="list-block media-list m-t-0">
-                            <ul class="orderList">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">201503093065</div>
-                                                <div class="item-after color-orange-u font-14">待确认订单</div>
-                                            </div>
-                                            <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>2015-03-09 11:37</p>
-                                                <p class="color-lightgray-u"><span>商品数量</span>1000</p>
-                                                <p class="color-orange-u"><span>订单金额</span>￥203660.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="list-block media-list m-t-0" id="waitingPayList">
+                            
                         </div>
                     </div>
                 </div>
                 <div id="tab3" class="tab">
                     <div class="content-block  m-t-0 p-0">
-                        <div class="list-block media-list m-t-0">
-                            <ul class="orderList">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">201503093065</div>
-                                                <div class="item-after color-orange-u font-14">待付款</div>
-                                            </div>
-                                            <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>2015-03-09 11:37</p>
-                                                <p class="color-lightgray-u"><span>商品数量</span>1000</p>
-                                                <p class="color-orange-u"><span>订单金额</span>￥203660.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button  button-fill bg-orange-u">付 款</a>
-                                        </div>
-
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="list-block media-list m-t-0" id="alreadPayList">
+                            
                         </div>
                     </div>
                 </div>
                 <div id="tab4" class="tab">
                     <div class="content-block  m-t-0 p-0">
-                        <div class="list-block media-list m-t-0">
-                            <ul class="orderList">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">201503093065</div>
-                                                <div class="item-after color-orange-u font-14">待确认订单</div>
-                                            </div>
-                                            <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>2015-03-09 11:37</p>
-                                                <p class="color-lightgray-u"><span>商品数量</span>1000</p>
-                                                <p class="color-orange-u"><span>订单金额</span>￥203660.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="list-block media-list m-t-0" id="closeList">
+                            
                         </div>
                     </div>
                 </div>
                 <div id="tab5" class="tab">
                     <div class="content-block  m-t-0 p-0">
-                        <div class="list-block media-list m-t-0">
-                            <ul class="orderList">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">201503093065</div>
-                                                <div class="item-after color-orange-u font-14">待确认订单</div>
-                                            </div>
-                                            <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>2015-03-09 11:37</p>
-                                                <p class="color-lightgray-u"><span>商品数量</span>1000</p>
-                                                <p class="color-orange-u"><span>订单金额</span>￥203660.00</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                        <div class="list-block media-list m-t-0" id="finishList">
+                            
                         </div>
                     </div>
                 </div>
