@@ -46,4 +46,15 @@
   
 		
 	</package>
+	<constant name="struts.multipart.maxSize" value="52428800"></constant>
+	<package name="upload" namespace="/upload" extends="json-default">
+         <action name="upload1" class="com.mjbmall.members.controller.UploadAction1" method="execute">
+           <result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+        </action>
+       
+    </package>
 </struts>
