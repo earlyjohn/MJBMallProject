@@ -29,6 +29,7 @@ public class loginController {
 		}else{
 			try{
 				id=loginMapper.userLogin(username, password);
+				loginMapper.updateLastlogin(id);
 			}catch(Exception e){
 				System.out.println(e);
 			}

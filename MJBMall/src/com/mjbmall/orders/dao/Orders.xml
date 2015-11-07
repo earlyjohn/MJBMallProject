@@ -13,7 +13,9 @@
 		     <if test='addressId != null &amp;&amp; addressId!=0'>
 			 and addressId=#{addressId}
 		     </if>
-		     
+		      <if test='status != null'>
+			 and status=#{status}
+		     </if>
 		</where>
 	</select>
 	<select id="getCart"  resultType="com.mjbmall.orders.entity.Carts">
@@ -56,6 +58,46 @@
 		</if>
 		
 	--></update>
+	
+	<update id="setReckoning" parameterType="int">
+		update m_cart SET reckoning=1 where user_id=#{user_id} and goods_id=#{goods_id}
+	</update>
+	<insert id="commitOrders" parameterType="com.mjbmall.orders.entity.Order">
+	   insert into m_order(user_id,order_id,address,name,phone,order_status,order_time,order_sum) 
+       values(#{user_id},#{order_id},#{address},#{name},#{phone},#{order_status},NOW(),#{order_sum})  
+	</insert>
+	<insert id="commitOrdersGoods" parameterType="com.mjbmall.orders.entity.Order">
+	   insert into m_order_goods (order_id,goods_id) 
+       values(#{order_id},#{goods_id})  
+	</insert>
+	<select id="getGoodsByOrderId" resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
+	   SELECT * FROM sdb_b2c_goods a WHERE a.goods_id IN (SELECT b.goods_id FROM m_order_goods b WHERE b.order_id=#{order_id} ) GROUP BY goods_id
+	</select>
+	<select id="getOrderDetailByOrderId" resultType="com.mjbmall.orders.entity.Order" parameterType="int">
+		SELECT * FROM m_order a WHERE a.order_id=#{order_id}
+	</select>
+	<delete id="delOrderByOrderId" parameterType="int">
+		delete from m_order where order_id=#{0}
+	</delete>
+	<delete id="delOrderGoodsByOrderId" parameterType="int">
+		delete from m_order_goods where order_id=#{0}
+	</delete>
+	<select id="findOrderByUserId" resultType="com.mjbmall.orders.entity.Order" parameterType="com.mjbmall.orders.entity.Order">
+		SELECT * FROM m_order a 
+		 <where>
+        1=1
+		 	<if test='user_id != null &amp;&amp; user_id!=0'>
+			 and user_id=#{user_id}
+		     </if>
+		     <if test='order_status != null &amp;&amp; order_status!=0'>
+			 and order_status=#{order_status}
+		     </if>
+		     </where>
+	</select>
+	<update id="updateOrderStatus" parameterType="int">
+		update m_order set order_status='4' where order_id=#{0}
+	</update>
+	
 	<select id="getreckoning"  resultType="com.mjbmall.orders.entity.Carts" parameterType="int">
 	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,date_format(b.addTime,'%Y-%c-%d %H:%i:%s'),c.shop_id,c.shop_name from sdb_b2c_goods a,m_cart b,m_shop c
         <where>
@@ -85,7 +127,6 @@
 	<update id="setAddressStatus" parameterType="com.mjbmall.orders.entity.Address">
 		update m_receiptads
 		set status=#{status}
-		
 		<where>
         1=1
 		 	<if test='user_id != null &amp;&amp; user_id!=0'>
@@ -94,8 +135,9 @@
 		     <if test='addressId != null &amp;&amp; addressId!=0'>
 			 and addressId=#{addressId}
 		     </if>
-		     
 		</where>
 	</update>
-	
+	<select id="findDefaultAddress"  resultType="com.mjbmall.orders.entity.Address" parameterType="com.mjbmall.orders.entity.Address">
+	   select * from m_receiptads where user_id=#{user_id} and status=1
+	</select>
 </mapper>

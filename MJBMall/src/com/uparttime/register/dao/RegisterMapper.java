@@ -11,4 +11,5 @@ public interface RegisterMapper {
     public void addCodeMsg(CodeMsg c);
     public void delCodeMsg(CodeMsg c);
     public List<CodeMsg> findCodeMsg(CodeMsg c);
+    public void updatePwd(String phone,String pwd);
 }

@@ -19,16 +19,11 @@ font-size:16px;
 color:#000000;
 }
 .spxq_spjx{
-background:white;
-margin:0px 0px 0px 0px;
-padding:10px;
+  background: white;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 0px 10px 0px;
 }
 /*工具栏/导航*/
-.spxq_gjl{
-	background:white;
-	margin:0px 0px 0px 0px;
-	height:35px;
-}
 .spxq_jx_t{
 margin:10px 0px 0px 0px;
 }

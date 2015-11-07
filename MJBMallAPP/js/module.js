@@ -29,6 +29,7 @@ var module = {
     "jdlg": jdlgCtrl,
     "fzfs": fzfsCtrl,
     "fc": fcCtrl,
+    "chat":chatCtrl,
     "cyms": cymsCtrl,
     "csdg": csdgCtrl,
     "classfy": classfyCtrl,
@@ -44,5 +45,6 @@ var module = {
     "about": aboutCtrl,
     "delrecentvisit": delrecentvisitCtrl,
     "feedback":feedbackCtrl,
-    "activityMessage":activityMessageCtrl
+    "activityMessage": activityMessageCtrl,
+    "editCollection": editCollectionCtrl
 }

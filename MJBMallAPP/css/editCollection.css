@@ -1,0 +1,26 @@
+﻿.editProductCollectionChectBox {
+    width: 1%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+.e_c_productImg
+{
+	width: 100px; 
+	height: 100px;
+	 margin-top:10px; 
+}
+.editShopCollectionChectBox {
+    width: 1%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}

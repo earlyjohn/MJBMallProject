@@ -3,13 +3,32 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.mjbmall.orders.dao.MessageMapper">
     <select id="getNewMsg"  resultType="com.mjbmall.orders.entity.Message" parameterType="com.mjbmall.orders.entity.Message">
-	   select * from 
+	   select  message_id,date_format(send_id,'%Y-%c-%d %H:%i:%s') as send_id,recv_id,msg,sendTime,status,type from 
        m_message
         <where>
-              status=1
+              type=#{type}
 		 	 <if test='recv_id != null &amp;&amp; recv_id!=0'>
 			  and recv_id=#{recv_id}
 		     </if>
+		     <if test='send_id != null &amp;&amp; send_id!=0'>
+			  and send_id=#{send_id}
+		     </if>
+		     <if test='status != null &amp;&amp; status!=0'>
+			  and status=#{status}
+		     </if>
 		</where>
 	</select>
+	<update id="updateMsgStatus" parameterType="int">
+		update m_message
+		set status=0
+		where message_id in
+		 <foreach item="ids" index="index" collection="array" open="(" separator="," close=")">  
+            #{ids}  
+        </foreach> 
+	</update>
+	<insert id="addMsg" parameterType="com.mjbmall.orders.entity.Message">  
+       insert into m_message (send_id,recv_id,msg,sendTime,status,type) 
+       values(#{send_id},#{recv_id},#{msg},NOW(),1,#{type}
+       	)  
+    </insert> 
 </mapper>

@@ -8,7 +8,28 @@
             mainView.router.back();
         });
         $$('#updatePasswordFinish').on('click', function () {
-            mainView.router.loadPage("personalLogin.html");;
+            var phone = window.localStorage.getItem("phone");
+            var codeMsg = window.localStorage.getItem("messageCode");
+            var password = $$("#registerPassword").val();
+            var repassword = $$("#re_registerPassword").val();
+            if (password != repassword) {
+                myApp.toast('两次密码不一致', 'error').show(true);
+                return;
+            }
+            uzu.rest.getJSON("register/updatePwd", { 'phone': phone,'codeMsg':codeMsg,'password': password }, function (result) {
+                if (result.status == "0") {
+                    myApp.toast('重置密码成功', 'success').show(true);
+                    mainView.router.loadPage("personalLogin.html");
+                }
+
+                else {
+                    myApp.toast('重置失败', 'error').show(true);
+                    return;
+                }
+
+            });
+
+
         });
     }
 };

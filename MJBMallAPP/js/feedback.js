@@ -6,12 +6,12 @@
  */
 var feedbackCtrl = {
     init: function (e) {
-        // 顶部导航
+        // 锟斤拷锟斤拷锟斤拷锟斤拷
         var html = "<div class='navbar-inner'><div class='left'>" +
-            "<i class='icon spxq_icon-navbar'></i></div><div class='center'>意见与反馈"
+            "<i class='icon spxq_icon-navbar'></i></div><div class='center'>鎰忚鍙嶉"
             +"</div><div class='right'></div></div>";
         $$('#feedbackNavbar').html(html);
-        // 回退
+        // 锟斤拷锟斤拷
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });

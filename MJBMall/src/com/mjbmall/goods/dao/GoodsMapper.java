@@ -19,4 +19,7 @@ public interface GoodsMapper {
     public void delCollectionsShop(int user_id,int shop_id);
     public List<Goods> getGoodsSpecList(int type);
     public List<Shops> getShopsSpecList();
+    public List<Goods> findWatched(int user_id);
+    public void addWatched(int user_id,int goods_id);
+    public void delWatched(int user_id);
 }

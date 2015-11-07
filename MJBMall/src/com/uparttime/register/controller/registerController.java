@@ -114,6 +114,29 @@ public class registerController {
 		
 		return Action.SUCCESS;
 	}
+	public String updatePwd(){
+		try{
+            CodeMsg c = new CodeMsg();
+			
+			c.setPhone(phone);
+			
+			
+			List<CodeMsg> list = registerMapper.findCodeMsg(c);
+			if(codeMsg.equals(list.get(0).getCodeMsg())){
+				registerMapper.updatePwd(phone, password);
+				status="0";
+			}else{
+				status="1";
+			}
+			
+		}catch(Exception e){
+			status="2";
+			
+		}
+		
+		
+		return Action.SUCCESS;
+	}
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}

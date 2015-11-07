@@ -5,13 +5,10 @@ loginController.controller('LoginController', ['$scope', function ($scope) {
     $scope.userName = "";
     $scope.userPassword = "";
     $scope.loginBtn = function () {
+        var a = $scope.userName;
         debugger;
-        alert($scope.userName);
-        var a = $("#password").val();
-        alert(a);
         if ($scope.userName == "admin" && $scope.userPassword == "admin") {
-            debugger;
-            location.href = "update_pasword_L.html";
+            location.href = "views/homePage.html";
         } else {
             alert("密码错误");
         }

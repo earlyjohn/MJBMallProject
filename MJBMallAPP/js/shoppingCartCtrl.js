@@ -1,14 +1,17 @@
 ﻿var shoppingCartCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><a class='left'><i class='icon'></i></a><div class='center'>购物车</div>"
+        var html = "<div class='navbar-inner'><div class='left'><i style='color: #FFFFFF;' class='icon spxq_icon-navbar goBack'></i></div><div class='center'>购物车</div>"
                 + "<div class='right'><a href='editCart.html' class='link link-u editCart' style='color: white'>编辑</a></div></div>";
         $$('#shoppingCartNavbar').html(html);
         // 隐藏底部导航栏
         // 底部导航栏
         $$("#homeToolbar").show();
-        $$("#productListNav").show();
         $$("#productDetailNav").hide();
+        $$("#productListNav").show();
+        $$('.spxq_icon-navbar').on('click', function () {
+            mainView.router.back();
+        });
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("orders/findCarts", { 'user_id': user_id }, function (data) {
             // 渲染模板
@@ -60,21 +63,25 @@
                 // 获得选中商品的信息
                 var selectChks = $$("input[type=checkbox][name=checkItem]:checked");
                 if (!selectChks.length) {
-                    alert("请选择要结算的商品");
+                    myApp.toast('请选择要结算的商品', 'error').show(true);
                     return;
                 }
                 var goodsIdArray = new Array();
                 selectChks.each(function () {
                     var container = $$(this).parent().find('input[name=goods_id]');
                     goodsIdArray.push($$(container[0]).val());
-                    debugger;
                 });
                 var goods_ids = goodsIdArray.join(',');
-                debugger;
-                uzu.rest.getJSON("orders/goreckoning", { 'user_id': user_id, 'goodsId': goods_ids }, function (result) {
-                    debugger;
-                   // mainView.router.loadPage("shoppingCart.html");
-                });
+                uzu.rest.getJSON("orders/updateReckoning", { 'user_id': user_id, 'goods_ids': goods_ids }, function (result) {
+                    if (result.result.msg == "success") {
+                        mainView.router.loadPage("confirm-order.html");
+                    } else {
+                        myApp.toast('失败', 'error').show(true);
+                    }
+                       
+                    });
+               
+                
             }, this);
         });
         var calcTotalPrice = function () {

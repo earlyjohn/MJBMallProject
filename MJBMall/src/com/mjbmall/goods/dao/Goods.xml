@@ -15,6 +15,9 @@
 		    <if test="cat_id !=null and cat_id !=0">
 		    and a.cat_id=#{cat_id}
 		    </if>
+		    <if test="shop_id !=null and shop_id !=0">
+		    and a.shop_id=#{shop_id}
+		    </if>
 		</where>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
@@ -67,7 +70,7 @@
 		 	<if test='shop_id != null and shop_id!=0'>
 		 	and	b.shop_id=#{shop_id}
 		    </if>
-		    <if test='user_id != null and shop_id!=0'>
+		    <if test='user_id != null and user_id!=0'>
 		 	and	b.user_id=#{user_id}
 		    </if>
 		</where>
@@ -90,4 +93,25 @@
 			type=1
 		</where>
 	</select>
+	<select id="findWatched"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
+	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number,date_format(c.time,'%Y-%c-%d') as time from sdb_b2c_goods a,m_shop b,m_watched c
+        <where>
+		 	a.shop_id=b.shop_id and a.goods_id=c.goods_id
+			
+		 	 and c.user_id=#{0}
+		   
+		    
+		</where>
+		order by c.time desc
+	</select>
+	<insert id="addWatched" parameterType="int">  
+       <!-- insert into m_watched (user_id,goods_id,time) 
+       values(#{0},#{1},NOW()
+       	)   -->
+       	replace into m_watched(user_id,goods_id,time) values(#{0},#{1},NOW());
+    </insert> 
+    <delete id="delWatched" parameterType="int">
+		delete from m_watched
+		where user_id=#{0}
+	</delete>
 </mapper>

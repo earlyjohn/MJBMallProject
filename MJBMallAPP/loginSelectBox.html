@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="css/search.css">
     <link rel="stylesheet" href="css/personalCenter.css">
     <link rel="stylesheet" href="css/firstClassfy.css">
+    <link rel="stylesheet" href="css/editCollection.css">
 </head>
 
 <body>
@@ -213,7 +214,7 @@
                             <div><span style="color:red;margin-top: 10px;">￥{{price}}</span></div>
          {{/each}}
     </script>
-    <!--商品分类-->
+    <!--商品分类一级-->
     <script type="text/template7" id="category_wapperTpl">
         <ul class="category-list">
                     {{#each classifyList}}
@@ -221,6 +222,7 @@
                     {{/each}}
                 </ul>
     </script>
+    <!--商品分类二级-->
     <script type="text/template7" id="categoryTemplate">
         <ul class="category-list" style="background-color: white;">
                     {{#each lsChildClass}}
@@ -286,7 +288,7 @@
         <div class="editSingleCarts">
        <div class="home_float shopcart_decoration">
                     <div class="shop_chinese">{{shop_name}}</div>
-                    <div class="home_more"></div>
+                    <div class="home_more" style="  margin-top: 7px;"></div>
                 </div>
                 <div class="hr"></div>
         <div class="shopcart_radio">
@@ -327,26 +329,22 @@
             </div>
             <div class="col-66" style="padding-left: 10px;">
                 <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
                 <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
-                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
-                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
             </div>
-
         </div>
         {{/each}}
     </script>
     <!-- 店铺收藏列表-->
     <script type="text/template7" id="shopCollectionTpl">
-        {{#each productsList}}
+        {{#each shopCollectionList}}
         <div class="row" style="background-color:white;margin-top:10px;">
             <div class="col-33" style="cursor:pointer;">
                 <a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg" /></a>
             </div>
             <div class="col-66" style="padding-left: 10px;">
-                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
-                <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color:red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration:line-through;">￥{{mktprice}}</span></div>
-                <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
-                <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
+                <div style="margin-top: 10px;cursor:pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{shop_name}}</span></a></div>
+                <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
             </div>
 
         </div>
@@ -388,7 +386,9 @@
         </div>
         {{/each}}
     </script>
+    <!-- 修改保存个人信息（）-->
     <script type="text/template7" id="memberInformationTpl">
+    {{#each userList}}
         <ul>
                     <!-- Text inputs -->
                     <li>
@@ -397,7 +397,19 @@
                             <div class="item-inner">
                                 <div class="item-title label">昵称</div>
                                 <div class="item-input">
-                                    <input type="text" placeholder="Your name">
+                                    <input type="text" placeholder="被别人叫的名字" id="nickname"  value=" {{nickname}} ">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- address inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">居住地</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="地球上一点" id="address"  value=" {{address}} ">
                                 </div>
                             </div>
                         </div>
@@ -409,14 +421,14 @@
                             <div class="item-inner">
                                 <div class="item-title label">性别</div>
                                 <div class="item-input">
-                                    <select>
-        {{#if sexFlag}}
+                                    <select id="sex">
+                                    {{#if sex}}
                                         <option selected="selected">男</option>
                                         <option>女</option>
-        {{else}}
-          <option>男</option>
-          <option selected="selected">女</option>
-        {{/if}}
+                                   {{else}}
+                                     <option>男</option>
+                                     <option selected="selected">女</option>
+                                   {{/if}}
                                     </select>
                                 </div>
                             </div>
@@ -427,9 +439,9 @@
                         <div class="item-content">
                             <div class="item-media"></div>
                             <div class="item-inner">
-                                <div class="item-title label">出生日期</div>
+                                <div class="item-title label">生日</div>
                                 <div class="item-input">
-                                    <input type="date"  value="2014-04-30">
+                                    <input type="date" placeholder="睁眼看世界的那天" id="birthday"  value="{{birthday}}">
                                 </div>
                             </div>
                         </div>
@@ -438,9 +450,9 @@
                         <div class="item-content">
                             <div class="item-media"></div>
                             <div class="item-inner">
-                                <div class="item-title label">xxx米</div>
+                                <div class="item-title label">身高</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="E-mail" value="{{email}}">
+                                    <input type="text" placeholder="xxx cm" id="tall" value="{{tall}}">
                                 </div>
                             </div>
                         </div>
@@ -451,7 +463,19 @@
                             <div class="item-inner">
                                 <div class="item-title label">学历</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="大学">
+                                    <input type="text" placeholder="degree"id="degree" value="{{degree}}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">月收入</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="$$$$" id="income"  value=" {{income}} ">
                                 </div>
                             </div>
                         </div>
@@ -462,7 +486,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">婚姻状况</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="已婚">
+                                    <input type="text" placeholder="marry" id="marry" value="{{marry}}">
                                 </div>
                             </div>
                         </div>
@@ -473,7 +497,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">手机号</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="18222902657">
+                                    <input type="text" placeholder="移动联通电信" id="phone" value="{{phone}}">
                                 </div>
                             </div>
                         </div>
@@ -484,7 +508,7 @@
                             <div class="item-inner">
                                 <div class="item-title label">购房情况</div>
                                 <div class="item-input">
-                                    <input type="email" placeholder="无">
+                                    <input type="text" placeholder="house" id="buyhouse" value="{{buyhouse}}">
                                 </div>
                             </div>
                         </div>
@@ -496,12 +520,170 @@
                             <div class="item-inner">
                                 <div class="item-title label">注册日期</div>
                                 <div class="item-input">
-                                    <input type="datetime-local">
+                                    <div class="item-title label">{{registertime}}</div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                </ul>
+             </ul>
+             {{/each}}
+    </script>
+<!-- 最近浏览 -->
+    <script type="text/template7" id="recentvisitTpl">
+     {{#each dateList}}
+     <div class="home_auto" style="background-color: #ebebeb">
+                <div style="width: 100%; text-align: left; padding-left: 5%">{{date}}</div>
+       {{#each goodsList}}
+                <div class="recentvisit_main">
+                    <div class="recentvisit_left"><a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg"/></a>
+                        <!--<img src="img/home/csdg_rm (1).jpg" class="message_image_style" />-->
+                    </div>
+                    <div class="recentvisit_right_one">
+                       {{name}}
+                    </div>
+                     <div class="recentvisit_right_one">
+                       {{brief}}
+                    </div>
+                    <div class="recentvisit_right_two">
+                        <ul>
+                            <li style="color: red">￥{{price}}</li>
+                            <li style="color: black">￥{{mktprice}}</li>
+                        </ul>
+                        <i style="float: right">300米</i>
+                    </div>
+                </div>
+        {{/each}}
+       </div>
+    {{/each}}
+   </script>
+    <!--编辑商品收藏-->
+    <script type="text/template7" id="editProductCollectionListTpl">
+        {{#each editProductsCollectionList}}
+        <div class="editSingleProductCollection" style="height: 120px;background-color: white;">
+                    <div class="row" style="background-color: white; margin-top: 10px;">
+                        <div class="editProductCollectionChectBox">
+                            <label class="label-checkbox item-content col-auto">
+                                <input type="checkbox" name="editGoodsCheckItem" checked="checked" class="singleCheck">
+                                <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                    <input type="hidden" value="{{goods_id}}" name="hidenGoodsId" />
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                            </label>
+                        </div>
+                        <div style="cursor: pointer;float:left;margin-left:35px;">
+                            <a href="productDetail.html?goods_id={{goods_id}}">
+                                <img src="{{big_pic}}" class="e_c_productImg" /></a>
+                        </div>
+                        <div  style="padding-left: 10px;">
+                            <div style="margin-top: 10px; cursor: pointer;" class="productName"><a href="productDetail.html?goods_id={{goods_id}}"><span>{{name}}</span></a></div>
+                            <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
+                            <div style="margin-top: 10px;"><span>价格</span>&nbsp;<span style="color: red">￥{{price}}</span>&nbsp;&nbsp;<span style="text-decoration: line-through;">￥{{mktprice}}</span></div>
+                        </div>
+                    </div>
+                </div>
+         {{/each}}
+    </script>
+    <!--编辑店铺收藏-->
+    <script type="text/template7" id="editShopCollectionListTpl">
+        {{#each editShopCollectionList}}
+        <div class="editSingleShopCollection" style="height: 120px;background-color: white;">
+                    <div class="row" style="background-color: white; margin-top: 10px;">
+                        <!--<div class="editShopCollectionChectBox">
+                        <label class="label-checkbox item-content col-auto">
+                            <input type="checkbox" name="editShopCheckItem" checked="checked" class="singleCheck">
+                            <input type="hidden" name="hidenShopId" value="{{shop_id}}"/>
+                            <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                <i class="icon icon-form-checkbox"></i>
+                            </div>
+                        </label>
+                    </div>-->
+                        <div class="editShopCollectionChectBox">
+                            <label class="label-checkbox item-content col-auto">
+                                <input type="checkbox" name="editShopCheckItem" checked="checked" class="singleCheck">
+                                <div class="item-media shopcart_bottom" style="padding-left:10px;">
+                                    <input type="hidden" value="{{shop_id}}" name="hidenShopId" />
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                            </label>
+                        </div>
+                        <div style="cursor: pointer;float:left;margin-left:35px;">
+                            <a href="productDetail.html?shop_id={{shop_id}}">
+                                <img src="{{big_pic}}" class="e_c_productImg" /></a>
+                        </div>
+                        <div  style="padding-left: 10px;margin-left: 200px;text-align: left;">
+                            <div style="margin-top: 10px; cursor: pointer;" class="productName"><a href="productDetail.html?shop_id={{shop_id}}"><span>{{shop_name}}</span></a></div>
+                            <div style="margin-top: 10px;"><span>信用等级</span>&nbsp;<span>******</span></div>
+                        </div>
+                    </div>
+                </div>
+         {{/each}}
+    </script>
+    <!--获得默认地址-->
+    <script type="text/template7" id="getAddressTpl">
+        <div class="item-text">
+            <p>
+                <span class="color-2b"><i class="icon icon-addr-name"></i>{{name}}</span>
+                <span class="color-2b"><i class="icon icon-addr-phone"></i>{{phone}}</span>
+            </p>
+            <p class="color-lightergray-u">{{address}}</p>
+        </div>
+    </script>
+    <!--提交订单商品-->
+    <script type="text/template7" id="indreckoningTpl">
+        {{#each indreckoningList}}
+        <div class="orderGoods">
+            <input type="hidden" name="goods_ids" value="{{goods_id}}">
+            <div class="item-title-row" style="margin-top:10px;">
+                <div class="item-title" style="width:100px;"><img src="img/phone.jpg" /></div>
+                <div class="item-title" style="margin-top:20px;">{{name}}</div>
+                <div class="item-after">
+                    <p>￥{{price}}</p>
+                    <p>X{{count}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <!--我的订单列表-->
+    <script type="text/template7" id="tab1OrderListTpl">
+        <ul class="orderList">
+            {{#each tab1OrderList}}
+            <li>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title-row">
+                            <div class="item-title color-gray-u font-16">{{order_id}}</div>
+                            <div class="item-after color-orange-u font-14">待确认订单</div>
+                        </div>
+                        <div class="item-text height-auto color-lightgray-u">
+                            <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
+                            <p class="color-lightgray-u"><span>商品数量</span>1000</p>
+                            <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row button-bar text-right">
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">评 价</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">查看物流</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button color-lightergray-u border-lightergray-u">付 款</a>
+                    </div>
+                    <div class="col-auto">
+                        <a class="button button-fill bg-orange-u ">收货确认</a>
+                    </div>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+       
+        
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
@@ -556,6 +738,8 @@
     <script type="text/javascript" src="js/feedback.js"></script>
     <script type="text/javascript" src="js/shopLoginCtrl.js"></script>
     <script type="text/javascript" src="js/shopHomeCtrl.js"></script>
+	    <script type="text/javascript" src="js/editCollectionCtrl.js"></script>
+    <script type="text/javascript" src="js/chatCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
 </body>
 </html>

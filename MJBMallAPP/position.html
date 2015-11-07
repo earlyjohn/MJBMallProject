@@ -1,7 +1,14 @@
 ﻿<div class="pages navbar-through">
     <div class="page" data-page="position">
-        <div class="navbar" id="positionNavbar">
-            
+        <div class="navbar" id="positionNavbar" style="position: absolute; left: 0px; top: 0px;">
+            <div class="navbar-inner home_float">
+                <div class="left"><i class="iconBack"></i></div>
+                <div class="center">
+                    定位
+                </div>
+                <div class="right">
+                </div>
+            </div>
         </div>
         <div class="page-content" style="padding-top: 44px;">
             <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
@@ -10,24 +17,36 @@
                 </div>
                 <a href="#" class="searchbar-cancel">Cancel</a>
             </form>
-            <div class="toolbar spxq_gjl spxq_jx_l">
-                <div class="toolbar-inner">
+                <div class="person_auto" id="getPosition">
                     <a href="#"><i style="margin-top: 0px;" class="icon spxq_dz"></i></a>
                     <a href="#" class="spxq_font">
-                        <p>北京-房山-良乡<span>GPS定位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+                        <p id="positionInfo">北京-房山-良乡<span>GPS定位&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
                     </a>
-                    <a href="#"><i style="margin-top: 0px;" class="icon spxq_more"></i></a>
+                    <div class="person_more" ></div>
                 </div>
-            </div>
-
-            <div class="position_four">
+            <div class="home_auto" style="background: white;">
                 <p>访问历史</p>
             </div>
-            <div class="position_five">
+            <div class="home_auto"style="background: white;float: left;">
                 <div class="position_six">海淀区</div>
                 <div class="position_six">上饶县</div>
                 <div class="position_six">石景山区</div>
             </div>
+            
+      <div class="content-block-title" style="float: left;  width: 100%;text-align: center;">地址选择器</div>
+			<div class="list-block" style="float: left;width: 100%;text-align: center;">
+			 <ul style="padding-left: 37%;">
+			   <li>
+			     <div class="item-content">
+			       <div class="item-inner">
+			         <div class="item-input">
+			           <input type="text" placeholder="北京-房山-良乡" readonly id="picker-custom-toolbar">
+			         </div>
+			       </div>
+			     </div>
+			   </li>
+			 </ul>
+			</div> 
         </div>
     </div>
 </div>

@@ -5,4 +5,8 @@
     <select id="userLogin"  resultType="int" parameterType="String">
 	   select id from u_user where username=#{0} AND password=md5(#{1}) 
 	</select>
+	
+	<update id="updateLastlogin" parameterType="int" >
+	update u_user set lastlogin=NOW() where id=#{id}
+	</update>
 </mapper>
