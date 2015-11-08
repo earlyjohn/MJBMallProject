@@ -1,6 +1,5 @@
 ﻿
 var module = {
-    "module":module,
     "ProductDetail": productDetailCtrl,
     "ProductPageController": productListCtrl,
     "loginSelectBox": loginSelectBoxCtrl,
@@ -46,5 +45,6 @@ var module = {
     "delrecentvisit": delrecentvisitCtrl,
     "feedback":feedbackCtrl,
     "activityMessage": activityMessageCtrl,
-    "editCollection": editCollectionCtrl
+    "editCollection": editCollectionCtrl,
+    "orderDetail": orderDetailCtrl
 }

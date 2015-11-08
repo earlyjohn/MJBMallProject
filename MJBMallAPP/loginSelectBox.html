@@ -644,44 +644,6 @@
         </div>
         {{/each}}
     </script>
-    <!--我的订单列表全部-->
-    <script type="text/template7" id="tab1OrderListTpl">
-        <ul class="orderList">
-            {{#each tab1OrderList}}
-            <li>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title-row">
-                            <div class="item-title color-gray-u font-16">订单号{{order_id}}</div>
-                            <div class="item-after color-orange-u font-14">{{orderStatus}}</div>
-                        </div>
-                        <div class="item-text height-auto color-lightgray-u">
-                            <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
-                            <p class="color-lightgray-u"><span>商品数量</span>1000</p>
-                            <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row button-bar text-right">
-                    <div class="col-auto">
-                        <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                    </div>
-                    <div class="col-auto">
-                        <a class="button button-fill bg-orange-u ">收货确认</a>
-                    </div>
-                </div>
-            </li>
-            {{/each}}
-        </ul>
-       
-        
-    </script>
      <!--我的订单列表等待付款-->
     <script type="text/template7" id="waitingPayTpl">
         <ul class="orderList">
@@ -690,7 +652,7 @@
                                     <div class="item-content">
                                         <div class="item-inner">
                                             <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">订单号{{order_id}}</div>
+                                                <div class="item-title color-gray-u font-16"><span>订单号</span><a href="orderDetail.html?order_id={{order_id}}&orderStatus={{orderStatus}}&order_time={{order_time}}&order_sum={{order_sum}}">{{order_id}}</a></div>
                                                 <div class="item-after color-orange-u font-14">{{orderStatus}}</div>
                                             </div>
                                             <div class="item-text height-auto color-lightgray-u">
@@ -701,18 +663,13 @@
                                         </div>
                                     </div>
                                     <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
+                                        <div class="col-auto" style="float:right;">
+                                            <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="waitingPayDel">删除订单</a>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
+                                        <div class="col-auto" style="float:right;margin-right:10px;">
+                                            <a class="button color-lightergray-u border-lightergray-u" id="goPay">去付款</a>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
-                                        </div>
+                                        
                                     </div>
                                 </li>
         {{/each}}
@@ -726,29 +683,23 @@
                                     <div class="item-content">
                                         <div class="item-inner">
                                             <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">订单号{{order_id}}</div>
+                                                <div class="item-title color-gray-u font-16"><span>订单号</span><a href="orderDetail.html?order_id={{order_id}}&orderStatus={{orderStatus}}&order_time={{order_time}}&order_sum={{order_sum}}">{{order_id}}</a></div>
                                                 <div class="item-after color-orange-u font-14">{{orderStatus}}</div>
                                             </div>
                                             <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>{order_time}}</p>
+                                                <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
                                                 <p class="color-lightgray-u"><span>商品数量</span>1000</p>
                                                 <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row button-bar text-right">
-                                        <div class="col-auto">
+                                        <div class="col-auto" style="float:right;">
+                                            <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="alreadyDel">删除订单</a>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
+                                       <div class="col-auto" style="float:right;margin-right:10px;">
+                                            <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="conformRecieve">确认收货</a>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button  button-fill bg-orange-u">付 款</a>
-                                        </div>
-
                                     </div>
                                 </li>
         {{/each}}
@@ -762,28 +713,19 @@
                                     <div class="item-content">
                                         <div class="item-inner">
                                             <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">订单号{{order_id}}</div>
+                                                <div class="item-title color-gray-u font-16"><span>订单号</span><a href="orderDetail.html?order_id={{order_id}}&orderStatus={{orderStatus}}&order_time={{order_time}}&order_sum={{order_sum}}">{{order_id}}</a></div>
                                                 <div class="item-after color-orange-u font-14">{{orderStatus}}</div>
                                             </div>
                                             <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>{order_time}}</p>
+                                                <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
                                                 <p class="color-lightgray-u"><span>商品数量</span>1000</p>
                                                 <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
+                                        <div class="col-auto" style="float:right;">
+                                            <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="closeOrderDel">删除订单</a>
                                         </div>
                                     </div>
                                 </li>
@@ -793,38 +735,58 @@
      <!--我的订单列表交易完成-->
     <script type="text/template7" id="finishTpl">
         <ul class="orderList">
-        {{#each closeListData}}
+        {{#each finishListData}}
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
                                             <div class="item-title-row">
-                                                <div class="item-title color-gray-u font-16">订单号{{order_id}}</div>
+                                                <div class="item-title color-gray-u font-16"><span>订单号</span><a href="orderDetail.html?order_id={{order_id}}&orderStatus={{orderStatus}}&order_time={{order_time}}&order_sum={{order_sum}}">{{order_id}}</a></div>
                                                 <div class="item-after color-orange-u font-14">{{orderStatus}}</div>
                                             </div>
                                             <div class="item-text height-auto color-lightgray-u">
-                                                <p class="color-lightgray-u"><span>下单时间</span>{order_time}}</p>
+                                                <p class="color-lightgray-u"><span>下单时间</span>{{order_time}}</p>
                                                 <p class="color-lightgray-u"><span>商品数量</span>1000</p>
                                                 <p class="color-orange-u"><span>订单金额</span>￥{{order_sum}}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row button-bar text-right">
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">删除订单</a>
+                                        <div class="col-auto" style="float:right;">
+                                            <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="finishOrderDel">删除订单</a>
                                         </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">评 价</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button color-lightergray-u border-lightergray-u">付 款</a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a class="button button-fill bg-orange-u ">收货确认</a>
+                                         <div class="col-auto" style="float:right;margin-right:10px;">
+                                            <a class="button color-lightergray-u border-lightergray-u" id="commonBtn">评 价</a>
                                         </div>
                                     </div>
                                 </li>
         {{/each}}
                             </ul>
+    </script>
+     <!--订单地址-->
+    <script type="text/template7" id="orderAddressTpl">
+        <div class="item-text">
+            <p>
+                <span class="color-2b"><i class="icon icon-addr-name"></i>{{name}}</span>
+                <span class="color-2b"><i class="icon icon-addr-phone"></i>{{phone}}</span>
+            </p>
+            <p class="color-lightergray-u">{{address}}</p>
+        </div>
+    </script>
+     <!--订单详情商品列表-->
+    <script type="text/template7" id="orderDetailProductListTpl">
+        {{#each orderDetailProductData}}
+        <div class="orderGoods">
+            <input type="hidden" name="goods_ids" value="{{goods_id}}">
+            <div class="item-title-row" style="margin-top:10px;">
+                <div class="item-title" style="width:100px;"><img src="img/phone.jpg" /></div>
+                <div class="item-title" style="margin-top:20px;"><a href="productDetail.html?goods_id={{goods_id}}">{{name}}</a></div>
+                <div class="item-after">
+                    <p>￥{{price}}</p>
+                    <p>X{{buy_count}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
@@ -879,8 +841,9 @@
     <script type="text/javascript" src="js/feedback.js"></script>
     <script type="text/javascript" src="js/shopLoginCtrl.js"></script>
     <script type="text/javascript" src="js/shopHomeCtrl.js"></script>
-	    <script type="text/javascript" src="js/editCollectionCtrl.js"></script>
+	<script type="text/javascript" src="js/editCollectionCtrl.js"></script>
     <script type="text/javascript" src="js/chatCtrl.js"></script>
+    <script type="text/javascript" src="js/orderDetailCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
 </body>
 </html>

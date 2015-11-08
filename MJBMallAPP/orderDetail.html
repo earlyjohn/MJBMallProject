@@ -1,0 +1,67 @@
+﻿
+<div class="pages navbar-through">
+    <div data-page="orderDetail" class="page">
+        <div class="navbar" id="orderDetailNavbar">
+            <div class="navbar-inner">
+                <div class="left"><i class="icon icon-backwhite"></i></div>
+                <div class="center">
+                    订单详情
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="list-block media-list confirmList">
+                <ul>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label" style="float:left;"><span id="orderStatus"></span></div>
+                                <div class="item-title label" style="float:right;"><span>订单编号</span><span id="orderNum" style="margin-left:10px;"></span></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="addrList">
+                        <a href="addrList.html" class="item-link item-content">
+                            <div class="item-inner">
+                                <div class="item-title-row" id="orderAddress">
+                                    
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item-link item-content">
+                            <div class="item-inner" id="orderDetailProductList">
+                                
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label" style="float:left;"><span>支付方式</span></div>
+                                <div class="item-title label" style="float:right;"><span id="payType">支付宝</span></div>
+                            </div>
+                        </div>
+                    </li>
+                     <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label"><span>合计:</span><span style="margin-left:15px;">￥</span><span id="sumPrice"></span></div>
+                                <div class="item-title label"><span>下单时间:</span><span id="buyTime" style="margin-left:15px;"></span></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+                
+            <div class="bottom-bar row ">
+                <span class="col-auto">
+                    合计:<span class="color-orange-u">￥23000.00</span>
+                </span>
+                <a  class="button button-fill bg-green-u col-auto" style="float:right;" id="submitOrderBtn">提交订单</a>
+            </div>
+        </div>
+    </div>
+</div>
