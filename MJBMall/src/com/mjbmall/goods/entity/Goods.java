@@ -125,4 +125,12 @@ public class Goods {
 	public int getOrderBy() {
 		return orderBy;
 	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public int getType() {
+		return type;
+	}
+	//促销类型
+	private int type;
 }

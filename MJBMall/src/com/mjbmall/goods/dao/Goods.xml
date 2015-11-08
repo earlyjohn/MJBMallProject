@@ -3,7 +3,7 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.mjbmall.goods.dao.GoodsMapper">
     <select id="getGoodsList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.Goods">
-	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b
+	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_goods_spec c
         <where>
 		 	a.shop_id=b.shop_id
 			<if test="goods_id != null and goods_id != 0">
@@ -17,6 +17,9 @@
 		    </if>
 		    <if test="shop_id !=null and shop_id !=0">
 		    and a.shop_id=#{shop_id}
+		    </if>
+		     <if test="type !=null and type !=0">
+		    and a.goods_id=c.goods_id and c.type=#{type}
 		    </if>
 		    
 		</where>
@@ -139,4 +142,12 @@
 		delete from m_watched
 		where user_id=#{0}
 	</delete>
+	<!-- 轮播广告URL查询 -->
+	<select id="findCrlAvg"  resultType="com.mjbmall.goods.entity.CrlAvg" parameterType="com.mjbmall.goods.entity.CrlAvg">
+	  select * from m_crl_avg
+        <where>
+		 	status=1
+		</where>
+	</select>
+	
 </mapper>

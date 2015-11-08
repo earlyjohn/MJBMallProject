@@ -3,6 +3,7 @@ package com.mjbmall.goods.controller;
 import java.util.List;
 
 import com.mjbmall.goods.dao.GoodsMapper;
+import com.mjbmall.goods.entity.CrlAvg;
 import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.goods.entity.TypeOrderBy;
 import com.opensymphony.xwork2.Action;
@@ -25,6 +26,7 @@ public class GoodsController {
 	List<Goods> goodsList=null;
 	private String name="";
 	private int type=0;
+	List<CrlAvg> crlAvg = null;
 	/**
 	 * @param type 要设置的 type
 	 */
@@ -46,6 +48,8 @@ public class GoodsController {
 			goods.setCat_id(cat_id);
 			goods.setShop_id(shop_id);
 			goods.setOrderBy(orderBy);
+			goods.setOrderBy(orderBy);
+			goods.setType(type);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
 			System.out.println(e);
@@ -92,6 +96,19 @@ public class GoodsController {
 		
 		return Action.SUCCESS;
 	}
+	/**
+	 * 查询轮播广告
+	 * @param goodsMapper
+	 */
+	public String findCrlAvg(){
+		try{
+			crlAvg=goodsMapper.findCrlAvg(null);
+		}catch(Exception e){
+			
+		}
+		
+		return Action.SUCCESS;
+	}
 	
 	public void setGoodsMapper(GoodsMapper goodsMapper) {
 		this.goodsMapper = goodsMapper;
@@ -110,5 +127,8 @@ public class GoodsController {
 	}
 	public void setOrderBy(int orderBy) {
 		this.orderBy = orderBy;
+	}
+	public List<CrlAvg> getCrlAvg() {
+		return crlAvg;
 	}
 }
