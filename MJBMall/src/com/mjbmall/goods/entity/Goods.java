@@ -117,4 +117,12 @@ public class Goods {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	//排序标志
+	private int orderBy;
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
+	}
+	public int getOrderBy() {
+		return orderBy;
+	}
 }

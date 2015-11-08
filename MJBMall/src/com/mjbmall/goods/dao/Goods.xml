@@ -10,7 +10,7 @@
 		 	 and a.goods_id=#{goods_id}
 		    </if>
 		    <if test='name != null &amp;&amp; !name.equals("")'>
-			 and a.name like CONCAT(CONCAT('%', #{name}),'%')
+			 and a.name like CONCAT(CONCAT('%', #{name}),'%')sssss
 		    </if>
 		    <if test="cat_id !=null and cat_id !=0">
 		    and a.cat_id=#{cat_id}
@@ -18,7 +18,14 @@
 		    <if test="shop_id !=null and shop_id !=0">
 		    and a.shop_id=#{shop_id}
 		    </if>
+		    
 		</where>
+		    <if test="orderBy == 1">
+		      order by buy_count
+		    </if>
+		    <if test="orderBy == 2">
+		      order by uptime
+		    </if>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
 	   select cat_id,parent_id,is_leaf,cat_name from sdb_b2c_goods_cat

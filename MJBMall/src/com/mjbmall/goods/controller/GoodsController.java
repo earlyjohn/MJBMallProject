@@ -13,7 +13,8 @@ public class GoodsController {
 	private int cat_id;
 	private int user_id=0;
 	private int shop_id=0;
-	
+	//排序标志位，1：人气最高，2：最新商品，3：离我最近
+	private int orderBy=0;
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
 	}
@@ -43,9 +44,10 @@ public class GoodsController {
 			goods.setName(name);
 			goods.setCat_id(cat_id);
 			goods.setShop_id(shop_id);
+			goods.setOrderBy(orderBy);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
-			
+			System.out.println(e);
 		}
 		
 		return Action.SUCCESS;
@@ -101,5 +103,8 @@ public class GoodsController {
 	 */
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
 	}
 }
