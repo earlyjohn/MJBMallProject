@@ -3,7 +3,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
- 	<package name="ConnectInfo"  namespace="/connectinfo" extends="json-default">
+ 	<package name="Connectinfo"  namespace="/connectinfo" extends="json-default">
  		<!-- 根据cat_id查询资讯列表，按发布时间排序 -->
  		<action name="findConnectInfoByCatId" class="com.mjbmall.connectinfo.controller.ConnectInfoController" method="findConnectInfoByCatId">
 			<result type="json">
@@ -12,13 +12,13 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
-		<!--根据info_id查询资讯列表详情 -->
-		<action name="findConnectInfoByInfoId" class="com.mjbmall.connectinfo.controller.ConnectInfoController" method="findConnectInfo">
+ 		<action name="findConnectInfoByInfoId" class="com.mjbmall.connectinfo.controller.ConnectInfoController" method="findConnectInfoByInfoId">
 			<result type="json">
 			   <param name="noCache">true</param>
 			   <param name="contentType">text/html</param>
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
+		
 	</package>
 </struts>
