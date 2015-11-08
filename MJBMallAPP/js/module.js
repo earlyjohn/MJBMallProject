@@ -46,5 +46,6 @@ var module = {
     "feedback":feedbackCtrl,
     "activityMessage": activityMessageCtrl,
     "editCollection": editCollectionCtrl,
-    "orderDetail": orderDetailCtrl
+    "orderDetail": orderDetailCtrl,
+    "ziXunList":ziXunListCtrl
 }

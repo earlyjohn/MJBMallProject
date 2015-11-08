@@ -14,7 +14,7 @@
         <mapper resource="com/mjbmall/orders/dao/Orders.xml"/>
         <mapper resource="com/mjbmall/orders/dao/Message.xml"/>
         <mapper resource="com/mjbmall/members/dao/Members.xml"/>
-
+ 		<mapper resource="com/mjbmall/connectinfo/dao/ConnectInfo.xml"/>
         
     </mappers>
 </configuration>
