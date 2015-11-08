@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mjbmall.goods.entity.Classify;
 import com.mjbmall.goods.entity.CrlAvg;
+import com.mjbmall.goods.entity.Evaluate;
 import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.goods.entity.Shops;
 import com.mjbmall.goods.entity.TypeOrderBy;
@@ -25,4 +26,8 @@ public interface GoodsMapper {
     public void addWatched(int user_id,int goods_id);
     public void delWatched(int user_id);
     public List<CrlAvg> findCrlAvg(CrlAvg ca);
+    /**
+     * 查询商品评价
+     */
+    public List<Evaluate> findEvaluate(Evaluate e);
 }

@@ -149,5 +149,11 @@
 		 	status=1
 		</where>
 	</select>
-	
+	<!-- 评价查询 -->
+	<select id="findEvaluate"  resultType="com.mjbmall.goods.entity.Evaluate" parameterType="com.mjbmall.goods.entity.Evaluate">
+	  select * from m_goods_evaluate
+        <where>
+		 	goods_id=#{goods_id}
+		</where>
+	</select>
 </mapper>

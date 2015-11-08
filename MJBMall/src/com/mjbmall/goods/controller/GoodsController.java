@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mjbmall.goods.dao.GoodsMapper;
 import com.mjbmall.goods.entity.CrlAvg;
+import com.mjbmall.goods.entity.Evaluate;
 import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.goods.entity.TypeOrderBy;
 import com.opensymphony.xwork2.Action;
@@ -27,6 +28,7 @@ public class GoodsController {
 	private String name="";
 	private int type=0;
 	List<CrlAvg> crlAvg = null;
+	List<Evaluate> evaluate = null;
 	/**
 	 * @param type 要设置的 type
 	 */
@@ -109,7 +111,20 @@ public class GoodsController {
 		
 		return Action.SUCCESS;
 	}
-	
+	/**
+	 * 查询评价
+	 * @param goodsMapper
+	 */
+	public String findEvaluate(){
+		try{
+			Evaluate e = new Evaluate();
+			e.setGoods_id(goods_id);
+			evaluate=goodsMapper.findEvaluate(e);
+		}catch(Exception e){
+			
+		}
+		return Action.SUCCESS;
+	}
 	public void setGoodsMapper(GoodsMapper goodsMapper) {
 		this.goodsMapper = goodsMapper;
 	}
@@ -130,5 +145,8 @@ public class GoodsController {
 	}
 	public List<CrlAvg> getCrlAvg() {
 		return crlAvg;
+	}
+	public List<Evaluate> getEvaluate() {
+		return evaluate;
 	}
 }
