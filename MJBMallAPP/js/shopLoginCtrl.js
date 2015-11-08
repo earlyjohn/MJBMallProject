@@ -11,9 +11,9 @@
                 return;
             }
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
-                debugger;
+                //debugger;
                 if (result.status == "0") {
-                    // 将用户id进行缓存
+                    // 将用户id进行缓存，用户id和店铺id用的是一张表中的
                     window.localStorage.setItem("userId", result.id);
                     //var userId = window.localStorage.getItem("userId");
                     mainView.router.loadPage("shopHome.html");

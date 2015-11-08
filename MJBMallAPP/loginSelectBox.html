@@ -788,6 +788,38 @@
         </div>
         {{/each}}
     </script>
+	   <!--店铺端的商品列表-->
+    <script type="text/template7" id="shopOrderListTpl">
+        {{#each orderListData}}
+        <div class="home_auto">
+            <div class="home_auto">
+                <div class="shop_three_left"><span style="padding-left: 5%">{{order_time}}</span></div>
+                <div class="shop_three_right">订单编号：{{order_id}}</div>
+            </div>
+            <div class="home_auto" style="border-top:1px solid black;border-bottom:1px solid black" >
+                {{#each order_List_Data}}
+                    <div class="shop_four_left">
+                        <img src="img/home/csdg_rm (1).jpg" style="width:50px;height:50px;margin:auto" />
+                    </div>
+                    <div class="shop_four_right">
+                        <div class="home_auto" style="text-align: left;">{{name}}</div>
+                        <div class="home_auto" style="text-align: right;">单价：{{price}}元</div>
+                        <div class="home_auto" style="text-align: right;">*1</div>
+                    </div>
+                {{/each}} 
+            </div>
+            <div class="home_auto">
+                <div class="shop_three_left"><span style="padding-left: 5%">合计：￥{{order_sum}}</span></div>
+                <div class="shop_three_right">
+                    <p style="position: absolute;right: 5%">
+                        <a href="#" class="button button-round active" style="width: 150px;line-height: 22px;
+  margin-top: 2px;  height: 22px;">确认收款</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>

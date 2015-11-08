@@ -11,6 +11,25 @@ public class Order {
 	private String order_status;
 	private String order_time;
 	private String order_sum;
+	private int shop_id;
+	private double price;
+	
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getShop_id() {
+		return shop_id;
+	}
+
+	public void setShop_id(int shop_id) {
+		this.shop_id = shop_id;
+	}
 
 	public int getGoods_id() {
 		return goods_id;
