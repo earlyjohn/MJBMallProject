@@ -291,7 +291,6 @@ public class OrdersController {
 
 	/*
 	 * 确认收货更改交易状态
-	 * 
 	 * @author xuejx
 	 */
 	public String updateOrderStatus() {
@@ -303,6 +302,43 @@ public class OrdersController {
 		}
 		return Action.SUCCESS;
 	}
+	
+	/*
+	 * 根据店铺id和订单状态查询订单列表(不含商品列表)
+	 * @author xuejx
+	 */
+	public String findOrderNoGoodsByShopId(){
+		try {
+			result.clear();
+			Order order=new Order();
+			order.setShop_id(shop_id);
+			order.setOrder_status(order_status);
+			List<Order> list=ordersMapper.getOrderNoGoodsByShopId(order);
+			result.put("shop_nogoods_List", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	/*
+	 * 根据店铺id和订单状态查询订单列表(含商品列表)
+	 * @author xuejx
+	 */
+	public String findOrderByShopId() {
+		try {
+			result.clear();
+			Order order=new Order();
+			order.setShop_id(shop_id);
+			order.setOrder_id(order_id);
+			order.setOrder_status(order_status);
+			List<Goods> list=ordersMapper.getOrderByShopId(order);
+			result.put("shopOrderList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
 
 	public String addAddress() {
 		try {

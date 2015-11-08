@@ -36,9 +36,14 @@ public interface OrdersMapper {
 	public void delOrderByOrderId(int order_id);
 
 	public void delOrderGoodsByOrderId(int order_id);
-	
+
 	public List<Order> findOrderByUserId(Order order);
+
+	public List<Order> getOrderNoGoodsByShopId(Order order);
+
+	public List<Goods> getOrderByShopId(Order order);
 	
+
 	public void updateOrderStatus(int order_id);
 
 	public void addAddress(Address add);
@@ -48,7 +53,7 @@ public interface OrdersMapper {
 	public void delAddress(int addressId);
 
 	public void setAddressStatus(Address add);
-	
+
 	public List<Address> findDefaultAddress(int user_id);
 
 }
