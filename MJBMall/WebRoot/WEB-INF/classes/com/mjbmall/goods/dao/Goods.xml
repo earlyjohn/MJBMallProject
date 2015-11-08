@@ -3,7 +3,11 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.mjbmall.goods.dao.GoodsMapper">
     <select id="getGoodsList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.Goods">
-	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_goods_spec c
+	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b
+	   <if test="type !=null and type !=0">
+		    ,m_goods_spec c
+		    </if>
+	   
         <where>
 		 	a.shop_id=b.shop_id
 			<if test="goods_id != null and goods_id != 0">
