@@ -5,7 +5,7 @@
             spaceBetween: 50
         });
         var html = "<div class='navbar-inner'>" +
-            "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
+            "<div class='left positon'>北京<i class='icon iconBack'></i></div>"
             + "<div class='center home_back'>" +
             "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
@@ -94,7 +94,7 @@
             mainView.router.loadPage("personalCenter.html");
         });
         // 定位
-        $$('.home_icon-navbar').on('click', function () {
+        $$('.iconBack').on('click', function () {
             mainView.router.loadPage("position.html");
         });
         // 搜素

@@ -18,7 +18,6 @@
         // 用户id
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("orders/findOrderByUserId", { 'user_id': user_id, 'order_status': '1' }, function (data) {
-           
             for (var i = 0; i < data.result.orderList.length; i++) {
                 data.result.orderList[i].orderStatus = "等待付款";
             }
@@ -31,9 +30,11 @@
             $$('#waitingPayList').html(html);
             // 删除
             $$('#waitingPayDel').on('click', function (e) {
+                debugger;
                 var order_id = $$(this).data("id");
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
+                        myApp.toast('删除成功', 'success').show(true);
                         mainView.router.loadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
@@ -61,6 +62,7 @@
                 var order_id = $$(this).data("id");
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
+                        myApp.toast('删除成功', 'success').show(true);
                         mainView.router.loadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
@@ -95,6 +97,7 @@
                 var order_id = $$(this).data("id");
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
+                        myApp.toast('删除成功', 'success').show(true);
                         mainView.router.loadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
@@ -107,6 +110,7 @@
             for (var i = 0; i < data.result.orderList.length; i++) {
                 data.result.orderList[i].orderStatus = "交易完成";
             }
+           
             // 渲染模板
             var context = {};
             context.finishListData = data.result.orderList;
@@ -119,6 +123,7 @@
                 var order_id = $$(this).data("id");
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
+                        myApp.toast('删除成功', 'success').show(true);
                         mainView.router.loadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
@@ -130,14 +135,18 @@
 
             });
         });
-
        
     },
-    getProductList: function (order_id, callback) {
-        uzu.rest.getJSON("orders/findGoodsByOrderId", { 'order_id': 12 }, function (result) {
-            b = result.result.goodsList;
-            callback.call(this,b)
-        });
+    getProductList: function (order, callback) {
+        var qq = new Array();
+        for (var i = 0; i < order.length; i++) {
+            var order_id = order[i].order_id;
+            uzu.rest.getJSON("orders/findGoodsByOrderId", { 'order_id': order_id }, function (result) {
+                b = result.result.goodsList;
+                qq.push(b)
+                callback.call(this, qq)
+            });
+        }
 
     }
 };

@@ -57,7 +57,7 @@
                 'shop_id': 1
             },
             function (addCollectionData) {
-                if (addCollectionData.result.msg === "sucess") {
+                if (addCollectionData.result.msg === "success") {
                     mainView.router.loadPage("Mycollection.html");
                 } else {
                     alert('收藏失败')
