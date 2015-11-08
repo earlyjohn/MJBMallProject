@@ -1,7 +1,7 @@
 ﻿var uzu = {};
 uzu.rest = {};
-uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
-//uzu.rest.serviceUrl = "http://localhost:8088/MJBMall";
+//uzu.rest.serviceUrl = "http://115.28.204.151:8088/MJBMall";
+uzu.rest.serviceUrl = "http://localhost:8088/MJBMall";
 uzu.rest.getUrl = function (
     url, params) {
     var serviceUrl = uzu.rest.serviceUrl;
