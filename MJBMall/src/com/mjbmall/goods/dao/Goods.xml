@@ -10,7 +10,7 @@
 		 	 and a.goods_id=#{goods_id}
 		    </if>
 		    <if test='name != null &amp;&amp; !name.equals("")'>
-			 and a.name like CONCAT(CONCAT('%', #{name}),'%')sssss
+			 and a.name like CONCAT(CONCAT('%', #{name}),'%')
 		    </if>
 		    <if test="cat_id !=null and cat_id !=0">
 		    and a.cat_id=#{cat_id}
