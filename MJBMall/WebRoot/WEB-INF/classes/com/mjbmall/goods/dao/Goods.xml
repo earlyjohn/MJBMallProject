@@ -60,6 +60,12 @@
 		 		shop_id=#{shop_id}
 		    </if>
 		</where>
+		<if test="orderBy == 1">
+		      order by credit_rating desc
+		    </if>
+		    <if test="orderBy == 2">
+		      order by uptime desc
+		 </if>
 	</select>
     <delete id="delCollections" parameterType="int">
 		delete from m_collection
@@ -86,19 +92,31 @@
 		delete from m_collection_shop
 		where user_id=#{0} and shop_id=#{1}
 	</delete>
-	<select id="getGoodsSpecList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
+	<select id="getGoodsSpecList"  resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.TypeOrderBy">
 	   select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_goods_spec c
         <where>
-            c.type=#{0}
+            c.type=#{type}
 			and a.goods_id=c.goods_id
 			and a.shop_id=b.shop_id
 		</where>
+		  <if test="orderBy == 1">
+		      order by buy_count desc
+		    </if>
+		    <if test="orderBy == 2">
+		      order by uptime desc
+		    </if>
 	</select>
-	<select id="getShopsSpecList"  resultType="com.mjbmall.goods.entity.Shops" parameterType="int">
+	<select id="getShopsSpecList"  resultType="com.mjbmall.goods.entity.Shops" parameterType="com.mjbmall.goods.entity.TypeOrderBy">
 	   select shop_id,shop_name,address,phone_number,shop_pic,credit_rating,shop_hours from m_shop
         <where>
 			type=1
 		</where>
+		<if test="orderBy == 1">
+		      order by credit_rating desc
+		    </if>
+		    <if test="orderBy == 2">
+		      order by uptime desc
+		 </if>
 	</select>
 	<select id="findWatched"  resultType="com.mjbmall.goods.entity.Goods" parameterType="int">
 	  select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number,date_format(c.time,'%Y-%c-%d') as time from sdb_b2c_goods a,m_shop b,m_watched c

@@ -8,6 +8,7 @@ public class Shops {
 	private String shop_pic;
 	private String credit_rating;
 	private String shop_hours;
+	private int orderBy;
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
 	}
@@ -55,5 +56,11 @@ public class Shops {
 	}
 	public String getShop_hours() {
 		return shop_hours;
+	}
+	public int getOrderBy() {
+		return orderBy;
+	}
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
 	}
 }

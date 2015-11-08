@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mjbmall.goods.dao.GoodsMapper;
 import com.mjbmall.goods.entity.Goods;
+import com.mjbmall.goods.entity.TypeOrderBy;
 import com.opensymphony.xwork2.Action;
 
 
@@ -54,9 +55,12 @@ public class GoodsController {
 	}
 	public String findSpecGoods(){
 		try{
-			goodsList=goodsMapper.getGoodsSpecList(type);
+			TypeOrderBy t=new TypeOrderBy();
+			t.setType(type);
+			t.setOrderBy(orderBy);
+			goodsList=goodsMapper.getGoodsSpecList(t);
 		}catch(Exception e){
-			
+			System.out.println(e);
 		}
 		
 		return Action.SUCCESS;

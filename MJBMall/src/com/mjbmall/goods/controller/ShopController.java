@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mjbmall.goods.dao.GoodsMapper;
 import com.mjbmall.goods.entity.Shops;
+import com.mjbmall.goods.entity.TypeOrderBy;
 import com.opensymphony.xwork2.Action;
 
 
@@ -13,6 +14,8 @@ public class ShopController {
 	private String shop_name;
 	List<Shops> shopsList=null;
 	private int shop_id=0;
+	//1:信誉最高 2：最新开业
+	private int orderBy=0;
 	
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
@@ -22,13 +25,16 @@ public class ShopController {
 			Shops shops = new Shops();
 			shops.setShop_name(shop_name);
 			shops.setShop_id(shop_id);
+			shops.setOrderBy(orderBy);
 			shopsList=goodsMapper.getShopsList(shops);
 		    
 		return Action.SUCCESS;
 	}
 	public String findSpecShops(){
 		try{
-			shopsList=goodsMapper.getShopsSpecList();
+			TypeOrderBy t = new TypeOrderBy();
+			t.setOrderBy(orderBy);
+			shopsList=goodsMapper.getShopsSpecList(t);
 		}catch(Exception e){
 			
 		}
@@ -44,9 +50,7 @@ public class ShopController {
 	public List<Shops> getShopsList() {
 		return shopsList;
 	}
-	
-	
-	
-	
-	
+	public void setOrderBy(int orderBy) {
+		this.orderBy = orderBy;
+	}
 }

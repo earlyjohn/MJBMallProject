@@ -5,6 +5,7 @@ import java.util.List;
 import com.mjbmall.goods.entity.Classify;
 import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.goods.entity.Shops;
+import com.mjbmall.goods.entity.TypeOrderBy;
 import com.mjbmall.orders.entity.CollectionShop;
 
 public interface GoodsMapper {
@@ -17,8 +18,8 @@ public interface GoodsMapper {
     public void addCollectionsShop(int user_id,int shop_id);
     public List<Shops> getCollectionsShop(CollectionShop cs);
     public void delCollectionsShop(int user_id,int shop_id);
-    public List<Goods> getGoodsSpecList(int type);
-    public List<Shops> getShopsSpecList();
+    public List<Goods> getGoodsSpecList(TypeOrderBy t);
+    public List<Shops> getShopsSpecList(TypeOrderBy t);
     public List<Goods> findWatched(int user_id);
     public void addWatched(int user_id,int goods_id);
     public void delWatched(int user_id);
