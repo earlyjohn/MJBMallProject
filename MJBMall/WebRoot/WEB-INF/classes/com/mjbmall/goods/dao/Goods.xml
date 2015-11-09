@@ -28,10 +28,10 @@
 		    
 		</where>
 		    <if test="orderBy == 1">
-		      order by buy_count desc
+		      order by a.buy_count desc
 		    </if>
 		    <if test="orderBy == 2">
-		      order by uptime desc
+		      order by a.uptime desc
 		    </if>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
