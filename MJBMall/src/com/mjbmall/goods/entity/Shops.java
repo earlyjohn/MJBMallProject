@@ -9,6 +9,7 @@ public class Shops {
 	private String credit_rating;
 	private String shop_hours;
 	private int orderBy;
+	private int cat_id;
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
 	}
@@ -62,5 +63,17 @@ public class Shops {
 	}
 	public void setOrderBy(int orderBy) {
 		this.orderBy = orderBy;
+	}
+	/**
+	 * @return cat_id
+	 */
+	public int getCat_id() {
+		return cat_id;
+	}
+	/**
+	 * @param cat_id 要设置的 cat_id
+	 */
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
 	}
 }
