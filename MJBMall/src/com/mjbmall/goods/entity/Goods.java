@@ -1,6 +1,7 @@
 package com.mjbmall.goods.entity;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 public class Goods {
 	private int goods_id;
@@ -57,6 +58,10 @@ public class Goods {
 	private String params;
 	private String time;
 	private int shop_id;
+	private Timestamp beginTime;
+	private Timestamp endTime;
+	private BigDecimal newPrize;
+	private int discount;
 	
 	
 	public int getShop_id() {
@@ -130,6 +135,30 @@ public class Goods {
 	}
 	public int getType() {
 		return type;
+	}
+	public Timestamp getBeginTime() {
+		return beginTime;
+	}
+	public void setBeginTime(Timestamp beginTime) {
+		this.beginTime = beginTime;
+	}
+	public Timestamp getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Timestamp endTime) {
+		this.endTime = endTime;
+	}
+	public BigDecimal getNewPrize() {
+		return newPrize;
+	}
+	public void setNewPrize(BigDecimal newPrize) {
+		this.newPrize = newPrize;
+	}
+	public int getDiscount() {
+		return discount;
+	}
+	public void setDiscount(int discount) {
+		this.discount = discount;
 	}
 	//促销类型
 	private int type;
