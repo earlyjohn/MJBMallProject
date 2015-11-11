@@ -1,11 +1,14 @@
 package com.mjbmall.goods.entity;
 
+import java.sql.Timestamp;
+
 public class Evaluate {
 	private int goods_id;
 	private String evaluate;
 	private String username;
 	private int star;
 	private String pic_url;
+	private Timestamp time;
 	public int getGoods_id() {
 		return goods_id;
 	}
@@ -35,6 +38,12 @@ public class Evaluate {
 	}
 	public void setPic_url(String pic_url) {
 		this.pic_url = pic_url;
+	}
+	public Timestamp getTime() {
+		return time;
+	}
+	public void setTime(Timestamp time) {
+		this.time = time;
 	}
 	
 

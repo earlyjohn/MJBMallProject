@@ -177,5 +177,6 @@
         <where>
 		 	goods_id=#{goods_id}
 		</where>
+		order by time desc
 	</select>
 </mapper>
