@@ -16,6 +16,8 @@ public class ShopController {
 	private int shop_id=0;
 	//1:信誉最高 2：最新开业
 	private int orderBy=0;
+	//行业分类id
+	private int cat_id;
 	
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
@@ -34,6 +36,7 @@ public class ShopController {
 		try{
 			TypeOrderBy t = new TypeOrderBy();
 			t.setOrderBy(orderBy);
+			t.setCat_id(cat_id);
 			shopsList=goodsMapper.getShopsSpecList(t);
 		}catch(Exception e){
 			
@@ -52,5 +55,8 @@ public class ShopController {
 	}
 	public void setOrderBy(int orderBy) {
 		this.orderBy = orderBy;
+	}
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
 	}
 }
