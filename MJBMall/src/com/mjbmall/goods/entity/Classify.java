@@ -5,6 +5,10 @@ public class Classify {
     private int parent_id;
     private String is_leaf;
     private String cat_name;
+    private String iconUrl;
+    private int location;
+    private int choose_id;
+    private int user_id;
 	/**
 	 * @return cat_id
 	 */
@@ -52,6 +56,30 @@ public class Classify {
 	 */
 	public void setCat_name(String cat_name) {
 		this.cat_name = cat_name;
+	}
+	public String getIconUrl() {
+		return iconUrl;
+	}
+	public void setIconUrl(String iconUrl) {
+		this.iconUrl = iconUrl;
+	}
+	public int getLocation() {
+		return location;
+	}
+	public void setLocation(int location) {
+		this.location = location;
+	}
+	public int getChoose_id() {
+		return choose_id;
+	}
+	public void setChoose_id(int choose_id) {
+		this.choose_id = choose_id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
     
 }

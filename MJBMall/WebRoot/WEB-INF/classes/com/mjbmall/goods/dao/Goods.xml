@@ -35,13 +35,25 @@
 		    </if>
 	</select>
 	<select id="getGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
-	   select cat_id,parent_id,is_leaf,cat_name from sdb_b2c_goods_cat
+	   select cat_id,parent_id,is_leaf,cat_name,iconUrl from sdb_b2c_goods_cat
         <where>
 		 	1=1
 			<if test="parent_id != null">
 		 	   and parent_id=#{parent_id}
 		    </if>
 		</where>
+	</select>
+	<!-- 查找用户首页关注的行业分类 -->
+	<select id="getUserGoodsClassify"  resultType="com.mjbmall.goods.entity.Classify" parameterType="com.mjbmall.goods.entity.Classify">
+	   select a.cat_id,a.parent_id,a.is_leaf,a.cat_name,a.iconUrl,b.location,b.choose_id from sdb_b2c_goods_cat a,m_userchoose_cat b
+        <where>
+		 	a.cat_id = b.cat_id
+			
+		    <if test="user_id != null and user_id !=0">
+		 	   and b.user_id=#{user_id}
+		    </if>
+		</where>
+		order by b.location
 	</select>
 	<select id="getCollections"  resultType="com.mjbmall.goods.entity.Goods">
 	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_collection c

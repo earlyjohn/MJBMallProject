@@ -30,4 +30,8 @@ public interface GoodsMapper {
      * 查询商品评价
      */
     public List<Evaluate> findEvaluate(Evaluate e);
+    /**
+     * 用户选择的主页行业分类
+     */
+    public List<Classify> getUserGoodsClassify(Classify c);
 }
