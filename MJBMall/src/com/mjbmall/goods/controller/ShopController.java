@@ -28,6 +28,7 @@ public class ShopController {
 			shops.setShop_name(shop_name);
 			shops.setShop_id(shop_id);
 			shops.setOrderBy(orderBy);
+			shops.setCat_id(cat_id);
 			shopsList=goodsMapper.getShopsList(shops);
 		    
 		return Action.SUCCESS;
