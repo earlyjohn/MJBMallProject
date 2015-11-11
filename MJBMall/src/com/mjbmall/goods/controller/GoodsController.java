@@ -50,7 +50,7 @@ public class GoodsController {
 			goods.setCat_id(cat_id);
 			goods.setShop_id(shop_id);
 			goods.setOrderBy(orderBy);
-			goods.setOrderBy(orderBy);
+			//goods.setOrderBy(orderBy);
 			goods.setType(type);
 			goodsList=goodsMapper.getGoodsList(goods);
 		}catch(Exception e){
