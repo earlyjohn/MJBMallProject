@@ -34,4 +34,8 @@ public interface GoodsMapper {
      * 用户选择的主页行业分类
      */
     public List<Integer> getUserGoodsClassify(Classify c);
+    /**
+     * 添加用户选择的分类排序
+     */
+    public void addUserGoodsClassify(int user_id,int cat_id);
 }

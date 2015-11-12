@@ -56,6 +56,11 @@
 		</where>
 		order by b.choose_id desc limit 9
 	</select>
+	<!-- 添加分类的用户排序 -->
+	<insert id="addUserGoodsClassify" parameterType="int">  
+      
+       	replace into m_userchoose_cat(user_id,cat_id) values(#{0},#{1});
+    </insert> 
 	<select id="getCollections"  resultType="com.mjbmall.goods.entity.Goods">
 	    select a.goods_id,a.name,a.price,a.mktprice,a.big_pic,a.brief,a.intro,a.params,a.buy_count,b.shop_name,b.address,b.phone_number from sdb_b2c_goods a,m_shop b,m_collection c
         <where>

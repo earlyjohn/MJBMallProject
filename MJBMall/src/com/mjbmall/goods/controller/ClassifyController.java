@@ -13,6 +13,7 @@ public class ClassifyController {
 	private int parent_id;
 	private int user_id;
 	private List<Integer> userChoose = null;
+	private int cat_id;
 	
 	public String findClassify(){
 		try{
@@ -44,6 +45,16 @@ public class ClassifyController {
 		
 		return Action.SUCCESS;
 	}
+	public String addUserGoodsClassify(){
+		try{
+			goodsMapper.addUserGoodsClassify(user_id, cat_id);
+			
+		}catch(Exception e){
+			
+		}
+		
+		return Action.SUCCESS;
+	}
 	public void setGoodsMapper(GoodsMapper goodsMapper) {
 		this.goodsMapper = goodsMapper;
 	}
@@ -61,5 +72,11 @@ public class ClassifyController {
 	}
 	public List<Integer> getUserChoose() {
 		return userChoose;
+	}
+	/**
+	 * @param cat_id 要设置的 cat_id
+	 */
+	public void setCat_id(int cat_id) {
+		this.cat_id = cat_id;
 	}
 }
