@@ -33,5 +33,5 @@ public interface GoodsMapper {
     /**
      * 用户选择的主页行业分类
      */
-    public List<Classify> getUserGoodsClassify(Classify c);
+    public List<Integer> getUserGoodsClassify(Classify c);
 }

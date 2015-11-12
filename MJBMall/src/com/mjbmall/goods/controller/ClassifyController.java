@@ -12,6 +12,7 @@ public class ClassifyController {
 	private List<Classify> clssifyList=null;
 	private int parent_id;
 	private int user_id;
+	private List<Integer> userChoose = null;
 	
 	public String findClassify(){
 		try{
@@ -34,7 +35,8 @@ public class ClassifyController {
 			Classify classify =new Classify();
 			classify.setUser_id(user_id);
 			classify.setParent_id(parent_id);
-			clssifyList = goodsMapper.getUserGoodsClassify(classify);
+			userChoose = goodsMapper.getUserGoodsClassify(classify);
+			clssifyList = goodsMapper.getGoodsClassify(classify);
 			
 		}catch(Exception e){
 			
@@ -56,5 +58,8 @@ public class ClassifyController {
 	 */
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+	public List<Integer> getUserChoose() {
+		return userChoose;
 	}
 }
