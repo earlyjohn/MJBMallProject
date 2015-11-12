@@ -38,9 +38,17 @@ public class ClassifyController {
 			classify.setParent_id(parent_id);
 			userChoose = goodsMapper.getUserGoodsClassify(classify);
 			clssifyList = goodsMapper.getGoodsClassify(classify);
+			for(int j=userChoose.size()-1;j>-1;j--){
+			      for(int i=0;i<clssifyList.size();i++){
+					if(clssifyList.get(i).getCat_id()==userChoose.get(j)){
+					    clssifyList.add(0,clssifyList.get(i));
+					    clssifyList.remove(i+1);
+					}
+				}
+			}
 			
 		}catch(Exception e){
-			
+			System.out.println(e);
 		}
 		
 		return Action.SUCCESS;
