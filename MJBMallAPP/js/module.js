@@ -47,6 +47,7 @@ var module = {
     "activityMessage": activityMessageCtrl,
     "editCollection": editCollectionCtrl,
     "orderDetail": orderDetailCtrl,
-    "ziXunList": ziXunListCtrl,
-    "ziXunDetail": ziXunDetailCtrl
+    "ziXunDetail":ziXunDetailCtrl,
+    "ziXunList": ziXunListCtrl
+   
 }
