@@ -33,6 +33,7 @@ public class ClassifyController {
 		try{
 			Classify classify =new Classify();
 			classify.setUser_id(user_id);
+			classify.setParent_id(parent_id);
 			clssifyList = goodsMapper.getUserGoodsClassify(classify);
 			
 		}catch(Exception e){

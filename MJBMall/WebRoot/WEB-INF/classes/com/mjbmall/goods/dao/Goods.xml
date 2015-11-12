@@ -48,7 +48,9 @@
 	   select a.cat_id,a.parent_id,a.is_leaf,a.cat_name,a.iconUrl,b.location,b.choose_id from sdb_b2c_goods_cat a,m_userchoose_cat b
         <where>
 		 	a.cat_id = b.cat_id
-			
+			<if test="parent_id != null">
+		 	   and a.parent_id=#{parent_id}
+		    </if>
 		    <if test="user_id != null and user_id !=0">
 		 	   and b.user_id=#{user_id}
 		    </if>
