@@ -16,6 +16,23 @@ public class MessageController {
 	private String msg="";
 	private int status=1;
 	private int type=1;
+	private int user_id=0;
+	private int shop_id=0;
+	private int is_read=0;
+	private int message_id=0;
+	
+	public void setMessage_id(int message_id) {
+		this.message_id = message_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+	public void setShop_id(int shop_id) {
+		this.shop_id = shop_id;
+	}
+	public void setIs_read(int is_read) {
+		this.is_read = is_read;
+	}
 	/**
 	 * @param status 要设置的 status
 	 */
@@ -60,6 +77,74 @@ public class MessageController {
 			System.out.println(e);
 		}
 		
+		return Action.SUCCESS;
+	}
+	
+	public String findMsg(){
+		try {
+			result.clear();
+			Message m=new Message();
+			m.setUser_id(user_id);
+			m.setShop_id(shop_id);
+			List<Message> list = messageMapper.getMsg(m);
+			result.put("systemMessageList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String findNoReadMsgNum(){
+		try {
+			Message m=new Message();
+			m.setUser_id(user_id);
+			int count=messageMapper.getNoMsgNum(m);
+			result.put("noReadNum", count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String findMsgByShopToUser(){
+		try {
+			result.clear();
+			Message m=new Message();
+			m.setUser_id(user_id);
+			List<Message> list = messageMapper.getMsgByShopToUser(m);
+			result.put("shopMessageList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String changeMsgIsRead(){
+		try {
+			Message m=new Message();
+			m.setUser_id(user_id);
+			m.setMessage_id(message_id);
+			m.setType(type);
+			messageMapper.setMsgIsRead(m);
+			result.put("msg", "success");
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("msg", "success");
+		}
+		return Action.SUCCESS;
+	}
+	
+	public String changeMsgIsPingBi(){
+		try {
+			Message m=new Message();
+			m.setUser_id(user_id);
+			m.setType(type);
+			messageMapper.setMsgIsPingBi(m);
+			result.put("msg", "success");
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("msg", "success");
+		}
 		return Action.SUCCESS;
 	}
 	public void setMessageMapper(MessageMapper messageMapper) {

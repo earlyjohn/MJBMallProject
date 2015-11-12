@@ -31,4 +31,41 @@
        values(#{send_id},#{recv_id},#{msg},NOW(),1,#{type}
        	)  
     </insert> 
+    <select id="getMsg" resultType="com.mjbmall.orders.entity.Message" parameterType="com.mjbmall.orders.entity.Message">
+ 		select * from m_message 
+ 		 <where>
+              is_pingbi=0 and is_read=0 and type=3
+		 	 <if test='user_id != null &amp;&amp; user_id!=0'>
+			  and user_id=#{user_id}
+		     </if>
+		     <if test='shop_id != null &amp;&amp; shop_id!=0'>
+			  and shop_id=#{shop_id}
+		     </if>
+		</where> 
+    </select>
+    <select id="getNoMsgNum" resultType="int" parameterType="com.mjbmall.orders.entity.Message">
+ 		select count(*) from m_message 
+ 		 <where>
+              is_pingbi=0 and is_read=0 and type=3
+		 	 <if test='user_id != null &amp;&amp; user_id!=0'>
+			  and user_id=#{user_id}
+		     </if> 
+		</where> 
+    </select>
+    <select id="getMsgByShopToUser" resultType="com.mjbmall.orders.entity.Message" parameterType="com.mjbmall.orders.entity.Message">
+ 		select * from m_message 
+ 		 <where>
+              is_pingbi=0 and type=1<!-- type=1代表店铺发消息用户收 -->
+		 	 <if test='user_id != null &amp;&amp; user_id!=0'>
+			  and user_id=#{user_id}
+		     </if> 
+		</where> 
+    </select>
+    <update id="setMsgIsRead"  parameterType="com.mjbmall.orders.entity.Message">
+    	update m_message set is_read=1 where user_id=#{user_id} and message_id=#{message_id}
+   			and type=#{type}
+    </update>
+    <update id="setMsgIsPingBi"  parameterType="com.mjbmall.orders.entity.Message">
+    	update m_message set is_pingbi=1 where user_id=#{user_id} and type=#{type}
+    </update>
 </mapper>

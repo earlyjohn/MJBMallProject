@@ -171,6 +171,41 @@
 			   <param name="callbackParameter">callback</param>
 			</result>
 		</action>
+		<action name="findMsg" class="com.mjbmall.orders.controller.MessageController" method="findMsg">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findNoReadMsgNum" class="com.mjbmall.orders.controller.MessageController" method="findNoReadMsgNum">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="findMsgByShopToUser" class="com.mjbmall.orders.controller.MessageController" method="findMsgByShopToUser">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="changeMsgIsRead" class="com.mjbmall.orders.controller.MessageController" method="changeMsgIsRead">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
+		<action name="changeMsgIsPingBi" class="com.mjbmall.orders.controller.MessageController" method="changeMsgIsPingBi">
+			<result type="json">
+			   <param name="noCache">true</param>
+			   <param name="contentType">text/html</param>
+			   <param name="callbackParameter">callback</param>
+			</result>
+		</action>
 	</package>
 	
 </struts>

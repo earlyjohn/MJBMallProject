@@ -10,6 +10,21 @@ public class Shops {
 	private String shop_hours;
 	private int orderBy;
 	private int cat_id;
+	private double jingdu;
+	private double weidu;
+
+	public double getJingdu() {
+		return jingdu;
+	}
+	public void setJingdu(double jingdu) {
+		this.jingdu = jingdu;
+	}
+	public double getWeidu() {
+		return weidu;
+	}
+	public void setWeidu(double weidu) {
+		this.weidu = weidu;
+	}
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
 	}
