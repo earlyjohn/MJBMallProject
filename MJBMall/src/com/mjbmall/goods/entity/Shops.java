@@ -12,7 +12,15 @@ public class Shops {
 	private int cat_id;
 	private double jingdu;
 	private double weidu;
-
+	
+	private double distance;
+	
+	public double getDistance() {
+		return distance;
+	}
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
 	public double getJingdu() {
 		return jingdu;
 	}
