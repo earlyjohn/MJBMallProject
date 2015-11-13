@@ -6,6 +6,18 @@
 	   select a.*,b.* from m_connectinfo a,m_shop b where parent_id=#{0} and a.shop_id=b.shop_id
 	</select>
  	<select id="getConnectInfoByInfoId"  resultType="com.mjbmall.connectinfo.entity.Connectinfo" parameterType="int">
-	   select * from m_connectinfo where info_id=#{0}
+	   select a.*,b.* from m_connectinfo a,m_shop b where info_id=#{0} and a.shop_id=b.shop_id
+	</select>
+	<select id="getJingWeiDu" resultType="com.mjbmall.goods.entity.Shops" parameterType="com.mjbmall.goods.entity.Shops">
+	  select * from m_shop where 1=1
+	  <if test="shop_id!=null &amp;&amp; shop_id!=0 ">
+	    and shop_id=#{shop_id}
+	  </if>
+	</select>
+	<select id="getZuiJinGoods" resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.Shops">
+	  select b.* from m_shop a,sdb_b2c_goods b where a.shop_id=b.shop_id
+	  <if test="shop_id!=null &amp;&amp; shop_id!=0 ">
+	    and a.shop_id=#{shop_id}
+	  </if>
 	</select>
 </mapper>

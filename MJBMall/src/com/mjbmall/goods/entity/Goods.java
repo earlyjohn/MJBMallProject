@@ -62,8 +62,14 @@ public class Goods {
 	private Timestamp endTime;
 	private BigDecimal newPrize;
 	private int discount;
+	private double distance;
 	
-	
+	public double getDistance() {
+		return distance;
+	}
+	public void setDistance(double distance) {
+		this.distance = distance;
+	}
 	public int getShop_id() {
 		return shop_id;
 	}
