@@ -1,12 +1,35 @@
 package com.mjbmall.orders.entity;
 
 public class Address {
-    private String name;
+	private int addressId;
+	private int user_id;
+	private String name;
+	private String picker_dependent; 
+	private String address;
     private String phone;
-    private String address;
+    private String gdphone;
+    private String postcard;
     private int status;
-    private int user_id;
-    private int addressId;
+    
+    
+	public String getPicker_dependent() {
+		return picker_dependent;
+	}
+	public void setPicker_dependent(String picker_dependent) {
+		this.picker_dependent = picker_dependent;
+	}
+	public String getGdphone() {
+		return gdphone;
+	}
+	public void setGdphone(String gdphone) {
+		this.gdphone = gdphone;
+	}
+	public String getPostcard() {
+		return postcard;
+	}
+	public void setPostcard(String postcard) {
+		this.postcard = postcard;
+	}
 	/**
 	 * @return user_id
 	 */

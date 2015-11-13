@@ -28,19 +28,39 @@ public class OrdersController {
 	private int goods_id = 0;
 	private int count = 0;
 	private String recGoodsId = "";
-	private String name = "";
-	private String phone = "";
-	private String address = "";
+	
 	private int addressId = 0;
+	private String name = "";
+	private String picker_dependent="";
+	private String address = "";
+	private String phone = "";
+	private String gdphone="";
+	private String postcard="";
+	private int status=0;
+	
 	private String goods_ids = "";
 	private int shop_id = 0;
-	private int status;
-
 	private int order_id = 0;
 	private String order_status;
 	private String order_time;
 	private String order_sum;
 	private String pay_way;
+
+	public void setPicker_dependent(String picker_dependent) {
+		this.picker_dependent = picker_dependent;
+	}
+
+	public void setGdphone(String gdphone) {
+		this.gdphone = gdphone;
+	}
+
+	public void setPostcard(String postcard) {
+		this.postcard = postcard;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public String findAddress() {
 		try {
@@ -338,7 +358,6 @@ public class OrdersController {
 		}
 		return Action.SUCCESS;
 	}
-	
 
 	public String addAddress() {
 		try {
@@ -346,14 +365,18 @@ public class OrdersController {
 			Address add = new Address();
 			name = new String(name.getBytes("iso8859-1"), "utf-8");
 			address = new String(address.getBytes("iso8859-1"), "utf-8");
+			picker_dependent=new String(picker_dependent.getBytes("iso8859-1"), "utf-8");
 			if (user_id != 0 && !name.equals("") && !phone.equals("")
 					&& !address.equals("")) {
 				add.setUser_id(user_id);
 				add.setName(name);
-				add.setPhone(phone);
+				add.setPicker_dependent(picker_dependent);
 				add.setAddress(address);
+				add.setPhone(phone);
+				add.setGdphone(gdphone);
+				add.setPostcard(postcard);
+				add.setStatus(status);
 				ordersMapper.addAddress(add);
-				System.out.println(name + " " + address);
 				result.put("msg", "success");
 			} else {
 				result.put("msg", "fail");
@@ -373,11 +396,15 @@ public class OrdersController {
 			Address add = new Address();
 			name = new String(name.getBytes("iso8859-1"), "utf-8");
 			address = new String(address.getBytes("iso8859-1"), "utf-8");
+			picker_dependent=new String(picker_dependent.getBytes("iso8859-1"), "utf-8");
 			if (!name.equals("") && !phone.equals("") && !address.equals("")
 					&& addressId != 0) {
 				add.setName(name);
-				add.setPhone(phone);
+				add.setPicker_dependent(picker_dependent);
 				add.setAddress(address);
+				add.setPhone(phone);
+				add.setGdphone(gdphone);
+				add.setPostcard(postcard);
 				add.setAddressId(addressId);
 				ordersMapper.updateAddress(add);
 				result.put("msg", "success");

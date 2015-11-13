@@ -14,7 +14,7 @@
             var sjphone = $$('#sjphone').val();
             var gdphone = $$('#gdphone').val();
             var postcard = $$('#postcard').val();
-            uzu.rest.getJSON("/orders/addAddress", { 'user_id': userId, 'name': name, 'phone': sjphone, 'address': detailAddress }, function (result) {
+            uzu.rest.getJSON("orders/addAddress", { 'user_id': userId, 'name': name, 'picker_dependent': picker_dependent, 'address': detailAddress, 'phone': sjphone, 'gdphone': gdphone, 'postcard': postcard }, function (result) {
                 if (result.result.msg == "success") {
                     mainView.router.loadPage(addrListCtrl.html);
                 } else if (result.result.msg == "fail") {

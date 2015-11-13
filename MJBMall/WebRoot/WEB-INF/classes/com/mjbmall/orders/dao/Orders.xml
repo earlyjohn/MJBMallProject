@@ -13,7 +13,7 @@
 		     <if test='addressId != null &amp;&amp; addressId!=0'>
 			 and addressId=#{addressId}
 		     </if>
-		      <if test='status != null'>
+		      <if test='status != null  &amp;&amp; status!=0'>
 			 and status=#{status}
 		     </if>
 		</where>
@@ -120,13 +120,13 @@
 	</select>
 	-->
 	<insert id="addAddress" parameterType="com.mjbmall.orders.entity.Address">
-	   insert into m_receiptads (user_id,name,phone,address) 
-       values(#{user_id},#{name},#{phone},#{address}
+	   insert into m_receiptads (user_id,name,picker_dependent,address,phone,gdphone,postcard) 
+       values(#{user_id},#{name},#{picker_dependent},#{address},#{phone},#{gdphone},#{postcard}
        	)  
 	</insert>
 	<update id="updateAddress" parameterType="com.mjbmall.orders.entity.Address">
 		update m_receiptads
-		set name=#{name},phone=#{phone},address=#{address}
+		set name=#{name},picker_dependent=#{picker_dependent},address=#{address},phone=#{phone},gdphone=#{gdphone},postcard=#{postcard}
 		where addressId=#{addressId}
 	</update>
 	<delete id="delAddress" parameterType="int">

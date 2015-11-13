@@ -4,7 +4,8 @@
         var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>收货地址"
                 +"</div><div class='right'></div></div>";
         $$('#addrListNavbar').html(html);
-        uzu.rest.getJSON("orders/findAddress", function (result) {
+        var userId = window.localStorage.getItem("userId");
+        uzu.rest.getJSON("orders/findAddress",{'user_id':userId}, function (result) {
             debugger;
             if (!result.result.addressList)
                 return;
@@ -39,7 +40,7 @@
             });
             uzu.rest.getJSON("orders/delAddress", { 'addressId': itemsArray[0] }, function (result) {
                 if (result.result.msg == "success") {
-                    mainView.router.loadPage(addrListCtrl.html);
+                    mainView.router.loadPage(addrList.html);
                 } else if (result.result.msg == "fail") {
                     alert('删除失败');
                 }
@@ -57,7 +58,7 @@
             if (selectChks.length != 1) {
                 alert('请选中一个地址');
             } else {
-                uzu.rest.getJSON("orders/setAddressStatus", { 'addressId': itemsArray[0], 'user_id': itemsArray[1], }, function (result) {
+                uzu.rest.getJSON("orders/updateAddressStatus", { 'addressId': itemsArray[0], 'user_id': itemsArray[1], }, function (result) {
                     if (result.result.msg == "success") {
                         alert('设置成功');
                     } else if (result.result.msg == "fail") {
