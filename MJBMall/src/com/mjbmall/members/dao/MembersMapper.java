@@ -4,6 +4,7 @@ import java.util.List;
 import com.mjbmall.members.entity.Comments;
 import com.mjbmall.members.entity.ContactUs;
 import com.mjbmall.members.entity.FeedBack;
+import com.mjbmall.members.entity.HeadPicUrl;
 import com.mjbmall.members.entity.MemberAddr;
 import com.mjbmall.members.entity.Members;
 import com.mjbmall.members.entity.Messages;
@@ -22,4 +23,8 @@ public interface MembersMapper {
 	public void addFeedBack(FeedBack feedBack);
 	public String getAboutUs();
 	public List<ContactUs> getContactUsList();
+	/**
+	 * 修改用户头像
+	 */
+	public void updateUserHeadPicUrl(HeadPicUrl h);
 }

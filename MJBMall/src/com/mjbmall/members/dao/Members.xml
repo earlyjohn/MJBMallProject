@@ -66,4 +66,10 @@
 	<select id="getContactUsList" resultType="com.mjbmall.members.entity.ContactUs">
 		select * from m_contactus
 	</select>
+	<!-- 上传用户头像 -->
+	<update id="updateUserHeadPicUrl" parameterType="com.mjbmall.members.entity.HeadPicUrl">  
+      
+       	update userinfo set head_pic=#{head_pic}
+        where member_id=#{member_id}
+    </update> 
 </mapper>

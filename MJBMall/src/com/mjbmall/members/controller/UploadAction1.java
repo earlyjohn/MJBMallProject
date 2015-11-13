@@ -9,6 +9,8 @@ import javax.servlet.ServletContext;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
+import com.mjbmall.members.dao.MembersMapper;
+import com.mjbmall.members.entity.HeadPicUrl;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -22,6 +24,8 @@ public class UploadAction1 extends ActionSupport implements Serializable {
     private String imageFileName;//   上传输入域FileName  文件名
     private String imageContentType;// 上传文件的MIME类型
     private int status;
+    private MembersMapper membersMapper;
+    private int member_id;
   /*  public File getImage() {
         return image;
     }*/
@@ -87,6 +91,16 @@ public class UploadAction1 extends ActionSupport implements Serializable {
             FileUtils.copyFile(image, new File(storePath,imageFileName));
             status=0;
             ActionContext.getContext().put("message", "上传成功！");
+            /**
+             * 将路径插入数据库
+             */
+            String ip = "localhost";//IP 根据服务器地址修改
+            String port = "8080"; //端口
+            String url = "http://"+ip+":"+port+"/MJBMall/files/"+imageFileName;
+            HeadPicUrl h = new HeadPicUrl();
+            h.setMemeber_id(member_id);
+            h.setHead_pic(url);
+            membersMapper.updateUserHeadPicUrl(h);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -98,5 +112,18 @@ public class UploadAction1 extends ActionSupport implements Serializable {
 
 	public int getStatus() {
 		return status;
+	}
+
+	public void setMembersMapper(MembersMapper membersMapper) {
+		this.membersMapper = membersMapper;
+	}
+
+
+
+	/**
+	 * @param memeber_id 要设置的 memeber_id
+	 */
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
 	}
 }
