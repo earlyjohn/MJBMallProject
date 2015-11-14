@@ -15,7 +15,6 @@
                 if (result.status == "0") {
                     // 将用户id进行缓存
                     window.localStorage.setItem("userId", result.id);
-                    debugger;
                     personalLoginCtrl.getPosBaidu();
                     //var userId = window.localStorage.getItem("userId");
                     mainView.router.loadPage("home.html");
