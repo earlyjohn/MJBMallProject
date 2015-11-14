@@ -7,7 +7,7 @@
         var html = "<div class='navbar-inner'>" +
             "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
-            "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
+            "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
             "<li style='width: 40%'><input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width: auto; position: relative;left: 10px;}'/></li>" +
             "<li style='position: absolute;right: 5%;top: 10px;width: 15%;'><i class='icon home_search' id='search'></i></li>" +
@@ -115,7 +115,9 @@
             mainView.router.loadPage("search.html?searchType=" + searchType);
         }); // 点击搜索选项
         $$('.home_chose').on('click', function () {
+            debugger;
             $$("#searchChose").show();
+            debugger;
         });
         // 选择商品
         $$('.searchProduct').on('click', function () {
