@@ -38,7 +38,8 @@
         });
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',
-            spaceBetween: 50
+            spaceBetween: 50,
+			autoplay: 2500
         });
     }
 };
