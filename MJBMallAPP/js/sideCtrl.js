@@ -32,8 +32,9 @@
             $$('#secondTabProductsList').html(html);
         });
         //离我最近商品
-        var jingdu = 12;
-        var weidu = 1;
+        debugger;
+        var jingdu = window.localStorage.getItem("jingdu");
+        var weidu = window.localStorage.getItem("weidu");
         uzu.rest.getJSON("distance/findZuiJinGoods", { 'jingdu': jingdu, 'weidu': weidu }, function (result) {
             if (!result.result.zuijinGoodsList)
                 return;

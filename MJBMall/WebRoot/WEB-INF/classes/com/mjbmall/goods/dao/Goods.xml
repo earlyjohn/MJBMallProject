@@ -204,4 +204,7 @@
 		 	goods_id=#{0} 
 		</where>
 	</select>
+	<insert id="addEvaluateDetail" parameterType="com.mjbmall.goods.entity.Evaluate">
+		insert into m_goods_evaluate(goods_id,evaluate,time,user_id,star) values(#{goods_id},#{evaluate},NOW(),#{user_id},#{star})
+	</insert>
 </mapper>

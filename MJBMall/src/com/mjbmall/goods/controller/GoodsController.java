@@ -8,6 +8,7 @@ import com.mjbmall.goods.entity.Evaluate;
 import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.goods.entity.TypeOrderBy;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.Result;
 
 
 public class GoodsController {
@@ -29,6 +30,15 @@ public class GoodsController {
 	private int type=0;
 	List<CrlAvg> crlAvg = null;
 	List<Evaluate> evaluate = null;
+	private String evaluate_content;
+	private int star=0;
+	
+	public void setStar(int star) {
+		this.star = star;
+	}
+	public void setEvaluate_content(String evaluate_content) {
+		this.evaluate_content = evaluate_content;
+	}
 	/**
 	 * @param type 要设置的 type
 	 */
@@ -135,6 +145,23 @@ public class GoodsController {
 		}catch(Exception e){}
 		return Action.SUCCESS;
 	}
+	/**
+	 *	进行评价
+	 */
+	public String addEvaluate(){
+		try {
+			Evaluate ev=new Evaluate();
+			ev.setGoods_id(goods_id);
+			ev.setEvaluate(evaluate_content);
+			ev.setUser_id(user_id);
+			ev.setStar(star);
+			goodsMapper.addEvaluateDetail(ev);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
 	private int count=0;
 	public int getCount() {
 		return count;

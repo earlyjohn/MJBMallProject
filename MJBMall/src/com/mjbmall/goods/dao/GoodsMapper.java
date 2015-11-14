@@ -27,6 +27,7 @@ public interface GoodsMapper {
     public List<Evaluate> findEvaluate(Evaluate e);
 	public List<Evaluate> findfirstEvaluate(Evaluate e);
     public int  findEvaluateCount(int goods_id);
+    public int addEvaluateDetail(Evaluate e);
 	//获取店铺粉丝数量
 	 public int getFuns_num(int shop_id);
     /**
