@@ -37,7 +37,8 @@
         });
 
         //设置相关咨询的连接
-        document.getElementById("xgzx_a").href = "ziXunList.html?parent_id="+cat_id;
+        document.getElementById("xgzx_a1").href = "ziXunList.html?parent_id="+cat_id;
+        document.getElementById("xgzx_a2").href = "ziXunList.html?parent_id="+cat_id;
 
         //相关资讯初始化
         uzu.rest.getJSON("connectinfo/findConnectInfoByCatId",{'parent_id':cat_id},function(data){
