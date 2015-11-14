@@ -1,14 +1,13 @@
 ﻿var productDetailCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = '<div class="navbar-inner"id="pd_detail"><div class="left"><i style="color: #FFFFFF;" class="icon spxq_icon-navbar goBack"></i></div>'+
-        '<div class="center">商品详情 </div><div class="right editCart"><i style="color: #FFFFFF;" class="icon spxq_enjoy"></i>'+
+        var html = '<div class="navbar-inner"id="pd_detail"><div class="left"><i style="color: #FFFFFF;" class="icon spxq_icon-navbar goBack_pd"></i></div>'+
+        '<div class="center">商品详情 </div><div class="right"><i style="color: #FFFFFF;" class="icon spxq_enjoy"  id="enjoy"></i>'+
         '</div></div>';
         $$('#productDetailNavbar').html(html);
         // 底部导航栏
-        $$("#homeToolbar").show();
-        $$("#productListNav").hide();
-        $$("#productDetailNav").show();
+
+        $$('#productDetailNav').show();
         var query = $$.parseUrlQuery(e.detail.page.url);
         var goods_id = query.goods_id;
         // 用户id
@@ -25,11 +24,32 @@
             var html = compiledproductDetailTemplate(context);
             $$('#productDetail').html(html);
         });
+        //用户评论
+        uzu.rest.getJSON("evaluate/findfirstEvaluate", { 'goods_id': goods_id }, function (data) {
+            debugger;
+            $$("#head_pic").attr('src',data.evaluate[0].head_pic);
+            $$("#member_nickname").text(data.evaluate[0].nickname);
+            $$("#comment_content").text(data.evaluate[0].evaluate);
+            $$("#time_goodstype").text(data.evaluate[0].time);
+
+        });
+        //获得全部评论
+        $$('#moreComment').on('click', function () {
+            uzu.rest.getJSON("evaluate/findEvaluate", { 'goods_id': goods_id }, function (data) {
+                debugger;
+                var context = {};
+                context.commentList = data.commentList;
+                var commentListTemplate = $$('#commentListTpl').html();
+                var compiledcommentListTemplate = Template7.compile(commentListTemplate);
+                var html = compiledcommentListTemplate(context);
+                $$('#commentList').html(html);
+
+            });
+        });
+
         // 回退
-        $$('.goBack').on('click', function () {
-            $$("#productDetailNav").show();
-            $$("#productListNav").hide();
-            mainView.router.back();
+        $$('.goBack_pd').on('click', function () {
+			mainView.router.back();
         });
         // 加入购物车
         $$('.spxq_jrgwc').on('click', function () {
@@ -40,7 +60,6 @@
                 'shop_id': 1
             },
             function (incrementData) {
-                $$("#homeToolbar").hide();
                 mainView.router.loadPage("shoppingCart.html");
             });
         });
@@ -67,7 +86,6 @@
         // 店铺详情
         $$('.spxq_dp').on('click', function () {
             uzu.rest.getJSON("goods/findShops", { 'shop_id': 1 }, function (shopData) {
-                $$("#homeToolbar").hide();
                 mainView.router.loadPage("shoppingCart.html");
             });
         });
@@ -78,7 +96,6 @@
         /*拨打电话*/
         $$('#call').on('click', function call(){
 		    // 导入Activity、Intent类
-		    debugger;
 		    var Intent = plus.android.importClass("android.content.Intent");
 		    var Uri = plus.android.importClass("android.net.Uri");
 		    // 获取主Activity对象的实例
@@ -89,58 +106,96 @@
 		    // 调用startActivity方法拨打电话
 		    main.startActivity(call);
     	});
-    	/*分享*/
-    	$$('.spxq_enjoy').on('click',function enjoy(){
-    		debugger;
-    		alert("获取分享服务列表失败：" + e.message);
-			    plus.share.getServices(function(s) {
-			    	alert("获取分享服务列表失败：" + e.message);
-				 var ss = {};
-				    for (var i in ss ) {
-				        var s = ss[i];
-				        var item = document.createElement("li");
-				        item.setAttribute("class", "ditem");
-				        item.setAttribute("onclick", (s.id == "weixin") ? "shareWeiXin(this.plusShare)" : "shareAction(this.plusShare)");
-				        item.innerText = s.description;
-				        alert("获取分享服务列表失败：" + s);
-				        item.plusShare = s;
-				        alert("获取分享服务列表失败：" + s );
-				        document.getElementById('enjoylist').appendChild(item);
-				        document.getElementById('enjoylist').show();
-				    }
-				}, function(e) {
-				    alert("获取分享服务列表失败：" + e.message);
-				});
+    	/*打开地图*/
+    	$$('#openMaps').on('click', function showMaps(){
+    		alert("弹出地图");
+			var ws=plus.webview.currentWebview();
+			var wm=plus.webview.getWebviewById(plus.runtime.appid);
+			wm&&wm.evalJS("preateClear()");
+			clicked('maps_map.html',false,true);
 		});
-    	function shareAction(s, ex) {
-		    outSet("分享操作：");
-		    if (!s) {
-		        outLine("无效的分享服务！");
-		        return;
-		    }
-		    if (s.authenticated) {
-		        outLine("---已授权---");
-		        shareMessage(s, ex);
-		    } else {
-		        outLine("---未授权---");
-		        s.authorize(function() {
-		            shareMessage(s, ex);
-		        }, function(e) {
-		            outLine("认证授权失败：" + e.code + " - " + e.message);
-		        });
-		    }
-		}
-    	function shareMessage(s,ex){
-		    var msg={content:sharecontent.value,extra:{scene:ex}};
-		    if(pic&&pic.realUrl){
-		        msg.pictures=[pic.realUrl];
-		    }
-		
-		    s.send( msg, function(){
-		        alert( "分享到\""+s.description+"\"成功！ " );
-		    }, function(e){
-		        alert( "分享到\""+s.description+"\"失败: "+e.code+" - "+e.message );
-		    } );
-		}
+    	/*分享*/
+    	var shares = {};
+		mui.plusReady(function() {
+			plus.share.getServices(function(s) {
+				if (s && s.length > 0) {
+					for (var i = 0; i < s.length; i++) {
+						var t = s[i];
+						shares[t.id] = t;
+					}
+				}
+			}, function() {
+				console.log("获取分享服务列表失败");
+			});
+		});
+    	$$('.spxq_enjoy').on('click',  function() {
+    		alert("分享到个各平台");
+			var ids = [{
+					id: "weixin",
+					ex: "WXSceneSession"
+				}, {
+					id: "weixin",
+					ex: "WXSceneTimeline"
+				}, {
+					id: "sinaweibo"
+				},  {
+					id: "qq"
+				}],
+				bts = [{
+					title: "发送给微信好友"
+				}, {
+					title: "分享到微信朋友圈"
+				}, {
+					title: "分享到新浪微博"
+				},  {
+					title: "分享到QQ"
+				}];
+			plus.nativeUI.actionSheet({
+				cancel: "取消",
+				buttons: bts
+			}, function(e) {
+				var i = e.index;
+				if (i > 0) {
+					var s_id = ids[i - 1].id;
+					var share = shares[s_id];
+					if (share) {
+						if (share.authenticated) {
+							shareMessage(share, ids[i - 1].ex);
+						} else {
+							share.authorize(function() {
+								shareMessage(share, ids[i - 1].ex);
+							}, function(e) {
+								console.log("认证授权失败：" + e.code + " - " + e.message);
+							});
+						}
+					} else {
+						mui.toast("无法获取分享服务，请检查manifest.json中分享插件参数配置，并重新打包")
+					}
+				}
+			});
+		});
+
+		function shareMessage(share, ex) {
+				var msg = {
+					extra: {
+						scene: ex
+					}
+				};
+				msg.href = "http://www.baidu.com/";
+				msg.title = "百度一下你啥都会知道";
+				msg.content = "我正在百度神器的事情";
+				if (~share.id.indexOf('weibo')) {
+					msg.content += "；体验地址：http://www.baidu.com/";
+				}
+				msg.thumbs = ["http://115.28.204.151:8088/img/login-icon.png"];
+				share.send(msg, function() {
+					console.log("分享到\"" + share.description + "\"成功！ ");
+				}, function(e) {
+					console.log("分享到\"" + share.description + "\"失败: " + e.code + " - " + e.message);
+				});
+				
+			}
+    	
+    	
 	}
 }

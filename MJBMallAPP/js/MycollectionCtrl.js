@@ -13,7 +13,6 @@
         var user_id = window.localStorage.getItem("userId");
         // 默认显示商品收藏列表
         uzu.rest.getJSON("collections/findCollections", { 'user_id': user_id }, function (data) {
-            debugger;
             if (!data.result.goodsList)
                 return;
             // 渲染模板
