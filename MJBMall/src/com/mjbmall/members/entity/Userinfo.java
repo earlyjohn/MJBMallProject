@@ -17,7 +17,16 @@ public class Userinfo {
 	private String phone;
 	private String buyhouse;
 	private String head_pic;
+	private String area;
+	
+	
 
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
 	private Date registertime;
 	
 	public String getRegistertime() {

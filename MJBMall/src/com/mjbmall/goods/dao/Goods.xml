@@ -190,4 +190,18 @@
 		</where>
 		order by time desc
 	</select>
+	<select id="findfirstEvaluate"  resultType="com.mjbmall.goods.entity.Evaluate" parameterType="com.mjbmall.goods.entity.Evaluate">
+	  select a.goods_id,a.evaluate,a.user_id,a.star,a.pic_url,a.time,b.nickname,b.head_pic from m_goods_evaluate a,userinfo b
+        <where>
+		 	goods_id=#{goods_id} and a.user_id=b.member_id
+		</where>
+		order by time desc
+	   LIMIT 1
+	</select>
+	<select id="findEvaluateCount"  resultType="int" parameterType="int">
+	  select count(*)  from m_goods_evaluate 
+        <where>
+		 	goods_id=#{0} 
+		</where>
+	</select>
 </mapper>
