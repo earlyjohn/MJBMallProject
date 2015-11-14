@@ -877,6 +877,39 @@
         </div>
         {{/each}}
     </script>
+    <!--订单小助手推送的订单消息-->
+    <script type="text/template7" id="msgOrderListTpl">
+        {{#each orderMsgList}}
+        <div class="home_auto">
+            <div class="home_auto">
+                <div class="shop_three_left" style="float:left;"><span>{{order_time}}</span></div>
+                <div class="shop_three_left" style="width:20%"><span>已发货</span></div>
+                <div class="shop_three_right" style="float:none; width:auto;">订单编号：{{order_id}}</div>
+            </div>
+            <div class="home_auto" style="border-top: 1px solid black; border-bottom: 1px solid black; padding-top: 10px;">
+                {{#each goods_list}}
+                <div class="shop_four_left">
+                    <img src="img/home/csdg_rm (1).jpg" style="width:50px;height:50px;margin:auto" />
+                </div>
+                <div class="shop_four_right">
+                    <div class="home_auto" style="text-align: left;">{{name}}</div>
+                    <div class="home_auto" style="text-align: right;">单价：{{price}}元</div>
+                    <div class="home_auto" style="text-align: right;">*1</div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="home_auto">
+                <div class="shop_three_left"><span style="padding-left: 5%">合计：￥{{order_sum}}</span></div>
+                <div class="shop_three_right">
+                    <p style="position: absolute;right: 5%">
+                        <a href="#" class="button button-round active" style="width: 150px;line-height: 22px;
+  margin-top: 2px;  height: 22px;">确认收款</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="js/framework7.js"></script>
     <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
@@ -889,7 +922,6 @@
     <script type="text/javascript" src="js/Hbuilder/immersed.js"></script>
     <!--<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>-->
     <!-- Path to your app js-->
-    <script type="text/javascript" src="js/indexPageController.js"></script>
     <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>
     <script type="text/javascript" src="js/bindingCtrl.js"></script>
     <script type="text/javascript" src="js/productDetailCtrl.js"></script>
@@ -940,6 +972,8 @@
     <script type="text/javascript" src="js/orderDetailCtrl.js"></script>
     <script type="text/javascript" src="js/ziXunListCtrl.js"></script>
     <script type="text/javascript" src="js/ziXunDetailCtrl.js"></script>
+    <script type="text/javascript" src="js/assistantMessageCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
+    <script type="text/javascript" src="js/indexPageController.js"></script>
 </body>
 </html>

@@ -68,4 +68,11 @@
     <update id="setMsgIsPingBi"  parameterType="com.mjbmall.orders.entity.Message">
     	update m_message set is_pingbi=1 where user_id=#{user_id} and type=#{type}
     </update>
+    <select id="getOrderMsg" resultType="com.mjbmall.orders.entity.Order" parameterType="com.mjbmall.orders.entity.Order">
+    	SELECT * FROM m_order a where a.user_id=#{user_id} and a.order_status=#{order_status} 
+    </select>
+    <select id="getOrderGoodsMsg" resultType="com.mjbmall.goods.entity.Goods" parameterType="com.mjbmall.goods.entity.Goods">
+    	SELECT d.shop_name,c.* FROM m_order a,m_order_goods b,sdb_b2c_goods c,m_shop d 
+		WHERE a.order_id=b.order_id AND a.user_id=#{user_id} AND a.order_status=#{order_status} AND b.goods_id=c.goods_id AND b.shop_id=d.shop_id
+    </select>
 </mapper>
