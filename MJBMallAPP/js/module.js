@@ -50,5 +50,6 @@ var module = {
     "ziXunList": ziXunListCtrl,
     "ziXunDetail": ziXunDetailCtrl,
     "binding":bindingCtrl,
-    "publishEvaluate":publishEvaluateCtrl
+    "publishEvaluate": publishEvaluateCtrl,
+    "assistantMessage":assistantMessageCtrl
 }

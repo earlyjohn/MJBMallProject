@@ -4,6 +4,7 @@ var assistantMessageCtrl = {
           '<i class="icon spxq_icon-navbar"></i></a><div class="center">订单消息</div><div class="right editCart">'+
             ' <a class="link link-u" style="color: white"></a></div></div></div>';
         $$('#assistantMessageNavbar').html(html);
+        debugger;
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("msgs/findOrderMsg", { 'user_id': user_id, 'order_status': 3 }, function (result) {
             debugger;
