@@ -48,5 +48,6 @@
     orderDetail: orderDetailCtrl,
     ziXunList: ziXunListCtrl,
     ziXunDetail: ziXunDetailCtrl,
-    binding:bindingCtrl
+    binding: bindingCtrl,
+    assistantMessage: assistantMessageCtrl
 }

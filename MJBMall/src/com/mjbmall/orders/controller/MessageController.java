@@ -1,11 +1,14 @@
 package com.mjbmall.orders.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mjbmall.goods.entity.Goods;
 import com.mjbmall.orders.dao.MessageMapper;
 import com.mjbmall.orders.entity.Message;
+import com.mjbmall.orders.entity.Order;
 import com.opensymphony.xwork2.Action;
 
 public class MessageController {
@@ -20,7 +23,15 @@ public class MessageController {
 	private int shop_id=0;
 	private int is_read=0;
 	private int message_id=0;
+	private int order_id=0;
+	private String order_status;
 	
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
+	public void setOrder_status(String order_status) {
+		this.order_status = order_status;
+	}
 	public void setMessage_id(int message_id) {
 		this.message_id = message_id;
 	}
@@ -144,6 +155,32 @@ public class MessageController {
 		} catch (Exception e) {
 			e.printStackTrace();
 			result.put("msg", "success");
+		}
+		return Action.SUCCESS;
+	}
+	
+	public 	String findOrderMsg(){
+		try {
+			result.clear();
+			Order order=new Order();
+			order.setUser_id(user_id);
+			order.setOrder_status(order_status);
+			List<Order> order_list=messageMapper.getOrderMsg(order);
+			Order temp_order=new Order();
+			List result_list=new ArrayList();
+			for (int i = 0; i < order_list.size(); i++) {
+				temp_order=order_list.get(i);
+				order_id=temp_order.getOrder_id();
+				Order order1=new Order();
+				order1.setUser_id(user_id);
+				order1.setOrder_status(order_status);
+				List<Goods> goods_list=messageMapper.getOrderGoodsMsg(order1);
+				temp_order.setGoods_list(goods_list);
+				result_list.add(temp_order);
+			}
+			result.put("orderMsgList", result_list);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return Action.SUCCESS;
 	}
