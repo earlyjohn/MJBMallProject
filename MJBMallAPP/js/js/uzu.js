@@ -62,3 +62,18 @@ uzu.rest.postData = function (url, params, callback) {
         }
     });
 };
+// 判断是否登录
+uzu.rest.isLogin = function () {
+    var userId = window.localStorage.getItem("userId");
+    if (userId) {
+        return true;
+    } else {
+        $$('#homeToolbar').hide();
+        mainView.router.loadPage("loginSelectBox.html");
+    }
+};
+// 清空缓存
+uzu.rest.removeMemeryCatch = function () {
+    window.localStorage.clear();
+   
+};
