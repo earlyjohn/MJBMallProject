@@ -94,8 +94,8 @@ public class UploadAction1 extends ActionSupport implements Serializable {
             /**
              * 将路径插入数据库
              */
-            String ip = "localhost";//IP 根据服务器地址修改
-            String port = "8080"; //端口
+            String ip = "115.28.204.151";//IP 根据服务器地址修改
+            String port = "8088"; //端口
             String url = "http://"+ip+":"+port+"/MJBMall/files/"+imageFileName;
             HeadPicUrl h = new HeadPicUrl();
             h.setMemeber_id(member_id);
@@ -103,7 +103,8 @@ public class UploadAction1 extends ActionSupport implements Serializable {
             membersMapper.updateUserHeadPicUrl(h);
             
         } catch (Exception e) {
-            e.printStackTrace();
+        	System.out.println(e);
+        	e.printStackTrace();
             status=1;
             
         }

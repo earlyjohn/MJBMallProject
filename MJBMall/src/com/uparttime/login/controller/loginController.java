@@ -1,7 +1,10 @@
 package com.uparttime.login.controller;
 
+import java.util.List;
+
 import com.opensymphony.xwork2.Action;
 import com.uparttime.login.dao.LoginMapper;
+import com.uparttime.login.entity.SysMsg;
 
 
 public class loginController {
@@ -10,6 +13,7 @@ public class loginController {
     private String password="";
     private String status;
     private int id=0;
+    private List<SysMsg> sysMsg;
 	
 	/**
 	 * @return status
@@ -28,7 +32,12 @@ public class loginController {
 			     status="3";
 		}else{
 			try{
+				SysMsg s = new SysMsg();
+				
 				id=loginMapper.userLogin(username, password);
+				s.setUser_id(id);
+				
+				sysMsg = loginMapper.getSysMsgList(s);
 				loginMapper.updateLastlogin(id);
 			}catch(Exception e){
 				System.out.println(e);
@@ -48,5 +57,8 @@ public class loginController {
 	}
 	public void setLoginMapper(LoginMapper loginMapper) {
 		this.loginMapper = loginMapper;
+	}
+	public List<SysMsg> getSysMsg() {
+		return sysMsg;
 	}
 }

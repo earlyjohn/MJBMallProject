@@ -9,4 +9,14 @@
 	<update id="updateLastlogin" parameterType="int" >
 	update u_user set lastlogin=NOW() where id=#{id}
 	</update>
+	<!-- 获取系统消息接口 -->
+    <select id="getSysMsgList" resultType="com.uparttime.login.entity.SysMsg" parameterType="com.uparttime.login.entity.SysMsg">
+		select a.msg_id,a.msg,a.sendTime from m_sysmsg a,u_user b
+		<where>
+		    a.sendTime &gt; b.lastlogin
+			
+		 	and b.id=#{user_id}
+		   
+		</where>
+	</select>
 </mapper>
