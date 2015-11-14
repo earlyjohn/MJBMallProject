@@ -125,6 +125,20 @@ public class GoodsController {
 		}
 		return Action.SUCCESS;
 	}
+	public String findfirstEvaluate(){
+		try{
+			Evaluate e = new Evaluate();
+			e.setGoods_id(goods_id);
+			evaluate=goodsMapper.findfirstEvaluate(e);
+		count=goodsMapper.findEvaluateCount(goods_id);
+		//result.put("evaluate", evaluate);
+		}catch(Exception e){}
+		return Action.SUCCESS;
+	}
+	private int count=0;
+	public int getCount() {
+		return count;
+	}
 	public void setGoodsMapper(GoodsMapper goodsMapper) {
 		this.goodsMapper = goodsMapper;
 	}
