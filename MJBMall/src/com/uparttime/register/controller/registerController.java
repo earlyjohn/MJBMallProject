@@ -1,7 +1,6 @@
 package com.uparttime.register.controller;
 
 import java.util.List;
-import java.util.Random;
 
 import com.mjbmall.util.SDKSend;
 import com.opensymphony.xwork2.Action;
