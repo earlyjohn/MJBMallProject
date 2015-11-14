@@ -39,7 +39,12 @@
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',
             spaceBetween: 50,
-			autoplay: 2500
+			nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
         });
     }
 };
