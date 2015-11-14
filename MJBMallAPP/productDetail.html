@@ -2,7 +2,7 @@
     <div class="page" data-page="ProductDetail">
         <div class="navbar home_float" id="productDetailNavbar">
 <div class="navbar-inner"id="pd_detail">
-               <div class="left"><i style="color: #FFFFFF;" class="icon spxq_icon-navbar goBack"></i></div>
+               <div class="left"><i style="color: #FFFFFF;" class="icon spxq_icon-navbar goBack_pd"></i></div>
                 <div class="center">
                     商品详情
                 </div>
@@ -35,47 +35,36 @@
 
             <div style="width: 100%;" class="spxq_spjx" id="productDetail">
             </div>
-            <a href="#" class="home_font">
-                <div class="person_auto" style="margin-top: 15px">
-                    <div style="float:left">
-                        <i style="margin-top: 10px;float: left;" class="icon spxq_dz"></i>
-                        <p style="  margin: 0; height: 40px;line-height: 40px;float: left;">地址：良乡南关天地人写字楼0922室</p>
-                    </div>
-                    <div class="person_more"></div>
-                </div>
-            </a>
-            <a href="#" class="home_font" id="call">
-                <div class="person_auto"  >
-                    <div style="float:left">
-                        <i style="margin-top: 10px;float: left;" class="icon spxq_dh"></i>
-                        <p style="  margin: 0; height: 40px;line-height: 40px;float: left;">电话：13662155795</p>
-                    </div>
-                    <div class="person_more"></div>
-                </div>
-            </a>
-            <a class="home_font" href="about.html">
-                <div class="person_auto" style="margin-bottom: 10px">
-                    <div style="float:left">价格与分类</div>
-                    <div class="person_more"></div>
-                </div>
-            </a>
-            <div class="spxq_gjl" style="margin-bottom: 10px"><span>商品评价（1024）</span></div>
+           
+            <div class="spxq_gjl" style="margin-bottom: 10px"><span>商品评价</span><span id="comment_count">（1024）</span></div>
 
-            <div class="spxq_div_pj">
-                <div class="spxq_div_pj_1 "><i style="margin-top: 0px;" class="icon spxq_pj"></i></div>
+            <div class="spxq_div_pj" id="commentList">
+                <div class="spxq_div_pj_1 "><img id="head_pic" src="img/icon/icon-cu.png"></img></div>
                 <div class="spxq_div_pj_2 ">
-                    <span>天下无贼</span><br />
-                    <span>商品很好！特别好。</span>
+                    <span id="member_nickname"></span><br />
+                    <span id="comment_content"></span>
                     <br />
                     <br />
-                    <span>2015-10-4 17:56:10 颜色：蓝色</span>
+                    <span id="time_type"></span>
                     <br />
                     <br />
                 </div>
                 <hr style="width: 90%" />
-                <span>更多评价</span>
+                <span id="moreComment">更多评价</span>
+            </div>
+
+
+            <div class="bottom-bar row home_auto" style="margin-bottom: 50px;">
+                <div id="productDetailNav">
+                    <ul style="width: 100%" class="spxq_ul">
+                        <li class="spxq_kf"></li>
+                        <li class="spxq_dp"></li>
+                        <li class="spxq_sc"></li>
+                        <li class="spxq_jrgwc"></li>
+                        <li class="spxq_ljgm"></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
 </div>

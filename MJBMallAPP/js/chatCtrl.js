@@ -12,7 +12,8 @@ var chatCtrl = {
 		var myApp = new Framework7();
 		
 		var $$ = Dom7;
-		// �Ựflag
+
+// 会话flag
 		var conversationStarted = false;
 		
 		// Init Messages

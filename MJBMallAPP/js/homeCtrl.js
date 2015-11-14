@@ -5,7 +5,7 @@
             spaceBetween: 50
         });
         var html = "<div class='navbar-inner'>" +
-            "<div class='left positon'>北京<i class='icon iconBack'></i></div>"
+            "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
             "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
@@ -94,7 +94,7 @@
             mainView.router.loadPage("personalCenter.html");
         });
         // 定位
-        $$('.iconBack').on('click', function () {
+        $$('.home_icon-navbar').on('click', function () {
             mainView.router.loadPage("position.html");
         });
         // 搜素
@@ -116,8 +116,225 @@
             $$(".selectSearch").text("店铺");
             $$("#searchChose").hide();
         });
-       
 
+
+        //行业分类跳转
+        //$$('#cat_1').on('click',function(){
+        //   var cat_id = 1;
+        //    mainView.router.loadPage("cyms.html?cat_id="+cat_id);
+        //});
+        //需要获取全局的user_id值
+        var user_id = window.localStorage.getItem("userId");
+
+        //nopic.jpg是没有商品    msg-pay.png是有商品但是没有图片
+        //TODO
+        //行业分类获取以及点击事件的设置
+        uzu.rest.getJSON("goods/findUserGoodsClassify",{'user_id':user_id},function(data){
+            if(!data.classifyList)
+                return;
+            if(data.userChoose.length == 0){
+                if(data.classifyList.length<9){
+                    for(var i=0;i<data.classifyList.length;i++){
+                        if(data.classifyList[i].iconUrl == null){
+                            document.getElementById("hyfl_pic"+(i+1)).src = "img/msg-pay.png";
+                        }else{
+                            document.getElementById("hyfl_pic"+(i+1)).src = data.classifyList[i].iconUrl;
+                        }
+                        document.getElementById("hyfl_a"+(i+1)).href = "cyms.html?cat_id="+data.classifyList[i].cat_id+"&cat_name="+data.classifyList[i].cat_name;
+                    }
+                    for(var i = data.classifyList.length;i<6;i++){
+                        document.getElementById("hyfl_pic"+(i+1)).src = "img/nopic.jpg";
+                    }
+                }else{
+                    for(var i=0;i<9;i++){
+                        if(data.classifyList[i].iconUrl == null){
+                            document.getElementById("hyfl_pic"+(i+1)).src = "img/msg-pay.png";
+                        }else{
+                            document.getElementById("hyfl_pic"+(i+1)).src = data.classifyList[i].iconUrl;
+                        }
+                        document.getElementById("hyfl_a"+(i+1)).href = "cyms.html?cat_id="+data.classifyList[i].cat_id+"&cat_name="+data.classifyList[i].cat_name;
+                    }
+                }
+            }else{
+               for(var i=0;i<9;i++){
+                   if(data.classifyList[i].iconUrl == null){
+                       document.getElementById("hyfl_pic"+(i+1)).src = "img/msg-pay.png";
+                   }else{
+                       document.getElementById("hyfl_pic"+(i+1)).src = data.classifyList[i].iconUrl;
+                   }
+                   document.getElementById("hyfl_a"+(i+1)).href = "cyms.html?cat_id="+data.classifyList[i].cat_id+"&cat_name="+data.classifyList[i].cat_name;
+               }
+            }
+        });
+
+
+        //新店铺推广图片展示
+        uzu.rest.getJSON("goods/findSpecShops", {},function(data){
+            if(!data.shopsList)
+                return;
+            if(data.shopsList.length<6){
+                for(var i=0;i<data.shopsList.length;i++){
+                    if(data.shopsList[i].shop_pic == null){
+                        document.getElementById("newshop_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("newshop_pic"+(i+1)).src = data.shopsList[i].shop_pic;
+                    }
+                    document.getElementById("newshop_a"+(i+1)).href = "shopDetail.html?shop_id="+data.shopsList[i].shop_id;
+                }
+                for(var i = data.shopsList.length;i<6;i++){
+                    document.getElementById("newshop_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<6;i++){
+                    if(data.shopsList[i].shop_pic == null){
+                        document.getElementById("newshop_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("newshop_pic"+(i+1)).src = data.shopsList[i].shop_pic;
+                    }
+                    document.getElementById("newshop_a"+(i+1)).href = "shopDetail.html?shop_id="+data.shopsList[i].shop_id;
+                }
+            }
+        });
+
+        //实时促销
+        uzu.rest.getJSON("goods/findGoods",{'type':'1'},function(data){
+            if(!data.goodsList)
+                return;
+            if(data.goodsList.length<4){
+                for(var i=0;i<data.goodsList.length;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("sscx_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("sscx_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("sscx_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+                for(var i = data.goodsList.length;i<4;i++){
+                    document.getElementById("sscx_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<4;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("sscx_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("sscx_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("sscx_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+            }
+        });
+
+        //折扣返利
+        uzu.rest.getJSON("goods/findGoods",{'type':'2'},function(data){
+            if(!data.goodsList)
+                return;
+            if(data.goodsList.length<5){
+                for(var i=0;i<data.goodsList.length;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("zkfl_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("zkfl_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("zkfl_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+                for(var i = data.goodsList.length;i<5;i++){
+                    document.getElementById("zkfl_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<5;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("zkfl_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("zkfl_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("zkfl_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+            }
+        });
+
+        //特价专区
+        uzu.rest.getJSON("goods/findGoods",{'type':'3'},function(data){
+            if(!data.goodsList)
+                return;
+            if(data.goodsList.length<8){
+                for(var i=0;i<data.goodsList.length;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("tjzq_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("tjzq_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("tjzq_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+                for(var i = data.goodsList.length;i<8;i++){
+                    document.getElementById("tjzq_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<8;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("tjzq_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("tjzq_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("tjzq_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+            }
+        });
+
+        //限时抢购
+        uzu.rest.getJSON("goods/findGoods",{'type':'4'},function(data){
+            if(!data.goodsList)
+                return;
+            if(data.goodsList.length<8){
+                for(var i=0;i<data.goodsList.length;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("xsqg_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("xsqg_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("xsqg_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+                for(var i = data.goodsList.length;i<8;i++){
+                    document.getElementById("xsqg_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<8;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("xsqg_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("xsqg_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("xsqg_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+            }
+        });
+
+        //热门推荐
+        uzu.rest.getJSON("goods/findGoods",{'type':'5'},function(data){
+            if(!data.goodsList)
+                return;
+            if(data.goodsList.length<4){
+                for(var i=0;i<data.goodsList.length;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("rmtj_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("rmtj_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("rmtj_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+                for(var i = data.goodsList.length;i<4;i++){
+                    document.getElementById("rmtj_pic"+(i+1)).src = "img/nopic.jpg";
+                }
+            }else{
+                for(var i=0;i<4;i++){
+                    if(data.goodsList[i].big_pic == null){
+                        document.getElementById("rmtj_pic"+(i+1)).src = "img/msg-pay.png";
+                    }else{
+                        document.getElementById("rmtj_pic"+(i+1)).src = data.goodsList[i].big_pic;
+                    }
+                    document.getElementById("rmtj_a"+(i+1)).href = "productDetail.html?goods_id="+data.goodsList[i].goods_id;
+                }
+            }
+        });
     }
 };
 

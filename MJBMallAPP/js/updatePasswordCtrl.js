@@ -47,10 +47,13 @@
             }
             uzu.rest.getJSON("register/findCodeMsg", { 'phone': phone, 'codeMsg': messageCode1 }, function (result) {
                 if (result.status == "0") {
-                    window.localStorage.setItem("phone", phone);
-                    window.localStorage.setItem("messageCode", messageCode1);
-                    mainView.router.loadPage("updatePasswordNext.html");
+                    //window.localStorage.setItem("phone", phone);
+                    // window.localStorage.setItem("messageCode", messageCode1);
+                    mainView.router.loadPage("updatePasswordNext.html?phone="+phone+"&&codeMsg="+messageCode1);
                 }
+                else 
+                    myApp.toast('验证失败，请输入正确的验证码', 'error').show(true);
+                return;
             });
         });
     },

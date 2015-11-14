@@ -11,6 +11,11 @@ var aboutCtrl = {
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
+
+        uzu.rest.getJSON("members/findAboutUs",{},function(data){
+           document.getElementById("aboutus").innerHTML = data.result.aboutus;
+        });
+
     }
 };
 

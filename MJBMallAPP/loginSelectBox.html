@@ -36,6 +36,13 @@
     <link rel="stylesheet" href="css/personalCenter.css">
     <link rel="stylesheet" href="css/firstClassfy.css">
     <link rel="stylesheet" href="css/editCollection.css">
+    <!--
+    	作者：2534715943@qq.com
+    	时间：2015-11-06
+    	描述：hbuilder
+    -->
+    <link href="css/Hbuilder/mui.picker.css" rel="stylesheet" />
+	<link href="css/Hbuilder/mui.poppicker.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -203,15 +210,48 @@
                                             <div style="margin-top: 10px;"><span>销量</span>&nbsp;<span>{{buy_count}}</span></div>
                                             <div style="margin-top: 10px;"><span>营业时间</span>&nbsp;<span>周一至周日10点到19点</span></div>
                                         </div>
-
                                     </div>
          {{/each}}
     </script>
+    <!--商品详情-->
     <script type="text/template7" id="productDetailTpl">
         {{#each productDetail}}
-                            <div><p>{{brief}}</p></div>
-                            <div><span>{{name}}</span></div>
-                            <div><span style="color:red;margin-top: 10px;">￥{{price}}</span></div>
+                 <div><p>{{brief}}</p></div>
+                   <div><span>{{name}}</span></div>
+                      <div><span style="color:red;margin-top: 10px;">￥{{price}}</span></div>
+                       <div class="toolbar spxq_gjl spxq_jx_t">
+                   <div class="toolbar-inner" id="openMaps">
+                    <i style="margin-top: 0px;" class="icon spxq_dz"></i>
+                    <a class="spxq_font">
+                        <p>地址：{{address}}&nbsp;</p>
+                    </a>
+                    <a><i style="margin-top: 0px;" class="icon spxq_more"></i></a>
+                </div>
+            </div>
+            <div class="toolbar spxq_gjl spxq_jx_l">
+                <div class="toolbar-inner" id="call">
+                    <i class="icon spxq_dh"></i>
+                    <a class="spxq_font">
+                        <p>电话：{{phone_number}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </a>
+                    <a><i style="margin-top: 0px;" class="icon spxq_more"></i></a>
+                </div>
+            </div>
+            
+         {{/each}}
+    </script>
+    <!--商品评价-->
+    <script type="text/template7" id="commentListTpl">
+         {{#each commentList}}
+                <div class="spxq_div_pj_2 ">
+                    <span id="member_nickname">{{}}天下无贼</span><br />
+                    <span id="comment_content">{{}}商品很好！特别好。</span>
+                    <br />
+                    <br />
+                    <span id="time_type">{{}}2015-10-4 17:56:10 颜色：蓝色</span>
+                    <br />
+                    <br />
+                </div>
          {{/each}}
     </script>
     <!--商品分类一级-->
@@ -841,10 +881,15 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/js/uzu.js"></script>
     <script type="text/javascript" src="js/js/toast.js"></script>
+    <script type="text/javascript" src="js/Hbuilder/mui.min.js"></script>
+    <script type="text/javascript" src="js/Hbuilder/mui.view.js"></script>
+    <script type="text/javascript" src="js/Hbuilder/common.js"></script>
+    <script type="text/javascript" src="js/Hbuilder/immersed.js"></script>
     <!--<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>-->
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/indexPageController.js"></script>
     <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>
+    <script type="text/javascript" src="js/bindingCtrl.js"></script>
     <script type="text/javascript" src="js/productDetailCtrl.js"></script>
     <script type="text/javascript" src="js/productListCtrl.js"></script>
     <script type="text/javascript" src="js/personalLoginCtrl.js"></script>

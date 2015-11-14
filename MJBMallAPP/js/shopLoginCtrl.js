@@ -7,11 +7,14 @@
             var userName = $$("#username").val();
             var password = $$("#password").val();
             if (!userName || !password) {
-                myApp.alert("请输入账号或密码", "error")
+                myApp.alert("请输入账号或密码", "error");
                 return;
             }
-            uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
-                //debugger;
+            //var userType = window.localStorage.getItem("userType");
+            var query = $$.parseUrlQuery(e.detail.page.url);
+            var userType = query.userType;
+            uzu.rest.getJSON("login/login", { 'userType': userType, 'username': userName, 'password': password }, function (result) {
+                debugger;
                 if (result.status == "0") {
                     // 将用户id进行缓存，用户id和店铺id用的是一张表中的
                     window.localStorage.setItem("userId", result.id);

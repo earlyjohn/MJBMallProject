@@ -8,15 +8,22 @@
             mainView.router.back();
         });
         $$('#updatePasswordFinish').on('click', function () {
-            var phone = window.localStorage.getItem("phone");
-            var codeMsg = window.localStorage.getItem("messageCode");
+
+            var userType = window.localStorage.getItem("userType");
+            // var phone = window.localStorage.getItem("phone");
+            //var codeMsg = window.localStorage.getItem("messageCode");
+
+            var query = $$.parseUrlQuery(e.detail.page.url);
+            var phone = query.phone;
+            var codeMsg = query.codeMsg;
+            debugger;
             var password = $$("#registerPassword").val();
             var repassword = $$("#re_registerPassword").val();
             if (password != repassword) {
                 myApp.toast('两次密码不一致', 'error').show(true);
                 return;
             }
-            uzu.rest.getJSON("register/updatePwd", { 'phone': phone,'codeMsg':codeMsg,'password': password }, function (result) {
+            uzu.rest.getJSON("register/updatePwd", { 'userType': userType, 'phone': phone, 'codeMsg': codeMsg, 'password': password }, function (result) {
                 if (result.status == "0") {
                     myApp.toast('重置密码成功', 'success').show(true);
                     mainView.router.loadPage("personalLogin.html");

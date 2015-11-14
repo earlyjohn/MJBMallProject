@@ -14,14 +14,15 @@
         // 传入的参数
         var searchGoods = {};
         if (searchContent) {
-           // 从分类界面
-            if (searchContent.type_id === "1") {
-                // 参数穿分类id
-                searchGoods = { 'cat_id': searchContent.cat_id };
-            } else {
-                // 如果从搜索页面进来加上搜素参数
-                searchGoods = { 'name': searchContent.name };
-            }
+            if (searchContent.type)
+                searchGoods.type = searchContent.type;
+            if (searchContent.cat_id)
+                searchGoods.cat_id = searchContent.cat_id;
+            if (searchContent.name)
+                searchGoods.name = searchContent.name;
+        }
+        else if (name) {
+            searchGoods.name = name;
         }
         // 获得商品列表
         uzu.rest.getJSON(query, searchGoods, function (data) {
@@ -39,6 +40,65 @@
             $$('#firstTabProductsList').html(html);
             $$('#secondTabProductsList').html(html);
             $$('#threeTabProductsList').html(html);
+        });
+        //人气最高
+        $$("#table1").on('click', function () {
+            searchGoods.OrderBy = 2;
+            uzu.rest.getJSON(query, searchGoods, function (data) {
+                if (!data.goodsList)
+                    return;
+                // 渲染模板
+                var context = {};
+                context.productsList = data.goodsList;
+                // for (var i = 0; i < context.productsList.length; i++) {
+                //    context.productsList[i].big_pic = "img/demo/productlist.jpg";}
+
+                var productsTemplate = $$('#productsListTpl').html();
+                var compiledProductsTemplate = Template7.compile(productsTemplate);
+                var html = compiledProductsTemplate(context);
+                $$('#firstTabProductsList').html(html);
+            });
+        });
+        //最新商品
+        $$("#table2").on('click', function () {
+            uzu.rest.getJSON(query, searchGoods, function (data) {
+                if (!data.goodsList)
+                    return;
+                // 渲染模板
+                var context = {};
+                context.productsList = data.goodsList;
+                // for (var i = 0; i < context.productsList.length; i++) {
+                //    context.productsList[i].big_pic = "img/demo/productlist.jpg";}
+
+                var productsTemplate = $$('#productsListTpl').html();
+                var compiledProductsTemplate = Template7.compile(productsTemplate);
+                var html = compiledProductsTemplate(context);
+
+                $$('#secondTabProductsList').html(html);
+
+            });
+        });
+        //离我最近
+        $$("#table3").on('click', function () {
+            uzu.rest.getJSON(query, searchGoods, function (data) {
+                if (!data.goodsList)
+                    return;
+                // 渲染模板
+                var context = {};
+                context.productsList = data.goodsList;
+                // for (var i = 0; i < context.productsList.length; i++) {
+                //    context.productsList[i].big_pic = "img/demo/productlist.jpg";}
+
+                var productsTemplate = $$('#productsListTpl').html();
+                var compiledProductsTemplate = Template7.compile(productsTemplate);
+                var html = compiledProductsTemplate(context);
+                $$('#threeTabProductsList').html(html);
+            });
+        });
+        //搜索
+        $$("#search").on('click', function () {
+            var name = $$("#goodscontent").val();
+            mainView.router.loadPage("position.html?name="+name);
         });
         // 轮播
         var mySwiper1 = myApp.swiper('.swiper-1', {

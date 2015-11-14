@@ -6,9 +6,6 @@
         $$('#shoppingCartNavbar').html(html);
         // 隐藏底部导航栏
         // 底部导航栏
-        $$("#homeToolbar").show();
-        $$("#productDetailNav").hide();
-        $$("#productListNav").show();
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });

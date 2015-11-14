@@ -18,6 +18,7 @@
             mainView.router.back();
         });
         // 搜素
+        var searchContent =$$('#u465_input').val();
         $$('.home_search').on('click', function () {
             var searchContent = $$('.text_sketch').val();
             if (searchType == 0) {

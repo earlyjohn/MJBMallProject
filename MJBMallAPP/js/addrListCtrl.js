@@ -1,7 +1,7 @@
 ﻿var addrListCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>收货地址"
+        var html = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>收货地址"
                 +"</div><div class='right'></div></div>";
         $$('#addrListNavbar').html(html);
         var userId = window.localStorage.getItem("userId");
@@ -23,7 +23,6 @@
             $$('#addrLists').html(html);
         });
         $$('#deleteAddress').on('click', function () {
-            debugger;
             // 获得选中的复选框
             var selectChks = $$("input[type=checkbox][name=editCheckItem]:checked");
             if (!selectChks.length) {
@@ -47,7 +46,6 @@
             });
         });
         $$('#setAddressStatus').on('click', function () {
-            debugger;
             // 获得选中的复选框
             var selectChks = $$("input[type=checkbox][name=editCheckItem]:checked");
             var itemsArray = new Array();
@@ -68,7 +66,7 @@
             }
         });
         // 回退
-        $$('.icon-backwhite').on('click', function () {
+        $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
 

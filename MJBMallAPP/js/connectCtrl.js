@@ -12,6 +12,17 @@ var connectCtrl = {
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
+
+        uzu.rest.getJSON("members/findContactUs",{},function(data){
+            if(!data.result.contact_us)
+                return
+            document.getElementById("company_name").innerHTML = "公司名称:"+data.result.contact_us[0].company_name;
+            document.getElementById("tel").innerHTML = "电话:"+data.result.contact_us[0].tel;
+            document.getElementById("qq").innerHTML = "QQ:"+data.result.contact_us[0].QQ;
+            document.getElementById("email").innerHTML = "Email:"+data.result.contact_us[0].email;
+            document.getElementById("url").innerHTML = "网址:"+data.result.contact_us[0].url;
+            document.getElementById("addr").innerHTML = "地址:"+data.result.contact_us[0].addr;
+        });
     }
 };
 
