@@ -164,5 +164,5 @@
 				outLine("注销\""+auth.description+"\"失败："+e.message);
 			});
 		}
-    }
+	}
 }

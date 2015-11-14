@@ -20,16 +20,29 @@
         // 轮播
         var context = {};
         var imgList = new Array();
-        imgList.push({ imgUrl: 'img/demo/page2.jpg' });
-        imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-        imgList.push({ imgUrl: 'img/demo/lunbo2.png' });
-        imgList.push({ imgUrl: 'img/demo/lunbo3.png' });
-        imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-        context.recycleImgList = imgList;
-        var recycleImgsTemplate = $$('#recycleImgsTpl').html();
-        var compiledRecycleImgsTemplate = Template7.compile(recycleImgsTemplate);
-        var html = compiledRecycleImgsTemplate(context);
-        $$('#recycleImgs').html(html);
+        uzu.rest.getJSON("/crlAvg/findCrlAvg",{},function(data){
+            if(!data.crlAvg)
+                return;
+            //alert(data.crlAvg.length);
+            for(var i=0;i<data.crlAvg.length;i++){
+                var pic = data.crlAvg[i].pic;
+                //alert(pic);
+                imgList.push({ imgUrl: pic});
+            }
+
+            //imgList.push({ imgUrl: 'http://115.28.204.151:8088/img/home/page2.jpg' });
+            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
+            //imgList.push({ imgUrl: 'img/demo/lunbo2.png' });
+            //imgList.push({ imgUrl: 'img/demo/lunbo3.png' });
+            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
+            context.recycleImgList = imgList;
+            var recycleImgsTemplate = $$('#recycleImgsTpl').html();
+            var compiledRecycleImgsTemplate = Template7.compile(recycleImgsTemplate);
+            var html = compiledRecycleImgsTemplate(context);
+            $$('#recycleImgs').html(html);
+        })
+
+
         // 行业分类模板
         //$$.ajax({
         //    type: "GET",
