@@ -1,5 +1,9 @@
 package com.mjbmall.orders.entity;
 
+import java.util.List;
+
+import com.mjbmall.goods.entity.Goods;
+
 public class Order {
 	private int user_id;
 	private int order_id;
@@ -13,7 +17,15 @@ public class Order {
 	private String order_sum;
 	private int shop_id;
 	private double price;
-	
+	private List<Goods> goods_list;
+
+	public List<Goods> getGoods_list() {
+		return goods_list;
+	}
+
+	public void setGoods_list(List<Goods> goods_list) {
+		this.goods_list = goods_list;
+	}
 
 	public double getPrice() {
 		return price;
