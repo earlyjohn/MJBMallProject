@@ -11,12 +11,14 @@
             shop_name = searchContent.shop_name;
            
         }
-        uzu.rest.getJSON("goods/findShops", { 'shop_name': shop_name}, function (result) {
-            if (!data.shopsList)
+        //人气最高店铺列表
+        uzu.rest.getJSON("goods/findShops", { 'orderBy': 1 }, function (result) {
+            debugger;
+            if (!result.shopsList)
                 return;
             // 渲染模板
             var context = {};
-            context.shopsList = data.shopsList;
+            context.shopsList = result.shopsList;
             for (var i = 0; i < context.shopsList.length; i++) {
                 context.shopsList[i].big_pic = "img/demo/productlist.jpg";
             }
@@ -24,7 +26,35 @@
             var compiledProductsTemplate = Template7.compile(productsTemplate);
             var html = compiledProductsTemplate(context);
             $$('#firstTabShopsList').html(html);
+        });
+        //信誉最高店铺列表
+        uzu.rest.getJSON("goods/findShops", { 'orderBy': 2 }, function (result) {
+            if (!result.shopsList)
+                return;
+            // 渲染模板
+            var context = {};
+            context.shopsList = result.shopsList;
+            for (var i = 0; i < context.shopsList.length; i++) {
+                context.shopsList[i].big_pic = "img/demo/productlist.jpg";
+            }
+            var productsTemplate = $$('#shopListTpl').html();
+            var compiledProductsTemplate = Template7.compile(productsTemplate);
+            var html = compiledProductsTemplate(context);
             $$('#secondTabShopsList').html(html);
+        });
+        //离我最近店铺列表
+        uzu.rest.getJSON("distance/findZuiJinShop", { 'jingdu': 12, 'weidu': 2 }, function (result) {
+            if (!result.result.zuijinList)
+                return;
+            // 渲染模板
+            var context = {};
+            context.shopsList = result.result.zuijinList;
+            for (var i = 0; i < context.shopsList.length; i++) {
+                context.shopsList[i].big_pic = "img/demo/productlist.jpg";
+            }
+            var productsTemplate = $$('#shopListTpl').html();
+            var compiledProductsTemplate = Template7.compile(productsTemplate);
+            var html = compiledProductsTemplate(context);
             $$('#threeTabShopsList').html(html);
         });
         var mySwiper1 = myApp.swiper('.swiper-1', {

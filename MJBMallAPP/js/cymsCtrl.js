@@ -13,42 +13,12 @@
             mainView.router.back();
         });
 
-        //设置当前页面的标题
         document.getElementById("title").innerHTML = cat_name;
+        //$$('#cat_newshop_pic1').on('click',function(){
+        //    alert(cat_id);
+        //});
 
 
-        //获取二级分类
-        uzu.rest.getJSON("goods/findClassify",{'parent_id': cat_id},function(data){
-            if(!data.classifyList)
-                return;
-            var div = document.getElementById("secondclassify");
-            for(var i=0;i<data.classifyList.length;i++){
-                var childdiv = document.createElement("div");
-                childdiv.className = "hyfl_third home_float";
-                childdiv.innerHTML = data.classifyList[i].cat_name;
-                (function(){
-                    var p = i
-                    childdiv.onclick = function() {
-                        mainView.router.loadPage("productsList.html?cat_id="+data.classifyList[p].cat_id);
-                    }
-                })();
-                div.appendChild(childdiv);
-            }
-        });
-
-        //设置相关咨询的连接
-        document.getElementById("xgzx_a1").href = "ziXunList.html?parent_id="+cat_id;
-        document.getElementById("xgzx_a2").href = "ziXunList.html?parent_id="+cat_id;
-
-        //相关资讯初始化
-        uzu.rest.getJSON("connectinfo/findConnectInfoByCatId",{'parent_id':cat_id},function(data){
-            if(!data.result.connectInfoList)
-                return;
-            document.getElementById("shopName").innerHTML = data.result.connectInfoList[0].shop_name;
-            document.getElementById("content").innerHTML = data.result.connectInfoList[0].content;
-            document.getElementById("time").innerHTML = data.result.connectInfoList[0].publishtime;
-
-        });
 
         //新店铺推广图片展示
         uzu.rest.getJSON("goods/findSpecShops", {'cat_id':cat_id},function(data){

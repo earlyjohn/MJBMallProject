@@ -5,36 +5,51 @@
                     + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商品<i class='icon home_chose'></i><input id='u465_input' type='text' class='text_sketch' />"
                     + "</div><div class='right'><i class='icon home_search' id='search'></i></div></div>";
         $$('#shopDetailNavbar').html(html);
+        //$$("#homeToolbar").show();
+      //  $$("#productListNav").show();
+      //  $$("#productDetailNav").hide();
         $$('.search_icon-navbar').on('click', function () {
             mainView.router.back();
         });
-
+        debugger;
         var query = $$.parseUrlQuery(e.detail.page.url);
         var shop_id = query.shop_id;
-
-        $$('#test').on('click',function(){
-           alert(shop_id);
+        //通过商铺id拿到商铺的基本信息
+        uzu.rest.getJSON("goods/findShops", { 'shop_id': shop_id }, function (result) {
+            if (!result.shopsList)
+                return;
+            var shopsList = result.shopsList;
+            $$('#shop_id').text(shopsList[0].shop_id);
+            $$('#shop_name').text(shopsList[0].shop_name);
+            $$('#shop_hours').text(shopsList[0].shop_hours);
         });
-
-		//获得店铺Logo
-        var user_id = window.localStorage.getItem("userId");
-      //  var shop_id;
-        uzu.rest.getJSON("members/findShopowner", { 'shopowner_id': user_id }, function (result) {
-            if (!result.shopownerinfo)
-                return;  
-           // shop_id = result.shopownerinfo[0].shop_id;
-            $$('#shop_pic').attr('src', result.shopownerinfo[0].shop_pic);
-            $$('#shopname').text(result.shopownerinfo[0].shop_name);
-            var credit = "";
-            for (var i = 0; i < result.shopownerinfo[0].credit_rating; i++)
-                credit += "★";
-            $$('#credit').text(credit);
-            $$('#funs').text(result.funs_num);
+      //  $$('#test').on('click',function(){
+        //   alert(shop_id);
+        //});
+        //全部商品
+        uzu.rest.getJSON("goods/findGoods", { 'shop_id': shop_id }, function (result) {
+            debugger;
+            if (!result.goodsList)
+                return;
+            var context = {};
+            context.productsList = result.goodsList;
+            var productsTemplate = $$('#productsListTpl').html();
+            var compiledProductsTemplate = Template7.compile(productsTemplate);
+            var html = compiledProductsTemplate(context);
+            $$('#secondTabProductsList').html(html);
         });
-
-
-
-
+        //最新商品
+        uzu.rest.getJSON("goods/findGoods", { 'shop_id': shop_id, 'orderBy': 2 }, function (result) {
+            debugger;
+            if (!result.goodsList)
+                return;
+            var context = {};
+            context.productsList = result.goodsList;
+            var productsTemplate = $$('#productsListTpl').html();
+            var compiledProductsTemplate = Template7.compile(productsTemplate);
+            var html = compiledProductsTemplate(context);
+            $$('#threeTabProductsList').html(html);
+        });
 
         //新店铺推广图片展示
         uzu.rest.getJSON("goods/findSpecShops", {},function(data){

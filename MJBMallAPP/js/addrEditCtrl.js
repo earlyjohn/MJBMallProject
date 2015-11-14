@@ -19,7 +19,6 @@
 		    $$('#postcard').val(addressList[0].postcard);
 		});
 		$$('#saveButton').on('click', function () {
-		    debugger;
             var name = $$('#name').val();
             var picker_dependent = $$('#picker-dependent').val();
             var detailAddress = $$('#detailAddress').val();
@@ -28,7 +27,7 @@
             var postcard = $$('#postcard').val();
             uzu.rest.getJSON("orders/updateAddress", { 'addressId': temp, 'name': name, 'picker_dependent': picker_dependent, 'address': detailAddress, 'phone': sjphone, 'gdphone': gdphone, 'postcard': postcard }, function (result) {
                 if (result.result.msg == "success") {
-                    mainView.router.loadPage(addrListCtrl.html);
+                    mainView.router.loadPage(addrList.html);
                 } else if (result.result.msg == "fail") {
                     alert("保存失败");
                 }

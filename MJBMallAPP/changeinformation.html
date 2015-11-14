@@ -2,19 +2,17 @@
     <div data-page="changeinformation" class="page">
         <div class="navbar" id="changeinformationNavbar">
             <div class="navbar-inner"><a class="left"><i class="icon spxq_icon-navbar"></i></a>
-            <div class="center">修改基本资料</div><div class="right editCart"><a class="link link-u saveBtn" style="color: white">保存</a></div></div>
+            <div class="center">修改基本资料</div><div class="right editCart"><a class="link link-u" style="color: white">保存</a></div></div>
         </div>
         <div class="page-content home_page" style="padding-top: 10px">
         	<div style="width: 100%;height: 200px;" id="changeImage">
         		<img src=""id="Hpic" alt="" style="width: 30%;height: 180px;"/>
         	</div>
-     <form action="http://115.28.204.151:8088/MJBMall/upload/upload1" method="post" id="uppic"enctype="multipart/form-data" style="display:none;" target="hidden_frame">
+     <form action="http://localhost:8088/MJBMall/upload/upload1" method="post" id="uppic"enctype="multipart/form-data">
         文件：<input type="file" id="pic_path"name="image"/><br/>
          <input type="submit"id="upHeadpic" value="上传"/>
          <input type="text" name="member_id" id="member_id" style="dispaly:none"/>
-    <iframe name="hidden_frame" id="hidden_frame" style="display: none;"></iframe>
-     </form>
-    
+    </form>
             <div class="list-block" id="memberInformation">
                  
             </div>
