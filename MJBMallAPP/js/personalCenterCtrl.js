@@ -6,7 +6,6 @@
         //获得头像+信息
         var user_id = window.localStorage.getItem("userId");
         uzu.rest.getJSON("/members/getUserinfo", { 'member_id': user_id }, function (data) {
-            debugger;
             $$("#head_pic").attr('src', data.result.userinfoList[0].head_pic);
             $$("#name").text(data.result.userinfoList[0].nickname);
             $$("#area").text(data.result.userinfoList[0].area);
@@ -20,6 +19,7 @@
             else (data.result.userinfoList[0].vip_rank == 3)
             vip = "VIP 3";
             $$("#vip").text(vip);
+            //debugger;
         });
 
 

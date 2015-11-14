@@ -136,8 +136,8 @@ w.outClean=function(){
 };
 // 输出内容
 w.outSet=function(s){
-	_dout_.innerText=s+"\n";
-	(0==_dout_.scrollTop)&&(_dout_.scrollTop=1);//在iOS8存在不滚动的现象
+//	_dout_.innerText=s+"\n";
+//	(0==_dout_.scrollTop)&&(_dout_.scrollTop=1);//在iOS8存在不滚动的现象
 };
 // 输出行内容
 w.outLine=function(s){

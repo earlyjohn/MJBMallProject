@@ -1,4 +1,5 @@
-﻿window.myApp = new Framework7({
+﻿
+window.myApp = new Framework7({
     modalButtonOk: '确定',
     modalButtonCancel: '取消'
 });
