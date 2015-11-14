@@ -1,11 +1,12 @@
 ﻿var addrListCtrl = {
     init: function (e) {
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>收货地址"
-                + "</div><div class='right'></div></div>";
+        var html = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>收货地址"
+                +"</div><div class='right'></div></div>";
         $$('#addrListNavbar').html(html);
         var userId = window.localStorage.getItem("userId");
-        uzu.rest.getJSON("orders/findAddress", { 'user_id': userId }, function (result) {
+        uzu.rest.getJSON("orders/findAddress",{'user_id':userId}, function (result) {
+            debugger;
             if (!result.result.addressList)
                 return;
             // 渲染模板
@@ -32,7 +33,7 @@
             }
 
             var itemsArray = new Array();
-            selectChks.each(function () {
+            selectChks.each(function(){
                 var addressIdContainer = $(this).closest('div.editAddress').find('input');
                 itemsArray.push($$(addressIdContainer[1]).val());
             });
@@ -65,7 +66,7 @@
             }
         });
         // 回退
-        $$('.icon-backwhite').on('click', function () {
+        $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
 

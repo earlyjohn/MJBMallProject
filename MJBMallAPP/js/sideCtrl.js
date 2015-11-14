@@ -9,40 +9,32 @@
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
-        //人气最高
-        uzu.rest.getJSON("goods/findGoods", {'orderBy':1}, function (result) {
-            if (!result.goodsList)
-                return;
-            var context = {};
-            context.productsList = result.goodsList;
-            var productsTemplate = $$('#productsListTpl').html();
-            var compiledProductsTemplate = Template7.compile(productsTemplate);
-            var html = compiledProductsTemplate(context);
-            $$('#firstTabProductsList').html(html);
-        });
-        //最新商品
-        uzu.rest.getJSON("goods/findGoods", { 'orderBy': 2}, function (result) {
-            if (!result.goodsList)
-                return;
-            var context = {};
-            context.productsList = result.goodsList;
-            var productsTemplate = $$('#productsListTpl').html();
-            var compiledProductsTemplate = Template7.compile(productsTemplate);
-            var html = compiledProductsTemplate(context);
-            $$('#secondTabProductsList').html(html);
-        });
-        //离我最近商品
-        var jingdu = 12;
-        var weidu = 1;
-        uzu.rest.getJSON("distance/findZuiJinGoods", { 'jingdu': jingdu, 'weidu': weidu }, function (result) {
-            if (!result.result.zuijinGoodsList)
-                return;
-            var context = {};
-            context.productsList = result.result.zuijinGoodsList;
-            var productsTemplate = $$('#productsListTpl').html();
-            var compiledProductsTemplate = Template7.compile(productsTemplate);
-            var html = compiledProductsTemplate(context);
-            $$('#threeTabProductsList').html(html);
+        var query = "http://115.28.204.151:8088/MJBMall/goods/findGoods?callback=";
+        
+        $$.ajax({
+            type: "GET",
+            async: false,
+            url: query,
+            dataType: "json",
+            success: function (data) {
+                if (!data.goodsList)
+                    return;
+                // 渲染模板
+                var context = {};
+                context.productsList = data.goodsList;
+                for (var i = 0; i < context.productsList.length; i++) {
+                    context.productsList[i].big_pic = "img/demo/productlist.jpg";
+                }
+                var productsTemplate = $$('#productsListTpl').html();
+                var compiledProductsTemplate = Template7.compile(productsTemplate);
+                var html = compiledProductsTemplate(context);
+                $$('#firstTabProductsList').html(html);
+                $$('#secondTabProductsList').html(html);
+                $$('#threeTabProductsList').html(html);
+            },
+            error: function (e) {
+                alert("error");
+            }
         });
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',

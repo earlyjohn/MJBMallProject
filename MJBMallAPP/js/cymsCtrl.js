@@ -1,6 +1,5 @@
 ﻿var cymsCtrl = {
     init: function (e) {
-
         //获取上一个页面传过来的cat_id cat_name
         var query = $$.parseUrlQuery(e.detail.page.url);
         var cat_id = query.cat_id;

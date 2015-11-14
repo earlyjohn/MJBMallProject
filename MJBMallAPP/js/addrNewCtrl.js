@@ -6,6 +6,7 @@
                 + "</div><div class='right'></div></div>";
         $$('#addrNewNavbar').html(html);
         $$('#saveButton').on('click', function () {
+            debugger;
             var userId = window.localStorage.getItem("userId");
             var name = $$('#name').val();
             var picker_dependent = $$('#picker-dependent').val();
@@ -15,7 +16,7 @@
             var postcard = $$('#postcard').val();
             uzu.rest.getJSON("orders/addAddress", { 'user_id': userId, 'name': name, 'picker_dependent': picker_dependent, 'address': detailAddress, 'phone': sjphone, 'gdphone': gdphone, 'postcard': postcard }, function (result) {
                 if (result.result.msg == "success") {
-                    mainView.router.loadPage(addrList.html);
+                    mainView.router.loadPage(addrListCtrl.html);
                 } else if (result.result.msg == "fail") {
                     alert("保存失败");
                 }
