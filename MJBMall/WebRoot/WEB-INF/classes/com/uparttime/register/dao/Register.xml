@@ -4,7 +4,7 @@
 <mapper namespace="com.uparttime.register.dao.RegisterMapper">
     <insert id="addUser" parameterType="String" useGeneratedKeys="true">  
        insert into u_user (username,password,registertime,phone,lastlogin) 
-       values(#{param1},md5(#{param2}),#{param3},NOW(),NOW()
+       values(#{param1},md5(#{param2}),NOW(),#{param3},NOW()
        	)  
     </insert> 
     <select id="testRegister"  resultType="int" parameterType="String">

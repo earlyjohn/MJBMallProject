@@ -1,5 +1,6 @@
 package com.mjbmall.orders.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -353,6 +354,34 @@ public class OrdersController {
 			order.setOrder_status(order_status);
 			List<Goods> list=ordersMapper.getOrderByShopId(order);
 			result.put("shopOrderList", list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
+	
+	//得到一个包含goods商品列表的订单列表（综合的）
+	public String findOrderGoodShop() {
+		try {
+			result.clear();
+			Order order=new Order();
+			order.setShop_id(shop_id);
+			order.setOrder_status(order_status);
+			List<Order> order_list=ordersMapper.getOrderNoGoodsByShopId(order);
+			Order temp_order=new Order();
+			List result_list=new ArrayList();
+			for (int i = 0; i < order_list.size(); i++) {
+				temp_order=order_list.get(i);
+				order_id=temp_order.getOrder_id();
+				Order order1=new Order();
+				order1.setShop_id(shop_id);
+				order1.setOrder_id(order_id);
+				order1.setOrder_status(order_status);
+				List<Goods> goods_list=ordersMapper.getOrderByShopId(order1);
+				temp_order.setGoods_list(goods_list);
+				result_list.add(temp_order);
+			}
+			result.put("zongheList", result_list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
