@@ -26,24 +26,26 @@
         });
         //用户评论
         uzu.rest.getJSON("evaluate/findfirstEvaluate", { 'goods_id': goods_id }, function (data) {
-            debugger;
-            $$("#head_pic").attr('src',data.evaluate[0].head_pic);
-            $$("#member_nickname").text(data.evaluate[0].nickname);
-            $$("#comment_content").text(data.evaluate[0].evaluate);
-            $$("#time_goodstype").text(data.evaluate[0].time);
-
+            $$("#comment_count").text("(" + data.count + ")");
+            if (data.evaluate) {
+                $$("#head_pic1").attr('src', data.evaluate[0].head_pic);
+                $$("#member_nickname1").text(data.evaluate[0].nickname);
+                $$("#comment_content1").text(data.evaluate[0].evaluate);
+                $$("#time_type").text(data.evaluate[0].time);
+            }
         });
         //获得全部评论
         $$('#moreComment').on('click', function () {
             uzu.rest.getJSON("evaluate/findEvaluate", { 'goods_id': goods_id }, function (data) {
-                debugger;
-                var context = {};
-                context.commentList = data.commentList;
-                var commentListTemplate = $$('#commentListTpl').html();
-                var compiledcommentListTemplate = Template7.compile(commentListTemplate);
-                var html = compiledcommentListTemplate(context);
-                $$('#commentList').html(html);
-
+                if (data) {
+                    debugger;
+                    var context = {};
+                    context.commentList = data.evaluate;
+                    var commentListTemplate = $$('#commentListTpl').html();
+                    var compiledcommentListTemplate = Template7.compile(commentListTemplate);
+                    var html = compiledcommentListTemplate(context);
+                    $$('#commentList').html(html);
+                }
             });
         });
 

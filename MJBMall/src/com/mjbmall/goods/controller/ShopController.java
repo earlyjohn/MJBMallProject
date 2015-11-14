@@ -18,7 +18,10 @@ public class ShopController {
 	private int orderBy=0;
 	//行业分类id
 	private int cat_id;
-	
+	private int funs_num=0;
+	public int getFuns_num() {
+		return funs_num;
+	}
 	public void setShop_id(int shop_id) {
 		this.shop_id = shop_id;
 	}
@@ -30,7 +33,8 @@ public class ShopController {
 			shops.setOrderBy(orderBy);
 			shops.setCat_id(cat_id);
 			shopsList=goodsMapper.getShopsList(shops);
-		    
+			if(shop_id!=0)
+		    funs_num=goodsMapper.getFuns_num(shop_id);
 		return Action.SUCCESS;
 	}
 	public String findSpecShops(){

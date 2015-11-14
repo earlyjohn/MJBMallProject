@@ -243,14 +243,16 @@
     <!--商品评价-->
     <script type="text/template7" id="commentListTpl">
          {{#each commentList}}
+          <div class="spxq_div_pj_1 "><img id="head_pic" src={{head_pic}}></img></div>
                 <div class="spxq_div_pj_2 ">
-                    <span id="member_nickname">{{}}天下无贼</span><br />
-                    <span id="comment_content">{{}}商品很好！特别好。</span>
+                    <span id="member_nickname">{{nickname}}</span><br />
+                    <span id="comment_content">{{evaluate}}</span>
                     <br />
                     <br />
-                    <span id="time_type">{{}}2015-10-4 17:56:10 颜色：蓝色</span>
+                    <span id="time_type">{{time}}</span>
                     <br />
                     <br />
+                    <hr style="width: 90%" />
                 </div>
          {{/each}}
     </script>

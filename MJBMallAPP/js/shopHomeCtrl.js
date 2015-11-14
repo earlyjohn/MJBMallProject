@@ -9,10 +9,10 @@
         uzu.rest.getJSON("goods/findShops", { 'shop_id': shop_id }, function (result) {
             if (!result.shopsList)
                 return;
-            var shopsList = result.shopsList;
-            $$('#shop_id').text(shopsList[0].shop_id);
-            $$('#shop_name').text(shopsList[0].shop_name);
-            $$('#shop_hours').text(shopsList[0].shop_hours);
+            $$('#shop_pic').attr('src', result.shopsList[0].shop_pic);
+            $$('#phone_number').text(result.shopsList[0].phone_number);
+            $$('#shop_name').text(result.shopsList[0].shop_name);
+            $$('#shop_hours').text(result.shopsList[0].shop_hours);
         });
         //得到初始化页面中的已付款的商品列表
         uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 1 }, function (result) {

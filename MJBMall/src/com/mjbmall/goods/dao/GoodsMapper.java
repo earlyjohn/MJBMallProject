@@ -2,12 +2,7 @@ package com.mjbmall.goods.dao;
 
 import java.util.List;
 
-import com.mjbmall.goods.entity.Classify;
-import com.mjbmall.goods.entity.CrlAvg;
-import com.mjbmall.goods.entity.Evaluate;
-import com.mjbmall.goods.entity.Goods;
-import com.mjbmall.goods.entity.Shops;
-import com.mjbmall.goods.entity.TypeOrderBy;
+import com.mjbmall.goods.entity.*;
 import com.mjbmall.orders.entity.CollectionShop;
 
 public interface GoodsMapper {
@@ -30,6 +25,10 @@ public interface GoodsMapper {
      * 查询商品评价
      */
     public List<Evaluate> findEvaluate(Evaluate e);
+	public List<Evaluate> findfirstEvaluate(Evaluate e);
+    public int  findEvaluateCount(int goods_id);
+	//获取店铺粉丝数量
+	 public int getFuns_num(int shop_id);
     /**
      * 用户选择的主页行业分类
      */

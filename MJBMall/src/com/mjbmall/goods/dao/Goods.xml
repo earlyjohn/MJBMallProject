@@ -95,6 +95,10 @@
 		      order by uptime desc
 		 </if>
 	</select>
+	<select id="getFuns_num" resultType="int" parameterType="int">
+		select count(*) from m_collection_shop
+		where shop_id=#{0}
+	</select>
     <delete id="delCollections" parameterType="int">
 		delete from m_collection
 		where user_id=#{0} and goods_id=#{1}

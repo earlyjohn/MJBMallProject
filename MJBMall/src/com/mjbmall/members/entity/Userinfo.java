@@ -16,6 +16,7 @@ public class Userinfo {
 	private String marry;
 	private String phone;
 	private String buyhouse;
+	private String head_pic;
 
 	private Date registertime;
 	
@@ -91,6 +92,12 @@ public class Userinfo {
 	}
 	public void setBuyhouse(String buyhouse) {
 		this.buyhouse = buyhouse;
+	}
+	public String getHead_pic() {
+		return head_pic;
+	}
+	public void setHead_pic(String head_pic) {
+		this.head_pic = head_pic;
 	}
 
 }

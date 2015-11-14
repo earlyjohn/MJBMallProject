@@ -11,17 +11,23 @@
         $$('.search_icon-navbar').on('click', function () {
             mainView.router.back();
         });
-        debugger;
         var query = $$.parseUrlQuery(e.detail.page.url);
-        var shop_id = query.shop_id;
-        //通过商铺id拿到商铺的基本信息
+        if(!query.shop_id)
+          var  shop_id =  query.shop_id;
+        else
+          var  shop_id = window.localStorage.getItem("userId");
+        //获得店铺Logo
         uzu.rest.getJSON("goods/findShops", { 'shop_id': shop_id }, function (result) {
             if (!result.shopsList)
                 return;
-            var shopsList = result.shopsList;
-            $$('#shop_id').text(shopsList[0].shop_id);
-            $$('#shop_name').text(shopsList[0].shop_name);
-            $$('#shop_hours').text(shopsList[0].shop_hours);
+           $$('#shop_pic1').attr('src', result.shopsList[0].shop_pic);
+            // $$('#phone_number').text(result.shopsList[0].phone_number);
+            $$('#shopname').text(result.shopsList[0].shop_name);
+            var credit = "";
+            for (var i = 0; i < result.shopsList[0].credit_rating; i++)
+                credit += "★";
+            $$('#credit').text(credit);
+            $$('#funs').text(result.funs_num);
         });
       //  $$('#test').on('click',function(){
         //   alert(shop_id);
