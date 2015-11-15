@@ -11,6 +11,7 @@
         $$('.iconBack').on('click', function () {
             mainView.router.back();
         });
+		var addr;
         var watchId;
 			function geoInf( position ) {
 				var str = "";
@@ -33,11 +34,18 @@
 				var sped = codns.speed;//获取设备的移动速度；
 				str += "移动速度："+sped;
 				console.log(JSON.stringify(position));
-				alert( str );
-				window.localStorage.setItem("addr",position.address.province);
+//				alert( str );
+				addr = position.address.country+position.address.province+position.address.city + position.address.district;
+				window.localStorage.setItem("addr_country",position.address.country);
+				window.localStorage.setItem("addr_province",position.address.province);
+				window.localStorage.setItem("addr_city",position.address.city);
+				window.localStorage.setItem("addr_district",position.address.district);
 				window.localStorage.setItem("jingdu", position.coords.longt);
         		window.localStorage.setItem("weidu", position.coords.lat);
-		} 
+//      		alert(addr);
+        		document.getElementById("positionInfo").innerHTML = addr;
+		}
+
         // 通过百度定位模块获取位置信息
 		$$('#getPosition').on('click',function getPosBaidu(){
 				alert("获取百度定位位置信息");

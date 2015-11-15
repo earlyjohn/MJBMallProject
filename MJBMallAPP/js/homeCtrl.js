@@ -24,7 +24,7 @@
             autoplayDisableOnInteraction: false
         });
         var html = "<div class='navbar-inner'>" +
-            "<div class='left positon' id='addr'>北京<i class='icon home_icon-navbar'></i></div>"
+            "<div class='left positon'><span  id='addr'>北京</span><i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
             "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
@@ -37,7 +37,7 @@
         // 显示底部菜单
         $$('#homeToolbar').show();
         var province = window.localStorage.getItem("addr");
-        alert(province);
+        //alert(province);
         document.getElementById("addr").innerHTML = province;
 
         //轮播
