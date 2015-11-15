@@ -221,8 +221,9 @@
                 });
             });
             // 评价
-            $$('#commonBtn').on('click', function (e) {
-                mainView.router.loadPage("publishEvaluate.html");
+            $$('#commonBtn').on('click',function(e){
+                var order_id = $$(this).data("id");
+                mainView.router.loadPage("publishEvaluate.html?order_id="+order_id);
             });
         });
        
