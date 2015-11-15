@@ -43,7 +43,7 @@
                 goodsQuantity=parseInt(goodsQuantity)-1;
                 if (goodsQuantity > 0) {                	
                    uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (incrementResult) {
-                   //	alert(goodsQuantity+":"+user_id+":"+goods_id);
+                   
                     $$(_self).parent().find("li[name=productQuantity]").text(goodsQuantity);
                     // 计算所有选中商品总价格
                     $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
