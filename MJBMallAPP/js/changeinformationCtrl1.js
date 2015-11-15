@@ -21,10 +21,15 @@
             $$('#memberInformation').html(html);
 
         });
-
+		  $$('.spxq_icon-navbar').on('click', function () {
+            mainView.router.back();
+        });
         $$('.saveBtn').on('click', function () {
-        	
-        	//alert(files);
+//      	document.getElementById('pic_path').name="image";
+//      	document.getElementById('member_id').value=user_id;
+//      	document.getElementById('pic_path').value=files;
+//      	document.getElementById('upHeadpic').click();
+        	alert(files);
             var nickname = $$("#nickname").val();
             var sex = $$("#sex").val();
             var income = $$("#income").val();
@@ -51,16 +56,15 @@
             uzu.rest.getJSON("/members/saveUserinfo", { 'member_id':user_id, 'nickname':nickname, 'sex':sex, 'birthday':birthday, 'tall':tall, 'income':income, 'address':address, 'degree':degree, 'marry':marry, 'phone': phone, 'buyhouse': buyhouse }, function (result) {
 
                 if (result.result.msg == 1) {
-				//	$$("#upload").click();
+
                     mainView.router.loadPage("personalCenter.html");
                 }
-            
+           
+           upload();
             });
         });
 
-        $$('.spxq_icon-navbar').on('click', function () {
-            mainView.router.back();
-        });
+      
           /*个人中心——换头像*/
        $$('#changeImage').on('click', function(e) {
        	alert("打开照相机");
@@ -89,6 +93,7 @@
 				}
 			})
 		});
+
 		function getImage() {
 			var c = plus.camera.getCamera();
 			c.captureImage(function(e) {
@@ -96,10 +101,15 @@
 					var s = entry.toLocalURL() + "?version=" + new Date().getTime();
 					console.log(s);
 					document.getElementById("Hpic").src = s;
-					appendFile(e);
 					//变更大图预览的src
 					//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
 					document.querySelector("#__mui-imageview__group .mui-slider-item img").src = s + "?version=" + new Date().getTime();;;
+					 var reader = new FileReader();  
+					reader.onloadend = function()  
+					 {  
+					 document.getElementById("Hpic").innerHTML = this.result;  
+					  };  
+					reader.readAsText(files,UFT-8); 
 				}, function(e) {
 					console.log("读取拍照文件错误：" + e.message);
 				});
@@ -120,12 +130,10 @@
 								entry.copyTo(root, 'head.jpg', function(e) {
 										var e = e.fullPath + "?version=" + new Date().getTime();
 										document.getElementById("Hpic").src = e;
-										appendFile(e);
 										//变更大图预览的src
 										//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
 										document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e + "?version=" + new Date().getTime();; 
-									
-								},
+									},
 									function(e) {
 										console.log('copy image fail:' + e.message);
 									});
@@ -138,10 +146,15 @@
 									var path = e.fullPath + "?version=" + new Date().getTime();
 									document.getElementById("head-img").src = path;
 									document.getElementById("head-img1").src = path;
-									appendFile(e);
 									//变更大图预览的src
 									//目前仅有一张图片，暂时如此处理，后续需要通过标准组件实现
 									document.querySelector("#__mui-imageview__group .mui-slider-item img").src = path;
+									 var reader = new FileReader();  
+								       reader.onload = function()  
+								       {  
+								           document.getElementById("Hpic").innerHTML = this.result;  
+								       };  
+								       reader.readAsText(files,UFT-8);
 								},
 								function(e) {
 									console.log('copy image fail:' + e.message);
@@ -181,19 +194,18 @@ $$('#upload').on('click',function upload(){
 		return;
 	}
 	outSet("开始上传：")
-	//var wt=plus.nativeUI.showWaiting();
+	var wt=plus.nativeUI.showWaiting();
 	var task=plus.uploader.createUpload(server,
 		{method:"POST"},
 		function(t,status){ //上传完成
 			if(status==200){
-			//	mainView.router.loadPage("personalCenter.html");
-//				outLine("上传成功："+t.responseText);
-//				plus.storage.setItem("uploader",t.responseText);
-//				var w=plus.webview.create("uploader_ret.html","uploader_ret.html",{scrollIndicator:'none',scalable:false});
-//				w.addEventListener("loaded",function(){
-//					wt.close();
-//					w.show("slide-in-right",300);
-//				},false);
+				outLine("上传成功："+t.responseText);
+				plus.storage.setItem("uploader",t.responseText);
+				var w=plus.webview.create("uploader_ret.html","uploader_ret.html",{scrollIndicator:'none',scalable:false});
+				w.addEventListener("loaded",function(){
+					wt.close();
+					w.show("slide-in-right",300);
+				},false);
 			}else{
 				outLine("上传失败："+status);
 				wt.close();
@@ -203,25 +215,24 @@ $$('#upload').on('click',function upload(){
 	);
 	task.addData("client","HelloH5+");
 	task.addData("uid",getUid());
-	task.addData("member_id",user_id);
 	for(var i=0;i<files.length;i++){
 		var f=files[i];
 		task.addFile(f.path,{key:"image"});
 	}
 	task.start();
 });
-//// 拍照添加文件
-//$$('#appendByCamera').on('click',function appendByCamera(){
-//	plus.camera.getCamera().captureImage(function(p){
-//		appendFile(p);
-//	});	
-//});
-//// 从相册添加文件
-//$$('#appendByGallery').on('click',function appendByGallery(){
-//	plus.gallery.pick(function(p){
-//      appendFile(p);
-//  });
-//});
+// 拍照添加文件
+$$('#appendByCamera').on('click',function appendByCamera(){
+	plus.camera.getCamera().captureImage(function(p){
+		appendFile(p);
+	});	
+});
+// 从相册添加文件
+$$('#appendByGallery').on('click',function appendByGallery(){
+	plus.gallery.pick(function(p){
+        appendFile(p);
+    });
+});
 // 添加文件
 var index=1;
 function appendFile(p){

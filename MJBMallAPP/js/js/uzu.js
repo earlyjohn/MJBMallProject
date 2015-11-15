@@ -64,16 +64,26 @@ uzu.rest.postData = function (url, params, callback) {
 };
 // 判断是否登录
 uzu.rest.isLogin = function () {
+	debugger;
     var userId = window.localStorage.getItem("userId");
+    alert(userId);
     if (userId) {
+    	debugger;
         return true;
     } else {
         $$('#homeToolbar').hide();
         mainView.router.loadPage("loginSelectBox.html");
     }
 };
+
 // 清空缓存
 uzu.rest.removeMemeryCatch = function () {
-    window.localStorage.clear();
-   
+    var storage = window.localStorage;
+    for (var i = 0; i < storage.length; i++) {
+        var a = storage.key(i);
+        if (storage.key(i) != "userId") {
+            storage.removeItem(storage.key(i));
+        }
+    }
 };
+

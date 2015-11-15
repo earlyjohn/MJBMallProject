@@ -2,12 +2,18 @@
     init: function (e) {
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',
-            spaceBetween: 50
+            spaceBetween: 50,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
         });
         var html = "<div class='navbar-inner'>" +
             "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
-            "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
+            "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
             "<li style='width: 40%'><input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width: auto; position: relative;left: 10px;}'/></li>" +
             "<li style='position: absolute;right: 5%;top: 10px;width: 15%;'><i class='icon home_search' id='search'></i></li>" +
@@ -17,32 +23,21 @@
         $$('#homeNavbar').html(html);
         // 显示底部菜单
         $$('#homeToolbar').show();
-        // 轮播
-        var context = {};
-        var imgList = new Array();
-        uzu.rest.getJSON("/crlAvg/findCrlAvg",{},function(data){
+
+        //轮播
+        uzu.rest.getJSON("crlAvg/findCrlAvg",{},function(data){
             if(!data.crlAvg)
                 return;
-            //alert(data.crlAvg.length);
-            for(var i=0;i<data.crlAvg.length;i++){
-                var pic = data.crlAvg[i].pic;
-                //alert(pic);
-                imgList.push({ imgUrl: pic});
+            if(data.crlAvg.length<5){
+                for(var i=0;i<data.crlAvg.length;i++){
+                    document.getElementById("home_lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+                }
+            }else{
+                for(var i=0;i<5;i++){
+                    document.getElementById("home_lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+                }
             }
-
-            //imgList.push({ imgUrl: 'http://115.28.204.151:8088/img/home/page2.jpg' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo2.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo3.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-            context.recycleImgList = imgList;
-            var recycleImgsTemplate = $$('#recycleImgsTpl').html();
-            var compiledRecycleImgsTemplate = Template7.compile(recycleImgsTemplate);
-            var html = compiledRecycleImgsTemplate(context);
-            $$('#recycleImgs').html(html);
-        })
-
-
+        });
         // 行业分类模板
         //$$.ajax({
         //    type: "GET",
@@ -91,21 +86,74 @@
         $$('.home_message').on('click',function(){
             mainView.router.loadPage("message.html");
         });
-        $$('.home_sy').on('click', function () {
+        $$('#home_sy').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("home.html");
         });
-        $$('.home_sb').on('click', function () {
+        $$('#home_sb').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb_click');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("side.html");
         });
-        $$('.home_fl').on('click', function () {
+        $$('#home_fl').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('.home_fl').addClass('home_fl_click');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("firstClassfy.html");
         });
-        $$('.home_gwc').on('click', function () {
-            mainView.router.loadPage("shoppingCart.html");
+        $$('#home_gwc').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc_click');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
+            if (uzu.rest.isLogin()) {
+                mainView.router.loadPage("shoppingCart.html");
+            }
         });
-        $$('.home_wd').on('click', function () {
+        $$('#home_wd').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd_click');
             mainView.router.loadPage("personalCenter.html");
         });
+
         // 定位
         $$('.home_icon-navbar').on('click', function () {
             mainView.router.loadPage("position.html");

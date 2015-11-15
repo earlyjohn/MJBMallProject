@@ -17,17 +17,69 @@
         $$('.iconBack').on('click', function () {
             mainView.router.back();
         });
-        // 搜素
-        var searchContent =$$('#u465_input').val();
+        //清空历史记录
+        $$("#clear").on('click', function () {
+            
+        
+        });
+        // 历史记录
+        var html1 = "";
+        var searchContent = $$('.u_input').val();
+
+        var user_id = window.localStorage.getItem("userId");
+        userhistory = window.localStorage.getItem(user_id);
+        if (userhistory != undefined) {
+            var a = userhistory.split(",", 10);
+            if (a != undefined) {
+                for (var i = 0; i < a.length; ++i)
+                    html1 += "<div class='search_second'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + a[i] + "<hr class='' /></div>";
+                $$('#pwf').html(html1);
+            }
+
+        }
+
         $$('.home_search').on('click', function () {
-            var searchContent = $$('.text_sketch').val();
+            var searchContent = $$('.u_input').val();
             if (searchType == 0) {
+                if (searchContent) {
+                    if (userhistory != undefined) {
+                        var a = userhistory.split(",", 10);
+                        for (var i = 0; i < a.length; ++i) {
+                            if (a[i] == searchContent)
+                                a.splice(i, 1);
+                        }
+                        a.unshift(searchContent.toString());
+                        window.localStorage.setItem(user_id, a);
+                    }
+                    else {
+                        userhistory = new Array();
+                        userhistory.unshift(searchContent.toString());
+                        window.localStorage.setItem(user_id, userhistory);
+                    }
+                }
                 mainView.router.loadPage("productsList.html?name=" + searchContent);
             } else {
+                if (searchContent) {
+                    if (userhistory != undefined) {
+                        var a = userhistory.split(",", 10);
+                        for (var i = 0; i < a.length; ++i) {
+                            if (a[i] == searchContent)
+                                a.splice(i, 1);
+                        }
+                        a.unshift(searchContent.toString());
+                        window.localStorage.setItem(user_id, a);
+                    }
+                    else {
+                        userhistory = new Array();
+                        userhistory.unshift(searchContent.toString());
+                        window.localStorage.setItem(user_id, userhistory);
+                    }
+                }
                 mainView.router.loadPage("shopList.html?shop_name=" + searchContent);
             }
 
         });
+
     }
 };
 

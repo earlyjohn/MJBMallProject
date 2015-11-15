@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>首页</title>
+    <title>登录选择</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.css" />
     <!-- Path to your custom app styles-->
@@ -42,7 +42,7 @@
     	描述：hbuilder
     -->
     <link href="css/Hbuilder/mui.picker.css" rel="stylesheet" />
-    <link href="css/Hbuilder/mui.poppicker.css" rel="stylesheet" />
+	<link href="css/Hbuilder/mui.poppicker.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -53,308 +53,316 @@
     <!-- Views-->
     <div class="views">
         <div class="view view-main">
-            <div class="pages navbar-through">
-                <div class="page" data-page="home">
-                    <div class="navbar" id="homeNavbar">
+<div class="pages navbar-through">
+    <div class="page" data-page="home">
+        <div class="navbar" id="homeNavbar">
+        	
+        </div>
+        <ul id="searchChose" style="display: none">
+						<li class="searchProduct">商品</li>
+						<li class="searchShop">店铺</li>
+					</ul>
+        <div class="page-content home_page" >
+
+            <div class="swiper-container swiper-1 home_float" style="width: 100%">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img id="home_lunbo_pic1" style="height: 100%; width: 100%;" />
                     </div>
-                    <ul id="searchChose" style="display: none">
-                        <li class="searchProduct">商品</li>
-                        <li class="searchShop">店铺</li>
-                    </ul>
-                    <div class="page-content home_page">
-
-                        <div class="swiper-container swiper-1 home_auto">
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-wrapper" id="recycleImgs">
-                            </div>
-                        </div>
-
-                        <div class="home_auto">
-                            <div class="home_hyfl">
-                                <a id="hyfl_a1">
-                                    <img id="hyfl_pic1" />
-                                </a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a2">
-                                    <img id="hyfl_pic2" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a3">
-                                    <img id="hyfl_pic3" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a4">
-                                    <img id="hyfl_pic4" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a5">
-                                    <img id="hyfl_pic5" /></a>
-                            </div>
-                        </div>
-                        <div class="home_auto">
-                            <div class="home_hyfl">
-                                <a id="hyfl_a6">
-                                    <img id="hyfl_pic6" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a7">
-                                    <img id="hyfl_pic7" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a8">
-                                    <img id="hyfl_pic8" /></a>
-                            </div>
-                            <div class="home_hyfl">
-                                <a id="hyfl_a9">
-                                    <img id="hyfl_pic9" /></a>
-                            </div>
-                            <div class="home_hyfl more">
-                                <a href="classfy.html">
-                                    <img src="img/home/gd.png" /></a>
-                            </div>
-                        </div>
-                        <a href="shopList.html" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">新开店铺推广</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-                        <div class="home_auto_one" id="dianpujiemian">
-                            <div class="home_auto">
-                                <div class="home_div_2_2">
-                                    <a id="newshop_a1">
-                                        <img id="newshop_pic1" /></a>
-                                </div>
-                                <div class="home_div_1_2">
-                                    <a id="newshop_a2">
-                                        <img id="newshop_pic2" /></a>
-                                </div>
-                                <div class="home_div_1_2">
-                                    <a id="newshop_a3">
-                                        <img id="newshop_pic3" /></a>
-                                </div>
-                            </div>
-                            <div class="home_auto">
-                                <div class="home_div_1_2">
-                                    <a id="newshop_a4">
-                                        <img id="newshop_pic4" /></a>
-                                </div>
-                                <div class="home_div_1_1">
-                                    <a id="newshop_a5">
-                                        <img id="newshop_pic5" /></a>
-                                </div>
-                                <div class="home_div_1_1">
-                                    <a id="newshop_a6">
-                                        <img id="newshop_pic6" /></a>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="productsList.html?type=1" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">实时促销</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-
-                        <div class="home_auto_one productDetail">
-                            <div class="home_div_2_2">
-                                <a id="sscx_a1">
-                                    <img id="sscx_pic1" /></a>
-                            </div>
-                            <div class="home_div_1_1">
-                                <a id="sscx_a2">
-                                    <img id="sscx_pic2" /></a>
-                            </div>
-                            <div class="home_div_1_1">
-                                <a id="sscx_a3">
-                                    <img id="sscx_pic3" /></a>
-                            </div>
-                            <div class="home_div_1_2 productDetail">
-                                <a id="sscx_a4">
-                                    <img id="sscx_pic4" /></a>
-                            </div>
-                        </div>
-
-                        <a href="productsList.html?type=2" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">折扣返利</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-
-                        <div class="home_auto_one productDetail">
-                            <div class="home_div_2_2">
-                                <a id="zkfl_a1">
-                                    <img id="zkfl_pic1" /></a>
-                            </div>
-                            <div class="home_div_1_1 productDetail">
-                                <a id="zkfl_a2">
-                                    <img id="zkfl_pic2" /></a>
-                            </div>
-                            <div class="home_div_1_1 productDetail">
-                                <a id="zkfl_a3">
-                                    <img id="zkfl_pic3" /></a>
-                            </div>
-                            <div class="home_div_1_1 productDetail">
-                                <a id="zkfl_a4">
-                                    <img id="zkfl_pic4" /></a>
-                            </div>
-                            <div class="home_div_1_1 productDetail">
-                                <a id="zkfl_a5">
-                                    <img id="zkfl_pic5" /></a>
-                            </div>
-
-                        </div>
-
-                        <a href="productsList.html?type=3" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">特价专区</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-
-                        <div class="home_auto_one">
-                            <a id="tjzq_a1">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic1" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a2">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic2" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a3">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic3" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a4">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic4" />
-                                </div>
-                            </a>
-                        </div>
-                        <div class="home_auto_one">
-                            <a id="tjzq_a5">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic5" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a6">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic6" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a7">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic7" />
-                                </div>
-                            </a>
-                            <a id="tjzq_a8">
-                                <div class="home_div_1_1">
-                                    <img id="tjzq_pic8" />
-                                </div>
-                            </a>
-                        </div>
-
-                        <a href="productsList.html?type=4" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">限时抢购</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-
-                        <div class="home_auto_one">
-                            <a id="xsqg_a1">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic1" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a2">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic2" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a3">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic3" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a4">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic4" />
-                                </div>
-                            </a>
-                        </div>
-                        <div class="home_auto_one">
-                            <a id="xsqg_a5">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic5" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a6">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic6" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a7">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic7" />
-                                </div>
-                            </a>
-                            <a id="xsqg_a8">
-                                <div class="home_div_1_1">
-                                    <img id="xsqg_pic8" />
-                                </div>
-                            </a>
-                        </div>
-
-                        <a href="productsList.html?type=5" class="home_font">
-                            <div class="home_float home_decoration">
-                                <div style="float: left">热门推荐</div>
-                                <div class="home_more"></div>
-                            </div>
-                        </a>
-
-                        <div class="home_auto_one productDetail">
-                            <a id="rmtj_a1">
-                                <div class="home_div_2_2">
-                                    <img id="rmtj_pic1" />
-                                </div>
-                            </a>
-                            <a id="rmtj_a2">
-                                <div class="home_div_1_1">
-                                    <img id="rmtj_pic2" />
-                                </div>
-                            </a>
-                            <a id="rmtj_a3">
-                                <div class="home_div_1_1">
-                                    <img id="rmtj_pic3" />
-                                </div>
-                            </a>
-                            <a id="rmtj_a4">
-                                <div class="home_div_1_2">
-                                    <img id="rmtj_pic4">
-                                </div>
-                            </a>
-
-                        </div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img id="home_lunbo_pic2" style="height: 100%; width: 100%;" />
+                    </div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img id="home_lunbo_pic3" style="height: 100%; width: 100%;" />
+                    </div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img id="home_lunbo_pic4" style="height: 100%; width: 100%;" />
+                    </div>
+                    <div class="swiper-slide" style="height: 120px; width: 100%">
+                        <img id="home_lunbo_pic5" style="height: 100%; width: 100%;" />
                     </div>
                 </div>
             </div>
+
+            <div class="home_auto">
+                <div class="home_hyfl">
+                    <a id="hyfl_a1">
+                        <img id="hyfl_pic1"/>
+                    </a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a2">
+                        <img id="hyfl_pic2"/></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a3">
+                        <img id="hyfl_pic3"/></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a4">
+                        <img id="hyfl_pic4"/></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a5">
+                        <img id="hyfl_pic5"/></a>
+                </div>
+            </div>
+            <div  class="home_auto">
+                <div class="home_hyfl">
+                    <a id="hyfl_a6">
+                        <img id="hyfl_pic6"/></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a7">
+                        <img id="hyfl_pic7"/></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a8">
+                        <img id="hyfl_pic8" /></a>
+                </div>
+                <div class="home_hyfl">
+                    <a id="hyfl_a9">
+                        <img id="hyfl_pic9"/></a>
+                </div>
+                <div class="home_hyfl more">
+                    <a href="classfy.html">
+                        <img src="img/home/gd.png"/></a>
+                </div>
+            </div>
+            <a href="shopList.html" class="home_font">
+                <div class="home_float home_decoration">
+                    <div style="float:left">新开店铺推广</div>
+                    <div class="home_more"></div>
+                </div>
+            </a>
+            <div class="home_auto_one"  id="dianpujiemian">
+                <div class="home_auto">
+                <div class="home_div_2_2">
+                    <a id="newshop_a1">
+                        <img id="newshop_pic1"/></a>
+                </div>
+                <div class="home_div_1_2">
+                        <a id="newshop_a2">
+                            <img id="newshop_pic2" /></a>
+                </div>
+                <div class="home_div_1_2">
+                        <a id="newshop_a3">
+                            <img id="newshop_pic3"/></a>
+                </div>
+            </div>
+            <div class="home_auto">
+                <div class="home_div_1_2">
+                    <a id="newshop_a4">
+                        <img id="newshop_pic4"/></a>
+                </div>
+                    <div class="home_div_1_1">
+                        <a id="newshop_a5">
+                            <img id="newshop_pic5"/></a>
+                    </div>
+                    <div class="home_div_1_1">
+                        <a id="newshop_a6">
+                            <img id="newshop_pic6"/></a>
+                    </div>
+            </div>
+            </div>
+            <a href="productsList.html?type=1" class="home_font">
+                <div class="home_float home_decoration">
+                    <div style="float:left">实时促销</div>
+                    <div class="home_more" ></div>
+                </div>
+            </a>
+            
+            <div class="home_auto_one productDetail">
+                <div class="home_div_2_2">
+                    <a id="sscx_a1"><img id="sscx_pic1" /></a>
+                </div>
+                    <div class="home_div_1_1">
+                        <a id="sscx_a2"><img id="sscx_pic2" /></a>
+                    </div>
+                    <div class="home_div_1_1">
+                        <a id="sscx_a3"><img id="sscx_pic3" /></a>
+                    </div>
+                    <div class="home_div_1_2 productDetail">
+                        <a id="sscx_a4"><img id="sscx_pic4" /></a></div>
+                </div>
+
+            <a href="productsList.html?type=2" class="home_font">
+                <div class="home_float home_decoration">
+                    <div style="float:left">折扣返利</div>
+                    <div class="home_more"></div>
+                </div>
+            </a>
+                
+                <div class="home_auto_one productDetail">
+                    <div class="home_div_2_2">
+                        <a id="zkfl_a1">
+                            <img id="zkfl_pic1"/></a>
+                    </div>
+                    <div class="home_div_1_1 productDetail">
+                        <a id="zkfl_a2">
+                            <img id="zkfl_pic2"/></a>
+                    </div>
+                    <div class="home_div_1_1 productDetail">
+                        <a id="zkfl_a3">
+                            <img id="zkfl_pic3"/></a>
+                    </div>
+                    <div class="home_div_1_1 productDetail">
+                        <a id="zkfl_a4">
+                            <img id="zkfl_pic4"/></a>
+                    </div>
+                    <div class="home_div_1_1 productDetail">
+                        <a id="zkfl_a5">
+                            <img id="zkfl_pic5"/></a>
+                    </div>
+
+                </div>
+
+            <a href="productsList.html?type=3" class="home_font">
+                <div class="home_float home_decoration" >
+                    <div style="float:left">特价专区</div>
+                    <div class="home_more"></div>
+                </div>
+            </a>
+                
+                <div class="home_auto_one">
+                    <a id="tjzq_a1">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic1" />
+                        </div>
+                    </a>
+                    <a id="tjzq_a2">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic2" />
+                        </div>
+                    </a>
+                    <a id="tjzq_a3">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic3" />
+                        </div>
+                    </a>
+                    <a id="tjzq_a4">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic4" />
+                        </div>
+                    </a>
+                </div>
+                <div class="home_auto_one">
+                    <a id="tjzq_a5">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic5" />
+                        </div>
+                    </a>
+                    <a id="tjzq_a6">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic6"/>
+                        </div>
+                    </a>
+                    <a id="tjzq_a7">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic7" />
+                        </div>
+                    </a>
+                    <a id="tjzq_a8">
+                        <div class="home_div_1_1">
+                            <img id="tjzq_pic8" />
+                        </div>
+                    </a>
+                </div>
+
+            <a href="productsList.html?type=4" class="home_font">
+                <div class="home_float home_decoration" >
+                    <div style="float:left">限时抢购</div>
+                    <div class="home_more" ></div>
+                </div>
+            </a>
+                
+                <div class="home_auto_one">
+                    <a id="xsqg_a1">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic1" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a2">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic2" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a3">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic3" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a4">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic4" />
+                        </div>
+                    </a>
+                </div>
+                <div class="home_auto_one">
+                    <a id="xsqg_a5">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic5" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a6">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic6" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a7">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic7" />
+                        </div>
+                    </a>
+                    <a id="xsqg_a8">
+                        <div class="home_div_1_1">
+                            <img id="xsqg_pic8"/>
+                        </div>
+                    </a>
+                </div>
+
+            <a href="productsList.html?type=5" class="home_font">
+                <div class="home_float home_decoration">
+                    <div style="float:left">热门推荐</div>
+                    <div class="home_more"></div>
+                </div>
+            </a>
+                
+                <div class="home_auto_one productDetail">
+                   <a id="rmtj_a1">
+                       <div class="home_div_2_2">
+                           <img id="rmtj_pic1"/></div>
+                   </a>
+                    <a id="rmtj_a2">
+                        <div class="home_div_1_1">
+                            <img id="rmtj_pic2" /></div>
+                    </a>
+                    <a id="rmtj_a3">
+                        <div class="home_div_1_1">
+                            <img id="rmtj_pic3" /></div>
+                    </a>
+                    <a id="rmtj_a4">
+                        <div class="home_div_1_2">
+                            <img id="rmtj_pic4"></div>
+                    </a>
+
+                </div>
         </div>
-        <div class="toolbar tabbar tabbar-labels homeNavBar" id="homeToolbar" style="display: none">
+    </div>
+</div>
+ </div>
+       <div class="toolbar tabbar tabbar-labels homeNavBar" id="homeToolbar" style="display: none">
             <div id="productListNav">
                 <ul style="width: 100%" class="home_ul">
-                    <li id="Li2" class="home_sy"></li>
-                    <li id="Li3" class="home_sb"></li>
-                    <li id="Li4" class="home_fl"></li>
-                    <li id="Li5" class="home_gwc"></li>
-                    <li id="Li6" class="home_wd"></li>
+                    <li id="home_sy" class="home_sy"></li>
+                    <li id="home_sb" class="home_sb"></li>
+                    <li id="home_fl" class="home_fl"></li>
+                    <li id="home_gwc" class="home_gwc"></li>
+                    <li id="home_wd" class="home_wd"></li>
                 </ul>
             </div>
+
             <div id="productDetailNav" style="display: none">
                 <ul style="width: 100%" class="spxq_ul">
                     <li class="spxq_kf"></li>
@@ -591,7 +599,7 @@
             </div>
             <div class="shop_manage home_auto">
                 <ul class="quantityOper"> 
-                     <li class="descrement">-</li>
+                     <li class="descrement" data-gid="{{goods_id}}">-</li>
                      <li class="productQuantity" name="productQuantity">{{count}}</li>
                      <li class="increment" data-gid="{{goods_id}}">+</li>
                 </ul>
@@ -845,7 +853,7 @@
              </ul>
              {{/each}}
     </script>
-    <!-- 最近浏览 -->
+<!-- 最近浏览 -->
     <script type="text/template7" id="recentvisitTpl">
      {{#each dateList}}
      <div class="home_auto" style="background-color: #ebebeb">
@@ -872,7 +880,7 @@
         {{/each}}
        </div>
     {{/each}}
-    </script>
+   </script>
     <!--编辑商品收藏-->
     <script type="text/template7" id="editProductCollectionListTpl">
         {{#each editProductsCollectionList}}
@@ -961,7 +969,7 @@
         </div>
         {{/each}}
     </script>
-    <!--我的订单列表等待付款-->
+     <!--我的订单列表等待付款-->
     <script type="text/template7" id="waitingPayTpl">
         <ul class="orderList">
         {{#each waitingPayListData}}
@@ -984,7 +992,7 @@
                                             <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="waitingPayDel">删除订单</a>
                                         </div>
                                         <div class="col-auto" style="float:right;margin-right:10px;">
-                                            <a class="button color-lightergray-u border-lightergray-u" id="goPay">去付款</a>
+                                            <a class="button color-lightergray-u border-lightergray-u goPay">去付款</a>
                                         </div>
                                         
                                     </div>
@@ -1022,7 +1030,7 @@
         {{/each}}
                             </ul>
     </script>
-    <!--我的订单列表交易关闭-->
+     <!--我的订单列表交易关闭-->
     <script type="text/template7" id="closeTpl">
         <ul class="orderList">
         {{#each closeListData}}
@@ -1049,7 +1057,7 @@
         {{/each}}
                             </ul>
     </script>
-    <!--我的订单列表交易完成-->
+     <!--我的订单列表交易完成-->
     <script type="text/template7" id="finishTpl">
         <ul class="orderList">
         {{#each finishListData}}
@@ -1072,14 +1080,14 @@
                                             <a class="button color-lightergray-u border-lightergray-u" data-id="{{order_id}}" id="finishOrderDel">删除订单</a>
                                         </div>
                                          <div class="col-auto" style="float:right;margin-right:10px;">
-                                            <a class="button color-lightergray-u border-lightergray-u" id="commonBtn">评 价</a>
+                                            <a data-id="{{order_id}}"  class="button color-lightergray-u border-lightergray-u" id="commonBtn">评 价</a>
                                         </div>
                                     </div>
                                 </li>
         {{/each}}
                             </ul>
     </script>
-    <!--订单地址-->
+     <!--订单地址-->
     <script type="text/template7" id="orderAddressTpl">
         <div class="item-text">
             <p>
@@ -1089,7 +1097,7 @@
             <p class="color-lightergray-u">{{address}}</p>
         </div>
     </script>
-    <!--订单详情商品列表-->
+     <!--订单详情商品列表-->
     <script type="text/template7" id="orderDetailProductListTpl">
         {{#each orderDetailProductData}}
         <div class="orderGoods">
@@ -1105,7 +1113,7 @@
         </div>
         {{/each}}
     </script>
-    <!--店铺端的商品列表-->
+	   <!--店铺端的商品列表-->
     <script type="text/template7" id="shopOrderListTpl">
         {{#each orderListData}}
         <div class="home_auto">
@@ -1164,6 +1172,7 @@
     <script type="text/javascript" src="js/Hbuilder/immersed.js"></script>
     <!--<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>-->
     <!-- Path to your app js-->
+
     <script type="text/javascript" src="js/loginSelectBoxCtrl.js"></script>
     <script type="text/javascript" src="js/bindingCtrl.js"></script>
     <script type="text/javascript" src="js/productDetailCtrl.js"></script>
@@ -1203,17 +1212,19 @@
     <script type="text/javascript" src="js/recentvisitCtrl.js"></script>
     <script type="text/javascript" src="js/setCtrl.js"></script>
     <script type="text/javascript" src="js/delrecentvisitCtrl.js"></script>
-    <script type="text/javascript" src="js/activityMessageCtrl.js"></script>
     <script type="text/javascript" src="js/aboutCtrl.js"></script>
     <script type="text/javascript" src="js/connectCtrl.js"></script>
     <script type="text/javascript" src="js/feedback.js"></script>
     <script type="text/javascript" src="js/shopLoginCtrl.js"></script>
     <script type="text/javascript" src="js/shopHomeCtrl.js"></script>
-    <script type="text/javascript" src="js/editCollectionCtrl.js"></script>
+	<script type="text/javascript" src="js/editCollectionCtrl.js"></script>
     <script type="text/javascript" src="js/chatCtrl.js"></script>
     <script type="text/javascript" src="js/orderDetailCtrl.js"></script>
     <script type="text/javascript" src="js/ziXunListCtrl.js"></script>
     <script type="text/javascript" src="js/ziXunDetailCtrl.js"></script>
+    <script type="text/javascript" src="js/publishEvaluateCtrl.js"></script>
+    <script type="text/javascript" src="js/assistantMessageCtrl.js"></script>
+    <script type="text/javascript" src="js/activityMessageCtrl.js"></script>
     <script type="text/javascript" src="js/module.js"></script>
     <script type="text/javascript" src="js/indexPageController.js"></script>
 </body>

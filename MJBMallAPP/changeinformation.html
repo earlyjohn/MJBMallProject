@@ -14,9 +14,29 @@
          <input type="text" name="member_id" id="member_id" style="dispaly:none"/>
     <iframe name="hidden_frame" id="hidden_frame" style="display: none;"></iframe>
      </form>
-    
-            <div class="list-block" id="memberInformation">
-                 
+     <div id="dcontent" class="dcontent">
+			<br/>
+			<p class="heading" style="display: none;">上传文件列表：</p>
+			<ul id="files" style="text-align:left;">
+				<p id="empty" style="font-size:12px;color:#C6C6C6;"  style="display: none;"></p>
+			</ul>
+			<table style="width:100%;" style="display: none;">
+				<tbody>
+					<tr>
+						<td style="width:40%;display: none;"><div class="button button-select" id="appendByCamera">拍照</div></td>
+						<td style="width:40%;display: none;"><div class="button button-select" id="appendByGallery">相册选取</div></td>
+					</tr>
+				</tbody>
+			</table>
+			<br/>
+			<div class="button" id="upload">确定</div>
+			<br/>
+			<!--<ul class="dlist">
+				<li class="ditem" onclick="appendByCamera()">拍照添加文件</li>
+				<li class="ditem" onclick="appendByGallery()">相册添加文件</li>
+			</ul>-->
+		</div>
+        <div class="list-block" id="memberInformation">
             </div>
         </div>
     </div>

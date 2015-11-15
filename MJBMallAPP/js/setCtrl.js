@@ -6,6 +6,11 @@
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
+        $$('#clearCache').on('click',function(){
+        	
+   		 var a = window.localStorage.clear();
+    	alert(a);
+        });
     }
 };
 

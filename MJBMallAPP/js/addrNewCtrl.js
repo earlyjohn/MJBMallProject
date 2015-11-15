@@ -25,6 +25,7 @@
         $$('.icon-backwhite').on('click', function () {
             mainView.router.back();
         });
+        
         // 地址选择
         $$('#newAddrInput').on('click', function (e) {
             var carVendors = {
