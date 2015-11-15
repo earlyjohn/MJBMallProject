@@ -3,8 +3,8 @@
     init: function (e) {
 
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-orderback'></i></div><div class='center'>我的订单</div>"
-                +"<div class='right'><i class='icon icon-search'></i></div><div class='subnavbar subnavbar-u'><div class='buttons-row'>"
+        var html = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>我的订单</div>"
+                +"<div class='right'><i class='icon'></i></div><div class='subnavbar subnavbar-u'><div class='buttons-row'>"
                  + "<a href='#tab2' class='button tab-link active' id='waitingPayOrder'>等待付款</a>"
                  +"<a href='#tab3' class='button tab-link' id='alreadyPayOrder'>已付款</a><a href='#tab4' class='button tab-link'id='closeOrder'>交易关闭</a>"
                  + "<a href='#tab5' class='button tab-link'id='finishOrder'>交易完成</a></div></div></div>";
@@ -12,7 +12,7 @@
         //       + "<div class='right'><i class='icon icon-search'></i></div></div>";
         $$('#orderNavbar').html(html);
         // 回退
-        $$('.icon-orderback').on('click', function () {
+        $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
         /*搜索支付工具*/

@@ -8,8 +8,14 @@
         });
         $$('#clearCache').on('click',function(){
         	
-   		 var a = window.localStorage.clear();
-    	alert(a);
+   		 var storage = window.localStorage;
+   		 for (var i = 0; i < storage.length; i++) {
+        var a = storage.key(i);
+        if (storage.key(i) != "userId") {
+            storage.removeItem(storage.key(i));
+        }
+    	}
+    	alert("清除缓存成功");
         });
     }
 };

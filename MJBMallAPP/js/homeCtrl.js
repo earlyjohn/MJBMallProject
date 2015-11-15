@@ -37,7 +37,6 @@
         // 显示底部菜单
         $$('#homeToolbar').show();
         var province = window.localStorage.getItem("addr");
-        //alert(province);
         document.getElementById("addr").innerHTML = province;
 
         //轮播
@@ -126,7 +125,9 @@
             $$('#home_gwc').addClass('home_gwc');
             // 我的
             $$('#home_wd').addClass('home_wd_click');
+             if (uzu.rest.isLogin()) {
             mainView.router.loadPage("personalCenter.html");
+            }
         });
 
         // 定位

@@ -499,26 +499,23 @@
     <!--商品详情-->
     <script type="text/template7" id="productDetailTpl">
         {{#each productDetail}}
-                 <div><p>{{brief}}</p></div>
-                   <div><span>{{name}}</span></div>
-                      <div><span style="color:red;margin-top: 10px;">￥{{price}}</span></div>
-                       <div class="toolbar spxq_gjl spxq_jx_t">
-                   <div class="toolbar-inner" id="openMaps">
-                    <i style="margin-top: 0px;" class="icon spxq_dz"></i>
-                    <a class="spxq_font">
-                        <p>地址：{{address}}&nbsp;</p>
-                    </a>
-                    <a><i style="margin-top: 0px;" class="icon spxq_more"></i></a>
-                </div>
+                 <div><h4 style="  width: 90%;padding-left: 3%;">{{brief}}</h4></div>
+                   <div style="margin-bottom: 10px;"><span style="padding-left: 3%;">{{name}}</span></div>
+                      <div><span style="color:red;margin-top: 10px;padding-left: 3%;">￥{{price}}</span></div>
+                <div class="person_auto" id="openMaps"style="padding-left: 0px;width:100%;">
+                    <div style="float: left;width: 10%;"><i style="margin-top: 0px;" class="icon spxq_dz"></i></div>
+                    <div style="float: left;width: 70%;text-align: left;"><a class="spxq_font">
+                        <span>地址：{{address}}&nbsp;</span>
+                    </a></div>
+                    <div style="float:right;width:10%;right:5%;"><a><i style="margin-top: 0px;" class="icon spxq_more"></i></a></div>
+                
             </div>
-            <div class="toolbar spxq_gjl spxq_jx_l">
-                <div class="toolbar-inner" id="call">
-                    <i class="icon spxq_dh"></i>
-                    <a class="spxq_font">
-                        <p>电话：{{phone_number}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </a>
-                    <a><i style="margin-top: 0px;" class="icon spxq_more"></i></a>
-                </div>
+            <div class="person_auto" id="call" style="padding-left: 0px;width:100%;">
+                    <div style="float: left;width: 10%;"><i class="icon spxq_dh"></i></div>
+                    <div style="float: left;width: 70%;text-align: left;"><a class="spxq_font">
+                        <span>电话：{{phone_number}}</span>
+                    </a></div>
+                    <div style="float:right;width:10%;right:5%;"><a><i style="margin-top: 0px;" class="icon spxq_more"></i></a></div>
             </div>
             
          {{/each}}
@@ -717,13 +714,14 @@
     <script type="text/template7" id="recentvisitTpl">
      {{#each dateList}}
      <div class="home_auto" style="background-color: #ebebeb">
-                <div style="width: 100%; text-align: left; padding-left: 5%">{{date}}</div>
+                <div style="width: 95%; text-align: left; padding-left: 5%;height: 30px;
+  line-height: 30px;">{{date}}</div>
        {{#each goodsList}}
-                <div class="recentvisit_main">
-                    <div class="recentvisit_left"><a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" style="width:140px;height:120px;" class="productImg"/></a>
-                        <!--<img src="img/home/csdg_rm (1).jpg" class="message_image_style" />-->
+                <div class="recentvisit_main" style="height: 120px;  margin-bottom: 3px;">
+                    <div class="recentvisit_left" style="padding-top: 20px;"><a href="productDetail.html?goods_id={{goods_id}}" style="display:inline-block;height:80px;"><img src="{{big_pic}}" class="productImg"/></a>
+                        
                     </div>
-                    <div class="recentvisit_right_one">
+                    <div class="recentvisit_right_one"style=" font-size: 15px;;text-overflow:clip;">
                        {{name}}
                     </div>
                      <div class="recentvisit_right_one">

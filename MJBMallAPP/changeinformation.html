@@ -5,7 +5,7 @@
             <div class="center">修改基本资料</div><div class="right editCart"><a class="link link-u saveBtn" style="color: white">保存</a></div></div>
         </div>
         <div class="page-content home_page" style="padding-top: 10px">
-        	<div style="width: 100%;height: 150px;" id="changeImage">
+        	<div style="width: 100%;height: 150px;margin-top: 40px;" id="changeImage">
         		<img src=""id="Hpic" style="width: 30%;height: 150px;"/>
         	</div>
 	     <form action="http://115.28.204.151:8088/MJBMall/upload/upload1" method="post" id="uppic"enctype="multipart/form-data" style="display:none;" target="hidden_frame">
@@ -14,13 +14,13 @@
 	         <input type="text" name="member_id" id="member_id" style="dispaly:none"/>
 	    <iframe name="hidden_frame" id="hidden_frame" style="display: none;"></iframe>
 	     </form>
-	     <div id="dcontent" class="dcontent">
+	     <div id="dcontent" class="dcontent" style="margin-bottom: -20px;">
 			<br/>
 			<p class="heading" style="display: none;">上传文件列表：</p>
-			<ul id="files" style="text-align:left;">
+			<ul id="files" style="text-align:left;display: none;">
 				<p id="empty" style="font-size:12px;color:#C6C6C6;"  style="display: none;"></p>
 			</ul>
-			<table style="width:100%;" style="display: none;">
+			<table style="width:100%; display: none;height: 0px;">
 				<tbody>
 					<tr>
 						<td style="width:40%;display: none;"><div class="button button-select" id="appendByCamera">拍照</div></td>
@@ -29,14 +29,14 @@
 				</tbody>
 			</table>
 			<br/>
-			<div class="button" id="upload">确定</div>
+			<div class="button" id="upload" style="width:40%;left:30%;top:-20px;">确定</div>
 			<br/>
 			<!--<ul class="dlist">
 				<li class="ditem" onclick="appendByCamera()">拍照添加文件</li>
 				<li class="ditem" onclick="appendByGallery()">相册添加文件</li>
 			</ul>-->
 		</div>
-        <div class="list-block" id="memberInformation">
+        <div class="list-block" id="memberInformation" style="margin: 0;">
         	<ul>
                     <!-- Text inputs -->
                     <li>

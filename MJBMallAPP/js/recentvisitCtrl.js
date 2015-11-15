@@ -9,11 +9,10 @@
         var userID = window.localStorage.getItem("userId");
         // 获得最近浏览商品列表
         uzu.rest.getJSON("watched/findWatched", { 'user_id': userID }, function (data) {
-            debugger;
             if (!data.goodsList)
                 return;
             // 渲染模板
-            debugger;
+           
             var contex = {};
             for (var i = 0; i < data.goodsList.length; ++i) {
                 if (contex[data.goodsList[i].time] == undefined) {

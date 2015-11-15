@@ -2,7 +2,7 @@
     init: function (e) {
 
         // 顶部导航
-        var html = "<div class='navbar-inner'><div class='left'><i class='icon icon-backwhite'></i></div><div class='center'>新建地址"
+        var html = "<div class='navbar-inner'><div class='left'><i class='icon spxq_icon-navbar'></i></div><div class='center'>新建地址"
                 + "</div><div class='right'></div></div>";
         $$('#addrNewNavbar').html(html);
         $$('#saveButton').on('click', function () {
@@ -22,7 +22,7 @@
             });
         });
         // 回退
-        $$('.icon-backwhite').on('click', function () {
+        $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
         
