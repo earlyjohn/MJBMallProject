@@ -86,23 +86,74 @@
         $$('.home_message').on('click',function(){
             mainView.router.loadPage("message.html");
         });
-        $$('.home_sy').on('click', function () {
+        $$('#home_sy').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("home.html");
         });
-        $$('.home_sb').on('click', function () {
+        $$('#home_sb').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb_click');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("side.html");
         });
-        $$('.home_fl').on('click', function () {
+        $$('#home_fl').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('.home_fl').addClass('home_fl_click');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
             mainView.router.loadPage("firstClassfy.html");
         });
-        $$('.home_gwc').on('click', function () {
-           if (uzu.rest.isLogin()) {
+        $$('#home_gwc').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc_click');
+            // 我的
+            $$('#home_wd').addClass('home_wd');
+            if (uzu.rest.isLogin()) {
                 mainView.router.loadPage("shoppingCart.html");
             }
         });
-        $$('.home_wd').on('click', function () {
+        $$('#home_wd').on('click', function () {
+            // 首页
+            $$('#home_sy').addClass('home_sy_unclick');
+            // 身边
+            $$('#home_sb').addClass('home_sb');
+            // 分类
+            $$('#home_fl').addClass('home_fl');
+            // 购物车
+            $$('#home_gwc').addClass('home_gwc');
+            // 我的
+            $$('#home_wd').addClass('home_wd_click');
             mainView.router.loadPage("personalCenter.html");
         });
+
         // 定位
         $$('.home_icon-navbar').on('click', function () {
             mainView.router.loadPage("position.html");

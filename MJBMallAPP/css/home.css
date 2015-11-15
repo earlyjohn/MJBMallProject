@@ -232,7 +232,29 @@ img{
   background-repeat: no-repeat;
   background-size: 45px 45px;
 }
+.home_sy_unclick{
+  position:absolute;
+  left:4%;
+  width:15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u575.png");
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
+}
 .home_sb{
+  position:absolute;
+  left:23%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u577.png");
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
+}
+.home_sb_click{
   position:absolute;
   left:23%;
   width: 15%;
@@ -254,7 +276,29 @@ img{
   background-repeat: no-repeat;
   background-size: 45px 45px;
 }
+.home_fl_click{
+  position:absolute;
+  left:42%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u579.png");
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
+}
 .home_gwc{
+  position:absolute;
+  left:61%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u581.png");
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
+}
+.home_gwc_click{
   position:absolute;
   left:61%;
   width: 15%;
@@ -276,6 +320,18 @@ img{
   background-repeat: no-repeat;
   background-size: 45px 45px;
 }
+.home_wd_click{
+  position:absolute;
+  left:80%;
+  width: 15%;
+  height: 50px;
+  float:left;
+  list-style:none;
+  background-image: url("../img/home/u583.png");
+  background-repeat: no-repeat;
+  background-size: 45px 45px;
+}
+
 #u441_img {
   position:absolute;
   left:0px;
