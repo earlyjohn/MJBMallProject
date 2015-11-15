@@ -34,14 +34,15 @@
 				str += "移动速度："+sped;
 				console.log(JSON.stringify(position));
 				alert( str );
+				window.localStorage.setItem("addr",position.address.province);
+				window.localStorage.setItem("jingdu", position.coords.longt);
+        		window.localStorage.setItem("weidu", position.coords.lat);
 		} 
         // 通过百度定位模块获取位置信息
 		$$('#getPosition').on('click',function getPosBaidu(){
 				alert("获取百度定位位置信息");
-			//	outSet( "获取百度定位位置信息:" );
 				plus.geolocation.getCurrentPosition( geoInf, function ( e ) {
 					alert("获取百度定位位置信息失败"+e.message);
-					//outSet( "获取百度定位位置信息失败："+e.message );
 				},{provider:'baidu'});
 		});
 	

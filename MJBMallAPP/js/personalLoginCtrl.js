@@ -192,6 +192,5 @@
         console.log(JSON.stringify(position));
         window.localStorage.setItem("jingdu", position.coords.longt);
         window.localStorage.setItem("weidu", position.coords.lat);
-        alert(str);
     }
 }

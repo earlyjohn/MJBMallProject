@@ -11,7 +11,7 @@
             autoplayDisableOnInteraction: false
         });
         var html = "<div class='navbar-inner'>" +
-            "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
+            "<div class='left positon' id='addr'>北京<i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
             "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
@@ -23,6 +23,9 @@
         $$('#homeNavbar').html(html);
         // 显示底部菜单
         $$('#homeToolbar').show();
+        var province = window.localStorage.getItem("addr");
+        alert(province);
+        document.getElementById("addr").innerHTML = province;
 
         //轮播
         uzu.rest.getJSON("crlAvg/findCrlAvg",{},function(data){
@@ -38,47 +41,6 @@
                 }
             }
         });
-        // 行业分类模板
-        //$$.ajax({
-        //    type: "GET",
-        //    async: false,
-        //    url: "http://115.28.204.151:8088/MJBMall/goods/findGoods?callback=",
-        //    dataType: "json",
-        //    success: function (data) {
-        //        if (!data.goodsList)
-        //            return;
-        //        // 渲染模板
-        //        var context = {};
-        //        var industyList1 = new Array();
-        //        var industyList2 = new Array();
-        //        industyList1.push({ imgUrl: 'img/home/cyms.png' });
-        //        industyList1.push({ imgUrl: 'img/home/tcjy.png' });
-        //        industyList1.push({ imgUrl: 'img/home/fc.png' });
-        //        industyList1.push({ imgUrl: 'img/home/csdg.png' });
-        //        industyList1.push({ imgUrl: 'img/home/jypx.png' });
-        //        industyList2.push({ imgUrl: 'img/home/jdlg.png' });
-        //        industyList2.push({ imgUrl: 'img/home/ylxh.png' });
-        //        industyList2.push({ imgUrl: 'img/home/fzfs.png' });
-        //        industyList2.push({ imgUrl: 'img/home/sjtx.png' });
-        //        industyList2.push({ imgUrl: 'img/home/gd.png' });
-        //        context.industyList1 = industyList1;
-        //        var productsTemplate = $$('#industryClassfy1Tpl').html();
-        //        var compiledProductsTemplate = Template7.compile(productsTemplate);
-        //        var html = compiledProductsTemplate(context);
-        //        $$('#industryClassfy1').html(html);
-        //        context.industyList2 = industyList2;
-        //        var productsTemplate2 = $$('#industryClassfy1Tpl2').html();
-        //        var compiledProductsTemplate2 = Template7.compile(productsTemplate2);
-        //        var html2 = compiledProductsTemplate2(context);
-        //        $$('#industryClassfy2').html(html2);
-        //        $$('.hangyefenlei').on('click', function () {
-        //            mainView.router.loadPage("productsList.html");
-        //        });
-        //    },
-        //    error: function (e) {
-        //        alert("error");
-        //    }
-        //});
         var searchType = 0;
         $$('.secondClassfy').on('click', function () {
             mainView.router.loadPage("productsList.html");
@@ -155,7 +117,7 @@
         });
 
         // 定位
-        $$('.home_icon-navbar').on('click', function () {
+        $$('.positon').on('click', function () {
             mainView.router.loadPage("position.html");
         });
         // 搜素

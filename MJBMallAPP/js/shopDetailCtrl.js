@@ -32,7 +32,6 @@
         //});
         //全部商品
         uzu.rest.getJSON("goods/findGoods", { 'shop_id': shop_id }, function (result) {
-            debugger;
             if (!result.goodsList)
                 return;
             var context = {};
@@ -44,7 +43,6 @@
         });
         //最新商品
         uzu.rest.getJSON("goods/findGoods", { 'shop_id': shop_id, 'orderBy': 2 }, function (result) {
-            debugger;
             if (!result.goodsList)
                 return;
             var context = {};
