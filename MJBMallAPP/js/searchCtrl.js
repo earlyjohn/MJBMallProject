@@ -22,24 +22,38 @@
             window.localStorage.removeItem(user_id);
         
         });
-        // 历史记录
+
         var html1 = "";
         var searchContent = $$('.u_input').val();
-
         var user_id = window.localStorage.getItem("userId");
-        userhistory = window.localStorage.getItem(user_id);
-        if (userhistory != undefined) {
-            var a = userhistory.split(",", 10);
-            if (a != undefined) {
-                for (var i = 0; i < a.length; ++i)
-                    html1 += "<div class='search_second'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + a[i] + "<hr class='' /></div>";
-                $$('#pwf').html(html1);
-            }
 
+
+        initpage();
+
+        // 历史记录
+        function initpage(){
+            userhistory = window.localStorage.getItem(user_id);
+            if (userhistory != undefined) {
+                var a = userhistory.split(",", 10);
+                if (a != undefined) {
+                    for (var i = 0; i < a.length; ++i){
+                        var child = document.createElement("div");
+                        child.className = "search_second";
+                        child.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+a[i]+"<hr class='' />";
+                        document.getElementById("pwf").appendChild(child);
+                    }
+                }
+            }
         }
 
         $$('.home_search').on('click', function () {
             var searchContent = $$('.u_input').val();
+            document.getElementById("pwf").innerHTML = "";
+            var child = document.createElement("div");
+            child.className = "search_second";
+            child.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+searchContent+"<hr class='' />";
+            document.getElementById("pwf").appendChild(child);
+            initpage();
             if (searchType == 0) {
                 if (searchContent) {
                     if (userhistory != undefined) {
