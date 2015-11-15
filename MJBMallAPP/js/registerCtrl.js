@@ -59,7 +59,7 @@
                     myApp.toast('验证码错误！！！', 'error').show(true);
                 } else {
                     // 注册
-                    uzu.rest.getJSON("register/register", { 'userType': userType, 'username': userName, 'password': password, 'phone': phone }, function (data) {
+                    uzu.rest.getJSON("register/register", {'username': userName, 'password': password, 'phone': phone }, function (data) {
                         
                         if (data.status == "0") {
                             mainView.router.loadPage("home.html");

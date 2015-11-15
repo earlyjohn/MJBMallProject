@@ -6,15 +6,15 @@
         </div>
         <div class="page-content home_page" style="padding-top: 10px">
         	<div style="width: 100%;height: 200px;" id="changeImage">
-        		<img src=""id="Hpic" alt="" style="width: 30%;height: 180px;"/>
+        		<img src=""id="Hpic" style="width: 30%;height: 180px;"/>
         	</div>
-     <form action="http://115.28.204.151:8088/MJBMall/upload/upload1" method="post" id="uppic"enctype="multipart/form-data" style="display:none;" target="hidden_frame">
-        文件：<input type="file" id="pic_path"name="image"/><br/>
-         <input type="submit"id="upHeadpic" value="上传"/>
-         <input type="text" name="member_id" id="member_id" style="dispaly:none"/>
-    <iframe name="hidden_frame" id="hidden_frame" style="display: none;"></iframe>
-     </form>
-     <div id="dcontent" class="dcontent">
+	     <form action="http://115.28.204.151:8088/MJBMall/upload/upload1" method="post" id="uppic"enctype="multipart/form-data" style="display:none;" target="hidden_frame">
+	        文件：<input type="file" id="pic_path"name="image"/><br/>
+	         <input type="submit"id="upHeadpic" value="上传"/>
+	         <input type="text" name="member_id" id="member_id" style="dispaly:none"/>
+	    <iframe name="hidden_frame" id="hidden_frame" style="display: none;"></iframe>
+	     </form>
+	     <div id="dcontent" class="dcontent">
 			<br/>
 			<p class="heading" style="display: none;">上传文件列表：</p>
 			<ul id="files" style="text-align:left;">
@@ -37,6 +37,138 @@
 			</ul>-->
 		</div>
         <div class="list-block" id="memberInformation">
+        	<ul>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">昵称</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="被别人叫的名字" id="nickname" >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- address inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">居住地</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="地球上一点" id="address" >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Select -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">性别</div>
+                                <div class="item-input">
+                                    <select id="sex">
+                                        <option value="1">男</option>
+                                        <option value="0">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Date -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">生日</div>
+                                <div class="item-input">
+                                    <input type="date" placeholder="睁眼看世界的那天" id="birthday" >
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">身高</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="xxx cm" id="tall">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">学历</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="degree"id="degree">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Text inputs -->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">月收入</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="$$$$" id="income">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">婚姻状况</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="marry" id="marry">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">手机号</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="移动联通电信" id="phone">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">购房情况</div>
+                                <div class="item-input">
+                                    <input type="text" placeholder="house" id="buyhouse">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Date time-->
+                    <li>
+                        <div class="item-content">
+                            <div class="item-media"></div>
+                            <div class="item-inner">
+                                <div class="item-title label">注册日期</div>
+                                <div class="item-input">
+                                    <div id="registertime" class="item-title label">0000-00-00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+             </ul>
             </div>
         </div>
     </div>

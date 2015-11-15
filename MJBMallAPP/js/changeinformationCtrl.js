@@ -7,19 +7,19 @@
         var user_id = window.localStorage.getItem("userId");
 		var files=[];
         uzu.rest.getJSON("/members/getUserinfo", { 'member_id': user_id }, function (data) {
-
-            // 渲染模板
-            var context = {};
-
-            context.userList = data.result.userinfoList;
-
-            var userinfoListTemplate = $$('#memberInformationTpl').html();
-
-            var compiledUserinfoListTemplate = Template7.compile(userinfoListTemplate);
-
-            var html = compiledUserinfoListTemplate(context);
-            $$('#memberInformation').html(html);
-
+            $$("#Hpic").attr('src', data.result.userinfoList[0].head_pic);
+            debugger;
+            $$("#nickname").val(data.result.userinfoList[0].nickname);
+            $$("#address").val(data.result.userinfoList[0].address);
+            $$("#sex").val(data.result.userinfoList[0].sex);
+            $$("#birthday").val(data.result.userinfoList[0].birthday);
+            $$("#tall").val(data.result.userinfoList[0].tall);
+            $$("#degree").val(data.result.userinfoList[0].degree);
+            $$("#income").val(data.result.userinfoList[0].income);
+            $$("#marry").val(data.result.userinfoList[0].marry);
+            $$("#phone").val(data.result.userinfoList[0].phone);
+            $$("#buyhouse").val(data.result.userinfoList[0].buyhouse);
+            $$("#registertime").text(data.result.userinfoList[0].registertime);
         });
 
         $$('.saveBtn').on('click', function () {

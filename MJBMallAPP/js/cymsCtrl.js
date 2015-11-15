@@ -21,10 +21,15 @@
             if(!data.classifyList)
                 return;
             var div = document.getElementById("secondclassify");
-            for(var i=0;i<data.classifyList.length;i++){
+            for(var i=0;i<4;i++){
                 var childdiv = document.createElement("div");
                 childdiv.className = "hyfl_third home_float";
-                childdiv.innerHTML = data.classifyList[i].cat_name;
+                if(data.classifyList[i]){
+                	
+                    childdiv.innerHTML = data.classifyList[i].cat_name;
+                }else{
+                    childdiv.innerHTML = "无";
+                }
                 (function(){
                     var p = i
                     childdiv.onclick = function() {
@@ -43,9 +48,16 @@
         uzu.rest.getJSON("connectinfo/findConnectInfoByCatId",{'parent_id':cat_id},function(data){
             if(!data.result.connectInfoList)
                 return;
-            document.getElementById("shopName").innerHTML = data.result.connectInfoList[0].shop_name;
-            document.getElementById("content").innerHTML = data.result.connectInfoList[0].content;
-            document.getElementById("time").innerHTML = data.result.connectInfoList[0].publishtime;
+           if(data.result.connectInfoList.length == 0){
+                document.getElementById("shopName").innerHTML = "此位置出售";
+                document.getElementById("content").innerHTML = "标价：1000元";
+                document.getElementById("time").innerHTML = "联系电话：13098765678";
+            }else{
+                document.getElementById("shopName").innerHTML = data.result.connectInfoList[0].shop_name;
+                document.getElementById("content").innerHTML = data.result.connectInfoList[0].content;
+                document.getElementById("time").innerHTML = data.result.connectInfoList[0].publishtime;
+            }
+
 
         });
 

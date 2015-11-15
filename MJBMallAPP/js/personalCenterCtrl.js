@@ -1,11 +1,14 @@
 ﻿var personalCenterCtrl = {
     init: function (e) {
         // 顶部导航
+        
         var html = '<div class="navbar-inner home_float"><div class="left"><i style="color: #FFFFFF;" class="icon spxq_icon-navbar goBack"></i></div><div class="center">个人中心</div><div class="right"></div></div>';
         $$('#personalCenterNavbar').html(html);
         //获得头像+信息
         var user_id = window.localStorage.getItem("userId");
-        uzu.rest.getJSON("/members/getUserinfo", { 'member_id': user_id }, function (data) {
+        debugger;
+        uzu.rest.getJSON("members/getUserinfo", { 'member_id': user_id }, function (data) {
+            debugger;
             $$("#head_pic").attr('src', data.result.userinfoList[0].head_pic);
             $$("#name").text(data.result.userinfoList[0].nickname);
             $$("#area").text(data.result.userinfoList[0].area);

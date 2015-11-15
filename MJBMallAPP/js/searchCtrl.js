@@ -3,7 +3,7 @@
         // 顶部导航
         var html = "<div class='navbar-inner home_float'><div class='left'><i class='iconBack'></i></div>"
              + "<div class='center home_back'>" + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + "<span class='selectSearch1'>商品</span>"
-             + "<input id='u465_input' type='text'  class='text_sketch' />"
+             + "<input class='u_input' id='u465_input' type='text'  class='text_sketch' />"
              + "</div><div class='right'><i class='icon home_search'></i></div></div>";
         $$('#searchNavbar').html(html);
         var searchTypeContainer = $$.parseUrlQuery(e.detail.page.url) || [];
@@ -19,7 +19,7 @@
         });
         //清空历史记录
         $$("#clear").on('click', function () {
-            
+            window.localStorage.removeItem(user_id);
         
         });
         // 历史记录

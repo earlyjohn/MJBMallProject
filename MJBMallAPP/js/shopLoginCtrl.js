@@ -13,7 +13,7 @@
             //var userType = window.localStorage.getItem("userType");
             var query = $$.parseUrlQuery(e.detail.page.url);
             var userType = query.userType;
-            uzu.rest.getJSON("login/login", { 'userType': userType, 'username': userName, 'password': password }, function (result) {
+            uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
                 debugger;
                 if (result.status == "0") {
                     // 将用户id进行缓存，用户id和店铺id用的是一张表中的
