@@ -3,7 +3,7 @@
         $$('#personalLogin').on('click', function () {
             var url = "personalLogin.html?userType=0";
             var userId = window.localStorage.getItem("userId");
-            alert(userId);
+           
             mainView.router.loadPage(url);
         });
         $$('#shopLogin').on('click', function () {

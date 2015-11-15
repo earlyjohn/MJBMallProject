@@ -2,12 +2,18 @@
     init: function (e) {
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',
-            spaceBetween: 50
+            spaceBetween: 50,
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
         });
         var html = "<div class='navbar-inner'>" +
             "<div class='left positon'>北京<i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
-            "<ul><li style='padding-left: 5%;width: 20%;'>商品</li>" +
+            "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
             "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
             "<li style='width: 40%'><input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width: auto; position: relative;left: 10px;}'/></li>" +
             "<li style='position: absolute;right: 5%;top: 10px;width: 15%;'><i class='icon home_search' id='search'></i></li>" +
@@ -17,32 +23,21 @@
         $$('#homeNavbar').html(html);
         // 显示底部菜单
         $$('#homeToolbar').show();
-        // 轮播
-        var context = {};
-        var imgList = new Array();
-        uzu.rest.getJSON("/crlAvg/findCrlAvg",{},function(data){
+
+        //轮播
+        uzu.rest.getJSON("crlAvg/findCrlAvg",{},function(data){
             if(!data.crlAvg)
                 return;
-            //alert(data.crlAvg.length);
-            for(var i=0;i<data.crlAvg.length;i++){
-                var pic = data.crlAvg[i].pic;
-                //alert(pic);
-                imgList.push({ imgUrl: pic});
+            if(data.crlAvg.length<5){
+                for(var i=0;i<data.crlAvg.length;i++){
+                    document.getElementById("home_lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+                }
+            }else{
+                for(var i=0;i<5;i++){
+                    document.getElementById("home_lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+                }
             }
-
-            //imgList.push({ imgUrl: 'http://115.28.204.151:8088/img/home/page2.jpg' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo2.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo3.png' });
-            //imgList.push({ imgUrl: 'img/demo/lunbo1.png' });
-            context.recycleImgList = imgList;
-            var recycleImgsTemplate = $$('#recycleImgsTpl').html();
-            var compiledRecycleImgsTemplate = Template7.compile(recycleImgsTemplate);
-            var html = compiledRecycleImgsTemplate(context);
-            $$('#recycleImgs').html(html);
-        })
-
-
+        });
         // 行业分类模板
         //$$.ajax({
         //    type: "GET",
@@ -101,7 +96,9 @@
             mainView.router.loadPage("firstClassfy.html");
         });
         $$('.home_gwc').on('click', function () {
-            mainView.router.loadPage("shoppingCart.html");
+           if (uzu.rest.isLogin()) {
+                mainView.router.loadPage("shoppingCart.html");
+            }
         });
         $$('.home_wd').on('click', function () {
             mainView.router.loadPage("personalCenter.html");

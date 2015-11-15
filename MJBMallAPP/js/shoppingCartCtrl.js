@@ -23,11 +23,11 @@
             $$('.increment').on('click', function (e) {
                 var link = $$(e.target);
                 var goods_id = link.dataset()['gid'];
-                var container = $$(e.target.closest('ul.quantityOper')).find('li');
-                var goodsQuantity = $$(container[1]).text();
+                var _self=this;
+                var goodsQuantity = $$(this).parent().find("li[name=productQuantity]").text();
                 goodsQuantity = parseInt(goodsQuantity) + 1;
                 uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (incrementResult) {
-                    $$(container[1]).text(goodsQuantity);
+                    $$(_self).parent().find("li[name=productQuantity]").text(goodsQuantity);
                     // 计算所有选中商品总价格
                     $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
                 });
@@ -38,14 +38,16 @@
             $$('.descrement').on('click', function (e) {
                 var link = $$(e.target);
                 var goods_id = link.dataset()['gid'];
-                var container = $$(e.target.closest('ul.quantityOper')).find('li');
-                var goodsQuantity = parseInt($$(container[1]).text());
-                goodsQuantity--;
-                if (goodsQuantity > 0) {
-                    uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (decrementResult) {
-                        $$(container[1]).text(goodsQuantity);
-                        $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
-                    });
+                var _self=this;
+                var goodsQuantity = $$(this).parent().find("li[name=productQuantity]").text();
+                goodsQuantity=parseInt(goodsQuantity)-1;
+                if (goodsQuantity > 0) {                	
+                   uzu.rest.getJSON("orders/updateCarts", { 'count': goodsQuantity, 'user_id': user_id, 'goods_id': goods_id }, function (incrementResult) {
+                   //	alert(goodsQuantity+":"+user_id+":"+goods_id);
+                    $$(_self).parent().find("li[name=productQuantity]").text(goodsQuantity);
+                    // 计算所有选中商品总价格
+                    $$("#allProductPrice").text(calcTotalPrice().toFixed(2));
+                });
                   
                 }
             });

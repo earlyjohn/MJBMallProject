@@ -10,7 +10,7 @@
         });
 
         var query = $$.parseUrlQuery(e.detail.page.url);
-        if(!query.shop_id)
+        if(query.shop_id)
           var  shop_id =  query.shop_id;
         else
           var  shop_id = window.localStorage.getItem("userId");

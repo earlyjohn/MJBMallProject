@@ -21,8 +21,6 @@
             $$("#vip").text(vip);
             //debugger;
         });
-
-
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });

@@ -64,8 +64,11 @@ uzu.rest.postData = function (url, params, callback) {
 };
 // 判断是否登录
 uzu.rest.isLogin = function () {
+	debugger;
     var userId = window.localStorage.getItem("userId");
+    alert(userId);
     if (userId) {
+    	debugger;
         return true;
     } else {
         $$('#homeToolbar').hide();
@@ -75,5 +78,4 @@ uzu.rest.isLogin = function () {
 // 清空缓存
 uzu.rest.removeMemeryCatch = function () {
     window.localStorage.clear();
-   
 };

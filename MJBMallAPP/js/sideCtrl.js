@@ -9,6 +9,23 @@
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
+        //轮播
+        uzu.rest.getJSON("crlAvg/findCrlAvg",{},function(data){
+           if(!data.crlAvg)
+               return;
+           if(data.crlAvg.length<5){
+               for(var i=0;i<data.crlAvg.length;i++){
+                    document.getElementById("lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+               }
+           }else{
+               for(var i=0;i<5;i++){
+                   document.getElementById("lunbo_pic"+(i+1)).src = data.crlAvg[i].pic;
+               }
+           }
+        });
+
+
+
         //人气最高
         uzu.rest.getJSON("goods/findGoods", {'orderBy':1}, function (result) {
             if (!result.goodsList)
@@ -32,9 +49,8 @@
             $$('#secondTabProductsList').html(html);
         });
         //离我最近商品
-        debugger;
-        var jingdu = window.localStorage.getItem("jingdu");
-        var weidu = window.localStorage.getItem("weidu");
+        var jingdu = 12;
+        var weidu = 1;
         uzu.rest.getJSON("distance/findZuiJinGoods", { 'jingdu': jingdu, 'weidu': weidu }, function (result) {
             if (!result.result.zuijinGoodsList)
                 return;
