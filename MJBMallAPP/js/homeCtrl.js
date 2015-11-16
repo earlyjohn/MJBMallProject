@@ -1,6 +1,7 @@
 ﻿var homeCtrl = {
     init: function (e) {
     	/*加载控件*/
+    	window.localStorage.setItem("mark", 1);
     	var page = e.detail.page;
         if(window.plus){
 		plusReady();

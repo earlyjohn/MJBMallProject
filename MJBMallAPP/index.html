@@ -19,20 +19,15 @@
 				 * 目标页面加载完成时关闭启动页
 				 */
 				
-				var runtimeVersion = plus.runtime.version;
-				var storageVersion = plus.storage.getItem("FirstTimeFlag");
-				var tagetUrl, tagetId;
-				if (runtimeVersion == storageVersion) {
-					tagetUrl = "home.html";
-					tagetId = "page-home";
+				if (window.localStorage.getItem("mark")) {
+					window.location.href="guide.html";
 				} else {
-					tagetUrl = "guide.html";
-					tagetId = "page-welcome";
+					window.location.href="home.html";
 				}
 				
 				var tagetWebView = mui.preload({
-					url: tagetUrl,
-					id: tagetId
+					url: "home.html",
+					id: 1
 				});
 				
 				//动画时间定义的长一点，以便页面加载好了再关闭启动界面

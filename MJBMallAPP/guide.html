@@ -223,7 +223,7 @@
                     美居宝
                 </a>
                 <div class="animate">
-                    <a href="home.html"><button id='close' class="mui-btn mui-btn-warning mui-btn-outlined">立即体验</button></a>
+                    <button id='close' class="mui-btn mui-btn-warning mui-btn-outlined">立即体验</button>
                 </div>
             </div>
         </div>
@@ -247,9 +247,7 @@
     
     //立即体验按钮点击事件
     document.getElementById("close").addEventListener('tap', function(event) {
-        plus.storage.setItem("lauchFlag", "true");
-        plus.navigator.setFullscreen(false);
-        plus.webview.currentWebview().close();
+        window.location.href="home.html";
     }, false);
     //图片切换时，触发动画
     document.querySelector('.mui-slider').addEventListener('slide', function(event) {

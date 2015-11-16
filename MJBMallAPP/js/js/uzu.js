@@ -78,7 +78,7 @@ uzu.rest.removeMemeryCatch = function () {
     var storage = window.localStorage;
     for (var i = 0; i < storage.length; i++) {
         var a = storage.key(i);
-        if (storage.key(i) != "userId") {
+        if (storage.key(i) != "userId"||storage.key(i) != "mark") {
             storage.removeItem(storage.key(i));
         }
     }
