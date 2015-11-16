@@ -6,8 +6,8 @@ var assistantMessageCtrl = {
         $$('#assistantMessageNavbar').html(html);
         debugger;
         var user_id = window.localStorage.getItem("userId");
-        uzu.rest.getJSON("msgs/findOrderMsg", { 'user_id': user_id, 'order_status': 3 }, function (result) {
-            debugger;
+        //用户已付款，商家要发货的消息推送
+        uzu.rest.getJSON("msgs/findOrderMsg", { 'user_id': user_id, 'order_status': 2 }, function (result) {
             if (!result.result.orderMsgList)
                 return;
             // 渲染模板

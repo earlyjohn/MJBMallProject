@@ -222,7 +222,11 @@ public class OrdersController {
 			order1.setOrder_id(order_id);
 			String[] goods_id=goods_ids.split(",");
 			for (int i = 0; i < goods_id.length; i++) {
-				int t_goods_id=Integer.parseInt(goods_id[i]);
+				//这里需要封一个所有goods_id,shop_id的字符串，然后分解插如，例如：   1：2，2：2，96:15
+				String[] t=goods_id[i].split(":");
+				int t_goods_id=Integer.parseInt(t[0]);
+				int t_shop_id=Integer.parseInt(t[1]);
+				order1.setShop_id(t_shop_id);
 				order1.setGoods_id(t_goods_id);
 				ordersMapper.commitOrdersGoods(order1);
 			}
@@ -279,7 +283,7 @@ public class OrdersController {
 			result.clear();
 			if (order_id != 0) {
 				ordersMapper.delOrderByOrderId(order_id);
-				ordersMapper.delOrderGoodsByOrderId(order_id);
+//				ordersMapper.delOrderGoodsByOrderId(order_id);
 				result.put("msg", "success");
 			} else {
 				result.put("msg", "fail");
@@ -324,6 +328,15 @@ public class OrdersController {
 		return Action.SUCCESS;
 	}
 	
+	public String shopConfirmMoney(){
+		try {
+			ordersMapper.shopConfirmMoney(order_id);
+			result.put("msg", "success");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Action.SUCCESS;
+	}
 	/*
 	 * 根据店铺id和订单状态查询订单列表(不含商品列表)
 	 * @author xuejx
