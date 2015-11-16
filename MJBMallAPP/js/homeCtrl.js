@@ -37,8 +37,12 @@
         // 显示底部菜单
         $$('#homeToolbar').show();
         var province = window.localStorage.getItem("addr");
+        if(province){
         document.getElementById("addr").innerHTML = province;
-
+		}
+        else{
+        	document.getElementById("addr").innerHTML = "北京";
+        }
         //轮播
         uzu.rest.getJSON("crlAvg/findCrlAvg",{},function(data){
             if(!data.crlAvg)

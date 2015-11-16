@@ -10,12 +10,15 @@
         });
 
         var query = $$.parseUrlQuery(e.detail.page.url);
-        if(query.shop_id)
+        if(query.shop_id){
           var  shop_id =  query.shop_id;
-        else
-          var  shop_id = window.localStorage.getItem("userId");
+        }else{
+          var  shop_id = window.localStorage.getItem("shopId");
+        }
         //获得店铺Logo
+        debugger;
         uzu.rest.getJSON("goods/findShops", { 'shop_id': shop_id }, function (result) {
+       debugger;
             if (!result.shopsList)
                 return;
            $$('#shop_pic1').attr('src', result.shopsList[0].shop_pic);

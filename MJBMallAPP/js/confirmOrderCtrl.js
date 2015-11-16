@@ -33,7 +33,6 @@
         // 获得要结算的商品列表
         uzu.rest.getJSON("orders/findreckoning", { 'user_id': user_id }, function (result) {
             // 渲染模板
-            debugger;
             var context = {};
             context.indreckoningList = result.result.recList;
             var editCartsListTemplate = $$('#indreckoningTpl').html();

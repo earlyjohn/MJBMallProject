@@ -14,7 +14,7 @@
         //个人页面底端toobar隐藏
         $$("#productListNav").hide();
         $$('#shopHomeNav').show();
-        var shop_id = window.localStorage.getItem("userId");
+        var shop_id = window.localStorage.getItem("shopId");
         //通过商铺id拿到商铺的基本信息
         uzu.rest.getJSON("goods/findShops", { 'shop_id': shop_id }, function (result) {
             if (!result.shopsList)
@@ -98,7 +98,7 @@
             mainView.router.loadPage("message.html");
         });
         $$('#shopShop').on('click', function () {
-            mainView.router.loadPage("shopDetail.html");
+            mainView.router.loadPage("shopDetail.html?shop_id="+shop_id);
         });
     }
 };

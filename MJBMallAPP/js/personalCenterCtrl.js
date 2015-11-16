@@ -32,6 +32,19 @@
         $$('#message').on('click',function(){
             mainView.router.loadPage("message.html");
         });
+         /*拨打电话*/
+        $$('.call').on('click', function call(){
+		    // 导入Activity、Intent类
+		    var Intent = plus.android.importClass("android.content.Intent");
+		    var Uri = plus.android.importClass("android.net.Uri");
+		    // 获取主Activity对象的实例
+		    var main = plus.android.runtimeMainActivity();
+		    // 创建Intent
+		    var uri = Uri.parse("tel:400987987"); // 这里可修改电话号码
+		    var call = new Intent("android.intent.action.CALL",uri);
+		    // 调用startActivity方法拨打电话
+		    main.startActivity(call);
+    	});
     }
 };
 

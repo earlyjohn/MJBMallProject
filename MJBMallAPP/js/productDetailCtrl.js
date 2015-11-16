@@ -10,23 +10,43 @@
         $$('#productDetailNav').show();
         var query = $$.parseUrlQuery(e.detail.page.url);
         var goods_id = query.goods_id;
-        var shopId;
+        var shopId;//店铺id
+        var phone;//店铺电话
+        var shop_address;//店铺地址
+        var shop_jingdu;//店铺经度
+        var shop_weidu;//店铺维度
         // 用户id
         var user_id = window.localStorage.getItem("userId");
+        // 定位获得经纬度
+        var jingdu = window.localStorage.getItem("jingdu");
+        var weidu = window.localStorage.getItem("weidu");
+        
+        debugger;
+        
         //插入最近浏览数据库表
          uzu.rest.getJSON("watched/addWatched", { 'user_id': user_id,'goods_id':goods_id }, function (data) {});
 
         uzu.rest.getJSON("goods/findGoods", { 'goods_id': goods_id }, function (data) {
             // 渲染模板
+            debugger;
             shopId=data.goodsList[0].shop_id;
             debugger;
-            var context = {};
-            context.productDetail = data.goodsList;
-            var productDetailTemplate = $$('#productDetailTpl').html();
-            var compiledproductDetailTemplate = Template7.compile(productDetailTemplate);
-            var html = compiledproductDetailTemplate(context);
-            $$('#productDetail').html(html);
+            phone = data.goodsList[0].phone_number;
+            $$('#productName').text(data.goodsList[0].name);
+            $$('#productPrice').text(data.goodsList[0].price);
+            $$('#productBrief').text(data.goodsList[0].brief);
+            $$('#productAddress').text(data.goodsList[0].address);
+            $$('#productPhone').text(data.goodsList[0].phone_number);
+             //获得经纬度
+       		uzu.rest.getJSON("goods/findShops", { 'shop_id': shopId }, function (result) {
+            // 渲染模板
+            debugger;
+            shop_address = result.shopsList[0].address;
+			shop_jingdu=result.shopsList[0].jingdu;
+			shop_weidu = result.shopsList[0].weidu;
+       		 });
         });
+       
         //用户评论
         uzu.rest.getJSON("evaluate/findfirstEvaluate", { 'goods_id': goods_id }, function (data) {
             $$("#comment_count").text("(" + data.count + ")");
@@ -87,7 +107,7 @@
                 if (addCollectionData.result.msg === "success") {
                     mainView.router.loadPage("Mycollection.html");
                 } else {
-                    alert('收藏失败')
+                    alert('已收藏商品')
                 }
             });
         });
@@ -100,25 +120,31 @@
             spaceBetween: 50
         });
         /*拨打电话*/
-        $$('#call').on('click', function call(){
+        $$('.call').on('click', function call(){
 		    // 导入Activity、Intent类
 		    var Intent = plus.android.importClass("android.content.Intent");
 		    var Uri = plus.android.importClass("android.net.Uri");
 		    // 获取主Activity对象的实例
 		    var main = plus.android.runtimeMainActivity();
 		    // 创建Intent
-		    var uri = Uri.parse("tel:18222902657"); // 这里可修改电话号码
+		    var uri = Uri.parse("tel:"+phone); // 这里可修改电话号码
 		    var call = new Intent("android.intent.action.CALL",uri);
 		    // 调用startActivity方法拨打电话
 		    main.startActivity(call);
     	});
+    	
     	/*打开地图*/
-    	$$('#openMaps').on('click', function showMaps(){
+    	$$('.openMaps').on('click', function showMaps(){
     		alert("弹出地图");
-			var ws=plus.webview.currentWebview();
-			var wm=plus.webview.getWebviewById(plus.runtime.appid);
-			wm&&wm.evalJS("preateClear()");
-			clicked('maps_map.html',false,true);
+    		// 设置目标位置坐标点和其实位置坐标点
+			var dst = new plus.maps.Point(shop_jingdu,shop_weidu); // 目的地 
+			var src = new plus.maps.Point(jingdu,weidu); // 起始地
+			// 调用系统地图显示 
+			plus.maps.openSysMap( dst, shop_address, src );
+//			var ws=plus.webview.currentWebview();
+//			var wm=plus.webview.getWebviewById(plus.runtime.appid);
+//			wm&&wm.evalJS("preateClear()");
+//			clicked('maps_map.html',false,true);
 		});
     	/*分享*/
     	var shares = {};

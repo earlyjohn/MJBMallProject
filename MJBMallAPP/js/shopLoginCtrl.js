@@ -16,8 +16,9 @@
             uzu.rest.getJSON("login/login", { 'username': userName, 'password': password }, function (result) {
                 debugger;
                 if (result.status == "0") {
+                	debugger;
                     // 将用户id进行缓存，用户id和店铺id用的是一张表中的
-                    window.localStorage.setItem("userId", result.id);
+                    window.localStorage.setItem("shopId", result.id);
                     //var userId = window.localStorage.getItem("userId");
                     mainView.router.loadPage("shopHome.html");
                 } else if (result.status == "3") {
