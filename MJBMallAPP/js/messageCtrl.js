@@ -10,17 +10,38 @@
             mainView.router.back();
         });
         var user_id = window.localStorage.getItem("userId");
+        var msgids = [];
+
+        //查找系统消息
         uzu.rest.getJSON("msgs/findMsg", {'user_id':user_id}, function (data) {
             if (!data.result.systemMessageList)
                 return;
+            for(var i=0;i<data.result.systemMessageList.length;i++){
+                (function(){
+                    var p = i
+                    msgids.push(data.result.systemMessageList[p].message_id);
+                })();
+            }
             document.getElementById("date").innerHTML = cutstr(data.result.systemMessageList[0].sendTime,10);
             document.getElementById("content").innerHTML = data.result.systemMessageList[0].msg;
         });
+        //得到未读消息数目
         uzu.rest.getJSON("msgs/findNoReadMsgNum", {'user_id':user_id}, function (data) {
             if (!data.result.noReadNum)
                 return;
             document.getElementById("noread").innerHTML = data.result.noReadNum;
         });
+
+        document.getElementById("systemmessage").onclick = function(){
+            document.getElementById("noread").innerHTML = "0";
+            for(var i=0;i<msgids.length;i++){
+                var message_id = msgids[i];
+                uzu.rest.getJSON('msgs/changeMsgIsRead',{'user_id':user_id,'message_id':message_id,'type':'3'},function(data){
+
+                });
+            }
+            mainView.loadPage("activityMessage.html");
+        };
 
         function cutstr(str, len) {
             var str_length = 0;

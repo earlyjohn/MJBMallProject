@@ -20,7 +20,7 @@
         //清空历史记录
         $$("#clear").on('click', function () {
             window.localStorage.removeItem(user_id);
-        
+            document.getElementById("pwf").innerHTML = "";
         });
 
         var html1 = "";
