@@ -7,6 +7,17 @@
         $$('#productDetailNavbar').html(html);
         // 底部导航栏
 
+		var mySwiper1 = myApp.swiper('.swiper-1', {
+			pagination: '.swiper-1 .swiper-pagination',
+			spaceBetween: 50,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			paginationClickable: true,
+			centeredSlides: true,
+			autoplay: 2500,
+			autoplayDisableOnInteraction: false
+		});
+
         $$('#productDetailNav').show();
         var query = $$.parseUrlQuery(e.detail.page.url);
         var goods_id = query.goods_id;
@@ -32,6 +43,11 @@
             shopId=data.goodsList[0].shop_id;
             debugger;
             phone = data.goodsList[0].phone_number;
+			if(data.goodsList[0].big_pic != null){
+				document.getElementById("product_pic1").src = data.goodsList[0].big_pic;
+			}else{
+				document.getElementById("product_pic1").src = "img/nopic.jpg"
+			}
             $$('#productName').text(data.goodsList[0].name);
             $$('#productPrice').text(data.goodsList[0].price);
             $$('#productBrief').text(data.goodsList[0].brief);

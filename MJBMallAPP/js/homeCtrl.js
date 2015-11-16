@@ -65,70 +65,45 @@
             mainView.router.loadPage("message.html");
         });
         $$('#home_sy').on('click', function () {
-            // 首页
-            $$('#home_sy').addClass('home_sy');
-            // 身边
-            $$('#home_sb').addClass('home_sb');
-            // 分类
-            $$('#home_fl').addClass('home_fl');
-            // 购物车
-            $$('#home_gwc').addClass('home_gwc');
-            // 我的
-            $$('#home_wd').addClass('home_wd');
+            document.getElementById("home_sy").style.backgroundImage = 'url(img/home/u575.png)';
+            document.getElementById("home_sb").style.backgroundImage = 'url(img/home/u577.png)';
+            document.getElementById("home_fl").style.backgroundImage = 'url(img/home/u579.png)';
+            document.getElementById("home_gwc").style.backgroundImage = 'url(img/home/u581.png)';
+            document.getElementById("home_wd").style.backgroundImage = 'url(img/home/u583.png)';
             mainView.router.loadPage("home.html");
         });
         $$('#home_sb').on('click', function () {
-            // 首页
-            $$('#home_sy').addClass('home_sy_unclick');
-            // 身边
-            $$('#home_sb').addClass('home_sb_click');
-            // 分类
-            $$('#home_fl').addClass('home_fl');
-            // 购物车
-            $$('#home_gwc').addClass('home_gwc');
-            // 我的
-            $$('#home_wd').addClass('home_wd');
+            document.getElementById("home_sy").style.backgroundImage = 'url(img/home/u576.png)';
+            document.getElementById("home_sb").style.backgroundImage = 'url(img/home/u578.png)';
+            document.getElementById("home_fl").style.backgroundImage = 'url(img/home/u579.png)';
+            document.getElementById("home_gwc").style.backgroundImage = 'url(img/home/u581.png)';
+            document.getElementById("home_wd").style.backgroundImage = 'url(img/home/u583.png)';
             mainView.router.loadPage("side.html");
         });
         $$('#home_fl').on('click', function () {
-            // 首页
-            $$('#home_sy').addClass('home_sy_unclick');
-            // 身边
-            $$('#home_sb').addClass('home_sb');
-            // 分类
-            $$('.home_fl').addClass('home_fl_click');
-            // 购物车
-            $$('#home_gwc').addClass('home_gwc');
-            // 我的
-            $$('#home_wd').addClass('home_wd');
+            document.getElementById("home_sy").style.backgroundImage = 'url(img/home/u576.png)';
+            document.getElementById("home_sb").style.backgroundImage = 'url(img/home/u577.png)';
+            document.getElementById("home_fl").style.backgroundImage = 'url(img/home/u580.png)';
+            document.getElementById("home_gwc").style.backgroundImage = 'url(img/home/u581.png)';
+            document.getElementById("home_wd").style.backgroundImage = 'url(img/home/u583.png)';
             mainView.router.loadPage("firstClassfy.html");
         });
         $$('#home_gwc').on('click', function () {
-            // 首页
-            $$('#home_sy').addClass('home_sy_unclick');
-            // 身边
-            $$('#home_sb').addClass('home_sb');
-            // 分类
-            $$('#home_fl').addClass('home_fl');
-            // 购物车
-            $$('#home_gwc').addClass('home_gwc_click');
-            // 我的
-            $$('#home_wd').addClass('home_wd');
+            document.getElementById("home_sy").style.backgroundImage = 'url(img/home/u576.png)';
+            document.getElementById("home_sb").style.backgroundImage = 'url(img/home/u577.png)';
+            document.getElementById("home_fl").style.backgroundImage = 'url(img/home/u579.png)';
+            document.getElementById("home_gwc").style.backgroundImage = 'url(img/home/u582.png)';
+            document.getElementById("home_wd").style.backgroundImage = 'url(img/home/u583.png)';
             if (uzu.rest.isLogin()) {
                 mainView.router.loadPage("shoppingCart.html");
             }
         });
         $$('#home_wd').on('click', function () {
-            // 首页
-            $$('#home_sy').addClass('home_sy_unclick');
-            // 身边
-            $$('#home_sb').addClass('home_sb');
-            // 分类
-            $$('#home_fl').addClass('home_fl');
-            // 购物车
-            $$('#home_gwc').addClass('home_gwc');
-            // 我的
-            $$('#home_wd').addClass('home_wd_click');
+            document.getElementById("home_sy").style.backgroundImage = 'url(img/home/u576.png)';
+            document.getElementById("home_sb").style.backgroundImage = 'url(img/home/u577.png)';
+            document.getElementById("home_fl").style.backgroundImage = 'url(img/home/u579.png)';
+            document.getElementById("home_gwc").style.backgroundImage = 'url(img/home/u581.png)';
+            document.getElementById("home_wd").style.backgroundImage = 'url(img/home/u584.png)';
              if (uzu.rest.isLogin()) {
             mainView.router.loadPage("personalCenter.html");
             }
