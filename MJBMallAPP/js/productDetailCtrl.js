@@ -97,6 +97,7 @@
         });
         // 收藏
         $$('.spxq_sc').on('click', function () {
+        	if (uzu.rest.isLogin()) {
             uzu.rest.getJSON("collections/addCollections", {
                 'user_id': user_id,
                 'goods_id': goods_id,
@@ -110,6 +111,7 @@
                     alert('已收藏商品')
                 }
             });
+            }
         });
         // 店铺详情
         $$('.spxq_dp').on('click', function () {
@@ -161,7 +163,6 @@
 			});
 		});
     	$$('.spxq_enjoy').on('click',  function() {
-    		alert("分享到个各平台");
 			var ids = [{
 					id: "weixin",
 					ex: "WXSceneSession"
@@ -226,7 +227,7 @@
 					console.log("分享到\"" + share.description + "\"失败: " + e.code + " - " + e.message);
 				});
 				
-			}
+		}
     	
     	
 	}

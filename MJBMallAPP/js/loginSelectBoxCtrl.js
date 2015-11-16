@@ -1,5 +1,6 @@
 ﻿var loginSelectBoxCtrl = {
     init: function (e) {
+    	alert("请登录！");
         $$('#personalLogin').on('click', function () {
             var url = "personalLogin.html?userType=0";
             var userId = window.localStorage.getItem("userId");

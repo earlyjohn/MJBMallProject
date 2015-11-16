@@ -68,7 +68,6 @@ uzu.rest.isLogin = function () {
     if (userId) {
         return true;
     } else {
-    	alert("请登录！");
         $$('#homeToolbar').hide();
         mainView.router.loadPage("loginSelectBox.html");
     }
