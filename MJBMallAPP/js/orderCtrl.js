@@ -74,12 +74,12 @@
             $$('#waitingPayList').html(html);
             // 删除
             $$('#waitingPayDel').on('click', function (e) {
-                debugger;
                 var order_id = $$(this).data("id");
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
                         myApp.toast('删除成功', 'success').show(true);
-                        mainView.router.loadPage("order.html");
+                        mainView.router.reloadPage("order.html");
+                        //mainView.router.loadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
                     }
@@ -154,7 +154,7 @@
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
                         myApp.toast('删除成功', 'success').show(true);
-                        mainView.router.loadPage("order.html");
+                        mainView.router.reloadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
                     }
@@ -172,7 +172,7 @@
                 });
             });
         });
-        uzu.rest.getJSON("orders/findOrderByUserId", { 'user_id': user_id, 'order_status': '3' }, function (data) {
+        uzu.rest.getJSON("orders/findOrderByUserId", { 'user_id': user_id, 'order_status': '9' }, function (data) {
             for (var i = 0; i < data.result.orderList.length; i++) {
                 data.result.orderList[i].orderStatus = "交易关闭";
             }
@@ -189,7 +189,7 @@
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
                         myApp.toast('删除成功', 'success').show(true);
-                        mainView.router.loadPage("order.html");
+                        mainView.router.reloadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
                     }
@@ -214,7 +214,7 @@
                 uzu.rest.getJSON("orders/delOrderByOrderId", { 'order_id': order_id }, function (data) {
                     if (data.result.msg == "success") {
                         myApp.toast('删除成功', 'success').show(true);
-                        mainView.router.loadPage("order.html");
+                        mainView.router.reloadPage("order.html");
                     } else {
                         myApp.toast('删除失败', 'error').show(true);
                     }

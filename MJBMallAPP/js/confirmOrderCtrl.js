@@ -45,7 +45,8 @@
                 order_sum += parseFloat(result.result.recList[i].price).toFixed(2) * result.result.recList[i].count;
                 shop_id = result.result.recList[i].shop_id;
             }
-            $$('#allProductPrice').text(parseFloat(order_sum).toFixed(2))
+            $$('.allProductPrice').text(parseFloat(order_sum).toFixed(2));
+           
         });
         // 提交订单
         $$('#submitOrderBtn').on('click', function () {
@@ -58,7 +59,6 @@
                 itemsArray.push($$(goods_idContainer[i]).val() + ":" + $$(shop_idContainer[i]).val());
             }
             var goodsIds = itemsArray.join(',');
-            debugger;
             uzu.rest.getJSON("orders/commitOrders", {
                 'user_id': user_id,
                 'addressId': addressId,
