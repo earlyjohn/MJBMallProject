@@ -15,7 +15,9 @@
         var address = "";
         var phone = "";
         var pay_way = "";
-        var order_sum = 240;
+        var shop_id = "";
+        // 总金额
+        var order_sum = 0;
         // 获得默认地址
         uzu.rest.getJSON("orders/findDefaultAddress", { 'user_id': user_id }, function (data) {
             // 渲染模板
@@ -40,6 +42,11 @@
             var compiledEditCartsListTemplate = Template7.compile(editCartsListTemplate);
             var html = compiledEditCartsListTemplate(context);
             $$('#indreckoning').html(html);
+            for (var i = 0; i < result.result.recList.length; i++) {
+                order_sum += parseFloat(result.result.recList[i].price).toFixed(2) * result.result.recList[i].count;
+                shop_id = result.result.recList[i].shop_id;
+            }
+            $$('#allProductPrice').text(parseFloat(order_sum).toFixed(2))
         });
         // 提交订单
         $$('#submitOrderBtn').on('click', function () {
@@ -59,6 +66,7 @@
                 'phone': phone,
                 'order_sum': order_sum,
                 'pay_way': pay_way,
+                'shop_id':shop_id,
                 'goods_ids': goodsIds
             }, function (result) {
                 if (result.result.msg = "success") {
