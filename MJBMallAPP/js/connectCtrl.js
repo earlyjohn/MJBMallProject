@@ -3,12 +3,12 @@
  */
 var connectCtrl = {
     init: function (e) {
-        // ¶¥²¿µ¼º½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         var html = "<div class='navbar-inner'><div class='left'>" +
-            "<i class='icon spxq_icon-navbar'></i></div><div class='center'>ÁªÏµÎÒÃÇ"
+            "<i class='icon spxq_icon-navbar'></i></div><div class='center'>è”ç³»æˆ‘ä»¬"
             +"</div><div class='right'></div></div>";
         $$('#connectNavbar').html(html);
-        // »ØÍË
+        // ï¿½ï¿½ï¿½ï¿½
         $$('.spxq_icon-navbar').on('click', function () {
             mainView.router.back();
         });
@@ -16,12 +16,12 @@ var connectCtrl = {
         uzu.rest.getJSON("members/findContactUs",{},function(data){
             if(!data.result.contact_us)
                 return
-            document.getElementById("company_name").innerHTML = "¹«Ë¾Ãû³Æ:"+data.result.contact_us[0].company_name;
-            document.getElementById("tel").innerHTML = "µç»°:"+data.result.contact_us[0].tel;
+            document.getElementById("company_name").innerHTML = "å…¬å¸åç§°:"+data.result.contact_us[0].company_name;
+            document.getElementById("tel").innerHTML = "ç”µè¯:"+data.result.contact_us[0].tel;
             document.getElementById("qq").innerHTML = "QQ:"+data.result.contact_us[0].QQ;
             document.getElementById("email").innerHTML = "Email:"+data.result.contact_us[0].email;
-            document.getElementById("url").innerHTML = "ÍøÖ·:"+data.result.contact_us[0].url;
-            document.getElementById("addr").innerHTML = "µØÖ·:"+data.result.contact_us[0].addr;
+            document.getElementById("url").innerHTML = "ç½‘å€Ö·:"+data.result.contact_us[0].url;
+            document.getElementById("addr").innerHTML = "åœ°å€:"+data.result.contact_us[0].addr;
         });
     }
 };
