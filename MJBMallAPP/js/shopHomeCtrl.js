@@ -25,7 +25,7 @@
             $$('#shop_hours').text(result.shopsList[0].shop_hours);
         });
         //得到初始化页面中的已付款的商品列表
-        uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 1 }, function (result) {
+        uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 2 }, function (result) {
             if (!result.result.zongheList)
                 return;
             var context = {};
@@ -37,7 +37,7 @@
         });
 
         $$('#yiFuKuan').on('click', function () {
-            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 1 }, function (result) {
+            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 2 }, function (result) {
                 if (!result.result.zongheList)
                     return;
                 var context = {};
@@ -50,7 +50,7 @@
         });
 
         $$('#daiFuKuan').on('click', function () {
-            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 2 }, function (result) {
+            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 1 }, function (result) {
                 if (!result.result.zongheList)
                     return;
                 var context = {};
@@ -63,7 +63,7 @@
         });
 
         $$('#yiWanCheng').on('click', function () {
-            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 3 }, function (result) {
+            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 4 }, function (result) {
                 if (!result.result.zongheList)
                     return;
                 var context = {};
@@ -76,7 +76,7 @@
         });
 
         $$('#yiGuanBi').on('click', function () {
-            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 4 }, function (result) {
+            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 9 }, function (result) {
                 if (!result.result.zongheList)
                     return;
                 var context = {};
