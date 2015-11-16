@@ -50,22 +50,24 @@
         // 提交订单
         $$('#submitOrderBtn').on('click', function () {
             var goods_idContainer = $$("input[type=hidden][name=goods_ids]");
+            var shop_idContainer = $$("input[type=hidden][name=shop_ids]");
             var payTypeContainer = $$("input[type=radio][name=radioPay]");
             pay_way = $$(payTypeContainer[0]).val();
             var itemsArray = new Array();
             for (var i = 0; i < goods_idContainer.length; i++) {
-                itemsArray.push($$(goods_idContainer[i]).val());
+                itemsArray.push($$(goods_idContainer[i]).val() + ":" + $$(shop_idContainer[i]).val());
             }
             var goodsIds = itemsArray.join(',');
-            uzu.rest.getJSON("orders/commitOrders", { 
-                'user_id': user_id, 
+            debugger;
+            uzu.rest.getJSON("orders/commitOrders", {
+                'user_id': user_id,
                 'addressId': addressId,
                 'address': address,
                 'name': name,
                 'phone': phone,
                 'order_sum': order_sum,
                 'pay_way': pay_way,
-                'shop_id':shop_id,
+                'shop_id': shop_id,
                 'goods_ids': goodsIds
             }, function (result) {
                 if (result.result.msg = "success") {
