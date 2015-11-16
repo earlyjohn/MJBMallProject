@@ -28,7 +28,7 @@
             "<div class='left positon'><span  id='addr'>北京</span><i class='icon home_icon-navbar'></i></div>"
             + "<div class='center home_back'>" +
             "<ul><li class='selectSearch' style='padding-left: 5%;width: 20%;'>商品</li>" +
-            "<li style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
+            "<li  style='width: 10%'><i class='icon home_chose'style='position: absolute;top:15px;'></i></li>" +
             "<li style='width: 40%'><input id='u465_input' type='text'  class='text_sketch' placeholder='请输入关键字' style='width: auto; position: relative;left: 10px;}'/></li>" +
             "<li style='position: absolute;right: 5%;top: 10px;width: 15%;'><i class='icon home_search' id='search'></i></li>" +
             "</ul></div>" +

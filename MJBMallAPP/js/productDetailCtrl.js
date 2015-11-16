@@ -32,16 +32,16 @@
         var jingdu = window.localStorage.getItem("jingdu");
         var weidu = window.localStorage.getItem("weidu");
         
-        debugger;
+
         
         //插入最近浏览数据库表
          uzu.rest.getJSON("watched/addWatched", { 'user_id': user_id,'goods_id':goods_id }, function (data) {});
 
         uzu.rest.getJSON("goods/findGoods", { 'goods_id': goods_id }, function (data) {
             // 渲染模板
-            debugger;
+
             shopId=data.goodsList[0].shop_id;
-            debugger;
+
             phone = data.goodsList[0].phone_number;
 			if(data.goodsList[0].big_pic != null){
 				document.getElementById("product_pic1").src = data.goodsList[0].big_pic;
@@ -56,7 +56,6 @@
              //获得经纬度
        		uzu.rest.getJSON("goods/findShops", { 'shop_id': shopId }, function (result) {
             // 渲染模板
-            debugger;
             shop_address = result.shopsList[0].address;
 			shop_jingdu=result.shopsList[0].jingdu;
 			shop_weidu = result.shopsList[0].weidu;
