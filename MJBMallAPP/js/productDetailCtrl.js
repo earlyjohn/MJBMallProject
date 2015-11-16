@@ -10,6 +10,7 @@
         $$('#productDetailNav').show();
         var query = $$.parseUrlQuery(e.detail.page.url);
         var goods_id = query.goods_id;
+        var shopId;
         // 用户id
         var user_id = window.localStorage.getItem("userId");
         //插入最近浏览数据库表
@@ -17,6 +18,8 @@
 
         uzu.rest.getJSON("goods/findGoods", { 'goods_id': goods_id }, function (data) {
             // 渲染模板
+            shopId=data.goodsList[0].shop_id;
+            debugger;
             var context = {};
             context.productDetail = data.goodsList;
             var productDetailTemplate = $$('#productDetailTpl').html();
@@ -38,7 +41,6 @@
         $$('#moreComment').on('click', function () {
             uzu.rest.getJSON("evaluate/findEvaluate", { 'goods_id': goods_id }, function (data) {
                 if (data) {
-                    debugger;
                     var context = {};
                     context.commentList = data.evaluate;
                     var commentListTemplate = $$('#commentListTpl').html();
@@ -55,6 +57,7 @@
         });
         // 加入购物车
         $$('.spxq_jrgwc').on('click', function () {
+        	if (uzu.rest.isLogin()) {
             uzu.rest.getJSON("orders/addCarts", {
                 'user_id': user_id,
                 'goods_id': goods_id,
@@ -64,10 +67,13 @@
             function (incrementData) {
                 mainView.router.loadPage("shoppingCart.html");
             });
+        	}
         });
         // 立即购买
         $$('.spxq_ljgm').on('click', function () {
+        	if (uzu.rest.isLogin()) {
             mainView.router.loadPage("confirm-order.html");
+           }
         });
         // 收藏
         $$('.spxq_sc').on('click', function () {
@@ -87,9 +93,7 @@
         });
         // 店铺详情
         $$('.spxq_dp').on('click', function () {
-            uzu.rest.getJSON("goods/findShops", { 'shop_id': 1 }, function (shopData) {
-                mainView.router.loadPage("shoppingCart.html");
-            });
+            mainView.router.loadPage("shopDetail.html?shop_id="+shopId);
         });
         var mySwiper1 = myApp.swiper('.swiper-1', {
             pagination: '.swiper-1 .swiper-pagination',

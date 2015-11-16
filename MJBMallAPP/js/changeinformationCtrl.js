@@ -8,7 +8,6 @@
 		var files=[];
         uzu.rest.getJSON("/members/getUserinfo", { 'member_id': user_id }, function (data) {
             $$("#Hpic").attr('src', data.result.userinfoList[0].head_pic);
-            debugger;
             $$("#nickname").val(data.result.userinfoList[0].nickname);
             $$("#address").val(data.result.userinfoList[0].address);
             $$("#sex").val(data.result.userinfoList[0].sex);

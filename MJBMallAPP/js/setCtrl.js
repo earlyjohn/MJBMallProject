@@ -17,6 +17,10 @@
     	}
     	alert("清除缓存成功");
         });
+        $$('#clearAll').on('click',function(){
+        	window.localStorage.clear();
+        	alert("注销成功");
+        })
     }
 };
 
