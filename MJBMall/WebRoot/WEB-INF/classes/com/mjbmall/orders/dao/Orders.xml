@@ -123,10 +123,13 @@
 	</select>
 	-->
 	<insert id="addAddress" parameterType="com.mjbmall.orders.entity.Address">
-	   insert into m_receiptads (user_id,name,picker_dependent,address,phone,gdphone,postcard) 
-       values(#{user_id},#{name},#{picker_dependent},#{address},#{phone},#{gdphone},#{postcard}
+	   insert into m_receiptads (user_id,name,picker_dependent,address,phone,gdphone,postcard,status) 
+       values(#{user_id},#{name},#{picker_dependent},#{address},#{phone},#{gdphone},#{postcard},1
        	)  
 	</insert>
+	<update id="cancelMorenDizhi">
+		update m_receiptads set status=0 where status=1
+	</update>
 	<update id="updateAddress" parameterType="com.mjbmall.orders.entity.Address">
 		update m_receiptads
 		set name=#{name},picker_dependent=#{picker_dependent},address=#{address},phone=#{phone},gdphone=#{gdphone},postcard=#{postcard}

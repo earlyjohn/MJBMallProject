@@ -418,7 +418,15 @@ public class OrdersController {
 				add.setGdphone(gdphone);
 				add.setPostcard(postcard);
 				add.setStatus(status);
-				ordersMapper.addAddress(add);
+				List<Address> list=ordersMapper.findDefaultAddress(user_id);
+				if(list.size()>0){
+					//如果存在地址，新建默认地址，取消原来的默认地址
+					ordersMapper.addAddress(add);
+					ordersMapper.cancelMorenDizhi();
+				}else{
+					//若不存在地址，直接新建一个默认地址
+					ordersMapper.addAddress(add);
+				}
 				result.put("msg", "success");
 			} else {
 				result.put("msg", "fail");

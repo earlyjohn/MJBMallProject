@@ -26,6 +26,7 @@
         });
         //得到初始化页面中的已付款的商品列表
         uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 2 }, function (result) {
+            debugger;
             if (!result.result.zongheList)
                 return;
             var context = {};
@@ -48,9 +49,10 @@
                 $$('#firstTabShopList').html(html);
             });
         });
-
+        debugger;
         $$('#daiFuKuan').on('click', function () {
-            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status': 1 }, function (result) {
+            uzu.rest.getJSON("orders/findOrderGoodShop", { 'shop_id': shop_id, 'order_status':1 }, function (result) {
+                debugger;
                 if (!result.result.zongheList)
                     return;
                 var context = {};

@@ -50,6 +50,8 @@ public interface OrdersMapper {
 
 	public void addAddress(Address add);
 
+	public void cancelMorenDizhi();
+	
 	public void updateAddress(Address add);
 
 	public void delAddress(int addressId);
